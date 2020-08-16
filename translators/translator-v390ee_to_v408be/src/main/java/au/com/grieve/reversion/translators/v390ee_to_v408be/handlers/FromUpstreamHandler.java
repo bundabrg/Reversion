@@ -16,18 +16,20 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package au.com.grieve.reversion.api;
+package au.com.grieve.reversion.translators.v390ee_to_v408be.handlers;
 
-public class TranslatorException extends Exception {
-    public TranslatorException(Throwable e) {
-        super(e);
-    }
+import au.com.grieve.reversion.api.BaseTranslator;
+import com.nukkitx.protocol.bedrock.handler.BedrockPacketHandler;
+import com.nukkitx.protocol.bedrock.packet.LoginPacket;
+import lombok.RequiredArgsConstructor;
 
-    public TranslatorException(String message) {
-        super(message);
-    }
+@RequiredArgsConstructor
+public class FromUpstreamHandler implements BedrockPacketHandler {
+    private final BaseTranslator translator;
 
-    public TranslatorException(String message, Throwable e) {
-        super(message, e);
+    @Override
+    public boolean handle(LoginPacket packet) {
+        packet.setProtocolVersion(408);
+        return false;
     }
 }

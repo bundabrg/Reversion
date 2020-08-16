@@ -28,6 +28,7 @@
     <modules>
         <module>common</module>
         <module>translators</module>
+        <module>editions</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -98,7 +99,7 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <version>1.18.2</version>
-            <scope>compile</scope>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
 

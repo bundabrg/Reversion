@@ -16,19 +16,21 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package au.com.grieve.reversion.translators.v390ee_to_v408be;
+package au.com.grieve.reversion.annotations;
 
-import au.com.grieve.reversion.api.BaseTranslator;
-import au.com.grieve.reversion.api.ReversionSession;
-import com.nukkitx.protocol.bedrock.BedrockPacketCodec;
-import com.nukkitx.protocol.education.v390.Education_v390;
-import lombok.Getter;
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
 
-public abstract class Translator_v390ee_to_v408be extends BaseTranslator {
-    @Getter
-    private final BedrockPacketCodec codec = Education_v390.V390_CODEC;
+@Retention(RetentionPolicy.RUNTIME)
+@Target({ElementType.TYPE})
+public @interface ReversionTranslator {
+    String fromEdition();
 
-    public Translator_v390ee_to_v408be(ReversionSession reversionSession) {
-        super(reversionSession);
-    }
+    int fromVersion();
+
+    String toEdition();
+
+    int toVersion();
 }

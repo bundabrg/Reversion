@@ -16,18 +16,18 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package au.com.grieve.reversion.api;
+package au.com.grieve.reversion.editions.bedrock;
 
-public class TranslatorException extends Exception {
-    public TranslatorException(Throwable e) {
-        super(e);
-    }
+import au.com.grieve.reversion.ReversionServer;
+import lombok.Getter;
 
-    public TranslatorException(String message) {
-        super(message);
-    }
+import java.net.InetSocketAddress;
 
-    public TranslatorException(String message, Throwable e) {
-        super(message, e);
+@Getter
+public class BedrockReversionServer extends ReversionServer {
+    private final String fromEdition = "bedrock";
+
+    public BedrockReversionServer(String edition, int version, InetSocketAddress address) {
+        super(edition, version, address);
     }
 }

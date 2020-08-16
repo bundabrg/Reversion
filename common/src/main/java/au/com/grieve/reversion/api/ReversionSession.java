@@ -36,4 +36,11 @@ public interface ReversionSession {
      * @return true if successful
      */
     boolean toServer(BedrockPacket packet);
+
+    /**
+     * Set the session translator
+     *
+     * @param translator head of translator chain
+     */
+    void setTranslator(Translator translator);
 }

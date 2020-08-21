@@ -31,7 +31,7 @@ will be added.
 * Multiversion Support - As more versions of an edition become available they can be added
 
 ## Client Versions Supported
-* Minecraft Education v1.12.31
+* Minecraft Education v1.14.31
 * Minecraft Bedrock v1.16.2
 
 ## Server Versions Supported

@@ -18,18 +18,69 @@
 
 package au.com.grieve.reversion.translators.v390ee_to_v408be.handlers;
 
-import au.com.grieve.reversion.api.BaseTranslator;
+import au.com.grieve.reversion.translators.v390ee_to_v408be.Translator_v390ee_to_v408be;
+import com.nukkitx.protocol.bedrock.data.inventory.ContainerId;
+import com.nukkitx.protocol.bedrock.data.inventory.InventoryActionData;
 import com.nukkitx.protocol.bedrock.handler.BedrockPacketHandler;
+import com.nukkitx.protocol.bedrock.packet.InventoryTransactionPacket;
 import com.nukkitx.protocol.bedrock.packet.LoginPacket;
 import lombok.RequiredArgsConstructor;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @RequiredArgsConstructor
 public class FromUpstreamHandler implements BedrockPacketHandler {
-    private final BaseTranslator translator;
+    private final Translator_v390ee_to_v408be translator;
+
+    private InventoryActionData cacheUISlot;
 
     @Override
     public boolean handle(LoginPacket packet) {
         packet.setProtocolVersion(408);
+        return false;
+    }
+
+    @Override
+    public boolean handle(InventoryTransactionPacket packet) {
+        packet.setItemInHand(Translator_v390ee_to_v408be.MAPPER.itemToUpstream(packet.getItemInHand()));
+
+        List<InventoryActionData> originalActions = packet.getActions();
+        List<InventoryActionData> translatedList = new ArrayList<>();
+
+        if (originalActions.size() >= 2) {
+            // Downstream expects a crafting packet to to go from output slot to the destination slot whereas we
+            // use 2 packets to transition from Output slot to the UI output slot to the UI cursor slot so we will
+            // cache part of the first packet and when the next comes we build a new action skipping the middle step.
+            if (originalActions.get(1).getSource().getContainerId() == ContainerId.UI && originalActions.get(1).getSlot() == 50) {
+                cacheUISlot = originalActions.get(0);
+                return true;
+            }
+
+            if (cacheUISlot != null && originalActions.get(0).getSource().getContainerId() == ContainerId.UI
+                    && originalActions.get(0).getSlot() == 50) {
+                InventoryActionData action = originalActions.get(1);
+                originalActions.clear();
+                originalActions.add(cacheUISlot);
+                originalActions.add(action);
+                cacheUISlot = null;
+            }
+        }
+
+        for (InventoryActionData actionData : originalActions) {
+            InventoryActionData translated = new InventoryActionData(
+                    actionData.getSource(),
+                    actionData.getSlot(),
+                    Translator_v390ee_to_v408be.MAPPER.itemToUpstream(actionData.getFromItem()),
+                    Translator_v390ee_to_v408be.MAPPER.itemToUpstream(actionData.getToItem()),
+                    actionData.getStackNetworkId()
+            );
+            translatedList.add(translated);
+        }
+
+        packet.getActions().clear();
+        packet.getActions().addAll(translatedList);
+
         return false;
     }
 }

@@ -16,19 +16,19 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package au.com.grieve.reversion.editions.bedrock;
+package au.com.grieve.reversion.exceptions;
 
-import au.com.grieve.reversion.ReversionServer;
-import com.nukkitx.protocol.bedrock.BedrockPacketCodec;
-import lombok.Getter;
+@SuppressWarnings("unused")
+public class MapperException extends Exception {
+    public MapperException(String message, Throwable e) {
+        super(message, e);
+    }
 
-import java.net.InetSocketAddress;
+    public MapperException(Throwable e) {
+        super(e);
+    }
 
-@Getter
-public class BedrockReversionServer extends ReversionServer {
-    private final String fromEdition = "bedrock";
-
-    public BedrockReversionServer(String edition, BedrockPacketCodec codec, InetSocketAddress address) {
-        super(edition, codec, address);
+    public MapperException(String message) {
+        super(message);
     }
 }

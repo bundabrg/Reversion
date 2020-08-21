@@ -23,6 +23,7 @@ import au.com.grieve.reversion.ReversionServer;
 import au.com.grieve.reversion.ReversionServerSession;
 import au.com.grieve.reversion.editions.education.utils.TokenManager;
 import com.nukkitx.network.raknet.RakNetServerListener;
+import com.nukkitx.protocol.bedrock.BedrockPacketCodec;
 import com.nukkitx.protocol.bedrock.BedrockPong;
 import com.nukkitx.protocol.bedrock.packet.LoginPacket;
 import lombok.Getter;
@@ -34,8 +35,8 @@ public class EducationReversionServer extends ReversionServer {
     private final String fromEdition = "education";
     private final TokenManager tokenManager;
 
-    public EducationReversionServer(String edition, int version, TokenManager tokenManager, InetSocketAddress address) {
-        super(edition, version, address);
+    public EducationReversionServer(String edition, BedrockPacketCodec codec, TokenManager tokenManager, InetSocketAddress address) {
+        super(edition, codec, address);
 
         this.tokenManager = tokenManager;
     }

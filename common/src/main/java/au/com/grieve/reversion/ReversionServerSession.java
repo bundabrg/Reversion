@@ -129,6 +129,7 @@ public class ReversionServerSession extends BedrockServerSession implements Reve
 
         @Override
         public void handle(BedrockSession session, ByteBuf compressed, Collection<BedrockPacket> packets) {
+            outer:
             for (BedrockPacket packet : packets) {
                 if (session.isLogging() && log.isTraceEnabled()) {
                     log.trace("Inbound {}: {}", session.getAddress(), packet);
@@ -137,12 +138,12 @@ public class ReversionServerSession extends BedrockServerSession implements Reve
                 // Take care of fromClient Handlers
                 for (BedrockPacketHandler handler : getFromClientHandlers()) {
                     if (packet.handle(handler)) {
-                        return;
+                        continue outer;
                     }
                 }
 
                 if (translator != null && translator.fromClient(packet)) {
-                    return;
+                    continue;
                 }
 
                 toServer(packet);
@@ -155,12 +156,22 @@ public class ReversionServerSession extends BedrockServerSession implements Reve
 
         @Override
         public boolean handle(LoginPacket packet) {
+            Translator translator = null;
             try {
-                // Set Detected Translator
-                setTranslator(server.createTranslatorChain(packet.getProtocolVersion(), ReversionServerSession.this));
+                // No need for translation when packet codec matches our to codec
+                if (packet.getProtocolVersion() == server.getToCodec().getProtocolVersion() && server.getFromEdition().equals(server.getToEdition())) {
+                    setPacketCodec(server.getToCodec());
+                } else {
+                    translator = server.createTranslatorChain(packet.getProtocolVersion(), ReversionServerSession.this);
+                    setTranslator(translator);
+                }
 
                 // Retrieve login data
                 loginData = server.createLoginData(ReversionServerSession.this, packet);
+
+                if (translator == null) {
+                    return false;
+                }
             } catch (TranslatorException | LoginData.LoginException e) {
                 log.error(e);
             }

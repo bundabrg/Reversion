@@ -27,6 +27,7 @@ import com.nukkitx.network.raknet.RakNetServerSession;
 import com.nukkitx.network.raknet.RakNetSession;
 import com.nukkitx.network.util.DisconnectReason;
 import com.nukkitx.network.util.EventLoops;
+import com.nukkitx.protocol.bedrock.BedrockPacketCodec;
 import com.nukkitx.protocol.bedrock.BedrockPong;
 import com.nukkitx.protocol.bedrock.BedrockRakNetSessionListener;
 import com.nukkitx.protocol.bedrock.BedrockServer;
@@ -52,26 +53,26 @@ import java.util.stream.Collectors;
 @Getter
 public abstract class ReversionServer extends BedrockServer {
     private final String toEdition;
-    private final int toVersion;
+    private final BedrockPacketCodec toCodec;
     private final EventLoopGroup eventLoopGroup;
 
     // Supported Translators
     private final List<Class<? extends BaseTranslator>> registeredTranslators = new ArrayList<>();
 
-    public ReversionServer(String toEdition, int toVersion, InetSocketAddress address) {
-        this(toEdition, toVersion, address, 1);
+    public ReversionServer(String toEdition, BedrockPacketCodec toCodec, InetSocketAddress address) {
+        this(toEdition, toCodec, address, 1);
     }
 
-    public ReversionServer(String toEdition, int toVersion, InetSocketAddress address, int maxThreads) {
-        this(toEdition, toVersion, address, maxThreads, EventLoops.commonGroup());
+    public ReversionServer(String toEdition, BedrockPacketCodec toCodec, InetSocketAddress address, int maxThreads) {
+        this(toEdition, toCodec, address, maxThreads, EventLoops.commonGroup());
     }
 
-    public ReversionServer(String toEdition, int toVersion, InetSocketAddress address, int maxThreads, EventLoopGroup eventLoopGroup) {
+    public ReversionServer(String toEdition, BedrockPacketCodec toCodec, InetSocketAddress address, int maxThreads, EventLoopGroup eventLoopGroup) {
         super(address, maxThreads, eventLoopGroup);
 
         this.eventLoopGroup = eventLoopGroup;
         this.toEdition = toEdition;
-        this.toVersion = toVersion;
+        this.toCodec = toCodec;
         getRakNet().setListener(createRakNetServerListener());
     }
 
@@ -87,7 +88,7 @@ public abstract class ReversionServer extends BedrockServer {
      */
     protected BaseTranslator createTranslatorChain(int fromVersion, ReversionSession session) throws TranslatorException {
         List<Class<? extends BaseTranslator>> bestChain = getBestTranslatorChain(getFromEdition(), fromVersion,
-                getToEdition(), getToVersion(), new ArrayList<>(registeredTranslators));
+                getToEdition(), getToCodec().getProtocolVersion(), new ArrayList<>(registeredTranslators));
 
         if (bestChain == null) {
             return null;

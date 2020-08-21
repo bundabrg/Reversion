@@ -1,0 +1,1293 @@
+[
+  {
+    "downstream": {
+      "name": "minecraft:pumpkin_stem",
+      "states": {
+        "facing_direction": "%facing%",
+        "growth": "%growth%"
+      }
+    },
+    "upstream": {
+      "name": "minecraft:pumpkin_stem",
+      "states": {
+        "growth": "%growth%"
+      }
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:melon_stem",
+      "states": {
+        "facing_direction": "%facing%",
+        "growth": "%growth%"
+      }
+    },
+    "upstream": {
+      "name": "minecraft:melon_stem",
+      "states": {
+        "growth": "%growth%"
+      }
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:jigsaw",
+      "states": {
+        "facing_direction": "%facing_direction%",
+        "rotation": "%rotation%"
+      }
+    },
+    "upstream": {
+      "name": "minecraft:jigsaw",
+      "states": {
+        "facing_direction": "%facing_direction%"
+      }
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:lodestone",
+      "states": {
+      }
+    },
+    "upstream": {
+      "name": "minecraft:quartz_block",
+      "states": {
+        "chisel_type": "default",
+        "pillar_axis": "x"
+      }
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:crimson_roots",
+      "states": {
+      }
+    },
+    "upstream": {
+      "name": "minecraft:nether_wart",
+      "states": {
+        "age": 3
+      }
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:warped_roots",
+      "states": {
+      }
+    },
+    "upstream": {
+      "name": "minecraft:nether_wart",
+      "states": {
+        "age": 3
+      }
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:crimson_stem",
+      "states": {
+        "pillar_axis": "%pillar_axis%"
+      }
+    },
+    "upstream": {
+      "name": "minecraft:log2",
+      "states": {
+        "pillar_axis": "%pillar_axis%",
+        "new_log_type": "acacia"
+      }
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:warped_stem",
+      "states": {
+        "pillar_axis": "%pillar_axis%"
+      }
+    },
+    "upstream": {
+      "name": "minecraft:log2",
+      "states": {
+        "pillar_axis": "%pillar_axis%",
+        "new_log_type": "dark_oak"
+      }
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:warped_wart_block",
+      "states": {
+      }
+    },
+    "upstream": {
+      "name": "minecraft:wool",
+      "states": {
+        "color": {
+          "string": "cyan"
+        }
+      }
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:crimson_fungus",
+      "states": {
+      }
+    },
+    "upstream": {
+      "name": "minecraft:red_mushroom",
+      "states": {
+      }
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:warped_fungus",
+      "states": {
+      }
+    },
+    "upstream": {
+      "name": "minecraft:brown_mushroom",
+      "states": {
+      }
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:shroomlight",
+      "states": {
+      }
+    },
+    "upstream": {
+      "name": "minecraft:lit_pumpkin",
+      "states": {
+        "direction": 0
+      }
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:weeping_vines",
+      "states": {
+        "weeping_vines_age": "%weeping_vines_age%"
+      }
+    },
+    "upstream": {
+      "name": "minecraft:vine",
+      "states": {
+        "vine_direction_bits": "%weeping_vines_age%"
+      }
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:crimson_nylium",
+      "states": {
+      }
+    },
+    "upstream": {
+      "name": "minecraft:mycelium",
+      "states": {
+      }
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:warped_nylium",
+      "states": {
+      }
+    },
+    "upstream": {
+      "name": "minecraft:mycelium",
+      "states": {
+      }
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:basalt",
+      "states": {
+        "pillar_axis": "x"
+      }
+    },
+    "upstream": {
+      "name": "minecraft:gray_glazed_terracotta",
+      "states": {
+        "facing_direction": 3
+      }
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:basalt",
+      "states": {
+        "pillar_axis": "y"
+      }
+    },
+    "upstream": {
+      "name": "minecraft:gray_glazed_terracotta",
+      "states": {
+        "facing_direction": 4
+      }
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:basalt",
+      "states": {
+        "pillar_axis": "z"
+      }
+    },
+    "upstream": {
+      "name": "minecraft:gray_glazed_terracotta",
+      "states": {
+        "facing_direction": 5
+      }
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:polished_basalt",
+      "states": {
+        "pillar_axis": "x"
+      }
+    },
+    "upstream": {
+      "name": "minecraft:gray_glazed_terracotta",
+      "states": {
+        "facing_direction": 3
+      }
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:polished_basalt",
+      "states": {
+        "pillar_axis": "y"
+      }
+    },
+    "upstream": {
+      "name": "minecraft:gray_glazed_terracotta",
+      "states": {
+        "facing_direction": 4
+      }
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:polished_basalt",
+      "states": {
+        "pillar_axis": "z"
+      }
+    },
+    "upstream": {
+      "name": "minecraft:gray_glazed_terracotta",
+      "states": {
+        "facing_direction": 5
+      }
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:soul_soil",
+      "states": {
+      }
+    },
+    "upstream": {
+      "name": "minecraft:dirt",
+      "states": {
+        "dirt_type": "normal"
+      }
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:soul_fire",
+      "states": {
+        "age": "%age%"
+      }
+    },
+    "upstream": {
+      "name": "minecraft:fire",
+      "states": {
+        "age": "%age%"
+      }
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:nether_sprouts",
+      "states": {
+      }
+    },
+    "upstream": {
+      "name": "minecraft:grass",
+      "states": {
+      }
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:target",
+      "states": {
+      }
+    },
+    "upstream": {
+      "name": "minecraft:hay_block",
+      "states": {
+        "pillar_axis": "x",
+        "deprecated": 0
+      }
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:stripped_crimson_stem",
+      "states": {
+        "deprecated": "%deprecated%",
+        "pillar_axis": "%pillar_axis%"
+      }
+    },
+    "upstream": {
+      "name": "minecraft:stripped_acacia_log",
+      "states": {
+        "pillar_axis": "%pillar_axis%"
+      }
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:stripped_warped_stem",
+      "states": {
+        "deprecated": "%deprecated%",
+        "pillar_axis": "%pillar_axis%"
+      }
+    },
+    "upstream": {
+      "name": "minecraft:stripped_dark_oak_log",
+      "states": {
+        "pillar_axis": "%pillar_axis%"
+      }
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:crimson_planks",
+      "states": {
+      }
+    },
+    "upstream": {
+      "name": "minecraft:planks",
+      "states": {
+        "wood_type": "acacia"
+      }
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:warped_planks",
+      "states": {
+      }
+    },
+    "upstream": {
+      "name": "minecraft:planks",
+      "states": {
+        "wood_type": "dark_oak"
+      }
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:crimson_door",
+      "states": {
+        "direction": "%direction%",
+        "door_hinge_bit": "%door_hinge_bit%",
+        "open_bit": "%open_bit%",
+        "upper_block_bit": "%upper_block_bit%"
+      }
+    },
+    "upstream": {
+      "name": "minecraft:acacia_door",
+      "states": {
+        "direction": "%direction%",
+        "door_hinge_bit": "%door_hinge_bit%",
+        "open_bit": "%open_bit%",
+        "upper_block_bit": "%upper_block_bit%"
+      }
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:warped_door",
+      "states": {
+        "direction": "%direction%",
+        "door_hinge_bit": "%door_hinge_bit%",
+        "open_bit": "%open_bit%",
+        "upper_block_bit": "%upper_block_bit%"
+      }
+    },
+    "upstream": {
+      "name": "minecraft:dark_oak_door",
+      "states": {
+        "direction": "%direction%",
+        "door_hinge_bit": "%door_hinge_bit%",
+        "open_bit": "%open_bit%",
+        "upper_block_bit": "%upper_block_bit%"
+      }
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:crimson_trapdoor",
+      "states": {
+        "direction": "%direction%",
+        "open_bit": "%open_bit%",
+        "upside_down_bit": "%upside_down_bit%"
+      }
+    },
+    "upstream": {
+      "name": "minecraft:acacia_trapdoor",
+      "states": {
+        "direction": "%direction%",
+        "open_bit": "%open_bit%",
+        "upside_down_bit": "%upside_down_bit%"
+      }
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:warped_trapdoor",
+      "states": {
+        "direction": "%direction%",
+        "open_bit": "%open_bit%",
+        "upside_down_bit": "%upside_down_bit%"
+      }
+    },
+    "upstream": {
+      "name": "minecraft:dark_oak_trapdoor",
+      "states": {
+        "direction": "%direction%",
+        "open_bit": "%open_bit%",
+        "upside_down_bit": "%upside_down_bit%"
+      }
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:crimson_standing_sign",
+      "states": {
+        "ground_sign_direction": "%ground_sign_direction%"
+      }
+    },
+    "upstream": {
+      "name": "minecraft:acacia_standing_sign",
+      "states": {
+        "ground_sign_direction": "%ground_sign_direction%"
+      }
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:warped_standing_sign",
+      "states": {
+        "ground_sign_direction": "%ground_sign_direction%"
+      }
+    },
+    "upstream": {
+      "name": "minecraft:darkoak_standing_sign",
+      "states": {
+        "ground_sign_direction": "%ground_sign_direction%"
+      }
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:crimson_wall_sign",
+      "states": {
+        "facing_direction": "%facing_direction%"
+      }
+    },
+    "upstream": {
+      "name": "minecraft:acacia_wall_sign",
+      "states": {
+        "facing_direction": "%facing_direction%"
+      }
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:warped_wall_sign",
+      "states": {
+        "facing_direction": "%facing_direction%"
+      }
+    },
+    "upstream": {
+      "name": "minecraft:darkoak_wall_sign",
+      "states": {
+        "facing_direction": "%facing_direction%"
+      }
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:crimson_stairs",
+      "states": {
+        "upside_down_bit": "%upside_down_bit%",
+        "weirdo_direction": "%weirdo_direction%"
+      }
+    },
+    "upstream": {
+      "name": "minecraft:acacia_stairs",
+      "states": {
+        "upside_down_bit": "%upside_down_bit%",
+        "weirdo_direction": "%weirdo_direction%"
+      }
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:warped_stairs",
+      "states": {
+        "upside_down_bit": "%upside_down_bit%",
+        "weirdo_direction": "%weirdo_direction%"
+      }
+    },
+    "upstream": {
+      "name": "minecraft:dark_oak_stairs",
+      "states": {
+        "upside_down_bit": "%upside_down_bit%",
+        "weirdo_direction": "%weirdo_direction%"
+      }
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:crimson_fence",
+      "states": {
+      }
+    },
+    "upstream": {
+      "name": "minecraft:fence",
+      "states": {
+        "wood_type": "acacia"
+      }
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:warped_fence",
+      "states": {
+      }
+    },
+    "upstream": {
+      "name": "minecraft:fence",
+      "states": {
+        "wood_type": "dark_oak"
+      }
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:crimson_fence_gate",
+      "states": {
+        "direction": "%direction%",
+        "in_wall_bit": "%in_wall_bit%",
+        "open_bit": "%open_bit%"
+      }
+    },
+    "upstream": {
+      "name": "minecraft:acacia_fence_gate",
+      "states": {
+        "direction": "%direction%",
+        "in_wall_bit": "%in_wall_bit%",
+        "open_bit": "%open_bit%"
+      }
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:warped_fence_gate",
+      "states": {
+        "direction": "%direction%",
+        "in_wall_bit": "%in_wall_bit%",
+        "open_bit": "%open_bit%"
+      }
+    },
+    "upstream": {
+      "name": "minecraft:dark_oak_fence_gate",
+      "states": {
+        "direction": "%direction%",
+        "in_wall_bit": "%in_wall_bit%",
+        "open_bit": "%open_bit%"
+      }
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:crimson_button",
+      "states": {
+        "button_pressed_bit": "%button_pressed_bit%",
+        "facing_direction": "%facing_direction%"
+      }
+    },
+    "upstream": {
+      "name": "minecraft:acacia_button",
+      "states": {
+        "button_pressed_bit": "%button_pressed_bit%",
+        "facing_direction": "%facing_direction%"
+      }
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:warped_button",
+      "states": {
+        "button_pressed_bit": "%button_pressed_bit%",
+        "facing_direction": "%facing_direction%"
+      }
+    },
+    "upstream": {
+      "name": "minecraft:dark_oak_button",
+      "states": {
+        "button_pressed_bit": "%button_pressed_bit%",
+        "facing_direction": "%facing_direction%"
+      }
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:crimson_pressure_plate",
+      "states": {
+        "redstone_signal": "%redstone_signal%"
+      }
+    },
+    "upstream": {
+      "name": "minecraft:acacia_pressure_plate",
+      "states": {
+        "redstone_signal": "%redstone_signal%"
+      }
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:warped_pressure_plate",
+      "states": {
+        "redstone_signal": "%redstone_signal%"
+      }
+    },
+    "upstream": {
+      "name": "minecraft:dark_oak_pressure_plate",
+      "states": {
+        "redstone_signal": "%redstone_signal%"
+      }
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:crimson_slab",
+      "states": {
+        "top_slot_bit": "%top_slot_bit%"
+      }
+    },
+    "upstream": {
+      "name": "minecraft:wooden_slab",
+      "states": {
+        "top_slot_bit": "%top_slot_bit%",
+        "wood_type": "acacia"
+      }
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:warped_slab",
+      "states": {
+        "top_slot_bit": "%top_slot_bit%"
+      }
+    },
+    "upstream": {
+      "name": "minecraft:wooden_slab",
+      "states": {
+        "top_slot_bit": "%top_slot_bit%",
+        "wood_type": "dark_oak"
+      }
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:crimson_double_slab",
+      "states": {
+        "top_slot_bit": "%top_slot_bit%"
+      }
+    },
+    "upstream": {
+      "name": "minecraft:double_wooden_slab",
+      "states": {
+        "top_slot_bit": "%top_slot_bit%",
+        "wood_type": "acacia"
+      }
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:warped_double_slab",
+      "states": {
+        "top_slot_bit": "%top_slot_bit%"
+      }
+    },
+    "upstream": {
+      "name": "minecraft:double_wooden_slab",
+      "states": {
+        "top_slot_bit": "%top_slot_bit%",
+        "wood_type": "dark_oak"
+      }
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:soul_torch",
+      "states": {
+        "torch_facing_direction": "%torch_facing_direction%"
+      }
+    },
+    "upstream": {
+      "name": "minecraft:torch",
+      "states": {
+        "torch_facing_direction": "%torch_facing_direction%"
+      }
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:soul_lantern",
+      "states": {
+        "hanging": "%hanging%"
+      }
+    },
+    "upstream": {
+      "name": "minecraft:lantern",
+      "states": {
+        "hanging": "%hanging%"
+      }
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:netherite_block",
+      "states": {
+      }
+    },
+    "upstream": {
+      "name": "minecraft:obsidian",
+      "states": {
+      }
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:ancient_debris",
+      "states": {
+      }
+    },
+    "upstream": {
+      "name": "minecraft:obsidian",
+      "states": {
+      }
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:respawn_anchor",
+      "states": {
+        "respawn_anchor_charge": "%respawn_anchor_charge%"
+      }
+    },
+    "upstream": {
+      "name": "minecraft:obsidian",
+      "states": {
+      }
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:blackstone",
+      "states": {
+      }
+    },
+    "upstream": {
+      "name": "minecraft:nether_brick",
+      "states": {
+      }
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:polished_blackstone_bricks",
+      "states": {
+      }
+    },
+    "upstream": {
+      "name": "minecraft:red_nether_brick",
+      "states": {
+      }
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:polished_blackstone_brick_stairs",
+      "states": {
+        "upside_down_bit": "%upside_down_bit%",
+        "weirdo_direction": "%weirdo_direction%"
+      }
+    },
+    "upstream": {
+      "name": "minecraft:red_nether_brick_stairs",
+      "states": {
+        "upside_down_bit": "%upside_down_bit%",
+        "weirdo_direction": "%weirdo_direction%"
+      }
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:blackstone_stairs",
+      "states": {
+        "upside_down_bit": "%upside_down_bit%",
+        "weirdo_direction": "%weirdo_direction%"
+      }
+    },
+    "upstream": {
+      "name": "minecraft:nether_brick_stairs",
+      "states": {
+        "upside_down_bit": "%upside_down_bit%",
+        "weirdo_direction": "%weirdo_direction%"
+      }
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:blackstone_wall",
+      "states": {
+        "wall_block_type": "%wall_block_type%",
+        "wall_connection_type_east": "%wall_connection_type_east%",
+        "wall_connection_type_north": "%wall_connection_type_north%",
+        "wall_connection_type_south": "%wall_connection_type_south%",
+        "wall_connection_type_west": "%wall_connection_type_west%",
+        "wall_post_bit": "%wall_post_bit%"
+      }
+    },
+    "upstream": {
+      "name": "minecraft:cobblestone_wall",
+      "states": {
+        "wall_block_type": "nether_brick",
+        "wall_connection_type_east": "%wall_connection_type_east%",
+        "wall_connection_type_north": "%wall_connection_type_north%",
+        "wall_connection_type_south": "%wall_connection_type_south%",
+        "wall_connection_type_west": "%wall_connection_type_west%",
+        "wall_post_bit": "%wall_post_bit%"
+      }
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:polished_blackstone_brick_wall",
+      "states": {
+        "wall_block_type": "%wall_block_type%",
+        "wall_connection_type_east": "%wall_connection_type_east%",
+        "wall_connection_type_north": "%wall_connection_type_north%",
+        "wall_connection_type_south": "%wall_connection_type_south%",
+        "wall_connection_type_west": "%wall_connection_type_west%",
+        "wall_post_bit": "%wall_post_bit%"
+      }
+    },
+    "upstream": {
+      "name": "minecraft:cobblestone_wall",
+      "states": {
+        "wall_block_type": "red_nether_brick",
+        "wall_connection_type_east": "%wall_connection_type_east%",
+        "wall_connection_type_north": "%wall_connection_type_north%",
+        "wall_connection_type_south": "%wall_connection_type_south%",
+        "wall_connection_type_west": "%wall_connection_type_west%",
+        "wall_post_bit": "%wall_post_bit%"
+      }
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:chiseled_polished_blackstone",
+      "states": {
+      }
+    },
+    "upstream": {
+      "name": "minecraft:red_nether_brick",
+      "states": {
+      }
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:cracked_polished_blackstone_bricks",
+      "states": {
+      }
+    },
+    "upstream": {
+      "name": "minecraft:red_nether_brick",
+      "states": {
+      }
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:gilded_blackstone",
+      "states": {
+      }
+    },
+    "upstream": {
+      "name": "minecraft:red_nether_brick",
+      "states": {
+      }
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:blackstone_slab",
+      "states": {
+        "top_slot_bit": "%top_slot_bit%"
+      }
+    },
+    "upstream": {
+      "name": "minecraft:stone_slab",
+      "states": {
+        "top_slot_bit": "%top_slot_bit%",
+        "stone_slab_type": "nether_brick"
+      }
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:blackstone_double_slab",
+      "states": {
+        "top_slot_bit": "%top_slot_bit%"
+      }
+    },
+    "upstream": {
+      "name": "minecraft:double_stone_slab",
+      "states": {
+        "top_slot_bit": "%top_slot_bit%",
+        "stone_slab_type": "nether_brick"
+      }
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:polished_blackstone_brick_slab",
+      "states": {
+        "top_slot_bit": "%top_slot_bit%"
+      }
+    },
+    "upstream": {
+      "name": "minecraft:stone_slab2",
+      "states": {
+        "top_slot_bit": "%top_slot_bit%",
+        "stone_slab_type_2": "red_nether_brick"
+      }
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:polished_blackstone_brick_double_slab",
+      "states": {
+        "top_slot_bit": "%top_slot_bit%"
+      }
+    },
+    "upstream": {
+      "name": "minecraft:double_stone_slab2",
+      "states": {
+        "top_slot_bit": "%top_slot_bit%",
+        "stone_slab_type_2": "red_nether_brick"
+      }
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:chain",
+      "states": {
+      }
+    },
+    "upstream": {
+      "name": "minecraft:iron_bars",
+      "states": {
+      }
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:twisting_vines",
+      "states": {
+        "twisting_vines_age": "%twisting_vines_age%"
+      }
+    },
+    "upstream": {
+      "name": "minecraft:vine",
+      "states": {
+        "vine_direction_bits": "%twisting_vines_age%"
+      }
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:nether_gold_ore",
+      "states": {
+      }
+    },
+    "upstream": {
+      "name": "minecraft:gold_ore",
+      "states": {
+      }
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:crying_obsidian",
+      "states": {
+      }
+    },
+    "upstream": {
+      "name": "minecraft:obsidian",
+      "states": {
+      }
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:soul_campfire",
+      "states": {
+        "direction": "%direction%",
+        "extinguished": "%extinguished%"
+      }
+    },
+    "upstream": {
+      "name": "minecraft:campfire",
+      "states": {
+        "direction": "%direction%",
+        "extinguished": "%extinguished%"
+      }
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:polished_blackstone",
+      "states": {
+      }
+    },
+    "upstream": {
+      "name": "minecraft:red_nether_brick",
+      "states": {
+      }
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:polished_blackstone_stairs",
+      "states": {
+        "upside_down_bit": "%upside_down_bit%",
+        "weirdo_direction": "%weirdo_direction%"
+      }
+    },
+    "upstream": {
+      "name": "minecraft:red_nether_brick_stairs",
+      "states": {
+        "upside_down_bit": "%upside_down_bit%",
+        "weirdo_direction": "%weirdo_direction%"
+      }
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:polished_blackstone_slab",
+      "states": {
+        "top_slot_bit": "%top_slot_bit%"
+      }
+    },
+    "upstream": {
+      "name": "minecraft:stone_slab2",
+      "states": {
+        "top_slot_bit": "%top_slot_bit%",
+        "stone_slab_type_2": "red_nether_brick"
+      }
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:polished_blackstone_double_slab",
+      "states": {
+        "top_slot_bit": "%top_slot_bit%"
+      }
+    },
+    "upstream": {
+      "name": "minecraft:double_stone_slab2",
+      "states": {
+        "top_slot_bit": "%top_slot_bit%",
+        "stone_slab_type_2": "red_nether_brick"
+      }
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:polished_blackstone_pressure_plate",
+      "states": {
+        "redstone_signal": "%redstone_signal%"
+      }
+    },
+    "upstream": {
+      "name": "minecraft:stone_pressure_plate",
+      "states": {
+        "redstone_signal": "%redstone_signal%"
+      }
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:polished_blackstone_button",
+      "states": {
+        "button_pressed_bit": "%button_pressed_bit%",
+        "facing_direction": "%facing_direction%"
+      }
+    },
+    "upstream": {
+      "name": "minecraft:stone_button",
+      "states": {
+        "button_pressed_bit": "%button_pressed_bit%",
+        "facing_direction": "%facing_direction%"
+      }
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:polished_blackstone_wall",
+      "states": {
+        "wall_block_type": "%wall_block_type%",
+        "wall_connection_type_east": "%wall_connection_type_east%",
+        "wall_connection_type_north": "%wall_connection_type_north%",
+        "wall_connection_type_south": "%wall_connection_type_south%",
+        "wall_connection_type_west": "%wall_connection_type_west%",
+        "wall_post_bit": "%wall_post_bit%"
+      }
+    },
+    "upstream": {
+      "name": "minecraft:cobblestone_wall",
+      "states": {
+        "wall_block_type": "cobblestone",
+        "wall_connection_type_east": "%wall_connection_type_east%",
+        "wall_connection_type_north": "%wall_connection_type_north%",
+        "wall_connection_type_south": "%wall_connection_type_south%",
+        "wall_connection_type_west": "%wall_connection_type_west%",
+        "wall_post_bit": "%wall_post_bit%"
+      }
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:warped_hyphae",
+      "states": {
+        "pillar_axis": "%pillar_axis%"
+      }
+    },
+    "upstream": {
+      "name": "minecraft:wood",
+      "states": {
+        "pillar_axis": "%pillar_axis%",
+        "wood_type": "dark_oak",
+        "stripped_bit": false
+      }
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:crimson_hyphae",
+      "states": {
+        "pillar_axis": "%pillar_axis%"
+      }
+    },
+    "upstream": {
+      "name": "minecraft:wood",
+      "states": {
+        "pillar_axis": "%pillar_axis%",
+        "wood_type": "acacia",
+        "stripped_bit": false
+      }
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:stripped_crimson_hyphae",
+      "states": {
+        "pillar_axis": "%pillar_axis%",
+        "deprecated": "%deprecated%"
+      }
+    },
+    "upstream": {
+      "name": "minecraft:wood",
+      "states": {
+        "pillar_axis": "%pillar_axis%",
+        "wood_type": "acacia",
+        "stripped_bit": true
+      }
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:stripped_warped_hyphae",
+      "states": {
+        "pillar_axis": "%pillar_axis%",
+        "deprecated": "%deprecated%"
+      }
+    },
+    "upstream": {
+      "name": "minecraft:wood",
+      "states": {
+        "pillar_axis": "%pillar_axis%",
+        "wood_type": "dark_oak",
+        "stripped_bit": true
+      }
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:chiseled_nether_bricks",
+      "states": {
+      }
+    },
+    "upstream": {
+      "name": "minecraft:nether_brick",
+      "states": {
+      }
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:cracked_nether_bricks",
+      "states": {
+      }
+    },
+    "upstream": {
+      "name": "minecraft:nether_brick",
+      "states": {
+      }
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:quartz_bricks",
+      "states": {
+      }
+    },
+    "upstream": {
+      "name": "minecraft:quartz_block",
+      "states": {
+        "chisel_type": "default",
+        "pillar_axis": "x"
+      }
+    }
+  }
+]

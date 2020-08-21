@@ -18,9 +18,15 @@
 
 package au.com.grieve.reversion.translators.v390ee_to_v408be;
 
+import au.com.grieve.reversion.MapperManager;
 import au.com.grieve.reversion.annotations.ReversionTranslator;
 import au.com.grieve.reversion.api.BaseTranslator;
 import au.com.grieve.reversion.api.ReversionSession;
+import au.com.grieve.reversion.exceptions.MapperException;
+import au.com.grieve.reversion.mappers.BlockMapper;
+import au.com.grieve.reversion.mappers.EnchantmentMapper;
+import au.com.grieve.reversion.mappers.ItemMapper;
+import au.com.grieve.reversion.translators.v390ee_to_v408be.handlers.FromDownstreamHandler;
 import au.com.grieve.reversion.translators.v390ee_to_v408be.handlers.FromUpstreamHandler;
 import com.nukkitx.protocol.bedrock.BedrockPacket;
 import com.nukkitx.protocol.bedrock.BedrockPacketCodec;
@@ -34,16 +40,37 @@ import lombok.Getter;
         toEdition = "bedrock",
         toVersion = 408
 )
+@Getter
 public class Translator_v390ee_to_v408be extends BaseTranslator {
+    public static MapperManager MAPPER;
+
     @Getter
     private final BedrockPacketCodec codec = Education_v390.V390_CODEC;
 
     private final BedrockPacketHandler fromUpstreamHandler;
+    private final BedrockPacketHandler fromDownstreamHandler;
 
     public Translator_v390ee_to_v408be(ReversionSession reversionSession) {
         super(reversionSession);
 
         fromUpstreamHandler = new FromUpstreamHandler(this);
+        fromDownstreamHandler = new FromDownstreamHandler(this);
+
+        // Only load when needed
+        if (MAPPER == null) {
+            try {
+                MAPPER = MapperManager.builder()
+                        .itemMapper(new ItemMapper(getClass().getResourceAsStream("/mappings/item_translator.json")))
+                        .enchantmentMapper(new EnchantmentMapper(getClass().getResourceAsStream("/mappings/enchantment_translator.json")))
+                        .blockMapper(new BlockMapper(
+                                getClass().getResourceAsStream("/mappings/blocks_remapper.json"),
+                                getClass().getResourceAsStream("/mappings/runtime_block_states.dat")
+                        ))
+                        .build();
+            } catch (MapperException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     @Override
@@ -52,5 +79,13 @@ public class Translator_v390ee_to_v408be extends BaseTranslator {
             return true;
         }
         return super.fromUpstream(packet);
+    }
+
+    @Override
+    public boolean fromDownstream(BedrockPacket packet) {
+        if (packet.handle(fromDownstreamHandler)) {
+            return true;
+        }
+        return super.fromDownstream(packet);
     }
 }

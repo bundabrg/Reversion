@@ -19,14 +19,17 @@
 package au.com.grieve.reversion.translators.v390ee_to_v408be.handlers;
 
 import au.com.grieve.reversion.exceptions.MapperException;
+import au.com.grieve.reversion.mappers.EntityMapper;
 import au.com.grieve.reversion.translators.v390ee_to_v408be.Translator_v390ee_to_v408be;
 import com.nukkitx.nbt.NbtList;
 import com.nukkitx.nbt.NbtMap;
 import com.nukkitx.nbt.NbtType;
+import com.nukkitx.protocol.bedrock.data.GameRuleData;
 import com.nukkitx.protocol.bedrock.data.inventory.ContainerId;
 import com.nukkitx.protocol.bedrock.data.inventory.CraftingData;
 import com.nukkitx.protocol.bedrock.data.inventory.ItemData;
 import com.nukkitx.protocol.bedrock.handler.BedrockPacketHandler;
+import com.nukkitx.protocol.bedrock.packet.AddEntityPacket;
 import com.nukkitx.protocol.bedrock.packet.AddItemEntityPacket;
 import com.nukkitx.protocol.bedrock.packet.AddPlayerPacket;
 import com.nukkitx.protocol.bedrock.packet.CraftingDataPacket;
@@ -35,6 +38,7 @@ import com.nukkitx.protocol.bedrock.packet.InventoryContentPacket;
 import com.nukkitx.protocol.bedrock.packet.InventorySlotPacket;
 import com.nukkitx.protocol.bedrock.packet.MobArmorEquipmentPacket;
 import com.nukkitx.protocol.bedrock.packet.MobEquipmentPacket;
+import com.nukkitx.protocol.bedrock.packet.SetEntityDataPacket;
 import com.nukkitx.protocol.bedrock.packet.StartGamePacket;
 import lombok.RequiredArgsConstructor;
 
@@ -58,6 +62,10 @@ public class FromDownstreamHandler implements BedrockPacketHandler {
             }
         }
         packet.setBlockPalette(new NbtList<>(NbtType.COMPOUND, translatedPalette.toArray(new NbtMap[0])));
+
+        // Remove codebuilder
+        packet.getGamerules().add(new GameRuleData<>("codebuilder", false));
+
         return false;
     }
 
@@ -158,6 +166,32 @@ public class FromDownstreamHandler implements BedrockPacketHandler {
         }
         packet.getCraftingData().clear();
         packet.getCraftingData().addAll(translatedList);
+        return false;
+    }
+
+    @Override
+    public boolean handle(AddEntityPacket packet) {
+        EntityMapper.Entity entity = new EntityMapper.Entity();
+        entity.setId(packet.getRuntimeEntityId());
+        entity.setIdentifier(packet.getIdentifier());
+        entity.getEntityData().putAll(packet.getMetadata());
+        entity = Translator_v390ee_to_v408be.MAPPER.getEntityMapper().addEntity(entity);
+
+        packet.setIdentifier(entity.getIdentifier());
+        packet.getMetadata().clear();
+        packet.getMetadata().putAll(entity.getEntityData());
+        return false;
+    }
+
+    @Override
+    public boolean handle(SetEntityDataPacket packet) {
+        EntityMapper.Entity entity = new EntityMapper.Entity();
+        entity.setId(packet.getRuntimeEntityId());
+        entity.getEntityData().putAll(packet.getMetadata());
+        entity = Translator_v390ee_to_v408be.MAPPER.getEntityMapper().toUpstream(entity);
+
+        packet.getMetadata().clear();
+        packet.getMetadata().putAll(entity.getEntityData());
         return false;
     }
 }

@@ -1,0 +1,52 @@
+[
+  {
+    "downstream": {
+      "identifier": "minecraft:strider"
+    },
+    "upstream": {
+      "identifier": "minecraft:magma_cube",
+      "name": "Strider",
+      "scale": 2.0,
+      "metadata": {
+        "BOUNDING_BOX_HEIGHT": 0.5
+      }
+    }
+  },
+  {
+    "downstream": {
+      "identifier": "minecraft:hoglin"
+    },
+    "upstream": {
+      "identifier": "minecraft:cow",
+      "name": "Hoglin"
+    }
+  },
+  {
+    "downstream": {
+      "identifier": "minecraft:zoglin"
+    },
+    "upstream": {
+      "identifier": "minecraft:cow",
+      "name": "Zoglin",
+      "scale": 2.0
+    }
+  },
+  {
+    "downstream": {
+      "identifier": "minecraft:piglin"
+    },
+    "upstream": {
+      "identifier": "minecraft:zombie_pigman",
+      "name": "Piglin"
+    }
+  },
+  {
+    "downstream": {
+      "identifier": "minecraft:piglin_brute"
+    },
+    "upstream": {
+      "identifier": "minecraft:zombie_pigman",
+      "name": "Piglin Brute"
+    }
+  }
+]

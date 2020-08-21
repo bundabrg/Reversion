@@ -21,6 +21,7 @@ package au.com.grieve.reversion;
 import au.com.grieve.reversion.exceptions.MapperException;
 import au.com.grieve.reversion.mappers.BlockMapper;
 import au.com.grieve.reversion.mappers.EnchantmentMapper;
+import au.com.grieve.reversion.mappers.EntityMapper;
 import au.com.grieve.reversion.mappers.ItemMapper;
 import com.nukkitx.nbt.NbtMap;
 import com.nukkitx.protocol.bedrock.data.inventory.ItemData;
@@ -36,6 +37,7 @@ public class MapperManager {
     protected final ItemMapper itemMapper;
     protected final EnchantmentMapper enchantmentMapper;
     protected final BlockMapper blockMapper;
+    protected final EntityMapper entityMapper;
 
     /**
      * Map ItemData from downstream to upstream

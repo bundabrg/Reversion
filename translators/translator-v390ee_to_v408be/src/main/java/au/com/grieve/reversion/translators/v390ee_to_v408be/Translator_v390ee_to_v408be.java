@@ -25,6 +25,7 @@ import au.com.grieve.reversion.api.ReversionSession;
 import au.com.grieve.reversion.exceptions.MapperException;
 import au.com.grieve.reversion.mappers.BlockMapper;
 import au.com.grieve.reversion.mappers.EnchantmentMapper;
+import au.com.grieve.reversion.mappers.EntityMapper;
 import au.com.grieve.reversion.mappers.ItemMapper;
 import au.com.grieve.reversion.translators.v390ee_to_v408be.handlers.FromDownstreamHandler;
 import au.com.grieve.reversion.translators.v390ee_to_v408be.handlers.FromUpstreamHandler;
@@ -60,12 +61,13 @@ public class Translator_v390ee_to_v408be extends BaseTranslator {
         if (MAPPER == null) {
             try {
                 MAPPER = MapperManager.builder()
-                        .itemMapper(new ItemMapper(getClass().getResourceAsStream("/mappings/item_translator.json")))
-                        .enchantmentMapper(new EnchantmentMapper(getClass().getResourceAsStream("/mappings/enchantment_translator.json")))
+                        .itemMapper(new ItemMapper(getClass().getResourceAsStream("/mappings/item_mapper.json")))
+                        .enchantmentMapper(new EnchantmentMapper(getClass().getResourceAsStream("/mappings/enchantment_mapper.json")))
                         .blockMapper(new BlockMapper(
-                                getClass().getResourceAsStream("/mappings/blocks_remapper.json"),
+                                getClass().getResourceAsStream("/mappings/blocks_mapper.json"),
                                 getClass().getResourceAsStream("/mappings/runtime_block_states.dat")
                         ))
+                        .entityMapper(new EntityMapper(getClass().getResourceAsStream("/mappings/entity_mapper.json")))
                         .build();
             } catch (MapperException e) {
                 e.printStackTrace();

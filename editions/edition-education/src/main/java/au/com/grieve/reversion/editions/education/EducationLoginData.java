@@ -48,7 +48,7 @@ public class EducationLoginData extends LoginData {
             throw new LoginException("Unknown Tenant tried to connect: " + tenantId);
         }
 
-        Map<String, String> claims = new HashMap<>() {{
+        Map<String, String> claims = new HashMap<String, String>() {{
             put("signedToken", server.getTokenManager().getTokenMap().get(tenantId).getSignedToken());
         }};
 

@@ -21,17 +21,13 @@ package au.com.grieve.reversion.editions.education.utils;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
+import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
 import com.nimbusds.jose.JWSObject;
 import lombok.Getter;
-import org.yaml.snakeyaml.DumperOptions;
-import org.yaml.snakeyaml.Yaml;
 
 import java.io.DataOutputStream;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
@@ -41,6 +37,7 @@ import java.text.ParseException;
 import java.time.Duration;
 import java.time.LocalDateTime;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 import java.util.UUID;
 
@@ -63,17 +60,18 @@ public class TokenManager {
      * Load tokens from file
      */
     void load() {
-        Yaml yaml = new Yaml();
-        Map<String, String> data;
-
-        try (InputStream input = new FileInputStream(tokenFile)) {
-            data = yaml.load(input);
+        ObjectMapper mapper = new ObjectMapper(new YAMLFactory());
+        JsonNode root;
+        try {
+            root = mapper.readTree(tokenFile);
         } catch (IOException e) {
             return;
         }
 
-        for (Map.Entry<String, String> entry : data.entrySet()) {
-            tokenMap.put(entry.getKey(), new Token(this, entry.getValue()));
+        for (Iterator<String> it = root.fieldNames(); it.hasNext(); ) {
+            String tenantId = it.next();
+            String token = root.get(tenantId).asText();
+            tokenMap.put(tenantId, new Token(this, token));
         }
     }
 
@@ -85,21 +83,15 @@ public class TokenManager {
             return;
         }
 
-        Map<String, String> data = new HashMap<>();
+        ObjectMapper mapper = new ObjectMapper(new YAMLFactory());
+        ObjectNode root = mapper.createObjectNode();
 
         for (Map.Entry<String, Token> entry : tokenMap.entrySet()) {
-            data.put(entry.getKey(), entry.getValue().getRefreshToken());
+            root.put(entry.getKey(), entry.getValue().getRefreshToken());
         }
 
-        DumperOptions options = new DumperOptions();
-        options.setIndent(2);
-        options.setPrettyFlow(true);
-        options.setDefaultFlowStyle(DumperOptions.FlowStyle.BLOCK);
-
-        Yaml yaml = new Yaml(options);
-
-        try (FileWriter output = new FileWriter(tokenFile)) {
-            yaml.dump(data, output);
+        try {
+            mapper.writeValue(tokenFile, root);
         } catch (IOException ignored) {
         }
     }
@@ -304,6 +296,5 @@ public class TokenManager {
             super(message, e);
         }
     }
-
 
 }

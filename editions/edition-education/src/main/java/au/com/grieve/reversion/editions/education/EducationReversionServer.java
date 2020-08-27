@@ -18,32 +18,34 @@
 
 package au.com.grieve.reversion.editions.education;
 
-import au.com.grieve.reversion.LoginData;
-import au.com.grieve.reversion.ReversionServer;
-import au.com.grieve.reversion.ReversionServerSession;
+import au.com.grieve.reversion.editions.bedrock.BedrockReversionServer;
 import au.com.grieve.reversion.editions.education.utils.TokenManager;
 import com.nukkitx.network.raknet.RakNetServerListener;
+import com.nukkitx.network.util.EventLoops;
 import com.nukkitx.protocol.bedrock.BedrockPacketCodec;
 import com.nukkitx.protocol.bedrock.BedrockPong;
-import com.nukkitx.protocol.bedrock.packet.LoginPacket;
+import io.netty.channel.EventLoopGroup;
 import lombok.Getter;
 
 import java.net.InetSocketAddress;
 
 @Getter
-public class EducationReversionServer extends ReversionServer {
+public class EducationReversionServer extends BedrockReversionServer {
     private final String fromEdition = "education";
     private final TokenManager tokenManager;
 
-    public EducationReversionServer(String edition, BedrockPacketCodec codec, TokenManager tokenManager, InetSocketAddress address) {
-        super(edition, codec, address);
-
-        this.tokenManager = tokenManager;
+    public EducationReversionServer(String toEdition, BedrockPacketCodec toCodec, TokenManager tokenManager, InetSocketAddress address) {
+        this(toEdition, toCodec, tokenManager, address, 1);
     }
 
-    @Override
-    public LoginData createLoginData(ReversionServerSession session, LoginPacket packet) throws LoginData.LoginException {
-        return new EducationLoginData(session, packet);
+    public EducationReversionServer(String toEdition, BedrockPacketCodec toCodec, TokenManager tokenManager, InetSocketAddress address, int maxThreads) {
+        this(toEdition, toCodec, tokenManager, address, maxThreads, EventLoops.commonGroup());
+    }
+
+    public EducationReversionServer(String edition, BedrockPacketCodec codec, TokenManager tokenManager, InetSocketAddress address, int maxThreads, EventLoopGroup eventLoopGroup) {
+        super(edition, codec, address, maxThreads, eventLoopGroup);
+
+        this.tokenManager = tokenManager;
     }
 
     @Override
@@ -51,7 +53,7 @@ public class EducationReversionServer extends ReversionServer {
         return new EducationRakNetServerListener();
     }
 
-    protected class EducationRakNetServerListener extends ReversionRakNetServerListener {
+    protected class EducationRakNetServerListener extends BedrockRakNetServerListener {
 
         @Override
         protected BedrockPong processQuery(InetSocketAddress address) {

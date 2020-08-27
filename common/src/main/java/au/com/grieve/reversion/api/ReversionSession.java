@@ -18,16 +18,25 @@
 
 package au.com.grieve.reversion.api;
 
+import com.nukkitx.network.raknet.RakNetSession;
 import com.nukkitx.protocol.bedrock.BedrockPacket;
+import com.nukkitx.protocol.bedrock.BedrockServerSession;
+import com.nukkitx.protocol.bedrock.wrapper.BedrockWrapperSerializer;
+import io.netty.channel.EventLoop;
 
-public interface ReversionSession {
+public abstract class ReversionSession extends BedrockServerSession {
+
+    public ReversionSession(RakNetSession connection, EventLoop eventLoop, BedrockWrapperSerializer serializer) {
+        super(connection, eventLoop, serializer);
+    }
+
     /**
      * Send a packet to the Client.
      *
      * @param packet packet to send
      * @return true if successful
      */
-    boolean toClient(BedrockPacket packet);
+    public abstract boolean toClient(BedrockPacket packet);
 
     /**
      * Send a packet to the Server
@@ -35,12 +44,19 @@ public interface ReversionSession {
      * @param packet packet to send
      * @return true if successful
      */
-    boolean toServer(BedrockPacket packet);
+    public abstract boolean toServer(BedrockPacket packet);
 
     /**
      * Set the session translator
      *
      * @param translator head of translator chain
      */
-    void setTranslator(Translator translator);
+    public abstract void setTranslator(Translator translator);
+
+    /**
+     * Return the logindata
+     *
+     * @return the logindata
+     */
+    public abstract LoginData getLoginData();
 }

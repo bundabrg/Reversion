@@ -18,8 +18,9 @@
 
 package au.com.grieve.reversion.editions.education;
 
-import au.com.grieve.reversion.LoginData;
-import au.com.grieve.reversion.ReversionServerSession;
+import au.com.grieve.reversion.editions.bedrock.BedrockLoginData;
+import au.com.grieve.reversion.editions.bedrock.BedrockReversionSession;
+import au.com.grieve.reversion.exceptions.LoginException;
 import com.nimbusds.jose.JOSEException;
 import com.nimbusds.jose.JWSObject;
 import com.nukkitx.protocol.bedrock.packet.LoginPacket;
@@ -27,9 +28,9 @@ import com.nukkitx.protocol.bedrock.packet.LoginPacket;
 import java.util.HashMap;
 import java.util.Map;
 
-public class EducationLoginData extends LoginData {
+public class EducationLoginData extends BedrockLoginData {
 
-    public EducationLoginData(ReversionServerSession session, LoginPacket packet) throws LoginException {
+    public EducationLoginData(BedrockReversionSession session, LoginPacket packet) throws LoginException {
         super(session, packet);
     }
 

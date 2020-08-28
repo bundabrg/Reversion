@@ -70,19 +70,12 @@ public interface Translator {
     Translator getClientTranslator();
 
     /**
-     * Return the Codec to use when we are speaking to the Client
-     *
-     * @return the codec used
-     */
-    BedrockPacketCodec getCodec();
-
-    /**
      * Receive a packet from upstream
      *
      * @param packet Packet to receive
      * @return true if handled
      */
-    boolean fromUpstream(BedrockPacket packet);
+    <T extends BedrockPacket> boolean fromUpstream(T packet);
 
     /**
      * Receive a packet from downstream
@@ -90,7 +83,7 @@ public interface Translator {
      * @param packet Packet to receive
      * @return true if handled
      */
-    boolean fromDownstream(BedrockPacket packet);
+    <T extends BedrockPacket> boolean fromDownstream(T packet);
 
     /**
      * Receive a packet from the Server
@@ -99,7 +92,7 @@ public interface Translator {
      * @param packet Packet to receieve
      * @return true if handled
      */
-    boolean fromServer(BedrockPacket packet);
+    <T extends BedrockPacket> boolean fromServer(T packet);
 
     /**
      * Receive a packet from Client
@@ -108,7 +101,7 @@ public interface Translator {
      * @param packet Packet to receive
      * @return true if handled
      */
-    boolean fromClient(BedrockPacket packet);
+    <T extends BedrockPacket> boolean fromClient(T packet);
 
     /**
      * Send a packet to our upstream
@@ -116,7 +109,7 @@ public interface Translator {
      * @param packet Packet to send
      * @return true if handled
      */
-    boolean toUpstream(BedrockPacket packet);
+    <T extends BedrockPacket> boolean toUpstream(T packet);
 
     /**
      * Send a packet to our downstream
@@ -124,7 +117,7 @@ public interface Translator {
      * @param packet Packet to send
      * @return true if handled
      */
-    boolean toDownstream(BedrockPacket packet);
+    <T extends BedrockPacket> boolean toDownstream(T packet);
 
     /**
      * Send a packet to Server
@@ -133,7 +126,7 @@ public interface Translator {
      * @param packet Packet to send
      * @return true if handled
      */
-    boolean toServer(BedrockPacket packet);
+    <T extends BedrockPacket> boolean toServer(T packet);
 
     /**
      * Send a packet to the Client
@@ -142,5 +135,12 @@ public interface Translator {
      * @param packet Packet to send
      * @return true if handled
      */
-    boolean toClient(BedrockPacket packet);
+    <T extends BedrockPacket> boolean toClient(T packet);
+
+    /**
+     * Return the Translator Codec
+     *
+     * @return the translator codec
+     */
+    BedrockPacketCodec getCodec();
 }

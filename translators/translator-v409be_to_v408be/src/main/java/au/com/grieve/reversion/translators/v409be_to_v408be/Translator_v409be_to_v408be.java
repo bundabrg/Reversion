@@ -18,71 +18,27 @@
 
 package au.com.grieve.reversion.translators.v409be_to_v408be;
 
-import au.com.grieve.reversion.MapperManager;
-import au.com.grieve.reversion.annotations.ReversionTranslator;
-import au.com.grieve.reversion.api.BaseTranslator;
+import au.com.grieve.reversion.api.RegisteredTranslator;
 import au.com.grieve.reversion.api.ReversionSession;
-import au.com.grieve.reversion.translators.v409be_to_v408be.handlers.FromDownstreamHandler;
-import au.com.grieve.reversion.translators.v409be_to_v408be.handlers.FromUpstreamHandler;
-import com.nukkitx.protocol.bedrock.BedrockPacket;
-import com.nukkitx.protocol.bedrock.BedrockPacketCodec;
-import com.nukkitx.protocol.bedrock.handler.BedrockPacketHandler;
-import com.nukkitx.protocol.bedrock.v409.Bedrock_v409;
-import lombok.Getter;
+import au.com.grieve.reversion.api.Translator;
+import au.com.grieve.reversion.editions.bedrock.BedrockTranslator;
+import au.com.grieve.reversion.editions.bedrock.mappers.ItemPaletteMapper;
+import au.com.grieve.reversion.exceptions.MapperException;
 
-@ReversionTranslator(
-        fromEdition = "bedrock",
-        fromVersion = 409,
-        toEdition = "bedrock",
-        toVersion = 408
-)
-@Getter
-public class Translator_v409be_to_v408be extends BaseTranslator {
-    public static MapperManager MAPPER;
+public class Translator_v409be_to_v408be extends BedrockTranslator {
+    private static final ItemPaletteMapper ITEM_PALETTE_MAPPER;
 
-    @Getter
-    private final BedrockPacketCodec codec = Bedrock_v409.V409_CODEC;
-
-    private final BedrockPacketHandler fromUpstreamHandler;
-    private final BedrockPacketHandler fromDownstreamHandler;
-
-    public Translator_v409be_to_v408be(ReversionSession reversionSession) {
-        super(reversionSession);
-
-        fromUpstreamHandler = new FromUpstreamHandler(this);
-        fromDownstreamHandler = new FromDownstreamHandler(this);
-
-//        // Only load when needed
-//        if (MAPPER == null) {
-//            try {
-//                MAPPER = MapperManager.builder()
-//                        .itemMapper(new ItemMapper(getClass().getResourceAsStream("/mappings/item_mapper.json")))
-//                        .enchantmentMapper(new EnchantmentMapper(getClass().getResourceAsStream("/mappings/enchantment_mapper.json")))
-//                        .blockMapper(new BlockMapper(
-//                                getClass().getResourceAsStream("/mappings/blocks_mapper.json"),
-//                                getClass().getResourceAsStream("/mappings/runtime_block_states.dat")
-//                        ))
-//                        .entityMapper(new EntityMapper(getClass().getResourceAsStream("/mappings/entity_mapper.json")))
-//                        .build();
-//            } catch (MapperException e) {
-//                e.printStackTrace();
-//            }
-//        }
+    static {
+        try {
+            ITEM_PALETTE_MAPPER = new ItemPaletteMapper(Translator.class.getResourceAsStream("/translators/v409be_to_v408be/mappings/itempalette_mapper.json"));
+        } catch (MapperException e) {
+            throw new RuntimeException(e);
+        }
     }
 
-    @Override
-    public boolean fromUpstream(BedrockPacket packet) {
-        if (packet.handle(fromUpstreamHandler)) {
-            return true;
-        }
-        return super.fromUpstream(packet);
-    }
+    public Translator_v409be_to_v408be(RegisteredTranslator registeredTranslator, ReversionSession reversionSession) {
+        super(registeredTranslator, reversionSession);
 
-    @Override
-    public boolean fromDownstream(BedrockPacket packet) {
-        if (packet.handle(fromDownstreamHandler)) {
-            return true;
-        }
-        return super.fromDownstream(packet);
+        itemPaletteMapper = ITEM_PALETTE_MAPPER;
     }
 }

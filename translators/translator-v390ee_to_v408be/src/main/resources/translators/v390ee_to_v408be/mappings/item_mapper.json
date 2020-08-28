@@ -1,0 +1,1195 @@
+[
+  {
+    "downstream": {
+      "id": -242
+    },
+    "upstream": {
+      "id": 5,
+      "data": {
+        "short": 4
+      },
+      "name": "Crimson Planks"
+    }
+  },
+  {
+    "downstream": {
+      "id": -243
+    },
+    "upstream": {
+      "id": 5,
+      "data": {
+        "short": 5
+      },
+      "name": "Warped Planks"
+    }
+  },
+  {
+    "downstream": {
+      "id": -277
+    },
+    "upstream": {
+      "id": 112,
+      "data": {
+        "short": 0
+      },
+      "name": "Blackstone Wall"
+    }
+  },
+  {
+    "downstream": {
+      "id": -297
+    },
+    "upstream": {
+      "id": 215,
+      "data": {
+        "short": 0
+      },
+      "name": "Polished Blackstone Wall"
+    }
+  },
+  {
+    "downstream": {
+      "id": -278
+    },
+    "upstream": {
+      "id": 215,
+      "data": {
+        "short": 0
+      },
+      "name": "Polished Blackstone Brick Wall"
+    }
+  },
+  {
+    "downstream": {
+      "id": -256
+    },
+    "upstream": {
+      "id": 85,
+      "data": {
+        "short": 0
+      },
+      "name": "Crimson Fence"
+    }
+  },
+  {
+    "downstream": {
+      "id": -257
+    },
+    "upstream": {
+      "id": 186,
+      "data": {
+        "short": 0
+      },
+      "name": "Warped Fence"
+    }
+  },
+  {
+    "downstream": {
+      "id": -258
+    },
+    "upstream": {
+      "id": 187,
+      "data": {
+        "short": 0
+      },
+      "name": "Crimson Fence Gate"
+    }
+  },
+  {
+    "downstream": {
+      "id": -259
+    },
+    "upstream": {
+      "id": 186,
+      "data": {
+        "short": 0
+      },
+      "name": "Warped Fence Gate"
+    }
+  },
+  {
+    "downstream": {
+      "id": -254
+    },
+    "upstream": {
+      "id": 163,
+      "data": {
+        "short": 0
+      },
+      "name": "Crimson Stairs"
+    }
+  },
+  {
+    "downstream": {
+      "id": -255
+    },
+    "upstream": {
+      "id": 164,
+      "data": {
+        "short": 0
+      },
+      "name": "Warped Stairs"
+    }
+  },
+  {
+    "downstream": {
+      "id": -276
+    },
+    "upstream": {
+      "id": 114,
+      "data": {
+        "short": 0
+      },
+      "name": "Blackstone Stairs"
+    }
+  },
+  {
+    "downstream": {
+      "id": -292
+    },
+    "upstream": {
+      "id": 215,
+      "data": {
+        "short": 0
+      },
+      "name": "Polished Blackstone Stairs"
+    }
+  },
+  {
+    "downstream": {
+      "id": -275
+    },
+    "upstream": {
+      "id": -184,
+      "data": {
+        "short": 0
+      },
+      "name": "Polished Blackstone Brick Stairs"
+    }
+  },
+  {
+    "downstream": {
+      "id": 755
+    },
+    "upstream": {
+      "id": 430,
+      "data": {
+        "short": 0
+      },
+      "name": "Crimson Door"
+    }
+  },
+  {
+    "downstream": {
+      "id": 756
+    },
+    "upstream": {
+      "id": 431,
+      "data": {
+        "short": 0
+      },
+      "name": "Warped Door"
+    }
+  },
+  {
+    "downstream": {
+      "id": -246
+    },
+    "upstream": {
+      "id": -145,
+      "data": {
+        "short": 0
+      },
+      "name": "Crimson Trapdoor"
+    }
+  },
+  {
+    "downstream": {
+      "id": -247
+    },
+    "upstream": {
+      "id": -147,
+      "data": {
+        "short": 0
+      },
+      "name": "Warped Trapdoor"
+    }
+  },
+  {
+    "downstream": {
+      "id": 758
+    },
+    "upstream": {
+      "id": 101,
+      "data": {
+        "short": 0
+      },
+      "name": "Chain"
+    }
+  },
+  {
+    "downstream": {
+      "id": -264
+    },
+    "upstream": {
+      "id": 158,
+      "data": {
+        "short": 0
+      },
+      "name": "Crimson Slab"
+    }
+  },
+  {
+    "downstream": {
+      "id": -265
+    },
+    "upstream": {
+      "id": 158,
+      "data": {
+        "short": 0
+      },
+      "name": "Warped Slab"
+    }
+  },
+  {
+    "downstream": {
+      "id": -282
+    },
+    "upstream": {
+      "id": 158,
+      "data": {
+        "short": 0
+      },
+      "name": "Blackstone Slab"
+    }
+  },
+  {
+    "downstream": {
+      "id": -293
+    },
+    "upstream": {
+      "id": 158,
+      "data": {
+        "short": 0
+      },
+      "name": "Polished Blackstone Slab"
+    }
+  },
+  {
+    "downstream": {
+      "id": -284
+    },
+    "upstream": {
+      "id": 158,
+      "data": {
+        "short": 0
+      },
+      "name": "Polished Blackstone Brick Slab"
+    }
+  },
+  {
+    "downstream": {
+      "id": -302
+    },
+    "upstream": {
+      "id": 112,
+      "data": {
+        "short": 0
+      },
+      "name": "Chiseled Nether Bricks"
+    }
+  },
+  {
+    "downstream": {
+      "id": -303
+    },
+    "upstream": {
+      "id": 112,
+      "data": {
+        "short": 0
+      },
+      "name": "Cracked Nether Bricks"
+    }
+  },
+  {
+    "downstream": {
+      "id": -304
+    },
+    "upstream": {
+      "id": 155,
+      "data": {
+        "short": 0
+      },
+      "name": "Quartz Bricks"
+    }
+  },
+  {
+    "downstream": {
+      "id": -274
+    },
+    "upstream": {
+      "id": 215,
+      "data": {
+        "short": 0
+      },
+      "name": "Polished Blackstone Bricks"
+    }
+  },
+  {
+    "downstream": {
+      "id": -280
+    },
+    "upstream": {
+      "id": 215,
+      "data": {
+        "short": 0
+      },
+      "name": "Cracked Polished Blackstone Bricks"
+    }
+  },
+  {
+    "downstream": {
+      "id": -281
+    },
+    "upstream": {
+      "id": 215,
+      "data": {
+        "short": 0
+      },
+      "name": "Gilded Blackstone"
+    }
+  },
+  {
+    "downstream": {
+      "id": -279
+    },
+    "upstream": {
+      "id": 215,
+      "data": {
+        "short": 0
+      },
+      "name": "Chiseled Polished Blackstone"
+    }
+  },
+  {
+    "downstream": {
+      "id": -239
+    },
+    "upstream": {
+      "id": 170,
+      "data": {
+        "short": 0
+      },
+      "name": "Target"
+    }
+  },
+  {
+    "downstream": {
+      "id": -227
+    },
+    "upstream": {
+      "id": 35,
+      "data": {
+        "short": 0
+      },
+      "name": "Warped Wart Block"
+    }
+  },
+  {
+    "downstream": {
+      "id": -225
+    },
+    "upstream": {
+      "id": 17,
+      "data": {
+        "short": 0
+      },
+      "name": "Crimson Stem"
+    }
+  },
+  {
+    "downstream": {
+      "id": -226
+    },
+    "upstream": {
+      "id": 17,
+      "data": {
+        "short": 0
+      },
+      "name": "Warped Stem"
+    }
+  },
+  {
+    "downstream": {
+      "id": -240
+    },
+    "upstream": {
+      "id": 17,
+      "data": {
+        "short": 0
+      },
+      "name": "Stripped Crimson Stem"
+    }
+  },
+  {
+    "downstream": {
+      "id": -241
+    },
+    "upstream": {
+      "id": 17,
+      "data": {
+        "short": 0
+      },
+      "name": "Stripped Warped Stem"
+    }
+  },
+  {
+    "downstream": {
+      "id": -299
+    },
+    "upstream": {
+      "id": 17,
+      "data": {
+        "short": 0
+      },
+      "name": "Crimson Hyphae"
+    }
+  },
+  {
+    "downstream": {
+      "id": -298
+    },
+    "upstream": {
+      "id": 17,
+      "data": {
+        "short": 0
+      },
+      "name": "Warped Hyphae"
+    }
+  },
+  {
+    "downstream": {
+      "id": -300
+    },
+    "upstream": {
+      "id": 17,
+      "data": {
+        "short": 0
+      },
+      "name": "Stripped Crimson Hyphae"
+    }
+  },
+  {
+    "downstream": {
+      "id": -301
+    },
+    "upstream": {
+      "id": 17,
+      "data": {
+        "short": 0
+      },
+      "name": "Stripped Warped Hyphae"
+    }
+  },
+  {
+    "downstream": {
+      "id": -230
+    },
+    "upstream": {
+      "id": 91,
+      "data": {
+        "short": 0
+      },
+      "name": "Shroom Light"
+    }
+  },
+  {
+    "downstream": {
+      "id": -232
+    },
+    "upstream": {
+      "id": 17,
+      "data": {
+        "short": 0
+      },
+      "name": "Crimson Nylium"
+    }
+  },
+  {
+    "downstream": {
+      "id": -233
+    },
+    "upstream": {
+      "id": 17,
+      "data": {
+        "short": 0
+      },
+      "name": "Warped Nylium"
+    }
+  },
+  {
+    "downstream": {
+      "id": -234
+    },
+    "upstream": {
+      "id": 227,
+      "data": {
+        "short": 0
+      },
+      "name": "Basalt"
+    }
+  },
+  {
+    "downstream": {
+      "id": -235
+    },
+    "upstream": {
+      "id": 227,
+      "data": {
+        "short": 0
+      },
+      "name": "Polished Basalt"
+    }
+  },
+  {
+    "downstream": {
+      "id": -236
+    },
+    "upstream": {
+      "id": 3,
+      "data": {
+        "short": 0
+      },
+      "name": "Soul Soil"
+    }
+  },
+  {
+    "downstream": {
+      "id": -270
+    },
+    "upstream": {
+      "id": 49,
+      "data": {
+        "short": 0
+      },
+      "name": "Netherite Block"
+    }
+  },
+  {
+    "downstream": {
+      "id": -222
+    },
+    "upstream": {
+      "id": 49,
+      "data": {
+        "short": 0
+      },
+      "name": "Lodestone"
+    }
+  },
+  {
+    "downstream": {
+      "id": -288
+    },
+    "upstream": {
+      "id": 14,
+      "data": {
+        "short": 0
+      },
+      "name": "Nether Gold Ore"
+    }
+  },
+  {
+    "downstream": {
+      "id": -271
+    },
+    "upstream": {
+      "id": 49,
+      "data": {
+        "short": 0
+      },
+      "name": "Ancient Debris"
+    }
+  },
+  {
+    "downstream": {
+      "id": -273
+    },
+    "upstream": {
+      "id": 215,
+      "data": {
+        "short": 0
+      },
+      "name": "Blackstone"
+    }
+  },
+  {
+    "downstream": {
+      "id": -291
+    },
+    "upstream": {
+      "id": 215,
+      "data": {
+        "short": 0
+      },
+      "name": "Polished Blackstone"
+    }
+  },
+  {
+    "downstream": {
+      "id": -218
+    },
+    "upstream": {
+      "id": -218,
+      "data": {
+        "short": 3
+      }
+    }
+  },
+  {
+    "downstream": {
+      "id": 760
+    },
+    "upstream": {
+      "id": 2,
+      "data": {
+        "short": 0
+      },
+      "name": "Nether Sprouts"
+    }
+  },
+  {
+    "downstream": {
+      "id": -223
+    },
+    "upstream": {
+      "id": 2,
+      "data": {
+        "short": 0
+      },
+      "name": "Crimson Roots"
+    }
+  },
+  {
+    "downstream": {
+      "id": -224
+    },
+    "upstream": {
+      "id": 2,
+      "data": {
+        "short": 0
+      },
+      "name": "Warped Roots"
+    }
+  },
+  {
+    "downstream": {
+      "id": -231
+    },
+    "upstream": {
+      "id": 106,
+      "data": {
+        "short": 0
+      },
+      "name": "Weeping Vines"
+    }
+  },
+  {
+    "downstream": {
+      "id": -287
+    },
+    "upstream": {
+      "id": 106,
+      "data": {
+        "short": 0
+      },
+      "name": "Twisting Vines"
+    }
+  },
+  {
+    "downstream": {
+      "id": -228
+    },
+    "upstream": {
+      "id": 140,
+      "data": {
+        "short": 0
+      },
+      "name": "Crimson Fungus"
+    }
+  },
+  {
+    "downstream": {
+      "id": -229
+    },
+    "upstream": {
+      "id": 140,
+      "data": {
+        "short": 0
+      },
+      "name": "Warped Fungus"
+    }
+  },
+  {
+    "downstream": {
+      "id": 383,
+      "data": {
+        "short": 125
+      }
+    },
+    "upstream": {
+      "id": 383,
+      "data": {
+        "short": 0
+      },
+      "name": "Spawn Eggs 125"
+    }
+  },
+  {
+    "downstream": {
+      "id": 383,
+      "data": {
+        "short": 124
+      }
+    },
+    "upstream": {
+      "id": 383,
+      "data": {
+        "short": 0
+      },
+      "name": "Spawn Egg 124"
+    }
+  },
+  {
+    "downstream": {
+      "id": 383,
+      "data": {
+        "short": 123
+      }
+    },
+    "upstream": {
+      "id": 383,
+      "data": {
+        "short": 0
+      },
+      "name": "Spawn Egg 123"
+    }
+  },
+  {
+    "downstream": {
+      "id": 383,
+      "data": {
+        "short": 126
+      }
+    },
+    "upstream": {
+      "id": 383,
+      "data": {
+        "short": 0
+      },
+      "name": "Spawn Egg 126"
+    }
+  },
+  {
+    "downstream": {
+      "id": 383,
+      "data": {
+        "short": 127
+      }
+    },
+    "upstream": {
+      "id": 383,
+      "data": {
+        "short": 0
+      },
+      "name": "Spawn Egg 127"
+    }
+  },
+  {
+    "downstream": {
+      "id": -289
+    },
+    "upstream": {
+      "id": 49,
+      "data": {
+        "short": 0
+      },
+      "name": "Crying Obsidian"
+    }
+  },
+  {
+    "downstream": {
+      "id": 748
+    },
+    "upstream": {
+      "id": 306,
+      "data": {
+        "short": 0
+      },
+      "name": "Netherite Helmet"
+    }
+  },
+  {
+    "downstream": {
+      "id": 749
+    },
+    "upstream": {
+      "id": 307,
+      "data": {
+        "short": 0
+      },
+      "name": "Netherite Chestplate"
+    }
+  },
+  {
+    "downstream": {
+      "id": 750
+    },
+    "upstream": {
+      "id": 308,
+      "data": {
+        "short": 0
+      },
+      "name": "Netherite Leggings"
+    }
+  },
+  {
+    "downstream": {
+      "id": 751
+    },
+    "upstream": {
+      "id": 309,
+      "data": {
+        "short": 0
+      },
+      "name": "Netherite Boots"
+    }
+  },
+  {
+    "downstream": {
+      "id": 743
+    },
+    "upstream": {
+      "id": 267,
+      "data": {
+        "short": 0
+      },
+      "name": "Netherite Sword"
+    }
+  },
+  {
+    "downstream": {
+      "id": 746
+    },
+    "upstream": {
+      "id": 258,
+      "data": {
+        "short": 0
+      },
+      "name": "Netherite Axe"
+    }
+  },
+  {
+    "downstream": {
+      "id": 745
+    },
+    "upstream": {
+      "id": 257,
+      "data": {
+        "short": 0
+      },
+      "name": "Netherite Pickaxe"
+    }
+  },
+  {
+    "downstream": {
+      "id": 744
+    },
+    "upstream": {
+      "id": 256,
+      "data": {
+        "short": 0
+      },
+      "name": "Netherite Shovel"
+    }
+  },
+  {
+    "downstream": {
+      "id": 747
+    },
+    "upstream": {
+      "id": 292,
+      "data": {
+        "short": 0
+      },
+      "name": "Netherite Hoe"
+    }
+  },
+  {
+    "downstream": {
+      "id": 262,
+      "data": {
+        "short": 43
+      }
+    },
+    "upstream": {
+      "id": -150,
+      "data": {
+        "short": 0
+      },
+      "name": "Crimson Pressure Plate"
+    }
+  },
+  {
+    "downstream": {
+      "id": 757
+    },
+    "upstream": {
+      "id": 398,
+      "data": {
+        "short": 0
+      },
+      "name": "Warped Fungus on a stick"
+    }
+  },
+  {
+    "downstream": {
+      "id": 373,
+      "data": {
+        "short": 42
+      }
+    },
+    "upstream": {
+      "id": 373,
+      "data": {
+        "short": 0
+      },
+      "name": "Potion 42"
+    }
+  },
+  {
+    "downstream": {
+      "id": 438,
+      "data": {
+        "short": 42
+      }
+    },
+    "upstream": {
+      "id": 438,
+      "data": {
+        "short": 0
+      },
+      "name": "Splash Potion 42"
+    }
+  },
+  {
+    "downstream": {
+      "id": 441,
+      "data": {
+        "short": 42
+      }
+    },
+    "upstream": {
+      "id": 441,
+      "data": {
+        "short": 0
+      },
+      "name": "Lingering Potion 42"
+    }
+  },
+  {
+    "downstream": {
+      "id": -268
+    },
+    "upstream": {
+      "id": 204,
+      "data": {
+        "short": 0
+      },
+      "name": "Soul Torch"
+    }
+  },
+  {
+    "downstream": {
+      "id": -269
+    },
+    "upstream": {
+      "id": -208,
+      "data": {
+        "short": 0
+      },
+      "name": "Soul Lantern"
+    }
+  },
+  {
+    "downstream": {
+      "id": 801
+    },
+    "upstream": {
+      "id": -209,
+      "data": {
+        "short": 0
+      },
+      "name": "Soul Campfire"
+    }
+  },
+  {
+    "downstream": {
+      "id": -272
+    },
+    "upstream": {
+      "id": 49,
+      "data": {
+        "short": 0
+      },
+      "name": "Respawn Anchor"
+    }
+  },
+  {
+    "downstream": {
+      "id": 759
+    },
+    "upstream": {
+      "id": 501,
+      "data": {
+        "short": 0
+      },
+      "name": "Record Pigstep"
+    }
+  },
+  {
+    "downstream": {
+      "id": 753
+    },
+    "upstream": {
+      "id": 475,
+      "data": {
+        "short": 0
+      },
+      "name": "Crimson Sign"
+    }
+  },
+  {
+    "downstream": {
+      "id": 754
+    },
+    "upstream": {
+      "id": 476,
+      "data": {
+        "short": 0
+      },
+      "name": "Warped Sign"
+    }
+  },
+  {
+    "downstream": {
+      "id": 752
+    },
+    "upstream": {
+      "id": 452,
+      "data": {
+        "short": 0
+      },
+      "name": "Netherite Scrap"
+    }
+  },
+  {
+    "downstream": {
+      "id": 742
+    },
+    "upstream": {
+      "id": 265,
+      "data": {
+        "short": 0
+      },
+      "name": "Netherite Ingot"
+    }
+  },
+  {
+    "downstream": {
+      "id": -260
+    },
+    "upstream": {
+      "id": -140,
+      "data": {
+        "short": 0
+      },
+      "name": "Crimson Button"
+    }
+  },
+  {
+    "downstream": {
+      "id": -261
+    },
+    "upstream": {
+      "id": -142,
+      "data": {
+        "short": 0
+      },
+      "name": "Warped Button"
+    }
+  },
+  {
+    "downstream": {
+      "id": -296
+    },
+    "upstream": {
+      "id": 143,
+      "data": {
+        "short": 0
+      },
+      "name": "Polished Blackstone Button"
+    }
+  },
+  {
+    "downstream": {
+      "id": -262
+    },
+    "upstream": {
+      "id": -150,
+      "data": {
+        "short": 0
+      },
+      "name": "Crimson Pressure Plate"
+    }
+  },
+  {
+    "downstream": {
+      "id": -263
+    },
+    "upstream": {
+      "id": -152,
+      "data": {
+        "short": 0
+      },
+      "name": "Warped Pressure Plate"
+    }
+  },
+  {
+    "downstream": {
+      "id": -295
+    },
+    "upstream": {
+      "id": 72,
+      "data": {
+        "short": 0
+      },
+      "name": "Polished Blackstone Pressure Plate"
+    }
+  },
+  {
+    "downstream": {
+      "id": 434,
+      "data": {
+        "short": 6
+      }
+    },
+    "upstream": {
+      "id": 434,
+      "data": {
+        "short": 0
+      },
+      "name": "Banner Pattern 6"
+    }
+  }
+]

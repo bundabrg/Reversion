@@ -31,16 +31,22 @@
 
     <dependencies>
         <dependency>
+            <groupId>au.com.grieve.reversion</groupId>
+            <artifactId>edition-education</artifactId>
+            <version>1.1.0-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>au.com.grieve.reversion</groupId>
+            <artifactId>translator-v409be_to_v408be</artifactId>
+            <version>1.1.0-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
             <groupId>com.nukkitx.protocol</groupId>
             <artifactId>education-v390</artifactId>
             <version>3.0.0-SNAPSHOT</version>
-            <scope>compile</scope>
-            <exclusions>
-                <exclusion>
-                    <groupId>*</groupId>
-                    <artifactId>*</artifactId>
-                </exclusion>
-            </exclusions>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
 

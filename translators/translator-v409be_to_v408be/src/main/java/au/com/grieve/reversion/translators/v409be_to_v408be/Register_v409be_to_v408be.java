@@ -32,6 +32,7 @@ import au.com.grieve.reversion.editions.bedrock.handlers.MobArmorEquipmentHandle
 import au.com.grieve.reversion.editions.bedrock.handlers.MobEquipmentHandler_Bedrock;
 import au.com.grieve.reversion.editions.bedrock.handlers.SetEntityDataHandler_Bedrock;
 import au.com.grieve.reversion.editions.bedrock.handlers.StartGameHandler_Bedrock;
+import au.com.grieve.reversion.protocol.bedrock.v409.Bedrock_v409;
 import com.nukkitx.protocol.bedrock.packet.AddEntityPacket;
 import com.nukkitx.protocol.bedrock.packet.AddItemEntityPacket;
 import com.nukkitx.protocol.bedrock.packet.AddPlayerPacket;
@@ -45,7 +46,6 @@ import com.nukkitx.protocol.bedrock.packet.MobArmorEquipmentPacket;
 import com.nukkitx.protocol.bedrock.packet.MobEquipmentPacket;
 import com.nukkitx.protocol.bedrock.packet.SetEntityDataPacket;
 import com.nukkitx.protocol.bedrock.packet.StartGamePacket;
-import com.nukkitx.protocol.bedrock.v409.Bedrock_v409;
 
 public class Register_v409be_to_v408be {
     public static RegisteredTranslator TRANSLATOR = RegisteredTranslator.builder()

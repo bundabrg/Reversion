@@ -20,7 +20,7 @@ package au.com.grieve.reversion.translators.v411be_to_v409be;
 
 import au.com.grieve.reversion.api.RegisteredTranslator;
 import au.com.grieve.reversion.editions.bedrock.BedrockTranslator;
-import com.nukkitx.protocol.bedrock.v411.Bedrock_v411;
+import au.com.grieve.reversion.protocol.bedrock.v411.Bedrock_v411;
 
 public class Register_v411be_to_v409be {
     public static RegisteredTranslator TRANSLATOR = RegisteredTranslator.builder()

@@ -32,20 +32,20 @@
         <dependency>
             <groupId>au.com.grieve.reversion</groupId>
             <artifactId>common</artifactId>
-            <version>1.1.0-SNAPSHOT</version>
+            <version>${project.version}</version>
             <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>com.nukkitx.protocol</groupId>
             <artifactId>bedrock-common</artifactId>
-            <version>3.0.0-SNAPSHOT</version>
-            <scope>provided</scope>
+            <version>2.6.0-SNAPSHOT</version>
+            <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
             <version>2.8.3</version>
-            <scope>provided</scope>
+            <scope>compile</scope>
         </dependency>
     </dependencies>
 

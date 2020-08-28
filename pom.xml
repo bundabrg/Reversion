@@ -29,6 +29,7 @@
         <module>common</module>
         <module>translators</module>
         <module>editions</module>
+        <module>protocol</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -88,6 +89,27 @@
             <url>https://repo.worldguard.com.au/repository/maven-public</url>
             <releases>
                 <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+
+        <repository>
+            <id>nukkitx-release-repo</id>
+            <url>https://repo.nukkitx.com/maven-releases/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>nukkitx-snapshot-repo</id>
+            <url>https://repo.nukkitx.com/maven-snapshots/</url>
+            <releases>
+                <enabled>false</enabled>
             </releases>
             <snapshots>
                 <enabled>true</enabled>

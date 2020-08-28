@@ -90,13 +90,11 @@ public class EnchantmentMapper {
      * @return translated ItemData or null means removed
      */
     public NbtMap mapEnchantmentNbtToUpstream(NbtMap original) {
-        System.err.println("Tag: " + original);
         if (original == null) {
             return null;
         }
 
         for (MapConfig mapConfig : mapList.getOrDefault(original.getShort("id"), new ArrayList<>())) {
-            System.err.println("Comparing to: " + mapConfig);
             VariableStore variableStore = new VariableStore();
 
             if (variableStore.compare(original.getShort("lvl"), mapConfig.getDownstream().getLvl())) {

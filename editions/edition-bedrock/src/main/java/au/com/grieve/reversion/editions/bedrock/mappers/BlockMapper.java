@@ -91,7 +91,6 @@ public class BlockMapper {
             if (version == 0) {
                 version = tag.getCompound("block").getInt("version");
             }
-            System.err.println("Putting block: " + tag.getCompound("block").getString("name"));
             nameToIdMap.put(tag.getCompound("block").getString("name").hashCode(), tag.getShort("id"));
         }
     }

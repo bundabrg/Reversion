@@ -32,6 +32,7 @@
         <module>bedrock-v409</module>
         <module>bedrock-v411</module>
         <module>bedrock-v412</module>
+        <module>bedrock-v414</module>
         <module>education-v363</module>
         <module>education-v390</module>
     </modules>

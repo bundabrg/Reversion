@@ -20,7 +20,6 @@ package au.com.grieve.reversion.editions.bedrock.handlers;
 
 import au.com.grieve.reversion.api.PacketHandler;
 import au.com.grieve.reversion.editions.bedrock.BedrockTranslator;
-import au.com.grieve.reversion.exceptions.MapperException;
 import com.nukkitx.nbt.NbtList;
 import com.nukkitx.nbt.NbtMap;
 import com.nukkitx.nbt.NbtType;
@@ -38,20 +37,17 @@ public class StartGameHandler_Bedrock extends PacketHandler<BedrockTranslator, S
 
     @Override
     public boolean fromDownstream(StartGamePacket packet) {
-
-        // Translate Block Palette
+        // Reorder the BlockPalette
+        NbtList<NbtMap> originalPalette = packet.getBlockPalette();
         List<NbtMap> translatedPalette = new ArrayList<>();
-        for (NbtMap block : packet.getBlockPalette()) {
-            try {
-                translatedPalette.add(getTranslator().getBlockMapper().mapBlockNbtToUpstream(getTranslator(), block));
-            } catch (MapperException e) {
-                e.printStackTrace();
-            }
+        for (int id = 0; id < originalPalette.size(); id++) {
+            translatedPalette.add(getTranslator().getRegisteredTranslator().getBlockMapper().getBlockFromUpstreamPalette(originalPalette, id));
         }
-        packet.setBlockPalette(new NbtList<>(NbtType.COMPOUND, translatedPalette.toArray(new NbtMap[0])));
+        packet.setBlockPalette(new NbtList<>(NbtType.COMPOUND, translatedPalette));
 
+        // Remap ItemPalette
         packet.setItemEntries(packet.getItemEntries().stream()
-                .map(i -> getTranslator().getItemPaletteMapper().mapItemEntryToUpstream(getTranslator(), i))
+                .map(i -> new StartGamePacket.ItemEntry(i.getIdentifier(), getTranslator().getRegisteredTranslator().getItemMapper().mapRuntimeIdToUpstream(i.getId())))
                 .collect(Collectors.toList())
         );
         return false;

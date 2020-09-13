@@ -19,7 +19,6 @@
 package au.com.grieve.reversion.editions.bedrock.mappers;
 
 import au.com.grieve.reversion.editions.bedrock.BedrockTranslator;
-import au.com.grieve.reversion.exceptions.MapperException;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.core.JsonFactory;
 import com.fasterxml.jackson.databind.JsonNode;
@@ -27,40 +26,57 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.nukkitx.protocol.bedrock.data.entity.EntityData;
 import com.nukkitx.protocol.bedrock.data.entity.EntityDataMap;
 import com.nukkitx.protocol.bedrock.data.entity.EntityFlag;
-import lombok.AccessLevel;
+import lombok.Builder;
 import lombok.Data;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.function.Supplier;
 
 /**
  * Simple Entity Translator
  */
 @Getter
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class EntityMapper {
-    public static final EntityMapper DEFAULT = new EntityMapper();
+    public static final EntityMapper DEFAULT = EntityMapper.builder().build();
 
     private final Map<String, MapConfig> mapList = new HashMap<>();
+    private final Supplier<InputStream> entityMapper;
+    // Are we initialized
+    private boolean initialized;
 
-    public EntityMapper(InputStream mapStream) throws MapperException {
-        loadMapper(mapStream);
+    @Builder
+    public EntityMapper(Supplier<InputStream> entityMapper) {
+        this.entityMapper = entityMapper;
+
+        init();
+    }
+
+    protected void init() {
+        if (initialized) {
+            return;
+        }
+
+        initialized = true;
+
+        if (entityMapper != null) {
+            loadMapper(entityMapper.get());
+        }
     }
 
 
-    public void loadMapper(InputStream stream) throws MapperException {
+    public void loadMapper(InputStream stream) {
         ObjectMapper mapper = new ObjectMapper(new JsonFactory());
 
         MapConfig[] mapConfigs;
         try {
             mapConfigs = mapper.readValue(stream, MapConfig[].class);
         } catch (IOException e) {
-            throw new MapperException("Unable load remap file", e);
+            throw new RuntimeException("Unable load EntityMapper file", e);
         }
 
         for (MapConfig mapConfig : mapConfigs) {

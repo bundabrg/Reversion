@@ -30,7 +30,7 @@ public class AddItemEntityHandler_Bedrock extends PacketHandler<BedrockTranslato
 
     @Override
     public boolean fromDownstream(AddItemEntityPacket packet) {
-        packet.setItemInHand(getTranslator().getItemMapper().mapItemDataToUpstream(getTranslator(), packet.getItemInHand()));
+        packet.setItemInHand(getTranslator().getRegisteredTranslator().getItemMapper().mapItemDataToUpstream(packet.getItemInHand()));
         return false;
     }
 }

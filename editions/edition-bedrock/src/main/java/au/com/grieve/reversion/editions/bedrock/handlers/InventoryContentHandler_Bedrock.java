@@ -33,9 +33,10 @@ public class InventoryContentHandler_Bedrock extends PacketHandler<BedrockTransl
 
     @Override
     public boolean fromDownstream(InventoryContentPacket packet) {
+        // Translate Contents
         packet.setContents(
                 Arrays.stream(packet.getContents())
-                        .map(i -> getTranslator().getItemMapper().mapItemDataToUpstream(getTranslator(), i))
+                        .map(i -> getTranslator().getRegisteredTranslator().getItemMapper().mapItemDataToUpstream(i))
                         .toArray(ItemData[]::new)
         );
         return false;

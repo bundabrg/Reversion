@@ -30,10 +30,10 @@ public class MobArmorEquipmentHandler_Bedrock extends PacketHandler<BedrockTrans
 
     @Override
     public boolean fromDownstream(MobArmorEquipmentPacket packet) {
-        packet.setBoots(getTranslator().getItemMapper().mapItemDataToUpstream(getTranslator(), packet.getBoots()));
-        packet.setChestplate(getTranslator().getItemMapper().mapItemDataToUpstream(getTranslator(), packet.getChestplate()));
-        packet.setHelmet(getTranslator().getItemMapper().mapItemDataToUpstream(getTranslator(), packet.getHelmet()));
-        packet.setLeggings(getTranslator().getItemMapper().mapItemDataToUpstream(getTranslator(), packet.getLeggings()));
+        packet.setBoots(getTranslator().getRegisteredTranslator().getItemMapper().mapItemDataToUpstream(packet.getBoots()));
+        packet.setChestplate(getTranslator().getRegisteredTranslator().getItemMapper().mapItemDataToUpstream(packet.getChestplate()));
+        packet.setHelmet(getTranslator().getRegisteredTranslator().getItemMapper().mapItemDataToUpstream(packet.getHelmet()));
+        packet.setLeggings(getTranslator().getRegisteredTranslator().getItemMapper().mapItemDataToUpstream(packet.getLeggings()));
         return false;
     }
 }

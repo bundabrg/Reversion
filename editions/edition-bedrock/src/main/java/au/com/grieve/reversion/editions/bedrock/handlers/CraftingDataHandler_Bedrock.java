@@ -46,10 +46,10 @@ public class CraftingDataHandler_Bedrock extends PacketHandler<BedrockTranslator
                     craftingData.getInputId(),
                     craftingData.getInputDamage(),
                     Arrays.stream(craftingData.getInputs())
-                            .map(i -> getTranslator().getItemMapper().mapItemDataToUpstream(getTranslator(), i))
+                            .map(i -> getTranslator().getRegisteredTranslator().getItemMapper().mapItemDataToUpstream(i))
                             .toArray(ItemData[]::new),
                     Arrays.stream(craftingData.getOutputs())
-                            .map(i -> getTranslator().getItemMapper().mapItemDataToUpstream(getTranslator(), i))
+                            .map(i -> getTranslator().getRegisteredTranslator().getItemMapper().mapItemDataToUpstream(i))
                             .toArray(ItemData[]::new),
                     craftingData.getUuid(),
                     craftingData.getCraftingTag(),

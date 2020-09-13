@@ -34,7 +34,7 @@ public class SetEntityDataHandler_Bedrock extends PacketHandler<BedrockTranslato
         EntityMapper.Entity entity = new EntityMapper.Entity();
         entity.setId(packet.getRuntimeEntityId());
         entity.getEntityData().putAll(packet.getMetadata());
-        entity = getTranslator().getEntityMapper().mapEntitytoUpstream(getTranslator(), entity);
+        entity = getTranslator().getRegisteredTranslator().getEntityMapper().mapEntitytoUpstream(getTranslator(), entity);
 
         packet.getMetadata().clear();
         packet.getMetadata().putAll(entity.getEntityData());

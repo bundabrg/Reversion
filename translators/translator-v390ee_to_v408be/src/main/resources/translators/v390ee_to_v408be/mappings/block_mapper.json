@@ -176,7 +176,7 @@
     "upstream": {
       "name": "minecraft:vine",
       "states": {
-        "vine_direction_bits": "%weeping_vines_age%"
+        "vine_direction_bits": 15
       }
     }
   },
@@ -879,12 +879,7 @@
     "upstream": {
       "name": "minecraft:cobblestone_wall",
       "states": {
-        "wall_block_type": "nether_brick",
-        "wall_connection_type_east": "%wall_connection_type_east%",
-        "wall_connection_type_north": "%wall_connection_type_north%",
-        "wall_connection_type_south": "%wall_connection_type_south%",
-        "wall_connection_type_west": "%wall_connection_type_west%",
-        "wall_post_bit": "%wall_post_bit%"
+        "wall_block_type": "nether_brick"
       }
     }
   },
@@ -903,12 +898,7 @@
     "upstream": {
       "name": "minecraft:cobblestone_wall",
       "states": {
-        "wall_block_type": "red_nether_brick",
-        "wall_connection_type_east": "%wall_connection_type_east%",
-        "wall_connection_type_north": "%wall_connection_type_north%",
-        "wall_connection_type_south": "%wall_connection_type_south%",
-        "wall_connection_type_west": "%wall_connection_type_west%",
-        "wall_post_bit": "%wall_post_bit%"
+        "wall_block_type": "red_nether_brick"
       }
     }
   },
@@ -1030,7 +1020,7 @@
     "upstream": {
       "name": "minecraft:vine",
       "states": {
-        "vine_direction_bits": "%twisting_vines_age%"
+        "vine_direction_bits": 15
       }
     }
   },
@@ -1177,12 +1167,7 @@
     "upstream": {
       "name": "minecraft:cobblestone_wall",
       "states": {
-        "wall_block_type": "cobblestone",
-        "wall_connection_type_east": "%wall_connection_type_east%",
-        "wall_connection_type_north": "%wall_connection_type_north%",
-        "wall_connection_type_south": "%wall_connection_type_south%",
-        "wall_connection_type_west": "%wall_connection_type_west%",
-        "wall_post_bit": "%wall_post_bit%"
+        "wall_block_type": "cobblestone"
       }
     }
   },
@@ -1287,6 +1272,42 @@
       "states": {
         "chisel_type": "default",
         "pillar_axis": "x"
+      }
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:cobblestone_wall",
+      "states": {
+        "wall_block_type": "%wall_block_type%",
+        "wall_connection_type_east": "%wall_connection_type_east%",
+        "wall_connection_type_north": "%wall_connection_type_north%",
+        "wall_connection_type_south": "%wall_connection_type_south%",
+        "wall_connection_type_west": "%wall_connection_type_west%",
+        "wall_post_bit": "%wall_post_bit%"
+      }
+    },
+    "upstream": {
+      "name": "minecraft:cobblestone_wall",
+      "states": {
+        "wall_block_type": "%wall_block_type%"
+      }
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:border_block",
+      "states": {
+        "wall_connection_type_east": "%wall_connection_type_east%",
+        "wall_connection_type_north": "%wall_connection_type_north%",
+        "wall_connection_type_south": "%wall_connection_type_south%",
+        "wall_connection_type_west": "%wall_connection_type_west%",
+        "wall_post_bit": "%wall_post_bit%"
+      }
+    },
+    "upstream": {
+      "name": "minecraft:border_block",
+      "states": {
       }
     }
   }

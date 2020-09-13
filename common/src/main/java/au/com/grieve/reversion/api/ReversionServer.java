@@ -25,17 +25,12 @@ import io.netty.channel.EventLoopGroup;
 import lombok.Getter;
 
 import java.net.InetSocketAddress;
-import java.util.ArrayList;
-import java.util.List;
 
 @Getter
-public class ReversionServer extends BedrockServer {
+public abstract class ReversionServer extends BedrockServer {
     private final String toEdition;
     private final BedrockPacketCodec toCodec;
     private final EventLoopGroup eventLoopGroup;
-
-    // Supported Translators
-    private final List<RegisteredTranslator> registeredTranslators = new ArrayList<>();
 
     public ReversionServer(String toEdition, BedrockPacketCodec toCodec, InetSocketAddress address) {
         this(toEdition, toCodec, address, 1);
@@ -52,16 +47,4 @@ public class ReversionServer extends BedrockServer {
         this.toEdition = toEdition;
         this.toCodec = toCodec;
     }
-
-    /**
-     * Register a Translator for this Server
-     *
-     * @param registeredTranslator The translator to register
-     * @return ourself to allow chaining
-     */
-    public ReversionServer registerTranslator(RegisteredTranslator registeredTranslator) {
-        registeredTranslators.add(registeredTranslator);
-        return this;
-    }
-
 }

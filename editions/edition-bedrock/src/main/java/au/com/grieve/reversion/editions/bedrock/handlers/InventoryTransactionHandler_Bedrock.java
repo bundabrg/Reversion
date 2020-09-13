@@ -34,7 +34,7 @@ public class InventoryTransactionHandler_Bedrock extends PacketHandler<BedrockTr
 
     @Override
     public boolean fromUpstream(InventoryTransactionPacket packet) {
-        packet.setItemInHand(getTranslator().getItemMapper().mapItemDataToDownstream(getTranslator(), packet.getItemInHand()));
+        packet.setItemInHand(getTranslator().getRegisteredTranslator().getItemMapper().mapItemDataToDownstream(packet.getItemInHand()));
 
         List<InventoryActionData> originalActions = packet.getActions();
         List<InventoryActionData> translatedList = new ArrayList<>();
@@ -43,8 +43,8 @@ public class InventoryTransactionHandler_Bedrock extends PacketHandler<BedrockTr
             InventoryActionData translated = new InventoryActionData(
                     actionData.getSource(),
                     actionData.getSlot(),
-                    getTranslator().getItemMapper().mapItemDataToDownstream(getTranslator(), actionData.getFromItem()),
-                    getTranslator().getItemMapper().mapItemDataToDownstream(getTranslator(), actionData.getToItem()),
+                    getTranslator().getRegisteredTranslator().getItemMapper().mapItemDataToDownstream(actionData.getFromItem()),
+                    getTranslator().getRegisteredTranslator().getItemMapper().mapItemDataToDownstream(actionData.getToItem()),
                     actionData.getStackNetworkId()
             );
             translatedList.add(translated);

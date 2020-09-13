@@ -44,6 +44,12 @@
         </dependency>
         <dependency>
             <groupId>au.com.grieve.reversion</groupId>
+            <artifactId>bedrock-v408</artifactId>
+            <version>${project.version}</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>au.com.grieve.reversion</groupId>
             <artifactId>education-v390</artifactId>
             <version>${project.version}</version>
             <scope>compile</scope>

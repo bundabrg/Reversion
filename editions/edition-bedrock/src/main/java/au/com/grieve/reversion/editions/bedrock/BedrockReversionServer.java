@@ -18,7 +18,6 @@
 
 package au.com.grieve.reversion.editions.bedrock;
 
-import au.com.grieve.reversion.api.RegisteredTranslator;
 import au.com.grieve.reversion.api.ReversionServer;
 import au.com.grieve.reversion.api.ReversionSession;
 import au.com.grieve.reversion.api.Translator;
@@ -53,6 +52,9 @@ import java.util.stream.Collectors;
 public class BedrockReversionServer extends ReversionServer {
     private final String fromEdition = "bedrock";
 
+    // Supported Translators
+    private final List<BedrockRegisteredTranslator> registeredTranslators = new ArrayList<>();
+
     public BedrockReversionServer(String toEdition, BedrockPacketCodec toCodec, InetSocketAddress address) {
         this(toEdition, toCodec, address, 1);
     }
@@ -68,10 +70,21 @@ public class BedrockReversionServer extends ReversionServer {
     }
 
     /**
+     * Register a Translator for this Server
+     *
+     * @param registeredTranslator The translator to register
+     * @return ourself to allow chaining
+     */
+    public ReversionServer registerTranslator(BedrockRegisteredTranslator registeredTranslator) {
+        registeredTranslators.add(registeredTranslator);
+        return this;
+    }
+
+    /**
      * Create a translator chain from the client to the server.
      */
     protected Translator createTranslatorChain(int fromVersion, ReversionSession session) throws TranslatorException {
-        List<RegisteredTranslator> bestChain = getBestTranslatorChain(getFromEdition(), fromVersion,
+        List<BedrockRegisteredTranslator> bestChain = getBestTranslatorChain(getFromEdition(), fromVersion,
                 getToEdition(), getToCodec().getProtocolVersion(), new ArrayList<>(getRegisteredTranslators()));
 
         if (bestChain == null) {
@@ -80,11 +93,11 @@ public class BedrockReversionServer extends ReversionServer {
 
         Translator ret = null;
         Translator current = null;
-        for (RegisteredTranslator registeredTranslator : bestChain) {
+        for (BedrockRegisteredTranslator registeredTranslator : bestChain) {
             Translator translator;
             try {
                 translator = registeredTranslator.getTranslator()
-                        .getConstructor(RegisteredTranslator.class, ReversionSession.class)
+                        .getConstructor(BedrockRegisteredTranslator.class, ReversionSession.class)
                         .newInstance(registeredTranslator, session);
             } catch (InstantiationException | NoSuchMethodException | InvocationTargetException | IllegalAccessException e) {
                 throw new TranslatorException(e);
@@ -115,10 +128,10 @@ public class BedrockReversionServer extends ReversionServer {
      * @param registeredTranslators registered translators
      * @return list of Registered translators satisfying condition else null
      */
-    protected List<RegisteredTranslator> getBestTranslatorChain(String fromEdition, int fromVersion, String toEdition,
-                                                                int toVersion, List<RegisteredTranslator> registeredTranslators) {
-        List<RegisteredTranslator> best = null;
-        for (RegisteredTranslator registeredTranslator : registeredTranslators) {
+    protected List<BedrockRegisteredTranslator> getBestTranslatorChain(String fromEdition, int fromVersion, String toEdition,
+                                                                       int toVersion, List<BedrockRegisteredTranslator> registeredTranslators) {
+        List<BedrockRegisteredTranslator> best = null;
+        for (BedrockRegisteredTranslator registeredTranslator : registeredTranslators) {
             if (!registeredTranslator.getFromEdition().equals(fromEdition) || registeredTranslator.getFromProtocolVersion() != fromVersion) {
                 continue;
             }
@@ -129,8 +142,8 @@ public class BedrockReversionServer extends ReversionServer {
             }
 
             // Find shortest
-            List<RegisteredTranslator> newRegisteredTranslators = registeredTranslators.stream().filter(t -> t != registeredTranslator).collect(Collectors.toList());
-            List<RegisteredTranslator> current = getBestTranslatorChain(registeredTranslator.getToEdition(), registeredTranslator.getToProtocolVersion(), toEdition, toVersion, newRegisteredTranslators);
+            List<BedrockRegisteredTranslator> newRegisteredTranslators = registeredTranslators.stream().filter(t -> t != registeredTranslator).collect(Collectors.toList());
+            List<BedrockRegisteredTranslator> current = getBestTranslatorChain(registeredTranslator.getToEdition(), registeredTranslator.getToProtocolVersion(), toEdition, toVersion, newRegisteredTranslators);
 
             if (current == null) {
                 continue;

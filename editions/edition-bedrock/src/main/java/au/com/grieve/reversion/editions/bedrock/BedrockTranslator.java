@@ -19,14 +19,9 @@
 package au.com.grieve.reversion.editions.bedrock;
 
 import au.com.grieve.reversion.api.PacketHandler;
-import au.com.grieve.reversion.api.RegisteredTranslator;
 import au.com.grieve.reversion.api.ReversionSession;
 import au.com.grieve.reversion.api.Translator;
-import au.com.grieve.reversion.editions.bedrock.mappers.BlockMapper;
-import au.com.grieve.reversion.editions.bedrock.mappers.EnchantmentMapper;
 import au.com.grieve.reversion.editions.bedrock.mappers.EntityMapper;
-import au.com.grieve.reversion.editions.bedrock.mappers.ItemMapper;
-import au.com.grieve.reversion.editions.bedrock.mappers.ItemPaletteMapper;
 import com.nukkitx.protocol.bedrock.BedrockPacket;
 import com.nukkitx.protocol.bedrock.BedrockPacketCodec;
 import lombok.Getter;
@@ -39,38 +34,33 @@ import java.util.Map;
 @Getter
 public class BedrockTranslator implements Translator {
     private final Map<Class<? extends BedrockPacket>, PacketHandler<?, ?>> handlers = new HashMap<>();
+
     // Runtime Entity Map
     private final Map<Long, EntityMapper.MapConfig> runtimeEntityMap = new HashMap<>();
-    private final RegisteredTranslator registeredTranslator;
+
+    private final BedrockRegisteredTranslator registeredTranslator;
     private final ReversionSession reversionSession;
-    protected ItemMapper itemMapper;
-    protected BlockMapper blockMapper;
-    protected EntityMapper entityMapper;
-    protected EnchantmentMapper enchantmentMapper;
-    protected ItemPaletteMapper itemPaletteMapper;
+
     @Setter
     private Translator upstreamTranslator;
     @Setter
     private Translator downstreamTranslator;
 
-    public BedrockTranslator(RegisteredTranslator registeredTranslator, ReversionSession reversionSession) {
+    public BedrockTranslator(BedrockRegisteredTranslator registeredTranslator, ReversionSession reversionSession) {
         this.registeredTranslator = registeredTranslator;
         this.reversionSession = reversionSession;
 
         for (Map.Entry<Class<? extends BedrockPacket>, Class<? extends PacketHandler<? extends Translator, ? extends BedrockPacket>>>
                 entry : registeredTranslator.getPacketHandlers().entrySet()) {
             try {
-                handlers.put(entry.getKey(), entry.getValue().getConstructor(BedrockTranslator.class).newInstance(this));
+                handlers.put(entry.getKey(), entry.getValue().getConstructor(getClass()).newInstance(this));
             } catch (InstantiationException | NoSuchMethodException | InvocationTargetException | IllegalAccessException e) {
                 throw new RuntimeException(e);
             }
         }
 
-        itemMapper = ItemMapper.DEFAULT;
-        itemPaletteMapper = ItemPaletteMapper.DEFAULT;
-        blockMapper = BlockMapper.DEFAULT;
-        entityMapper = EntityMapper.DEFAULT;
-        enchantmentMapper = EnchantmentMapper.DEFAULT;
+        // Initialize the BlockMapper
+        registeredTranslator.getBlockMapper().init();
     }
 
     @Override

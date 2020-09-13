@@ -30,7 +30,7 @@ public class MobEquipmentHandler_Bedrock extends PacketHandler<BedrockTranslator
 
     @Override
     public boolean fromDownstream(MobEquipmentPacket packet) {
-        packet.setItem(getTranslator().getItemMapper().mapItemDataToUpstream(getTranslator(), packet.getItem()));
+        packet.setItem(getTranslator().getRegisteredTranslator().getItemMapper().mapItemDataToUpstream(packet.getItem()));
         return false;
     }
 }

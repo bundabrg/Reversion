@@ -23,8 +23,7 @@ import au.com.grieve.reversion.editions.bedrock.BedrockTranslator;
 import com.nukkitx.protocol.bedrock.data.inventory.ItemData;
 import com.nukkitx.protocol.bedrock.packet.CreativeContentPacket;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Arrays;
 
 public class CreativeContentHandler_Bedrock extends PacketHandler<BedrockTranslator, CreativeContentPacket> {
 
@@ -34,16 +33,12 @@ public class CreativeContentHandler_Bedrock extends PacketHandler<BedrockTransla
 
     @Override
     public boolean fromDownstream(CreativeContentPacket packet) {
-        List<ItemData> translatedItems = new ArrayList<>();
-        for (ItemData item : packet.getContents()) {
-            if (getTranslator().getItemMapper().getToUpstreamMap().containsKey(item.getId())) {
-                continue;
-            }
-            ItemData translatedItem = getTranslator().getItemPaletteMapper().mapItemDataToUpstream(getTranslator(), item);
-
-            translatedItems.add(translatedItem);
-        }
-        packet.setContents(translatedItems.toArray(new ItemData[0]));
+        // Strip out modified items
+        packet.setContents(
+                Arrays.stream(packet.getContents())
+                        .filter(i -> !getTranslator().getRegisteredTranslator().getItemMapper().getItemToUpstreamMap().containsKey(i.getId()))
+                        .toArray(ItemData[]::new)
+        );
         return false;
     }
 }

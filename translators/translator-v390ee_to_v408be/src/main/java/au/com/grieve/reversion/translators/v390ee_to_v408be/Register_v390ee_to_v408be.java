@@ -18,17 +18,23 @@
 
 package au.com.grieve.reversion.translators.v390ee_to_v408be;
 
-import au.com.grieve.reversion.api.RegisteredTranslator;
+import au.com.grieve.reversion.editions.bedrock.BedrockRegisteredTranslator;
+import au.com.grieve.reversion.editions.bedrock.BedrockTranslator;
 import au.com.grieve.reversion.editions.bedrock.handlers.AddEntityHandler_Bedrock;
 import au.com.grieve.reversion.editions.bedrock.handlers.AddItemEntityHandler_Bedrock;
 import au.com.grieve.reversion.editions.bedrock.handlers.AddPlayerHandler_Bedrock;
 import au.com.grieve.reversion.editions.bedrock.handlers.CraftingDataHandler_Bedrock;
 import au.com.grieve.reversion.editions.bedrock.handlers.InventoryContentHandler_Bedrock;
 import au.com.grieve.reversion.editions.bedrock.handlers.InventorySlotHandler_Bedrock;
+import au.com.grieve.reversion.editions.bedrock.handlers.LevelChunkHandler_Bedrock;
 import au.com.grieve.reversion.editions.bedrock.handlers.LoginHandler_Bedrock;
 import au.com.grieve.reversion.editions.bedrock.handlers.MobArmorEquipmentHandler_Bedrock;
 import au.com.grieve.reversion.editions.bedrock.handlers.MobEquipmentHandler_Bedrock;
 import au.com.grieve.reversion.editions.bedrock.handlers.SetEntityDataHandler_Bedrock;
+import au.com.grieve.reversion.editions.bedrock.handlers.UpdateBlockHandler_Bedrock;
+import au.com.grieve.reversion.editions.bedrock.mappers.BlockMapper;
+import au.com.grieve.reversion.editions.bedrock.mappers.EntityMapper;
+import au.com.grieve.reversion.editions.bedrock.mappers.ItemMapper;
 import au.com.grieve.reversion.editions.education.handlers.StartGameHandler_Education;
 import au.com.grieve.reversion.protocol.education.v390.Education_v390;
 import au.com.grieve.reversion.translators.v390ee_to_v408be.handlers.CreativeContentHandler_v390ee_to_v408be;
@@ -41,32 +47,53 @@ import com.nukkitx.protocol.bedrock.packet.CreativeContentPacket;
 import com.nukkitx.protocol.bedrock.packet.InventoryContentPacket;
 import com.nukkitx.protocol.bedrock.packet.InventorySlotPacket;
 import com.nukkitx.protocol.bedrock.packet.InventoryTransactionPacket;
+import com.nukkitx.protocol.bedrock.packet.LevelChunkPacket;
 import com.nukkitx.protocol.bedrock.packet.LoginPacket;
 import com.nukkitx.protocol.bedrock.packet.MobArmorEquipmentPacket;
 import com.nukkitx.protocol.bedrock.packet.MobEquipmentPacket;
 import com.nukkitx.protocol.bedrock.packet.SetEntityDataPacket;
 import com.nukkitx.protocol.bedrock.packet.StartGamePacket;
+import com.nukkitx.protocol.bedrock.packet.UpdateBlockPacket;
 
 public class Register_v390ee_to_v408be {
-    public static RegisteredTranslator TRANSLATOR = RegisteredTranslator.builder()
+    public static BedrockRegisteredTranslator TRANSLATOR = BedrockRegisteredTranslator.builder()
             .fromEdition("education")
             .fromProtocolVersion(390)
             .toEdition("bedrock")
             .toProtocolVersion(408)
             .codec(Education_v390.V390_CODEC)
-            .translator(Translator_v390be_to_v408be.class)
+            .translator(BedrockTranslator.class)
+            .blockMapper(BlockMapper.builder()
+                            .palette(() -> Register_v390ee_to_v408be.class.getResourceAsStream("/protocol/education-v390/blockpalette.nbt"))
+                            .runtimeMapper(() -> Register_v390ee_to_v408be.class.getResourceAsStream("/translators/v390ee_to_v408be/mappings/block_runtime_mapper.json"))
+                            .blockMapper(() -> Register_v390ee_to_v408be.class.getResourceAsStream("/translators/v390ee_to_v408be/mappings/block_mapper.json"))
+//                    .downstreamPalette(() -> Register_v390ee_to_v408be.class.getResourceAsStream("/protocol/bedrock-v408/blockpalette.nbt"))
+//                    .debugName("v309ee_to_v408be")
+                            .build()
+            )
+            .entityMapper(EntityMapper.builder()
+                    .entityMapper(() -> Register_v390ee_to_v408be.class.getResourceAsStream("/translators/v390ee_to_v408be/mappings/entity_mapper.json"))
+                    .build()
+            )
+            .itemMapper(ItemMapper.builder()
+                    .itemMapper(() -> Register_v390ee_to_v408be.class.getResourceAsStream("/translators/v390ee_to_v408be/mappings/item_mapper.json"))
+                    .enchantmentMapper(() -> Register_v390ee_to_v408be.class.getResourceAsStream("/translators/v390ee_to_v408be/mappings/enchantment_mapper.json"))
+                    .build()
+            )
             .registerPacketHandler(AddEntityPacket.class, AddEntityHandler_Bedrock.class)
-            .registerPacketHandler(AddPlayerPacket.class, AddPlayerHandler_Bedrock.class)
             .registerPacketHandler(AddItemEntityPacket.class, AddItemEntityHandler_Bedrock.class)
+            .registerPacketHandler(AddPlayerPacket.class, AddPlayerHandler_Bedrock.class)
             .registerPacketHandler(CraftingDataPacket.class, CraftingDataHandler_Bedrock.class)
             .registerPacketHandler(CreativeContentPacket.class, CreativeContentHandler_v390ee_to_v408be.class)
             .registerPacketHandler(InventoryContentPacket.class, InventoryContentHandler_Bedrock.class)
             .registerPacketHandler(InventorySlotPacket.class, InventorySlotHandler_Bedrock.class)
             .registerPacketHandler(InventoryTransactionPacket.class, InventoryTransactionHandler_v390ee_to_v408be.class)
+            .registerPacketHandler(LevelChunkPacket.class, LevelChunkHandler_Bedrock.class)
             .registerPacketHandler(LoginPacket.class, LoginHandler_Bedrock.class)
             .registerPacketHandler(MobArmorEquipmentPacket.class, MobArmorEquipmentHandler_Bedrock.class)
             .registerPacketHandler(MobEquipmentPacket.class, MobEquipmentHandler_Bedrock.class)
             .registerPacketHandler(SetEntityDataPacket.class, SetEntityDataHandler_Bedrock.class)
             .registerPacketHandler(StartGamePacket.class, StartGameHandler_Education.class)
+            .registerPacketHandler(UpdateBlockPacket.class, UpdateBlockHandler_Bedrock.class)
             .build();
 }

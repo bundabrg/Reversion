@@ -18,7 +18,8 @@
 
 package au.com.grieve.reversion.translators.v409be_to_v408be;
 
-import au.com.grieve.reversion.api.RegisteredTranslator;
+import au.com.grieve.reversion.editions.bedrock.BedrockRegisteredTranslator;
+import au.com.grieve.reversion.editions.bedrock.BedrockTranslator;
 import au.com.grieve.reversion.editions.bedrock.handlers.AddEntityHandler_Bedrock;
 import au.com.grieve.reversion.editions.bedrock.handlers.AddItemEntityHandler_Bedrock;
 import au.com.grieve.reversion.editions.bedrock.handlers.AddPlayerHandler_Bedrock;
@@ -27,11 +28,16 @@ import au.com.grieve.reversion.editions.bedrock.handlers.CreativeContentHandler_
 import au.com.grieve.reversion.editions.bedrock.handlers.InventoryContentHandler_Bedrock;
 import au.com.grieve.reversion.editions.bedrock.handlers.InventorySlotHandler_Bedrock;
 import au.com.grieve.reversion.editions.bedrock.handlers.InventoryTransactionHandler_Bedrock;
+import au.com.grieve.reversion.editions.bedrock.handlers.LevelChunkHandler_Bedrock;
 import au.com.grieve.reversion.editions.bedrock.handlers.LoginHandler_Bedrock;
 import au.com.grieve.reversion.editions.bedrock.handlers.MobArmorEquipmentHandler_Bedrock;
 import au.com.grieve.reversion.editions.bedrock.handlers.MobEquipmentHandler_Bedrock;
 import au.com.grieve.reversion.editions.bedrock.handlers.SetEntityDataHandler_Bedrock;
 import au.com.grieve.reversion.editions.bedrock.handlers.StartGameHandler_Bedrock;
+import au.com.grieve.reversion.editions.bedrock.handlers.UpdateBlockHandler_Bedrock;
+import au.com.grieve.reversion.editions.bedrock.mappers.BlockMapper;
+import au.com.grieve.reversion.editions.bedrock.mappers.EntityMapper;
+import au.com.grieve.reversion.editions.bedrock.mappers.ItemMapper;
 import au.com.grieve.reversion.protocol.bedrock.v409.Bedrock_v409;
 import com.nukkitx.protocol.bedrock.packet.AddEntityPacket;
 import com.nukkitx.protocol.bedrock.packet.AddItemEntityPacket;
@@ -41,32 +47,45 @@ import com.nukkitx.protocol.bedrock.packet.CreativeContentPacket;
 import com.nukkitx.protocol.bedrock.packet.InventoryContentPacket;
 import com.nukkitx.protocol.bedrock.packet.InventorySlotPacket;
 import com.nukkitx.protocol.bedrock.packet.InventoryTransactionPacket;
+import com.nukkitx.protocol.bedrock.packet.LevelChunkPacket;
 import com.nukkitx.protocol.bedrock.packet.LoginPacket;
 import com.nukkitx.protocol.bedrock.packet.MobArmorEquipmentPacket;
 import com.nukkitx.protocol.bedrock.packet.MobEquipmentPacket;
 import com.nukkitx.protocol.bedrock.packet.SetEntityDataPacket;
 import com.nukkitx.protocol.bedrock.packet.StartGamePacket;
+import com.nukkitx.protocol.bedrock.packet.UpdateBlockPacket;
 
 public class Register_v409be_to_v408be {
-    public static RegisteredTranslator TRANSLATOR = RegisteredTranslator.builder()
+    public static BedrockRegisteredTranslator TRANSLATOR = BedrockRegisteredTranslator.builder()
             .fromEdition("bedrock")
             .fromProtocolVersion(409)
             .toEdition("bedrock")
             .toProtocolVersion(408)
             .codec(Bedrock_v409.V409_CODEC)
-            .translator(Translator_v409be_to_v408be.class)
+            .translator(BedrockTranslator.class)
+            .blockMapper(BlockMapper.builder()
+                    .palette(() -> Register_v409be_to_v408be.class.getResourceAsStream("/protocol/bedrock-v409/blockpalette.nbt"))
+                    .build()
+            )
+            .itemMapper(ItemMapper.builder()
+                    .itemRuntimeMapper(() -> Register_v409be_to_v408be.class.getResourceAsStream("/translators/v409be_to_v408be/mappings/item_runtime_mapper.json"))
+                    .build()
+            )
+            .entityMapper(EntityMapper.DEFAULT)
             .registerPacketHandler(AddEntityPacket.class, AddEntityHandler_Bedrock.class)
-            .registerPacketHandler(AddPlayerPacket.class, AddPlayerHandler_Bedrock.class)
             .registerPacketHandler(AddItemEntityPacket.class, AddItemEntityHandler_Bedrock.class)
+            .registerPacketHandler(AddPlayerPacket.class, AddPlayerHandler_Bedrock.class)
             .registerPacketHandler(CraftingDataPacket.class, CraftingDataHandler_Bedrock.class)
             .registerPacketHandler(CreativeContentPacket.class, CreativeContentHandler_Bedrock.class)
             .registerPacketHandler(InventoryContentPacket.class, InventoryContentHandler_Bedrock.class)
             .registerPacketHandler(InventorySlotPacket.class, InventorySlotHandler_Bedrock.class)
             .registerPacketHandler(InventoryTransactionPacket.class, InventoryTransactionHandler_Bedrock.class)
+            .registerPacketHandler(LevelChunkPacket.class, LevelChunkHandler_Bedrock.class)
             .registerPacketHandler(LoginPacket.class, LoginHandler_Bedrock.class)
             .registerPacketHandler(MobArmorEquipmentPacket.class, MobArmorEquipmentHandler_Bedrock.class)
             .registerPacketHandler(MobEquipmentPacket.class, MobEquipmentHandler_Bedrock.class)
             .registerPacketHandler(SetEntityDataPacket.class, SetEntityDataHandler_Bedrock.class)
             .registerPacketHandler(StartGamePacket.class, StartGameHandler_Bedrock.class)
+            .registerPacketHandler(UpdateBlockPacket.class, UpdateBlockHandler_Bedrock.class)
             .build();
 }

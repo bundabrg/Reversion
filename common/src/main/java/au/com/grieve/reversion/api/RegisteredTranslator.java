@@ -18,33 +18,6 @@
 
 package au.com.grieve.reversion.api;
 
-import com.nukkitx.protocol.bedrock.BedrockPacket;
-import com.nukkitx.protocol.bedrock.BedrockPacketCodec;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Singular;
-
-import java.util.Map;
-
-@Builder
-@Getter
-public class RegisteredTranslator {
-    private final String fromEdition;
-    private final int fromProtocolVersion;
-    private final String toEdition;
-    private final int toProtocolVersion;
-    private final BedrockPacketCodec codec;
-    private final Class<? extends Translator> translator;
-
-    @Singular("registerPacketHandler")
-    private final Map<Class<? extends BedrockPacket>, Class<? extends PacketHandler<? extends Translator, ? extends BedrockPacket>>> packetHandlers;
-
-    /**
-     * Get a name to identify this translator
-     *
-     * @return a string name
-     */
-    public String getName() {
-        return String.format("(%s:%d) -> (%s:%d)", fromEdition, fromProtocolVersion, toEdition, toProtocolVersion);
-    }
+public interface RegisteredTranslator {
+    String getName();
 }

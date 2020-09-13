@@ -18,9 +18,7 @@
 
 package au.com.grieve.reversion.editions.bedrock.mappers;
 
-import au.com.grieve.reversion.editions.bedrock.BedrockTranslator;
 import au.com.grieve.reversion.editions.bedrock.utils.VariableStore;
-import au.com.grieve.reversion.exceptions.MapperException;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.core.JsonFactory;
 import com.fasterxml.jackson.databind.JsonNode;
@@ -29,9 +27,8 @@ import com.nukkitx.nbt.NbtMap;
 import com.nukkitx.nbt.NbtMapBuilder;
 import com.nukkitx.nbt.NbtType;
 import com.nukkitx.protocol.bedrock.data.inventory.ItemData;
-import lombok.AccessLevel;
+import lombok.Builder;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -39,57 +36,130 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
+import java.util.function.Supplier;
+import java.util.stream.Collectors;
 
 /**
  * Simple Item Translator
  */
 @Getter
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class ItemMapper {
-    public static final ItemMapper DEFAULT = new ItemMapper();
+    public static final ItemMapper DEFAULT = ItemMapper.builder().build();
 
-    private final Map<Integer, List<MapConfig>> toUpstreamMap = new HashMap<>();
-    private final Map<Integer, List<MapConfig>> toDownstreamMap = new HashMap<>();
+    // Item Maps
+    private final Map<Integer, List<ItemConfig>> itemToUpstreamMap = new HashMap<>();
+    private final Map<Integer, List<ItemConfig>> itemToDownstreamMap = new HashMap<>();
 
-    public ItemMapper(InputStream stream) throws MapperException {
-        load(stream);
+    // Enchantment Map
+    private final Map<Short, List<EnchantmentConfig>> enchantmentMap = new HashMap<>();
+
+    // Item Palette Map
+    private final Map<Short, Short> runtimeIdToUpstreamMap = new HashMap<>();
+    private final Supplier<InputStream> itemMapper;
+    private final Supplier<InputStream> enchantmentMapper;
+    private final Supplier<InputStream> itemRuntimeMapper;
+    // Is this initialized
+    private boolean initialized;
+
+    @Builder
+    public ItemMapper(Supplier<InputStream> itemMapper, Supplier<InputStream> enchantmentMapper, Supplier<InputStream> itemRuntimeMapper) {
+        this.itemMapper = itemMapper;
+        this.enchantmentMapper = enchantmentMapper;
+        this.itemRuntimeMapper = itemRuntimeMapper;
+
+        init();
+    }
+
+    protected void init() {
+        if (initialized) {
+            return;
+        }
+
+        initialized = true;
+
+        if (itemMapper != null) {
+            initItemMapper(itemMapper.get());
+        }
+
+        if (enchantmentMapper != null) {
+            initEnchantmentMapper(enchantmentMapper.get());
+        }
+
+        if (itemRuntimeMapper != null) {
+            initRuntimeMapper(itemRuntimeMapper.get());
+        }
     }
 
 
-    public void load(InputStream stream) throws MapperException {
+    public void initItemMapper(InputStream stream) {
         ObjectMapper mapper = new ObjectMapper(new JsonFactory());
 
-        MapConfig[] mapConfigs;
+        ItemConfig[] itemConfigs;
         try {
-            mapConfigs = mapper.readValue(stream, MapConfig[].class);
+            itemConfigs = mapper.readValue(stream, ItemConfig[].class);
         } catch (IOException e) {
-            throw new MapperException("Unable load remap file", e);
+            throw new RuntimeException("Unable load ItemMapper file", e);
         }
 
-        for (MapConfig mapConfig : mapConfigs) {
-            if (!toUpstreamMap.containsKey(mapConfig.getDownstream().getId())) {
-                toUpstreamMap.put(mapConfig.getDownstream().getId(), new ArrayList<>());
+        for (ItemConfig itemConfig : itemConfigs) {
+            if (!itemToUpstreamMap.containsKey(itemConfig.getDownstream().getId())) {
+                itemToUpstreamMap.put(itemConfig.getDownstream().getId(), new ArrayList<>());
             }
 
-            this.toUpstreamMap.get(mapConfig.getDownstream().getId()).add(mapConfig);
+            this.itemToUpstreamMap.get(itemConfig.getDownstream().getId()).add(itemConfig);
 
-            if (!toDownstreamMap.containsKey(mapConfig.getUpstream().getId())) {
-                toDownstreamMap.put(mapConfig.getUpstream().getId(), new ArrayList<>());
+            if (!itemToDownstreamMap.containsKey(itemConfig.getUpstream().getId())) {
+                itemToDownstreamMap.put(itemConfig.getUpstream().getId(), new ArrayList<>());
             }
 
-            this.toDownstreamMap.get(mapConfig.getUpstream().getId()).add(mapConfig);
+            this.itemToDownstreamMap.get(itemConfig.getUpstream().getId()).add(itemConfig);
         }
     }
 
-    public ItemData mapItemDataToDownstream(BedrockTranslator translator, ItemData item) {
+    public void initEnchantmentMapper(InputStream stream) {
+        ObjectMapper mapper = new ObjectMapper(new JsonFactory());
+
+        EnchantmentConfig[] mapConfigs;
+        try {
+            mapConfigs = mapper.readValue(stream, EnchantmentConfig[].class);
+        } catch (IOException e) {
+            throw new RuntimeException("Unable load EnchantmentMapper file", e);
+        }
+
+        for (EnchantmentConfig mapConfig : mapConfigs) {
+            if (!enchantmentMap.containsKey(mapConfig.getDownstream().getId())) {
+                enchantmentMap.put(mapConfig.getDownstream().getId(), new ArrayList<>());
+            }
+
+            enchantmentMap.get(mapConfig.getDownstream().getId()).add(mapConfig);
+        }
+    }
+
+    public void initRuntimeMapper(InputStream stream) {
+        ObjectMapper mapper = new ObjectMapper(new JsonFactory());
+
+        ItemPaletteConfig[] mapConfigs;
+        try {
+            mapConfigs = mapper.readValue(stream, ItemPaletteConfig[].class);
+        } catch (IOException e) {
+            throw new RuntimeException("Unable load ItemPaletteMapper file", e);
+        }
+
+        for (ItemPaletteConfig mapConfig : mapConfigs) {
+            runtimeIdToUpstreamMap.put(mapConfig.getDownstream().getId(), mapConfig.getUpstream().getId());
+        }
+    }
+
+    public ItemData mapItemDataToDownstream(ItemData item) {
         if (item == null) {
             return null;
         }
 
-        for (MapConfig mapConfig : toDownstreamMap.getOrDefault(item.getId(), new ArrayList<>())) {
+        for (ItemConfig itemConfig : itemToDownstreamMap.getOrDefault(item.getId(), new ArrayList<>())) {
             VariableStore variableStore = new VariableStore();
 
-            if (!variableStore.compare(item.getDamage(), mapConfig.getUpstream().getData())) {
+            if (!variableStore.compare(item.getDamage(), itemConfig.getUpstream().getData())) {
                 continue;
             }
 
@@ -101,12 +171,12 @@ public class ItemMapper {
 //                tagBuilder.putCompound("display", NbtMap.builder().putString("Name", mapConfig.getUpstream().getName()).build());
 //                tag = tagBuilder.build();
 //            }
-            return ItemData.fromNet(item.getNetId(), mapConfig.getDownstream().getId(), (short) variableStore.get(mapConfig.getUpstream().getData()), item.getCount(), tag, item.getCanPlace(), item.getCanBreak(), item.getBlockingTicks());
+            return ItemData.fromNet(item.getNetId(), itemConfig.getDownstream().getId(), (short) variableStore.get(itemConfig.getUpstream().getData()), item.getCount(), tag, item.getCanPlace(), item.getCanBreak(), item.getBlockingTicks());
         }
         return item;
     }
 
-    public ItemData mapItemDataToUpstream(BedrockTranslator translator, ItemData item) {
+    public ItemData mapItemDataToUpstream(ItemData item) {
         if (item == null) {
             return null;
         }
@@ -115,41 +185,106 @@ public class ItemMapper {
 
         // Translate Enchantments
         if (item.getTag() != null && item.getTag().containsKey("ench")) {
-//            NbtMapBuilder tagBuilder = item.getTag().toBuilder();
-//            tagBuilder.remove("ench");
-//            NbtMap tag = tagBuilder.build();
-
             NbtMap tag = item.getTag().toBuilder()
-                    .putList("ench", NbtType.COMPOUND, translator.getEnchantmentMapper().mapEnchantmentNbtToUpstream(item.getTag().getList("ench", NbtType.COMPOUND)))
+                    .putList("ench", NbtType.COMPOUND, mapEnchantmentNbtToUpstream(item.getTag().getList("ench", NbtType.COMPOUND)))
                     .build();
             translated = ItemData.fromNet(item.getNetId(), item.getId(), item.getDamage(), item.getCount(), tag, item.getCanPlace(), item.getCanBreak(), item.getBlockingTicks());
         }
 
-        for (MapConfig mapConfig : toUpstreamMap.getOrDefault(translated.getId(), new ArrayList<>())) {
+        for (ItemConfig itemConfig : itemToUpstreamMap.getOrDefault(translated.getId(), new ArrayList<>())) {
             VariableStore variableStore = new VariableStore();
 
-            if (!variableStore.compare(translated.getDamage(), mapConfig.getDownstream().getData())) {
+            if (!variableStore.compare(translated.getDamage(), itemConfig.getDownstream().getData())) {
                 continue;
             }
 
             NbtMap tag = translated.getTag();
 
-            if (mapConfig.getUpstream().getName() != null) {
+            if (itemConfig.getUpstream().getName() != null) {
                 NbtMapBuilder tagBuilder = tag != null ? tag.toBuilder() : NbtMap.builder();
 
-                tagBuilder.putCompound("display", NbtMap.builder().putString("Name", mapConfig.getUpstream().getName()).build());
+                tagBuilder.putCompound("display", NbtMap.builder().putString("Name", itemConfig.getUpstream().getName()).build());
                 tag = tagBuilder.build();
             }
-            return ItemData.fromNet(translated.getNetId(), mapConfig.getUpstream().getId(),
-                    (short) variableStore.get(mapConfig.getUpstream().getData()), translated.getCount(),
+            return ItemData.fromNet(translated.getNetId(), itemConfig.getUpstream().getId(),
+                    (short) variableStore.get(itemConfig.getUpstream().getData()), translated.getCount(),
                     tag, translated.getCanPlace(), translated.getCanBreak(), translated.getBlockingTicks());
         }
         return translated;
     }
 
+    /**
+     * Translate a list of enchants
+     */
+    public List<NbtMap> mapEnchantmentNbtToUpstream(List<NbtMap> original) {
+        if (original == null) {
+            return null;
+        }
+
+        return original.stream()
+                .map(this::mapEnchantmentNbtToUpstream)
+                .filter(Objects::nonNull)
+                .collect(Collectors.toList());
+    }
+
+    /**
+     * Translate enchantment Nbt
+     *
+     * @param original original ItemData
+     * @return translated ItemData or null means removed
+     */
+    public NbtMap mapEnchantmentNbtToUpstream(NbtMap original) {
+        if (original == null) {
+            return null;
+        }
+
+        for (EnchantmentConfig mapConfig : enchantmentMap.getOrDefault(original.getShort("id"), new ArrayList<>())) {
+            VariableStore variableStore = new VariableStore();
+
+            if (variableStore.compare(original.getShort("lvl"), mapConfig.getDownstream().getLvl())) {
+                // No upstream means remove the enchantment
+                if (mapConfig.getUpstream() == null) {
+                    return null;
+                }
+
+                NbtMapBuilder builder = NbtMap.builder();
+                builder.putShort("id", mapConfig.getUpstream().getId());
+                builder.put("lvl", variableStore.get(mapConfig.getUpstream().getLvl()));
+                return builder.build();
+            }
+        }
+        return original;
+    }
+
+    public short mapRuntimeIdToUpstream(short original) {
+        return runtimeIdToUpstreamMap.getOrDefault(original, original);
+    }
+
+//    /**
+//     * This just simply replaces the id using the item palette map
+//     *
+//     * @param translator the associated translator
+//     * @param original   original item
+//     * @return translated item
+//     */
+//    public ItemData mapItemPaletteItemDataToUpstream(BedrockTranslator translator, ItemData original) {
+//        if (original == null) {
+//            return null;
+//        }
+//
+//        short id = Integer.valueOf(original.getId()).shortValue();
+//
+//        if (runtimeIdToUpstreamMap.containsKey(id)) {
+//            return ItemData.of(runtimeIdToUpstreamMap.get(id).intValue(), original.getDamage(), original.getCount(), original.getTag(),
+//                    original.getCanPlace(), original.getCanBreak(), original.getBlockingTicks());
+//        }
+//
+//        return original;
+//    }
+
     @Getter
     @JsonIgnoreProperties(ignoreUnknown = true)
-    public static class MapConfig {
+    public static class ItemConfig {
         Upstream upstream;
         Downstream downstream;
 
@@ -167,6 +302,46 @@ public class ItemMapper {
         public static class Downstream {
             int id;
             JsonNode data;
+        }
+    }
+
+    @Getter
+    @JsonIgnoreProperties(ignoreUnknown = true)
+    public static class EnchantmentConfig {
+        Upstream upstream;
+        Downstream downstream;
+
+        @Getter
+        @JsonIgnoreProperties(ignoreUnknown = true)
+        public static class Upstream {
+            short id;
+            JsonNode lvl;
+        }
+
+        @Getter
+        @JsonIgnoreProperties(ignoreUnknown = true)
+        public static class Downstream {
+            short id;
+            JsonNode lvl;
+        }
+    }
+
+    @Getter
+    @JsonIgnoreProperties(ignoreUnknown = true)
+    public static class ItemPaletteConfig {
+        Upstream upstream;
+        Downstream downstream;
+
+        @Getter
+        @JsonIgnoreProperties(ignoreUnknown = true)
+        public static class Upstream {
+            short id;
+        }
+
+        @Getter
+        @JsonIgnoreProperties(ignoreUnknown = true)
+        public static class Downstream {
+            short id;
         }
 
     }

@@ -35,7 +35,7 @@ public class AddEntityHandler_Bedrock extends PacketHandler<BedrockTranslator, A
         entity.setId(packet.getRuntimeEntityId());
         entity.setIdentifier(packet.getIdentifier());
         entity.getEntityData().putAll(packet.getMetadata());
-        entity = getTranslator().getEntityMapper().addEntityToUpstream(getTranslator(), entity);
+        entity = getTranslator().getRegisteredTranslator().getEntityMapper().addEntityToUpstream(getTranslator(), entity);
 
         packet.setIdentifier(entity.getIdentifier());
         packet.getMetadata().clear();

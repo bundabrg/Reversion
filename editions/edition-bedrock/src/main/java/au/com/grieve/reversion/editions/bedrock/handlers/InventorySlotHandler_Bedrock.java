@@ -30,7 +30,7 @@ public class InventorySlotHandler_Bedrock extends PacketHandler<BedrockTranslato
 
     @Override
     public boolean fromDownstream(InventorySlotPacket packet) {
-        packet.setItem(getTranslator().getItemMapper().mapItemDataToUpstream(getTranslator(), packet.getItem()));
+        packet.setItem(getTranslator().getRegisteredTranslator().getItemMapper().mapItemDataToUpstream(packet.getItem()));
         return false;
     }
 }

@@ -30,7 +30,7 @@ public class AddPlayerHandler_Bedrock extends PacketHandler<BedrockTranslator, A
 
     @Override
     public boolean fromDownstream(AddPlayerPacket packet) {
-        packet.setHand(getTranslator().getItemMapper().mapItemDataToUpstream(getTranslator(), packet.getHand()));
+        packet.setHand(getTranslator().getRegisteredTranslator().getItemMapper().mapItemDataToUpstream(packet.getHand()));
         return false;
     }
 }

@@ -25,6 +25,7 @@ import com.nukkitx.protocol.bedrock.BedrockPacketHelper;
 import com.nukkitx.protocol.bedrock.packet.MoveEntityDeltaPacket;
 import com.nukkitx.protocol.bedrock.v388.serializer.MoveEntityDeltaSerializer_v388;
 import io.netty.buffer.ByteBuf;
+import io.netty.buffer.ByteBufUtil;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 
@@ -58,14 +59,26 @@ public class MoveEntityDeltaSerializer_v409 extends MoveEntityDeltaSerializer_v3
 
         buffer.writeShortLE(flags);
 
-        if ((flags & HAS_X) != 0) {
-            VarInts.writeInt(buffer, packet.getMovementDelta().getX());
-        }
-        if ((flags & HAS_Y) != 0) {
-            VarInts.writeInt(buffer, packet.getMovementDelta().getY());
-        }
-        if ((flags & HAS_Z) != 0) {
-            VarInts.writeInt(buffer, packet.getMovementDelta().getZ());
+        if ((flags & HAS_FLOAT_POSITION) != 0) {
+            if ((flags & HAS_X) != 0) {
+                buffer.writeFloat(packet.getMovementDelta().getX());
+            }
+            if ((flags & HAS_Y) != 0) {
+                buffer.writeFloat(packet.getMovementDelta().getY());
+            }
+            if ((flags & HAS_Z) != 0) {
+                buffer.writeFloat(packet.getMovementDelta().getZ());
+            }
+        } else {
+            if ((flags & HAS_X) != 0) {
+                VarInts.writeInt(buffer, packet.getMovementDelta().getX());
+            }
+            if ((flags & HAS_Y) != 0) {
+                VarInts.writeInt(buffer, packet.getMovementDelta().getY());
+            }
+            if ((flags & HAS_Z) != 0) {
+                VarInts.writeInt(buffer, packet.getMovementDelta().getZ());
+            }
         }
 
         if ((flags & HAS_PITCH) != 0) {
@@ -77,10 +90,13 @@ public class MoveEntityDeltaSerializer_v409 extends MoveEntityDeltaSerializer_v3
         if ((flags & HAS_ROLL) != 0) {
             helper.writeByteAngle(buffer, rotationDelta.getZ());
         }
+
+        System.err.println("Serilize: \n" + ByteBufUtil.prettyHexDump(buffer));
     }
 
     @Override
     public void deserialize(ByteBuf buffer, BedrockPacketHelper helper, MoveEntityDeltaPacket packet) {
+        System.err.println("Deserialize: \n" + ByteBufUtil.prettyHexDump(buffer));
         packet.setRuntimeEntityId(VarInts.readUnsignedLong(buffer));
         short flags = buffer.readShortLE();
         int x = 0, y = 0, z = 0;

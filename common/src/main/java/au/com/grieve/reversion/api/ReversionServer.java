@@ -28,23 +28,21 @@ import java.net.InetSocketAddress;
 
 @Getter
 public abstract class ReversionServer extends BedrockServer {
-    private final String toEdition;
     private final BedrockPacketCodec toCodec;
     private final EventLoopGroup eventLoopGroup;
 
-    public ReversionServer(String toEdition, BedrockPacketCodec toCodec, InetSocketAddress address) {
-        this(toEdition, toCodec, address, 1);
+    public ReversionServer(BedrockPacketCodec toCodec, InetSocketAddress address) {
+        this(toCodec, address, 1);
     }
 
-    public ReversionServer(String toEdition, BedrockPacketCodec toCodec, InetSocketAddress address, int maxThreads) {
-        this(toEdition, toCodec, address, maxThreads, EventLoops.commonGroup());
+    public ReversionServer(BedrockPacketCodec toCodec, InetSocketAddress address, int maxThreads) {
+        this(toCodec, address, maxThreads, EventLoops.commonGroup());
     }
 
-    public ReversionServer(String toEdition, BedrockPacketCodec toCodec, InetSocketAddress address, int maxThreads, EventLoopGroup eventLoopGroup) {
+    public ReversionServer(BedrockPacketCodec toCodec, InetSocketAddress address, int maxThreads, EventLoopGroup eventLoopGroup) {
         super(address, maxThreads, eventLoopGroup);
 
         this.eventLoopGroup = eventLoopGroup;
-        this.toEdition = toEdition;
         this.toCodec = toCodec;
     }
 }

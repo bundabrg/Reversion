@@ -51,20 +51,21 @@ import java.util.stream.Collectors;
 @Getter
 public class BedrockReversionServer extends ReversionServer {
     private final String fromEdition = "bedrock";
+    private final String toEdition = "bedrock";
 
     // Supported Translators
     private final List<BedrockRegisteredTranslator> registeredTranslators = new ArrayList<>();
 
-    public BedrockReversionServer(String toEdition, BedrockPacketCodec toCodec, InetSocketAddress address) {
-        this(toEdition, toCodec, address, 1);
+    public BedrockReversionServer(BedrockPacketCodec toCodec, InetSocketAddress address) {
+        this(toCodec, address, 1);
     }
 
-    public BedrockReversionServer(String toEdition, BedrockPacketCodec toCodec, InetSocketAddress address, int maxThreads) {
-        this(toEdition, toCodec, address, maxThreads, EventLoops.commonGroup());
+    public BedrockReversionServer(BedrockPacketCodec toCodec, InetSocketAddress address, int maxThreads) {
+        this(toCodec, address, maxThreads, EventLoops.commonGroup());
     }
 
-    public BedrockReversionServer(String toEdition, BedrockPacketCodec toCodec, InetSocketAddress address, int maxThreads, EventLoopGroup eventLoopGroup) {
-        super(toEdition, toCodec, address, maxThreads, eventLoopGroup);
+    public BedrockReversionServer(BedrockPacketCodec toCodec, InetSocketAddress address, int maxThreads, EventLoopGroup eventLoopGroup) {
+        super(toCodec, address, maxThreads, eventLoopGroup);
 
         getRakNet().setListener(createRakNetServerListener());
     }

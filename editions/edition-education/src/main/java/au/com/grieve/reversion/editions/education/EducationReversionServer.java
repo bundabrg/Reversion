@@ -36,18 +36,19 @@ import java.net.InetSocketAddress;
 @Getter
 public class EducationReversionServer extends BedrockReversionServer {
     private final String fromEdition = "education";
+    private final String toEdition = "bedrock";
     private final TokenManager tokenManager;
 
-    public EducationReversionServer(String toEdition, BedrockPacketCodec toCodec, TokenManager tokenManager, InetSocketAddress address) {
-        this(toEdition, toCodec, tokenManager, address, 1);
+    public EducationReversionServer(BedrockPacketCodec toCodec, TokenManager tokenManager, InetSocketAddress address) {
+        this(toCodec, tokenManager, address, 1);
     }
 
-    public EducationReversionServer(String toEdition, BedrockPacketCodec toCodec, TokenManager tokenManager, InetSocketAddress address, int maxThreads) {
-        this(toEdition, toCodec, tokenManager, address, maxThreads, EventLoops.commonGroup());
+    public EducationReversionServer(BedrockPacketCodec toCodec, TokenManager tokenManager, InetSocketAddress address, int maxThreads) {
+        this(toCodec, tokenManager, address, maxThreads, EventLoops.commonGroup());
     }
 
-    public EducationReversionServer(String edition, BedrockPacketCodec codec, TokenManager tokenManager, InetSocketAddress address, int maxThreads, EventLoopGroup eventLoopGroup) {
-        super(edition, codec, address, maxThreads, eventLoopGroup);
+    public EducationReversionServer(BedrockPacketCodec codec, TokenManager tokenManager, InetSocketAddress address, int maxThreads, EventLoopGroup eventLoopGroup) {
+        super(codec, address, maxThreads, eventLoopGroup);
 
         this.tokenManager = tokenManager;
     }

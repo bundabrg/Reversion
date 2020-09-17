@@ -27,9 +27,12 @@ import com.nukkitx.protocol.bedrock.packet.StartGamePacket;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class StartGameHandler_Bedrock extends PacketHandler<BedrockTranslator, StartGamePacket> {
+    protected boolean initialized = false;
 
     public StartGameHandler_Bedrock(BedrockTranslator translator) {
         super(translator);
@@ -52,4 +55,47 @@ public class StartGameHandler_Bedrock extends PacketHandler<BedrockTranslator, S
         );
         return false;
     }
+
+    @Override
+    public boolean fromServer(StartGamePacket packet) {
+        // Generate runtime Id from palette as we can't assume the server is sending them in canonical order
+        if (!initialized) {
+            initialized = true;
+
+            NbtList<NbtMap> geyserTags = packet.getBlockPalette();
+
+            Map<Integer, NbtMap> translatedTags = IntStream.range(0, getTranslator().getRegisteredTranslator().getBlockMapper().getUpstreamPalette().size())
+                    .boxed()
+                    .collect(Collectors.toMap(i -> i, i -> getTranslator().getRegisteredTranslator().getBlockMapper().getUpstreamPalette().get(i).getCompound("block")));
+
+            for (int geyserId = 0; geyserId < geyserTags.size(); geyserId++) {
+                NbtMap geyserTag = geyserTags.get(geyserId).getCompound("block");
+                boolean found = false;
+                for (Map.Entry<Integer, NbtMap> entry : translatedTags.entrySet()) {
+                    if (geyserTag.equals(entry.getValue())) {
+                        getTranslator().getRegisteredTranslator().getBlockMapper().registerRuntimeIdMapping(geyserId, entry.getKey());
+                        found = true;
+                        translatedTags.remove(entry.getKey());
+                        break;
+                    }
+                }
+                if (!found) {
+                    // TODO Log unfound for debugging?
+//                    GeyserReversionExtension.getInstance().getLogger().error("Unable to find upstream palette entry: " + geyserTag);
+                    getTranslator().getRegisteredTranslator().getBlockMapper().registerRuntimeIdMapping(geyserId, 0); // Set to 0 for now
+                }
+                if (translatedTags.size() == 0) {
+                    break;
+                }
+            }
+
+            // TODO - Add extra in
+//            if (translatedTags.size() > 0) {
+//                GeyserReversionExtension.getInstance().getLogger().error("Extra upstream unmatched palette entries: \n" + translatedTags);
+//            }
+        }
+
+        return super.fromServer(packet);
+    }
+
 }

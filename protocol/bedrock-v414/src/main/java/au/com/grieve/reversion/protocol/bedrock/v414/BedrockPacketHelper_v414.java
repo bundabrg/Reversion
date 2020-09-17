@@ -53,6 +53,11 @@ public class BedrockPacketHelper_v414 extends BedrockPacketHelper_v411 {
         }
 
         // TODO - 0x01 0x00 0x00 0x00
+//
+//        byte[] t = new byte[4];
+//        ByteBuf b2 = Unpooled.buffer(64);
+//        buffer.readBytes(b2, 4);
+//        System.err.println(ByteBufUtil.prettyHexDump(b2));
         buffer.readIntLE();
 
         ImageData capeData = this.readImage(buffer);

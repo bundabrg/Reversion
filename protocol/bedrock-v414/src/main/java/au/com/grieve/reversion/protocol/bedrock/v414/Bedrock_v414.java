@@ -24,6 +24,7 @@ import au.com.grieve.reversion.protocol.bedrock.v414.serializer.ContainerCloseSe
 import au.com.grieve.reversion.protocol.bedrock.v414.serializer.ItemStackResponseSerializer_v414;
 import au.com.grieve.reversion.protocol.bedrock.v414.serializer.MovePlayerSerializer_v414;
 import au.com.grieve.reversion.protocol.bedrock.v414.serializer.PlayerAuthInputSerializer_v414;
+import au.com.grieve.reversion.protocol.bedrock.v414.serializer.PlayerListSerializer_v414;
 import au.com.grieve.reversion.protocol.bedrock.v414.serializer.ResourcePackStackSerializer_v414;
 import au.com.grieve.reversion.protocol.bedrock.v414.serializer.SetEntityDataSerializer_v414;
 import au.com.grieve.reversion.protocol.bedrock.v414.serializer.StartGameSerializer_v414;
@@ -302,7 +303,6 @@ import com.nukkitx.protocol.bedrock.v388.serializer.SettingsCommandSerializer_v3
 import com.nukkitx.protocol.bedrock.v388.serializer.StructureBlockUpdateSerializer_v388;
 import com.nukkitx.protocol.bedrock.v388.serializer.StructureTemplateDataResponseSerializer_v388;
 import com.nukkitx.protocol.bedrock.v388.serializer.TickSyncSerializer_v388;
-import com.nukkitx.protocol.bedrock.v390.serializer.PlayerListSerializer_v390;
 import com.nukkitx.protocol.bedrock.v390.serializer.PlayerSkinSerializer_v390;
 import com.nukkitx.protocol.bedrock.v407.serializer.CodeBuilderSerializer_v407;
 import com.nukkitx.protocol.bedrock.v407.serializer.CraftingDataSerializer_v407;
@@ -392,7 +392,7 @@ public class Bedrock_v414 {
             .registerPacket(SetDifficultyPacket.class, SetDifficultySerializer_v291.INSTANCE, 60)
             .registerPacket(ChangeDimensionPacket.class, ChangeDimensionSerializer_v291.INSTANCE, 61)
             .registerPacket(SetPlayerGameTypePacket.class, SetPlayerGameTypeSerializer_v291.INSTANCE, 62)
-            .registerPacket(PlayerListPacket.class, PlayerListSerializer_v390.INSTANCE, 63)
+            .registerPacket(PlayerListPacket.class, PlayerListSerializer_v414.INSTANCE, 63)
             .registerPacket(SimpleEventPacket.class, SimpleEventSerializer_v291.INSTANCE, 64)
             .registerPacket(EventPacket.class, EventSerializer_v388.INSTANCE, 65)
             .registerPacket(SpawnExperienceOrbPacket.class, SpawnExperienceOrbSerializer_v291.INSTANCE, 66)

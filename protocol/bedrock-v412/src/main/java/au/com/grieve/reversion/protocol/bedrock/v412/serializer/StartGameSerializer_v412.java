@@ -22,6 +22,7 @@ import com.nukkitx.nbt.NbtList;
 import com.nukkitx.nbt.NbtType;
 import com.nukkitx.network.VarInts;
 import com.nukkitx.protocol.bedrock.BedrockPacketHelper;
+import com.nukkitx.protocol.bedrock.data.AuthoritativeMovementMode;
 import com.nukkitx.protocol.bedrock.data.GamePublishSetting;
 import com.nukkitx.protocol.bedrock.data.GameType;
 import com.nukkitx.protocol.bedrock.data.SpawnBiomeType;
@@ -92,7 +93,7 @@ public class StartGameSerializer_v412 extends StartGameSerializer_v361 {
         helper.writeString(buffer, packet.getLevelName());
         helper.writeString(buffer, packet.getPremiumWorldTemplateId());
         buffer.writeBoolean(packet.isTrial());
-        buffer.writeBoolean(packet.isMovementServerAuthoritative());
+        buffer.writeBoolean(packet.getAuthoritativeMovementMode() != AuthoritativeMovementMode.CLIENT);
         buffer.writeLongLE(packet.getCurrentTick());
         VarInts.writeInt(buffer, packet.getEnchantmentSeed());
 
@@ -168,7 +169,7 @@ public class StartGameSerializer_v412 extends StartGameSerializer_v361 {
         packet.setLevelName(helper.readString(buffer));
         packet.setPremiumWorldTemplateId(helper.readString(buffer));
         packet.setTrial(buffer.readBoolean());
-        packet.setMovementServerAuthoritative(buffer.readBoolean());
+        packet.setAuthoritativeMovementMode(buffer.readBoolean() ? AuthoritativeMovementMode.SERVER : AuthoritativeMovementMode.CLIENT);
         packet.setCurrentTick(buffer.readLongLE());
 
         System.err.println(ByteBufUtil.prettyHexDump(buffer));

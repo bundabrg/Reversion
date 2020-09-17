@@ -130,6 +130,11 @@ public class BedrockReversionSession extends ReversionSession {
         toClient(packet);
     }
 
+    // TODO all packets are immediate for now
+    @Override
+    public void sendPacketImmediately(BedrockPacket packet) {
+        sendPacket(packet);
+    }
 
     @Getter
     public class ReversionBatchHandler implements BatchHandler {

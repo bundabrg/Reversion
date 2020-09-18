@@ -212,11 +212,15 @@ public class ItemMapper {
                 tagBuilder.putCompound("display", NbtMap.builder().putString("Name", itemConfig.getUpstream().getName()).build());
                 tag = tagBuilder.build();
             }
+
             return ItemData.fromNet(translated.getNetId(), mapItemIdToUpstream((short) itemConfig.getUpstream().getId()),
                     (short) variableStore.get(itemConfig.getUpstream().getData()), translated.getCount(),
                     tag, translated.getCanPlace(), translated.getCanBreak(), translated.getBlockingTicks());
         }
-        return translated;
+
+        return ItemData.fromNet(translated.getNetId(), mapItemIdToUpstream((short) translated.getId()),
+                translated.getDamage(), translated.getCount(),
+                translated.getTag(), translated.getCanPlace(), translated.getCanBreak(), translated.getBlockingTicks());
     }
 
     /**

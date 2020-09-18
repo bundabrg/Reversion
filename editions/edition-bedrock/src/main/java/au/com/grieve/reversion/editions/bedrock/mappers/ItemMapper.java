@@ -1,19 +1,25 @@
 /*
- * Reversion - Minecraft Protocol Support for Bedrock
- * Copyright (C) 2020 Reversion Developers
+ * MIT License
  *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
+ * Copyright (c) 2020 Reversion Developers
  *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
  *
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
  */
 
 package au.com.grieve.reversion.editions.bedrock.mappers;
@@ -55,10 +61,10 @@ public class ItemMapper {
     private final Map<Short, List<EnchantmentConfig>> enchantmentMap = new HashMap<>();
 
     // Item Palette Map
-    private final Map<Short, Short> runtimeIdToUpstreamMap = new HashMap<>();
+    private final Map<Short, Short> itemIdToUpstreamMap = new HashMap<>();
     private final Supplier<InputStream> itemMapper;
     private final Supplier<InputStream> enchantmentMapper;
-    private final Supplier<InputStream> itemRuntimeMapper;
+    private final Supplier<InputStream> itemIdMapper;
     // Is this initialized
     private boolean initialized;
 
@@ -66,7 +72,7 @@ public class ItemMapper {
     public ItemMapper(Supplier<InputStream> itemMapper, Supplier<InputStream> enchantmentMapper, Supplier<InputStream> itemRuntimeMapper) {
         this.itemMapper = itemMapper;
         this.enchantmentMapper = enchantmentMapper;
-        this.itemRuntimeMapper = itemRuntimeMapper;
+        this.itemIdMapper = itemRuntimeMapper;
 
         init();
     }
@@ -86,8 +92,8 @@ public class ItemMapper {
             initEnchantmentMapper(enchantmentMapper.get());
         }
 
-        if (itemRuntimeMapper != null) {
-            initRuntimeMapper(itemRuntimeMapper.get());
+        if (itemIdMapper != null) {
+            initItemIdMapper(itemIdMapper.get());
         }
     }
 
@@ -136,18 +142,18 @@ public class ItemMapper {
         }
     }
 
-    public void initRuntimeMapper(InputStream stream) {
+    public void initItemIdMapper(InputStream stream) {
         ObjectMapper mapper = new ObjectMapper(new JsonFactory());
 
         ItemPaletteConfig[] mapConfigs;
         try {
             mapConfigs = mapper.readValue(stream, ItemPaletteConfig[].class);
         } catch (IOException e) {
-            throw new RuntimeException("Unable load ItemPaletteMapper file", e);
+            throw new RuntimeException("Unable load ItemIdMapper file", e);
         }
 
         for (ItemPaletteConfig mapConfig : mapConfigs) {
-            runtimeIdToUpstreamMap.put(mapConfig.getDownstream().getId(), mapConfig.getUpstream().getId());
+            itemIdToUpstreamMap.put(mapConfig.getDownstream().getId(), mapConfig.getUpstream().getId());
         }
     }
 
@@ -206,7 +212,7 @@ public class ItemMapper {
                 tagBuilder.putCompound("display", NbtMap.builder().putString("Name", itemConfig.getUpstream().getName()).build());
                 tag = tagBuilder.build();
             }
-            return ItemData.fromNet(translated.getNetId(), itemConfig.getUpstream().getId(),
+            return ItemData.fromNet(translated.getNetId(), mapItemIdToUpstream((short) itemConfig.getUpstream().getId()),
                     (short) variableStore.get(itemConfig.getUpstream().getData()), translated.getCount(),
                     tag, translated.getCanPlace(), translated.getCanBreak(), translated.getBlockingTicks());
         }
@@ -256,31 +262,10 @@ public class ItemMapper {
         return original;
     }
 
-    public short mapRuntimeIdToUpstream(short original) {
-        return runtimeIdToUpstreamMap.getOrDefault(original, original);
+    public short mapItemIdToUpstream(short original) {
+        return itemIdToUpstreamMap.getOrDefault(original, original);
     }
 
-//    /**
-//     * This just simply replaces the id using the item palette map
-//     *
-//     * @param translator the associated translator
-//     * @param original   original item
-//     * @return translated item
-//     */
-//    public ItemData mapItemPaletteItemDataToUpstream(BedrockTranslator translator, ItemData original) {
-//        if (original == null) {
-//            return null;
-//        }
-//
-//        short id = Integer.valueOf(original.getId()).shortValue();
-//
-//        if (runtimeIdToUpstreamMap.containsKey(id)) {
-//            return ItemData.of(runtimeIdToUpstreamMap.get(id).intValue(), original.getDamage(), original.getCount(), original.getTag(),
-//                    original.getCanPlace(), original.getCanBreak(), original.getBlockingTicks());
-//        }
-//
-//        return original;
-//    }
 
     @Getter
     @JsonIgnoreProperties(ignoreUnknown = true)

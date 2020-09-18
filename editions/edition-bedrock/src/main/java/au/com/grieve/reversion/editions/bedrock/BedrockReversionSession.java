@@ -1,19 +1,25 @@
 /*
- * Reversion - Minecraft Protocol Support for Bedrock
- * Copyright (C) 2020 Reversion Developers
+ * MIT License
  *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
+ * Copyright (c) 2020 Reversion Developers
  *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
  *
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
  */
 
 package au.com.grieve.reversion.editions.bedrock;
@@ -36,7 +42,9 @@ import io.netty.util.internal.logging.InternalLogger;
 import io.netty.util.internal.logging.InternalLoggerFactory;
 import lombok.Getter;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 import java.util.concurrent.ConcurrentLinkedDeque;
 
 
@@ -53,10 +61,13 @@ public class BedrockReversionSession extends ReversionSession {
     private Translator translator;
     private LoginData loginData;
 
+    protected final EventLoop eventLoop;
+
     public BedrockReversionSession(BedrockReversionServer server, RakNetSession connection, EventLoop eventLoop, BedrockWrapperSerializer serializer) {
         super(connection, eventLoop, serializer);
 
         this.server = server;
+        this.eventLoop = eventLoop;
         setBatchHandler(new ReversionBatchHandler());
         getFromClientHandlers().add(new LoginHandler());
     }
@@ -75,8 +86,7 @@ public class BedrockReversionSession extends ReversionSession {
             }
         }
 
-        super.sendPacket(packet);
-        return true;
+        return false;
     }
 
     @Override
@@ -101,27 +111,29 @@ public class BedrockReversionSession extends ReversionSession {
         setPacketCodec(translator.getCodec());
     }
 
-    /**
-     * Send packets through translation chain
-     *
-     * @param packet packet to send
-     */
     @Override
-    public void sendPacket(BedrockPacket packet) {
-        // Take care of fromServer Handlers
-        for (BedrockPacketHandler handler : getFromServerHandlers()) {
-            if (packet.handle(handler)) {
-                return;
+    public void sendWrapped(Collection<BedrockPacket> packets, boolean encrypt) {
+        List<BedrockPacket> translated = new ArrayList<>();
+
+        // Translate all the packets, removing any that are handled
+        outer:
+        for (BedrockPacket packet : packets) {
+
+            // Take care of fromServer Handlers
+            for (BedrockPacketHandler handler : getFromServerHandlers()) {
+                if (packet.handle(handler)) {
+                    continue outer;
+                }
             }
+
+            if (translator != null && translator.getServerTranslator().fromServer(packet)) {
+                continue;
+            }
+
+            translated.add(packet);
         }
 
-        if (translator != null) {
-            translator.getServerTranslator().fromServer(packet);
-            return;
-        }
-
-        // Else send them directly
-        toClient(packet);
+        super.sendWrapped(translated, encrypt);
     }
 
 

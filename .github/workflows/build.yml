@@ -43,7 +43,6 @@ jobs:
           mvn -B package --file pom.xml
 
       - name: Publish to Maven Repo
-        if: (github.ref == 'refs/heads/master' || startsWith(github.ref,'refs/tags/v'))
         run: mvn deploy -s $GITHUB_WORKSPACE/settings.xml
         env:
           GITHUB_TOKEN: ${{ github.token }}

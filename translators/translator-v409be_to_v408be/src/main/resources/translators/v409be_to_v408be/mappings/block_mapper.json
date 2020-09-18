@@ -1,0 +1,34 @@
+[
+  {
+    "downstream": {
+      "name": "minecraft:bee_nest",
+      "states": {
+        "facing_direction": "%facing_direction%",
+        "honey_level": "%honey_level%"
+      }
+    },
+    "upstream": {
+      "name": "minecraft:bee_nest",
+      "states": {
+        "direction": "%facing_direction%",
+        "honey_level": "%honey_level%"
+      }
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:beehive",
+      "states": {
+        "facing_direction": "%facing_direction%",
+        "honey_level": "%honey_level%"
+      }
+    },
+    "upstream": {
+      "name": "minecraft:beehive",
+      "states": {
+        "direction": "%facing_direction%",
+        "honey_level": "%honey_level%"
+      }
+    }
+  }
+]

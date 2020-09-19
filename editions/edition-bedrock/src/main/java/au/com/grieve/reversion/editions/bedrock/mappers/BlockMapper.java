@@ -76,9 +76,14 @@ public class BlockMapper {
     private final Supplier<InputStream> palette;
     private final Supplier<InputStream> blockMapper;
     private final Supplier<InputStream> runtimeMapper;
+
     // Debug - When set we will output a mapping to bake in as the RuntimeId Map
     private final String debugName;
+    private final boolean debug;
+
+    // Downstream Palette. Only needed if we have no runtimeId map
     private final Supplier<InputStream> downstreamPalette;
+
     // Our Block Version
     int version;
     // Are we initialized?
@@ -88,12 +93,13 @@ public class BlockMapper {
 
     @Builder
     public BlockMapper(Supplier<InputStream> palette, Supplier<InputStream> downstreamPalette, Supplier<InputStream> blockMapper,
-                       Supplier<InputStream> runtimeMapper, String debugName) {
+                       Supplier<InputStream> runtimeMapper, String debugName, Boolean debug) {
         this.palette = palette;
         this.downstreamPalette = downstreamPalette;
         this.blockMapper = blockMapper;
         this.runtimeMapper = runtimeMapper;
         this.debugName = debugName;
+        this.debug = debug;
 
         init();
     }
@@ -124,7 +130,7 @@ public class BlockMapper {
                     initRuntimeIdMapFromPalette(upstreamPalette, downstreamTags);
                 }
 
-                if (debugName != null) {
+                if (debug && debugName != null) {
                     // TODO Remove this to its own tool. For now it writes files to bake in stuff for speed and memory
                     debugDump(debugName);
                 }
@@ -233,16 +239,14 @@ public class BlockMapper {
             }
 
             if (!found) {
-                // TODO Better debug
-                if (debugName != null) {
+                if (debug) {
                     System.out.println("Unable to find upstream palette entry: " + translatedDownstreamTag);
                 }
             }
         }
 
         if (unusedMap.size() > 0) {
-            // TODO Better debug
-            if (debugName != null) {
+            if (debug) {
                 System.out.println("Extra upstream unmatched palette entries: \n" + unusedMap);
             }
         }
@@ -272,7 +276,9 @@ public class BlockMapper {
             }
         }
 
-        try (FileOutputStream fos = new FileOutputStream(new File(name + "-runtime_mapper.json"))) {
+        File outFile = new File(name + "-runtime_mapper.json");
+        System.out.println("Writing RuntimeIdMap to: " + outFile);
+        try (FileOutputStream fos = new FileOutputStream(outFile)) {
             mapper.writeValue(fos, runtimeConfigs);
         } catch (IOException e) {
             throw new RuntimeException(e);

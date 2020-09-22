@@ -32,6 +32,7 @@ import au.com.grieve.reversion.exceptions.TranslatorException;
 import com.nukkitx.network.raknet.RakNetSession;
 import com.nukkitx.protocol.bedrock.BedrockPacket;
 import com.nukkitx.protocol.bedrock.BedrockSession;
+import com.nukkitx.protocol.bedrock.annotation.NoEncryption;
 import com.nukkitx.protocol.bedrock.handler.BatchHandler;
 import com.nukkitx.protocol.bedrock.handler.BedrockPacketHandler;
 import com.nukkitx.protocol.bedrock.packet.LoginPacket;
@@ -42,9 +43,12 @@ import io.netty.util.internal.logging.InternalLogger;
 import io.netty.util.internal.logging.InternalLoggerFactory;
 import lombok.Getter;
 
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
+import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedDeque;
 
 
@@ -63,6 +67,8 @@ public class BedrockReversionSession extends ReversionSession {
 
     protected final EventLoop eventLoop;
 
+    protected final Field queuedPacketsField;
+
     public BedrockReversionSession(BedrockReversionServer server, RakNetSession connection, EventLoop eventLoop, BedrockWrapperSerializer serializer) {
         super(connection, eventLoop, serializer);
 
@@ -70,6 +76,13 @@ public class BedrockReversionSession extends ReversionSession {
         this.eventLoop = eventLoop;
         setBatchHandler(new ReversionBatchHandler());
         getFromClientHandlers().add(new LoginHandler());
+
+        try {
+            queuedPacketsField = BedrockSession.class.getDeclaredField("queuedPackets");
+        } catch (NoSuchFieldException e) {
+            throw new RuntimeException(e);
+        }
+        queuedPacketsField.setAccessible(true);
     }
 
     @Override
@@ -109,6 +122,23 @@ public class BedrockReversionSession extends ReversionSession {
     public void setTranslator(Translator translator) {
         this.translator = translator;
         setPacketCodec(translator.getCodec());
+    }
+
+    @Override
+    public void sendPacket(BedrockPacket packet) {
+        try {
+            @SuppressWarnings("unchecked")
+            Queue<BedrockPacket> queuedPackets = (Queue<BedrockPacket>) queuedPacketsField.get(this);
+
+            queuedPackets.add(packet);
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void sendPacketImmediately(BedrockPacket packet) {
+        this.sendWrapped(Collections.singletonList(packet), !packet.getClass().isAnnotationPresent(NoEncryption.class));
     }
 
     @Override

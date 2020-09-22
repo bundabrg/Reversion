@@ -70,7 +70,7 @@ public class Register_v411be_to_v409be {
             .codec(Bedrock_v411.V411_CODEC)
             .translator(BedrockTranslator.class)
             .blockMapper(BlockMapper.builder()
-                    .palette(() -> Register_v411be_to_v409be.class.getResourceAsStream("/protocol/bedrock-v409/blockpalette.nbt"))
+                    .upstreamPalette(() -> Register_v411be_to_v409be.class.getResourceAsStream("/protocol/bedrock-v409/blockpalette.nbt"))
                     .build()
             )
             .itemMapper(ItemMapper.DEFAULT)

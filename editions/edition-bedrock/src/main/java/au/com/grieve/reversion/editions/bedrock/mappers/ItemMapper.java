@@ -92,9 +92,9 @@ public class ItemMapper {
     private boolean initialized;
 
     @Builder
-    public ItemMapper(Supplier<InputStream> palette, Supplier<InputStream> downstreamPalette, Supplier<InputStream> itemMapper,
+    public ItemMapper(Supplier<InputStream> upstreamPalette, Supplier<InputStream> downstreamPalette, Supplier<InputStream> itemMapper,
                       Supplier<InputStream> enchantmentMapper, Supplier<InputStream> runtimeMapper, String debugName, Boolean debug) {
-        this.upstreamPaletteSupplier = palette;
+        this.upstreamPaletteSupplier = upstreamPalette;
         this.downstreamPaletteSupplier = downstreamPalette;
 
         this.runtimeItemMapperSupplier = runtimeMapper;

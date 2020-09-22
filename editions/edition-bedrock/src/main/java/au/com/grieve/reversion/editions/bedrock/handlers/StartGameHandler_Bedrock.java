@@ -26,6 +26,7 @@ package au.com.grieve.reversion.editions.bedrock.handlers;
 
 import au.com.grieve.reversion.api.PacketHandler;
 import au.com.grieve.reversion.editions.bedrock.BedrockTranslator;
+import au.com.grieve.reversion.editions.bedrock.mappers.BlockMapper;
 import com.nukkitx.nbt.NbtList;
 import com.nukkitx.nbt.NbtMap;
 import com.nukkitx.nbt.NbtType;
@@ -36,7 +37,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class StartGameHandler_Bedrock extends PacketHandler<BedrockTranslator, StartGamePacket> {
-    protected boolean initialized = false;
+    protected static boolean initialized;
 
     public StartGameHandler_Bedrock(BedrockTranslator translator) {
         super(translator);
@@ -62,16 +63,17 @@ public class StartGameHandler_Bedrock extends PacketHandler<BedrockTranslator, S
 
     @Override
     public boolean fromServer(StartGamePacket packet) {
-        // Generate runtime Id from palette as we can't assume the server is sending them in canonical order
         if (!initialized) {
             initialized = true;
-
-            NbtList<NbtMap> geyserTags = packet.getBlockPalette();
-
-            getTranslator().getRegisteredTranslator().getBlockMapper().initRuntimeIdMapFromPalette(geyserTags);
+            // We can't assume the palette is in any specific order so any packet received directly from the server will
+            // be compared to the downstream block palette and an additional remapping will be provided
+            BlockMapper blockMapper = getTranslator().getRegisteredTranslator().getBlockMapper();
+            BlockMapper preMapper = BlockMapper.builder()
+                    .upstreamPalette(blockMapper.getDownstreamPaletteSupplier())
+                    .build();
+            blockMapper.getPreMapper().add(preMapper);
+            preMapper.initRuntimeIdMap(packet.getBlockPalette());
         }
-
         return super.fromServer(packet);
     }
-
 }

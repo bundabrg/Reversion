@@ -70,15 +70,21 @@ public class Register_v409be_to_v408be {
             .codec(Bedrock_v409.V409_CODEC)
             .translator(BedrockTranslator.class)
             .blockMapper(BlockMapper.builder()
-                    .palette(() -> Register_v409be_to_v408be.class.getResourceAsStream("/protocol/bedrock-v409/blockpalette.nbt"))
-                    .blockMapper(() -> Register_v409be_to_v408be.class.getResourceAsStream("/translators/v409be_to_v408be/mappings/block_mapper.json"))
-                    .build()
+                            .upstreamPalette(() -> Register_v409be_to_v408be.class.getResourceAsStream("/protocol/bedrock-v409/blockpalette.nbt"))
+                            .downstreamPalette(() -> Register_v409be_to_v408be.class.getResourceAsStream("/protocol/bedrock-v408/blockpalette.nbt"))
+                            .runtimeMapper(() -> Register_v409be_to_v408be.class.getResourceAsStream("/translators/v409be_to_v408be/mappings/runtime_block_mapper.json"))
+
+//                    .blockMapper(() -> Register_v409be_to_v408be.class.getResourceAsStream("/translators/v409be_to_v408be/mappings/block_mapper.json"))
+//                    .debugName("v409be_to_v408be")
+//                    .debug(true)
+
+                            .build()
             )
             .itemMapper(ItemMapper.builder()
-                            .palette(() -> Register_v409be_to_v408be.class.getResourceAsStream("/protocol/bedrock-v409/itempalette.json"))
+                            .upstreamPalette(() -> Register_v409be_to_v408be.class.getResourceAsStream("/protocol/bedrock-v409/itempalette.json"))
                             .runtimeMapper(() -> Register_v409be_to_v408be.class.getResourceAsStream("/translators/v409be_to_v408be/mappings/runtime_item_mapper.json"))
+                            .downstreamPalette(() -> Register_v409be_to_v408be.class.getResourceAsStream("/protocol/bedrock-v408/itempalette.json"))
 
-//                    .downstreamPalette(() -> Register_v409be_to_v408be.class.getResourceAsStream("/protocol/bedrock-v408/itempalette.json"))
 //                    .debugName("v409be_to_v408be")
 //                    .debug(true)
 

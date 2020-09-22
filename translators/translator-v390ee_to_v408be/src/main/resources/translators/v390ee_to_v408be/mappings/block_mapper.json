@@ -123,9 +123,7 @@
     "upstream": {
       "name": "minecraft:wool",
       "states": {
-        "color": {
-          "string": "cyan"
-        }
+        "color": "cyan"
       }
     }
   },
@@ -868,7 +866,6 @@
     "downstream": {
       "name": "minecraft:blackstone_wall",
       "states": {
-        "wall_block_type": "%wall_block_type%",
         "wall_connection_type_east": "%wall_connection_type_east%",
         "wall_connection_type_north": "%wall_connection_type_north%",
         "wall_connection_type_south": "%wall_connection_type_south%",
@@ -887,7 +884,6 @@
     "downstream": {
       "name": "minecraft:polished_blackstone_brick_wall",
       "states": {
-        "wall_block_type": "%wall_block_type%",
         "wall_connection_type_east": "%wall_connection_type_east%",
         "wall_connection_type_north": "%wall_connection_type_north%",
         "wall_connection_type_south": "%wall_connection_type_south%",
@@ -1156,7 +1152,6 @@
     "downstream": {
       "name": "minecraft:polished_blackstone_wall",
       "states": {
-        "wall_block_type": "%wall_block_type%",
         "wall_connection_type_east": "%wall_connection_type_east%",
         "wall_connection_type_north": "%wall_connection_type_north%",
         "wall_connection_type_south": "%wall_connection_type_south%",

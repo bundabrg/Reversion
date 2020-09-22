@@ -70,12 +70,13 @@ public class Register_v390ee_to_v408be {
             .codec(Education_v390.V390_CODEC)
             .translator(BedrockTranslator.class)
             .blockMapper(BlockMapper.builder()
-                            .palette(() -> Register_v390ee_to_v408be.class.getResourceAsStream("/protocol/education-v390/blockpalette.nbt"))
+                            .upstreamPalette(() -> Register_v390ee_to_v408be.class.getResourceAsStream("/protocol/education-v390/blockpalette.nbt"))
+                            .downstreamPalette(() -> Register_v390ee_to_v408be.class.getResourceAsStream("/protocol/bedrock-v408/blockpalette.nbt"))
                             .runtimeMapper(() -> Register_v390ee_to_v408be.class.getResourceAsStream("/translators/v390ee_to_v408be/mappings/runtime_block_mapper.json"))
 
 //                    .blockMapper(() -> Register_v390ee_to_v408be.class.getResourceAsStream("/translators/v390ee_to_v408be/mappings/block_mapper.json"))
-//                    .downstreamPalette(() -> Register_v390ee_to_v408be.class.getResourceAsStream("/protocol/bedrock-v408/blockpalette.nbt"))
 //                    .debugName("v309ee_to_v408be")
+//                    .debug(true)
 
                             .build()
             )
@@ -85,11 +86,11 @@ public class Register_v390ee_to_v408be {
             )
             .itemMapper(ItemMapper.builder()
                             .enchantmentMapper(() -> Register_v390ee_to_v408be.class.getResourceAsStream("/translators/v390ee_to_v408be/mappings/enchantment_mapper.json"))
-                            .palette(() -> Register_v390ee_to_v408be.class.getResourceAsStream("/protocol/education-v390/itempalette.json"))
+                            .upstreamPalette(() -> Register_v390ee_to_v408be.class.getResourceAsStream("/protocol/education-v390/itempalette.json"))
+                            .downstreamPalette(() -> Register_v390ee_to_v408be.class.getResourceAsStream("/protocol/bedrock-v408/itempalette.json"))
                             .runtimeMapper(() -> Register_v390ee_to_v408be.class.getResourceAsStream("/translators/v390ee_to_v408be/mappings/runtime_item_mapper.json"))
 
 //                    .itemMapper(() -> Register_v390ee_to_v408be.class.getResourceAsStream("/translators/v390ee_to_v408be/mappings/item_mapper.json"))
-//                    .downstreamPalette(() -> Register_v390ee_to_v408be.class.getResourceAsStream("/protocol/bedrock-v408/itempalette.json"))
 //                    .debugName("v390ee_to_v408be")
 //                    .debug(true)
 

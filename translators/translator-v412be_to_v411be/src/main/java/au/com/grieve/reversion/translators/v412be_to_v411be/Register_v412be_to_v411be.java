@@ -70,7 +70,7 @@ public class Register_v412be_to_v411be {
             .codec(Bedrock_v412.V412_CODEC)
             .translator(BedrockTranslator.class)
             .blockMapper(BlockMapper.builder()
-                    .palette(() -> Register_v412be_to_v411be.class.getResourceAsStream("/protocol/bedrock-v412/blockpalette.nbt"))
+                    .upstreamPalette(() -> Register_v412be_to_v411be.class.getResourceAsStream("/protocol/bedrock-v412/blockpalette.nbt"))
                     .runtimeMapper(() -> Register_v412be_to_v411be.class.getResourceAsStream("/translators/v412be_to_v411be/mappings/runtime_block_mapper.json"))
                     .build()
             )

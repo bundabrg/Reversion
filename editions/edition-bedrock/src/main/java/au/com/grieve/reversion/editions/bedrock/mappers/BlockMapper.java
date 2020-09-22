@@ -52,8 +52,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Supplier;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 
 /**
  * Map blocks between upstream and downstream
@@ -63,47 +61,41 @@ import java.util.stream.IntStream;
 public class BlockMapper {
     public static final BlockMapper DEFAULT = BlockMapper.builder().build();
 
-    // Downstream RuntimeID to Upstream RuntimeID mapping
+    // RuntimeID Maps between Downstream and Upstream
     private final Map<Integer, Integer> runtimeIdToUpstreamMap = new HashMap<>();
     private final Map<Integer, Integer> runtimeIdToDownstreamMap = new HashMap<>();
 
-    // Hash of Blockname to Legacy ID mapping
-    private final Map<Integer, Short> legacyIdMap = new HashMap<>();
+    // Palette Suppliers
+    private final Supplier<InputStream> upstreamPaletteSupplier;
+    private final Supplier<InputStream> downstreamPaletteSupplier;
 
-    // Block Map
-    private final Map<String, List<BlockMapperConfig>> blockMap = new HashMap<>();
+    // Block Mapper Supplier - Only needed if we have no runtimeMapper
+    private final Supplier<InputStream> blockMapperSupplier;
 
-    // Upstream Block Palette
-    private final Supplier<InputStream> palette;
-
-    // Downstream Palette. Only needed if we have no runtimeId map
-    private final Supplier<InputStream> downstreamPalette;
-
-    // Block Mapper
-    private final Supplier<InputStream> blockMapper;
-
-    // Baked in runtime id maps
-    private final Supplier<InputStream> runtimeMapper;
+    // Runtime Mapper Supplier
+    private final Supplier<InputStream> runtimeBlockMapperSupplier;
 
     // Debug - When set we will output a mapping to bake in as the RuntimeId Map
     private final String debugName;
     private final boolean debug;
 
+    // Linked BlockMappers
+    private final List<BlockMapper> preMapper = new ArrayList<>();
+    private final List<BlockMapper> postMapper = new ArrayList<>();
 
-    // Our Block Version
-    int version;
     // Are we initialized?
     boolean initialized;
+
     // Our Palette
     private List<NbtMap> upstreamPalette = new ArrayList<>();
 
     @Builder
-    public BlockMapper(Supplier<InputStream> palette, Supplier<InputStream> downstreamPalette, Supplier<InputStream> blockMapper,
+    public BlockMapper(Supplier<InputStream> upstreamPalette, Supplier<InputStream> downstreamPalette, Supplier<InputStream> blockMapper,
                        Supplier<InputStream> runtimeMapper, String debugName, Boolean debug) {
-        this.palette = palette;
-        this.downstreamPalette = downstreamPalette;
-        this.blockMapper = blockMapper;
-        this.runtimeMapper = runtimeMapper;
+        this.upstreamPaletteSupplier = upstreamPalette;
+        this.downstreamPaletteSupplier = downstreamPalette;
+        this.blockMapperSupplier = blockMapper;
+        this.runtimeBlockMapperSupplier = runtimeMapper;
         this.debugName = debugName;
         this.debug = debug != null;
 
@@ -117,23 +109,24 @@ public class BlockMapper {
 
         initialized = true;
 
-        if (palette != null) {
-            upstreamPalette = loadPalette(palette.get());
-
-            initLegacyIdMap(upstreamPalette);
+        if (upstreamPaletteSupplier != null) {
+            upstreamPalette = loadPalette(upstreamPaletteSupplier.get());
 
             // Initialize Runtime Mapper
-            if (runtimeMapper != null) {
-                initRuntimeIdMapFromMapper(runtimeMapper.get());
+            if (runtimeBlockMapperSupplier != null) {
+                initRuntimeIdMapFromMapper(runtimeBlockMapperSupplier.get());
             } else {
-                if (blockMapper != null) {
-                    initBlockMap(blockMapper.get());
-                }
-
                 // Generate runtime ID from 2 palettes
-                if (downstreamPalette != null) {
-                    List<NbtMap> downstreamTags = loadPalette(downstreamPalette.get());
-                    initRuntimeIdMapFromPalette(upstreamPalette, downstreamTags);
+                if (downstreamPaletteSupplier != null) {
+                    BlockMapperConfig[] blockMapper;
+                    if (blockMapperSupplier != null) {
+                        blockMapper = loadBlockMapper(blockMapperSupplier.get());
+                    } else {
+                        blockMapper = new BlockMapperConfig[0];
+                    }
+
+                    List<NbtMap> downstreamTags = loadPalette(downstreamPaletteSupplier.get());
+                    initRuntimeIdMapFromPalette(upstreamPalette, downstreamTags, blockMapper);
                 }
 
                 if (debug && debugName != null) {
@@ -144,7 +137,7 @@ public class BlockMapper {
         }
     }
 
-    protected void initBlockMap(InputStream stream) {
+    protected BlockMapperConfig[] loadBlockMapper(InputStream stream) {
         ObjectMapper mapper = new ObjectMapper(new JsonFactory());
 
         BlockMapperConfig[] mapConfigs;
@@ -153,27 +146,7 @@ public class BlockMapper {
         } catch (IOException e) {
             throw new RuntimeException("Unable load BlockMapper file", e);
         }
-
-        for (BlockMapperConfig mapConfig : mapConfigs) {
-            if (!blockMap.containsKey(mapConfig.getDownstream().getName())) {
-                blockMap.put(mapConfig.getDownstream().getName(), new ArrayList<>());
-            }
-
-            this.blockMap.get(mapConfig.getDownstream().getName()).add(mapConfig);
-        }
-
-    }
-
-    protected void initLegacyIdMap(List<NbtMap> upstreamTags) {
-        for (NbtMap tag : upstreamTags) {
-            // Set version
-            if (version == 0) {
-                version = tag.getCompound("block").getInt("version");
-            }
-
-            // Set Name to legacyID mapping
-            legacyIdMap.put(tag.getCompound("block").getString("name").hashCode(), tag.getShort("id"));
-        }
+        return mapConfigs;
     }
 
     protected void initRuntimeIdMapFromMapper(InputStream stream) {
@@ -209,8 +182,14 @@ public class BlockMapper {
         }
     }
 
-    public void initRuntimeIdMapFromPalette(List<NbtMap> downstreamTags) {
-        initRuntimeIdMapFromPalette(upstreamPalette, downstreamTags);
+    public void initRuntimeIdMap(List<NbtMap> downstreamTags) {
+        BlockMapperConfig[] blockMapper;
+        if (blockMapperSupplier != null) {
+            blockMapper = loadBlockMapper(blockMapperSupplier.get());
+        } else {
+            blockMapper = new BlockMapperConfig[0];
+        }
+        initRuntimeIdMapFromPalette(upstreamPalette, downstreamTags, blockMapper);
     }
 
     /**
@@ -221,26 +200,88 @@ public class BlockMapper {
      * @param upstreamTags   tags from upstream palette
      * @param downstreamTags tags from downstream palette
      */
-    protected void initRuntimeIdMapFromPalette(List<NbtMap> upstreamTags, List<NbtMap> downstreamTags) {
+    protected void initRuntimeIdMapFromPalette(List<NbtMap> upstreamTags, List<NbtMap> downstreamTags, BlockMapperConfig[] blockMapper) {
         if (debug) {
             System.out.println("Initializing BlockMapper from Palette for " + getDebugName());
         }
 
-        Map<Integer, NbtMap> upstreamMap = IntStream.range(0, upstreamTags.size())
-                .boxed()
-                .collect(Collectors.toMap(i -> i, upstreamTags::get));
+        // Preparation
+        Map<Integer, NbtMap> upstreamMap = new HashMap<>();
+        Map<String, Short> legacyMap = new HashMap<>();
+        Map<String, List<BlockMapperConfig>> blockMapperMap = new HashMap<>();
+        int version = 0;
+
+        for (int i = 0; i < upstreamTags.size(); i++) {
+            NbtMap tag = upstreamTags.get(i);
+            upstreamMap.put(i, tag);
+
+            NbtMap block = tag.getCompound("block");
+            legacyMap.put(block.getString("name"), tag.getShort("id"));
+            if (version == 0) {
+                version = block.getInt("version");
+            }
+        }
+
+        for (BlockMapperConfig config : blockMapper) {
+            if (!blockMapperMap.containsKey(config.getDownstream().getName())) {
+                blockMapperMap.put(config.getDownstream().getName(), new ArrayList<>());
+            }
+            blockMapperMap.get(config.getDownstream().getName()).add(config);
+        }
 
         Map<Integer, NbtMap> unusedMap = new HashMap<>(upstreamMap);
 
         for (int downstreamRuntimeId = 0; downstreamRuntimeId < downstreamTags.size(); downstreamRuntimeId++) {
-            NbtMap originalDownstreamTag = downstreamTags.get(downstreamRuntimeId);
-            NbtMap translatedDownstreamTag = mapBlockNbtToUpstream(originalDownstreamTag);
-            NbtMap downstreamTag = translatedDownstreamTag.getCompound("block");
+            NbtMap downstreamTag = downstreamTags.get(downstreamRuntimeId);
+            NbtMap downstreamBlockTag = downstreamTag.getCompound("block");
+
+            // Do we have a blockMap for this?
+
+            if (blockMapperMap.containsKey(downstreamBlockTag.getString("name"))) {
+                outer:
+                for (BlockMapperConfig config : blockMapperMap.get(downstreamBlockTag.getString("name"))) {
+                    VariableStore vs = new VariableStore();
+                    if (config.getDownstream().getStates().size() > 0) {
+                        NbtMap originalStates = downstreamBlockTag.getCompound("states");
+                        if (originalStates == null) {
+                            continue;
+                        }
+                        for (Map.Entry<String, VariableStore.Data> entry : config.getDownstream().getStates().entrySet()) {
+                            if (!originalStates.containsKey(entry.getKey())) {
+                                continue outer;
+                            }
+
+                            if (!vs.compare(originalStates.get(entry.getKey()), entry.getValue())) {
+                                continue outer;
+                            }
+                        }
+                    }
+
+                    // Found a match
+                    NbtMapBuilder builder = NbtMap.builder();
+                    for (Map.Entry<String, VariableStore.Data> entry : config.getUpstream().getStates().entrySet()) {
+                        builder.put(entry.getKey(), vs.get(entry.getValue()));
+                    }
+
+                    downstreamBlockTag = downstreamBlockTag.toBuilder()
+                            .putString("name", config.getUpstream().getName())
+                            .putCompound("states", builder.build())
+                            .putInt("version", version)
+                            .build();
+
+                    downstreamTag = downstreamTag.toBuilder()
+                            .putCompound("block", downstreamBlockTag)
+                            .putShort("id", legacyMap.getOrDefault(config.getUpstream().getName(), (short) 0))
+                            .build();
+
+                    break;
+                }
+            }
             boolean found = false;
             for (int upstreamRuntimeId : upstreamMap.keySet()) {
                 NbtMap upstreamTag = upstreamMap.get(upstreamRuntimeId).getCompound("block");
-                if (downstreamTag.getString("name").equals(upstreamTag.getString("name"))
-                        && downstreamTag.getCompound("states").equals(upstreamTag.getCompound("states"))) {
+                if (downstreamBlockTag.getString("name").equals(upstreamTag.getString("name"))
+                        && downstreamBlockTag.getCompound("states").equals(upstreamTag.getCompound("states"))) {
                     registerRuntimeIdMapping(downstreamRuntimeId, upstreamRuntimeId);
                     unusedMap.remove(upstreamRuntimeId);
                     found = true;
@@ -250,7 +291,7 @@ public class BlockMapper {
 
             if (!found) {
                 if (debug) {
-                    System.out.println("Unable to find upstream palette entry: " + translatedDownstreamTag);
+                    System.out.println("Unable to find upstream palette entry: " + downstreamTag);
                 }
             }
         }
@@ -322,87 +363,17 @@ public class BlockMapper {
         }
     }
 
-    public short getLegacyId(String blockName) {
-        return legacyIdMap.getOrDefault(blockName.hashCode(), (short) 0);
-    }
+
 
     public int mapRuntimeIdToUpstream(int original) {
-        return runtimeIdToUpstreamMap.getOrDefault(original, original);
-    }
-
-    public int mapRuntimeIdToDownstream(int original) {
-        return runtimeIdToDownstreamMap.getOrDefault(original, original);
-    }
-
-    public NbtMap mapBlockNbtToUpstream(NbtMap original) {
-        if (original == null) {
-            return null;
+        int translated = original;
+        for (BlockMapper mapper : preMapper) {
+            translated = mapper.mapRuntimeIdToUpstream(translated);
         }
-
-        NbtMap originalBlock = original.getCompound("block");
-        NbtMap originalStates = originalBlock.getCompound("states");
-
-        NbtMap translated = original;
-
-        for (BlockMapperConfig mapConfig : blockMap.getOrDefault(originalBlock.getString("name"), new ArrayList<>())) {
-            VariableStore variableStore = new VariableStore();
-
-            if (mapConfig.getDownstream().getStates().size() > 0) {
-                if (originalStates == null) {
-                    continue;
-                }
-
-                boolean found = false;
-
-                for (Map.Entry<String, VariableStore.Data> entry : mapConfig.getDownstream().getStates().entrySet()) {
-                    if (!originalStates.containsKey(entry.getKey())) {
-                        break;
-                    }
-
-                    if (!variableStore.compare(originalStates.get(entry.getKey()), entry.getValue())) {
-                        break;
-                    }
-
-                    found = true;
-                }
-
-                if (!found) {
-                    continue;
-                }
-            }
-
-            NbtMapBuilder builder = NbtMap.builder();
-
-            try {
-                for (Map.Entry<String, VariableStore.Data> entry : mapConfig.getUpstream().getStates().entrySet()) {
-                    builder.put(entry.getKey(), variableStore.get(entry.getValue()));
-                }
-            } catch (IndexOutOfBoundsException e) {
-                throw new RuntimeException("Error with " + original + " with config " + mapConfig, e);
-            }
-
-            translated = original.toBuilder()
-                    .putCompound("block", originalBlock.toBuilder()
-                            .putString("name", mapConfig.getUpstream().getName())
-                            .putCompound("states", builder.build())
-                            .build()
-                    ).build();
-            break;
+        translated = runtimeIdToUpstreamMap.getOrDefault(translated, translated);
+        for (BlockMapper mapper : postMapper) {
+            translated = mapper.mapRuntimeIdToUpstream(translated);
         }
-
-        if (!translated.equals(original)) {
-            // Set ID
-            short id = getLegacyId(translated.getCompound("block").getString("name"));
-
-            translated = translated.toBuilder()
-                    .putShort("id", id)
-                    .putCompound("block", translated.getCompound("block").toBuilder()
-//                            .putInt("version", version)
-                                    .build()
-                    )
-                    .build();
-        }
-
         return translated;
     }
 

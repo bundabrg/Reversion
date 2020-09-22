@@ -5,7 +5,7 @@
     },
     "upstream": {
       "name": "minecraft:planks",
-      "data": "4",
+      "data": 4,
       "customName": "Crimson Planks",
       "creative": false
     }
@@ -16,7 +16,7 @@
     },
     "upstream": {
       "name": "minecraft:planks",
-      "data": "5",
+      "data": 5,
       "customName": "Warped Planks",
       "creative": false
     }
@@ -27,7 +27,7 @@
     },
     "upstream": {
       "name": "minecraft:nether_brick",
-      "data": "0",
+      "data": 0,
       "customName": "Blackstone Wall",
       "creative": false
     }
@@ -38,7 +38,7 @@
     },
     "upstream": {
       "name": "minecraft:red_nether_brick",
-      "data": "0",
+      "data": 0,
       "customName": "Polished Blackstone Wall",
       "creative": false
     }
@@ -49,7 +49,7 @@
     },
     "upstream": {
       "name": "minecraft:red_nether_brick",
-      "data": "0",
+      "data": 0,
       "customName": "Polished Blackstone Brick Wall",
       "creative": false
     }
@@ -60,7 +60,7 @@
     },
     "upstream": {
       "name": "minecraft:double_stone_slab2",
-      "data": "0",
+      "data": 0,
       "customName": "Polished Blackstone Brick Double Slab",
       "creative": false
     }
@@ -71,7 +71,7 @@
     },
     "upstream": {
       "name": "minecraft:double_stone_slab2",
-      "data": "0",
+      "data": 0,
       "customName": "Blackstone Double Slab",
       "creative": false
     }
@@ -82,7 +82,7 @@
     },
     "upstream": {
       "name": "minecraft:fence",
-      "data": "0",
+      "data": 0,
       "customName": "Crimson Fence",
       "creative": false
     }
@@ -93,7 +93,7 @@
     },
     "upstream": {
       "name": "minecraft:dark_oak_fence_gate",
-      "data": "0",
+      "data": 0,
       "customName": "Warped Fence",
       "creative": false
     }
@@ -104,7 +104,7 @@
     },
     "upstream": {
       "name": "minecraft:acacia_fence_gate",
-      "data": "0",
+      "data": 0,
       "customName": "Crimson Fence Gate",
       "creative": false
     }
@@ -115,7 +115,7 @@
     },
     "upstream": {
       "name": "minecraft:dark_oak_fence_gate",
-      "data": "0",
+      "data": 0,
       "customName": "Warped Fence Gate",
       "creative": false
     }
@@ -126,7 +126,7 @@
     },
     "upstream": {
       "name": "minecraft:acacia_stairs",
-      "data": "0",
+      "data": 0,
       "customName": "Crimson Stairs",
       "creative": false
     }
@@ -137,7 +137,7 @@
     },
     "upstream": {
       "name": "minecraft:dark_oak_stairs",
-      "data": "0",
+      "data": 0,
       "customName": "Warped Stairs",
       "creative": false
     }
@@ -148,7 +148,7 @@
     },
     "upstream": {
       "name": "minecraft:nether_brick_stairs",
-      "data": "0",
+      "data": 0,
       "customName": "Blackstone Stairs",
       "creative": false
     }
@@ -159,7 +159,7 @@
     },
     "upstream": {
       "name": "minecraft:red_nether_brick",
-      "data": "0",
+      "data": 0,
       "customName": "Polished Blackstone Stairs",
       "creative": false
     }
@@ -170,7 +170,7 @@
     },
     "upstream": {
       "name": "minecraft:red_nether_brick_stairs",
-      "data": "0",
+      "data": 0,
       "customName": "Polished Blackstone Brick Stairs",
       "creative": false
     }
@@ -181,7 +181,7 @@
     },
     "upstream": {
       "name": "minecraft:acacia_door",
-      "data": "0",
+      "data": 0,
       "customName": "Crimson Door",
       "creative": false
     }
@@ -192,7 +192,7 @@
     },
     "upstream": {
       "name": "minecraft:item.acacia_door",
-      "data": "0",
+      "data": 0,
       "customName": "Crimson Door",
       "creative": false
     }
@@ -203,7 +203,7 @@
     },
     "upstream": {
       "name": "minecraft:dark_oak_door",
-      "data": "0",
+      "data": 0,
       "customName": "Warped Door",
       "creative": false
     }
@@ -214,7 +214,7 @@
     },
     "upstream": {
       "name": "minecraft:item.dark_oak_door",
-      "data": "0",
+      "data": 0,
       "customName": "Warped Door",
       "creative": false
     }
@@ -225,7 +225,7 @@
     },
     "upstream": {
       "name": "minecraft:acacia_trapdoor",
-      "data": "0",
+      "data": 0,
       "customName": "Crimson Trapdoor",
       "creative": false
     }
@@ -236,7 +236,7 @@
     },
     "upstream": {
       "name": "minecraft:dark_oak_trapdoor",
-      "data": "0",
+      "data": 0,
       "customName": "Warped Trapdoor",
       "creative": false
     }
@@ -247,7 +247,7 @@
     },
     "upstream": {
       "name": "minecraft:iron_bars",
-      "data": "0",
+      "data": 0,
       "customName": "Chain",
       "creative": false
     }
@@ -258,7 +258,7 @@
     },
     "upstream": {
       "name": "minecraft:iron_bars",
-      "data": "0",
+      "data": 0,
       "customName": "Chain",
       "creative": false
     }
@@ -269,7 +269,7 @@
     },
     "upstream": {
       "name": "minecraft:wooden_slab",
-      "data": "0",
+      "data": 0,
       "customName": "Crimson Slab",
       "creative": false
     }
@@ -280,7 +280,7 @@
     },
     "upstream": {
       "name": "minecraft:double_wooden_slab",
-      "data": "0",
+      "data": 0,
       "customName": "Crimson Double Slab",
       "creative": false
     }
@@ -291,7 +291,7 @@
     },
     "upstream": {
       "name": "minecraft:wooden_slab",
-      "data": "0",
+      "data": 0,
       "customName": "Warped Slab",
       "creative": false
     }
@@ -302,7 +302,7 @@
     },
     "upstream": {
       "name": "minecraft:double_wooden_slab",
-      "data": "0",
+      "data": 0,
       "customName": "Warped Double Slab",
       "creative": false
     }
@@ -313,7 +313,7 @@
     },
     "upstream": {
       "name": "minecraft:wooden_slab",
-      "data": "0",
+      "data": 0,
       "customName": "Blackstone Slab",
       "creative": false
     }
@@ -324,7 +324,7 @@
     },
     "upstream": {
       "name": "minecraft:wooden_slab",
-      "data": "0",
+      "data": 0,
       "customName": "Polished Blackstone Slab",
       "creative": false
     }
@@ -335,7 +335,7 @@
     },
     "upstream": {
       "name": "minecraft:wooden_slab",
-      "data": "0",
+      "data": 0,
       "customName": "Polished Blackstone Brick Slab",
       "creative": false
     }
@@ -346,7 +346,7 @@
     },
     "upstream": {
       "name": "minecraft:double_wooden_slab",
-      "data": "0",
+      "data": 0,
       "customName": "Polished Blackstone Double Slab",
       "creative": false
     }
@@ -357,7 +357,7 @@
     },
     "upstream": {
       "name": "minecraft:nether_brick",
-      "data": "0",
+      "data": 0,
       "customName": "Chiseled Nether Bricks",
       "creative": false
     }
@@ -368,7 +368,7 @@
     },
     "upstream": {
       "name": "minecraft:nether_brick",
-      "data": "0",
+      "data": 0,
       "customName": "Cracked Nether Bricks",
       "creative": false
     }
@@ -379,7 +379,7 @@
     },
     "upstream": {
       "name": "minecraft:quartz_block",
-      "data": "0",
+      "data": 0,
       "customName": "Quartz Bricks",
       "creative": false
     }
@@ -390,7 +390,7 @@
     },
     "upstream": {
       "name": "minecraft:red_nether_brick",
-      "data": "0",
+      "data": 0,
       "customName": "Polished Blackstone Bricks",
       "creative": false
     }
@@ -401,7 +401,7 @@
     },
     "upstream": {
       "name": "minecraft:red_nether_brick",
-      "data": "0",
+      "data": 0,
       "customName": "Cracked Polished Blackstone Bricks",
       "creative": false
     }
@@ -412,7 +412,7 @@
     },
     "upstream": {
       "name": "minecraft:red_nether_brick",
-      "data": "0",
+      "data": 0,
       "customName": "Gilded Blackstone",
       "creative": false
     }
@@ -423,7 +423,7 @@
     },
     "upstream": {
       "name": "minecraft:red_nether_brick",
-      "data": "0",
+      "data": 0,
       "customName": "Chiseled Polished Blackstone",
       "creative": false
     }
@@ -434,7 +434,7 @@
     },
     "upstream": {
       "name": "minecraft:hay_block",
-      "data": "0",
+      "data": 0,
       "customName": "Target",
       "creative": false
     }
@@ -445,7 +445,7 @@
     },
     "upstream": {
       "name": "minecraft:wool",
-      "data": "0",
+      "data": 0,
       "customName": "Warped Wart Block",
       "creative": false
     }
@@ -456,7 +456,7 @@
     },
     "upstream": {
       "name": "minecraft:log",
-      "data": "0",
+      "data": 0,
       "customName": "Crimson Stem",
       "creative": false
     }
@@ -467,7 +467,7 @@
     },
     "upstream": {
       "name": "minecraft:log",
-      "data": "0",
+      "data": 0,
       "customName": "Warped Stem",
       "creative": false
     }
@@ -478,7 +478,7 @@
     },
     "upstream": {
       "name": "minecraft:log",
-      "data": "0",
+      "data": 0,
       "customName": "Stripped Crimson Stem",
       "creative": false
     }
@@ -489,7 +489,7 @@
     },
     "upstream": {
       "name": "minecraft:log",
-      "data": "0",
+      "data": 0,
       "customName": "Stripped Warped Stem",
       "creative": false
     }
@@ -500,7 +500,7 @@
     },
     "upstream": {
       "name": "minecraft:log",
-      "data": "0",
+      "data": 0,
       "customName": "Crimson Hyphae",
       "creative": false
     }
@@ -511,7 +511,7 @@
     },
     "upstream": {
       "name": "minecraft:log",
-      "data": "0",
+      "data": 0,
       "customName": "Warped Hyphae",
       "creative": false
     }
@@ -522,7 +522,7 @@
     },
     "upstream": {
       "name": "minecraft:log",
-      "data": "0",
+      "data": 0,
       "customName": "Stripped Crimson Hyphae",
       "creative": false
     }
@@ -533,7 +533,7 @@
     },
     "upstream": {
       "name": "minecraft:log",
-      "data": "0",
+      "data": 0,
       "customName": "Stripped Warped Hyphae",
       "creative": false
     }
@@ -544,7 +544,7 @@
     },
     "upstream": {
       "name": "minecraft:lit_pumpkin",
-      "data": "0",
+      "data": 0,
       "customName": "Shroom Light",
       "creative": false
     }
@@ -555,7 +555,7 @@
     },
     "upstream": {
       "name": "minecraft:log",
-      "data": "0",
+      "data": 0,
       "customName": "Crimson Nylium",
       "creative": false
     }
@@ -566,7 +566,7 @@
     },
     "upstream": {
       "name": "minecraft:log",
-      "data": "0",
+      "data": 0,
       "customName": "Warped Nylium",
       "creative": false
     }
@@ -577,7 +577,7 @@
     },
     "upstream": {
       "name": "minecraft:gray_glazed_terracotta",
-      "data": "0",
+      "data": 0,
       "customName": "Basalt",
       "creative": false
     }
@@ -588,7 +588,7 @@
     },
     "upstream": {
       "name": "minecraft:gray_glazed_terracotta",
-      "data": "0",
+      "data": 0,
       "customName": "Polished Basalt",
       "creative": false
     }
@@ -599,7 +599,7 @@
     },
     "upstream": {
       "name": "minecraft:dirt",
-      "data": "0",
+      "data": 0,
       "customName": "Soul Soil",
       "creative": false
     }
@@ -610,7 +610,7 @@
     },
     "upstream": {
       "name": "minecraft:obsidian",
-      "data": "0",
+      "data": 0,
       "customName": "Netherite Block",
       "creative": false
     }
@@ -621,7 +621,7 @@
     },
     "upstream": {
       "name": "minecraft:obsidian",
-      "data": "0",
+      "data": 0,
       "customName": "Lodestone",
       "creative": false
     }
@@ -632,7 +632,7 @@
     },
     "upstream": {
       "name": "minecraft:obsidian",
-      "data": "0",
+      "data": 0,
       "customName": "Lodestone Compass",
       "creative": false
     }
@@ -643,7 +643,7 @@
     },
     "upstream": {
       "name": "minecraft:gold_ore",
-      "data": "0",
+      "data": 0,
       "customName": "Nether Gold Ore",
       "creative": false
     }
@@ -654,7 +654,7 @@
     },
     "upstream": {
       "name": "minecraft:obsidian",
-      "data": "0",
+      "data": 0,
       "customName": "Ancient Debris",
       "creative": false
     }
@@ -665,7 +665,7 @@
     },
     "upstream": {
       "name": "minecraft:red_nether_brick",
-      "data": "0",
+      "data": 0,
       "customName": "Blackstone",
       "creative": false
     }
@@ -676,7 +676,7 @@
     },
     "upstream": {
       "name": "minecraft:red_nether_brick",
-      "data": "0",
+      "data": 0,
       "customName": "Polished Blackstone",
       "creative": false
     }
@@ -687,7 +687,7 @@
     },
     "upstream": {
       "name": "minecraft:bee_nest",
-      "data": "3"
+      "data": 3
     }
   },
   {
@@ -696,7 +696,7 @@
     },
     "upstream": {
       "name": "minecraft:grass",
-      "data": "0",
+      "data": 0,
       "customName": "Nether Sprouts",
       "creative": false
     }
@@ -707,7 +707,7 @@
     },
     "upstream": {
       "name": "minecraft:grass",
-      "data": "0",
+      "data": 0,
       "customName": "Nether Sprouts",
       "creative": false
     }
@@ -718,7 +718,7 @@
     },
     "upstream": {
       "name": "minecraft:grass",
-      "data": "0",
+      "data": 0,
       "customName": "Crimson Roots",
       "creative": false
     }
@@ -729,7 +729,7 @@
     },
     "upstream": {
       "name": "minecraft:grass",
-      "data": "0",
+      "data": 0,
       "customName": "Warped Roots",
       "creative": false
     }
@@ -740,7 +740,7 @@
     },
     "upstream": {
       "name": "minecraft:vine",
-      "data": "0",
+      "data": 0,
       "customName": "Weeping Vines",
       "creative": false
     }
@@ -751,7 +751,7 @@
     },
     "upstream": {
       "name": "minecraft:vine",
-      "data": "0",
+      "data": 0,
       "customName": "Twisting Vines",
       "creative": false
     }
@@ -762,7 +762,7 @@
     },
     "upstream": {
       "name": "minecraft:flower_pot",
-      "data": "0",
+      "data": 0,
       "customName": "Crimson Fungus",
       "creative": false
     }
@@ -773,7 +773,7 @@
     },
     "upstream": {
       "name": "minecraft:flower_pot",
-      "data": "0",
+      "data": 0,
       "customName": "Warped Fungus",
       "creative": false
     }
@@ -781,11 +781,11 @@
   {
     "downstream": {
       "name": "minecraft:spawn_egg",
-      "data": "125"
+      "data": 125
     },
     "upstream": {
       "name": "minecraft:spawn_egg",
-      "data": "0",
+      "data": 0,
       "customName": "Spawn Eggs 125",
       "creative": false
     }
@@ -793,11 +793,11 @@
   {
     "downstream": {
       "name": "minecraft:spawn_egg",
-      "data": "124"
+      "data": 124
     },
     "upstream": {
       "name": "minecraft:spawn_egg",
-      "data": "0",
+      "data": 0,
       "customName": "Spawn Egg 124",
       "creative": false
     }
@@ -805,11 +805,11 @@
   {
     "downstream": {
       "name": "minecraft:spawn_egg",
-      "data": "123"
+      "data": 123
     },
     "upstream": {
       "name": "minecraft:spawn_egg",
-      "data": "0",
+      "data": 0,
       "customName": "Spawn Egg 123",
       "creative": false
     }
@@ -817,11 +817,11 @@
   {
     "downstream": {
       "name": "minecraft:spawn_egg",
-      "data": "126"
+      "data": 126
     },
     "upstream": {
       "name": "minecraft:spawn_egg",
-      "data": "0",
+      "data": 0,
       "customName": "Spawn Egg 126",
       "creative": false
     }
@@ -829,11 +829,11 @@
   {
     "downstream": {
       "name": "minecraft:spawn_egg",
-      "data": "127"
+      "data": 127
     },
     "upstream": {
       "name": "minecraft:spawn_egg",
-      "data": "0",
+      "data": 0,
       "customName": "Spawn Egg 127",
       "creative": false
     }
@@ -844,7 +844,7 @@
     },
     "upstream": {
       "name": "minecraft:obsidian",
-      "data": "0",
+      "data": 0,
       "customName": "Crying Obsidian",
       "creative": false
     }
@@ -855,7 +855,7 @@
     },
     "upstream": {
       "name": "minecraft:iron_helmet",
-      "data": "0",
+      "data": 0,
       "customName": "Netherite Helmet",
       "creative": false
     }
@@ -866,7 +866,7 @@
     },
     "upstream": {
       "name": "minecraft:iron_chestplate",
-      "data": "0",
+      "data": 0,
       "customName": "Netherite Chestplate",
       "creative": false
     }
@@ -877,7 +877,7 @@
     },
     "upstream": {
       "name": "minecraft:iron_leggings",
-      "data": "0",
+      "data": 0,
       "customName": "Netherite Leggings",
       "creative": false
     }
@@ -888,7 +888,7 @@
     },
     "upstream": {
       "name": "minecraft:iron_boots",
-      "data": "0",
+      "data": 0,
       "customName": "Netherite Boots",
       "creative": false
     }
@@ -899,7 +899,7 @@
     },
     "upstream": {
       "name": "minecraft:iron_sword",
-      "data": "0",
+      "data": 0,
       "customName": "Netherite Sword",
       "creative": false
     }
@@ -910,7 +910,7 @@
     },
     "upstream": {
       "name": "minecraft:iron_axe",
-      "data": "0",
+      "data": 0,
       "customName": "Netherite Axe",
       "creative": false
     }
@@ -921,7 +921,7 @@
     },
     "upstream": {
       "name": "minecraft:iron_pickaxe",
-      "data": "0",
+      "data": 0,
       "customName": "Netherite Pickaxe",
       "creative": false
     }
@@ -932,7 +932,7 @@
     },
     "upstream": {
       "name": "minecraft:iron_shovel",
-      "data": "0",
+      "data": 0,
       "customName": "Netherite Shovel",
       "creative": false
     }
@@ -943,7 +943,7 @@
     },
     "upstream": {
       "name": "minecraft:iron_hoe",
-      "data": "0",
+      "data": 0,
       "customName": "Netherite Hoe",
       "creative": false
     }
@@ -951,11 +951,11 @@
   {
     "downstream": {
       "name": "minecraft:crimson_pressure_plate",
-      "data": "43"
+      "data": 43
     },
     "upstream": {
       "name": "minecraft:acacia_pressure_plate",
-      "data": "0",
+      "data": 0,
       "customName": "Crimson Pressure Plate",
       "creative": false
     }
@@ -966,7 +966,7 @@
     },
     "upstream": {
       "name": "minecraft:carrotonastick",
-      "data": "0",
+      "data": 0,
       "customName": "Warped Fungus on a stick",
       "creative": false
     }
@@ -974,11 +974,11 @@
   {
     "downstream": {
       "name": "minecraft:potion",
-      "data": "42"
+      "data": 42
     },
     "upstream": {
       "name": "minecraft:potion",
-      "data": "0",
+      "data": 0,
       "customName": "Potion 42",
       "creative": false
     }
@@ -986,11 +986,11 @@
   {
     "downstream": {
       "name": "minecraft:splash_potion",
-      "data": "42"
+      "data": 42
     },
     "upstream": {
       "name": "minecraft:splash_potion",
-      "data": "0",
+      "data": 0,
       "customName": "Splash Potion 42",
       "creative": false
     }
@@ -998,11 +998,11 @@
   {
     "downstream": {
       "name": "minecraft:lingering_potion",
-      "data": "42"
+      "data": 42
     },
     "upstream": {
       "name": "minecraft:lingering_potion",
-      "data": "0",
+      "data": 0,
       "customName": "Lingering Potion 42",
       "creative": false
     }
@@ -1013,7 +1013,7 @@
     },
     "upstream": {
       "name": "minecraft:colored_torch_bp",
-      "data": "0",
+      "data": 0,
       "customName": "Soul Torch",
       "creative": false
     }
@@ -1024,7 +1024,7 @@
     },
     "upstream": {
       "name": "minecraft:lantern",
-      "data": "0",
+      "data": 0,
       "customName": "Soul Lantern",
       "creative": false
     }
@@ -1035,7 +1035,7 @@
     },
     "upstream": {
       "name": "minecraft:campfire",
-      "data": "0",
+      "data": 0,
       "customName": "Soul Campfire",
       "creative": false
     }
@@ -1046,7 +1046,7 @@
     },
     "upstream": {
       "name": "minecraft:item.campfire",
-      "data": "0",
+      "data": 0,
       "customName": "Soul Campfire",
       "creative": false
     }
@@ -1057,7 +1057,7 @@
     },
     "upstream": {
       "name": "minecraft:fire",
-      "data": "0",
+      "data": 0,
       "customName": "Soul Fire",
       "creative": false
     }
@@ -1068,7 +1068,7 @@
     },
     "upstream": {
       "name": "minecraft:obsidian",
-      "data": "0",
+      "data": 0,
       "customName": "Respawn Anchor",
       "creative": false
     }
@@ -1079,7 +1079,7 @@
     },
     "upstream": {
       "name": "minecraft:record_cat",
-      "data": "0",
+      "data": 0,
       "customName": "Record Pigstep",
       "creative": false
     }
@@ -1090,7 +1090,7 @@
     },
     "upstream": {
       "name": "minecraft:acacia_sign",
-      "data": "0",
+      "data": 0,
       "customName": "Crimson Sign",
       "creative": false
     }
@@ -1101,7 +1101,7 @@
     },
     "upstream": {
       "name": "minecraft:acacia_wall_sign",
-      "data": "0",
+      "data": 0,
       "customName": "Crimson Sign",
       "creative": false
     }
@@ -1112,7 +1112,7 @@
     },
     "upstream": {
       "name": "minecraft:acacia_standing_sign",
-      "data": "0",
+      "data": 0,
       "customName": "Crimson Standing Sign",
       "creative": false
     }
@@ -1123,7 +1123,7 @@
     },
     "upstream": {
       "name": "minecraft:darkoak_sign",
-      "data": "0",
+      "data": 0,
       "customName": "Warped Sign",
       "creative": false
     }
@@ -1134,7 +1134,7 @@
     },
     "upstream": {
       "name": "minecraft:darkoak_wall_sign",
-      "data": "0",
+      "data": 0,
       "customName": "Warped Wall Sign",
       "creative": false
     }
@@ -1145,7 +1145,7 @@
     },
     "upstream": {
       "name": "minecraft:darkoak_standing_sign",
-      "data": "0",
+      "data": 0,
       "customName": "Warped Standing Sign",
       "creative": false
     }
@@ -1156,7 +1156,7 @@
     },
     "upstream": {
       "name": "minecraft:iron_nugget",
-      "data": "0",
+      "data": 0,
       "customName": "Netherite Scrap",
       "creative": false
     }
@@ -1167,7 +1167,7 @@
     },
     "upstream": {
       "name": "minecraft:iron_ingot",
-      "data": "0",
+      "data": 0,
       "customName": "Netherite Ingot",
       "creative": false
     }
@@ -1178,7 +1178,7 @@
     },
     "upstream": {
       "name": "minecraft:acacia_button",
-      "data": "0",
+      "data": 0,
       "customName": "Crimson Button",
       "creative": false
     }
@@ -1189,7 +1189,7 @@
     },
     "upstream": {
       "name": "minecraft:dark_oak_button",
-      "data": "0",
+      "data": 0,
       "customName": "Warped Button",
       "creative": false
     }
@@ -1200,7 +1200,7 @@
     },
     "upstream": {
       "name": "minecraft:wooden_button",
-      "data": "0",
+      "data": 0,
       "customName": "Polished Blackstone Button",
       "creative": false
     }
@@ -1211,7 +1211,7 @@
     },
     "upstream": {
       "name": "minecraft:acacia_pressure_plate",
-      "data": "0",
+      "data": 0,
       "customName": "Crimson Pressure Plate",
       "creative": false
     }
@@ -1222,7 +1222,7 @@
     },
     "upstream": {
       "name": "minecraft:dark_oak_pressure_plate",
-      "data": "0",
+      "data": 0,
       "customName": "Warped Pressure Plate",
       "creative": false
     }
@@ -1233,7 +1233,7 @@
     },
     "upstream": {
       "name": "minecraft:wooden_pressure_plate",
-      "data": "0",
+      "data": 0,
       "customName": "Polished Blackstone Pressure Plate",
       "creative": false
     }
@@ -1241,11 +1241,11 @@
   {
     "downstream": {
       "name": "minecraft:banner_pattern",
-      "data": "6"
+      "data": 6
     },
     "upstream": {
       "name": "minecraft:banner_pattern",
-      "data": "0",
+      "data": 0,
       "customName": "Banner Pattern 6",
       "creative": false
     }

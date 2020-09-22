@@ -75,8 +75,14 @@ public class Register_v409be_to_v408be {
                     .build()
             )
             .itemMapper(ItemMapper.builder()
-                    .itemRuntimeMapper(() -> Register_v409be_to_v408be.class.getResourceAsStream("/translators/v409be_to_v408be/mappings/item_id_mapper.json"))
-                    .build()
+                            .palette(() -> Register_v409be_to_v408be.class.getResourceAsStream("/protocol/bedrock-v409/itempalette.json"))
+                            .runtimeMapper(() -> Register_v409be_to_v408be.class.getResourceAsStream("/translators/v409be_to_v408be/mappings/runtime_item_mapper.json"))
+
+//                    .downstreamPalette(() -> Register_v409be_to_v408be.class.getResourceAsStream("/protocol/bedrock-v408/itempalette.json"))
+//                    .debugName("v409be_to_v408be")
+//                    .debug(true)
+
+                            .build()
             )
             .entityMapper(EntityMapper.DEFAULT)
             .registerPacketHandler(AddEntityPacket.class, AddEntityHandler_Bedrock.class)

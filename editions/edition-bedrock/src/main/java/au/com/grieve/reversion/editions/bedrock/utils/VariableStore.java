@@ -24,10 +24,22 @@
 
 package au.com.grieve.reversion.editions.bedrock.utils;
 
+import com.fasterxml.jackson.core.JsonGenerator;
+import com.fasterxml.jackson.core.JsonParser;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.node.JsonNodeType;
+import com.fasterxml.jackson.databind.SerializerProvider;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
+import com.fasterxml.jackson.databind.ser.std.StdSerializer;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -38,7 +50,7 @@ import java.util.Map;
 public class VariableStore {
     private final Map<String, Object> variables = new HashMap<>();
 
-    public boolean compare(Object left, JsonNode right) {
+    public boolean compare(Object left, Data right) {
         // If right is null then we assume we're not checking it and always match
         if (right == null) {
             return true;
@@ -46,89 +58,122 @@ public class VariableStore {
 
         // For now we check if right is a replacement totally and if so we assume it matches
         // TODO use regex to allow partial matches
-        if (right.getNodeType() == JsonNodeType.STRING) {
-            String rightString = right.asText();
-            if (rightString.startsWith("%")) {
-                variables.put(rightString.substring(1, rightString.length() - 1), left);
-                return true;
-            }
+        String rightString = right.asString();
+        if (rightString.startsWith("%")) {
+            variables.put(rightString.substring(1, rightString.length() - 1), left);
+            return true;
         }
 
         // Else we try compare the string values
-        String leftCompare = String.valueOf(left);
-        String rightCompare = null;
-
-        switch (right.getNodeType()) {
-            case POJO: // {"type": value}
-                switch (right.fieldNames().next()) {
-                    case "string":
-                        rightCompare = right.get("string").asText();
-                        break;
-                    case "byte":
-                    case "int":
-                    case "short":
-                        rightCompare = String.valueOf(right.get("short").asInt());
-                        break;
-                    case "boolean":
-                        rightCompare = String.valueOf(right.get("boolean").asBoolean());
-                        break;
-                }
-                break;
-            case STRING:
-                rightCompare = right.asText();
-                break;
-            case NUMBER:
-                rightCompare = String.valueOf(right.asInt());
-                break;
-            case BOOLEAN:
-                rightCompare = String.valueOf(right.asBoolean());
-                break;
-        }
-
-
-        return leftCompare.equals(rightCompare);
+        String leftString = String.valueOf(left);
+        return leftString.equals(rightString);
     }
 
-    public Object get(JsonNode value) throws IndexOutOfBoundsException {
-        // Check for simple substitution
-        if (value.getNodeType() == JsonNodeType.STRING) {
-            String valueString = value.asText();
+    public Object getOrDefault(Data value, Object defaultValue) {
+        Object ret = get(value);
+        return ret != null ? ret : defaultValue;
+    }
 
-            if (valueString.startsWith("%")) {
-                String key = valueString.substring(1, valueString.length() - 1);
-                if (!variables.containsKey(key)) {
-                    throw new IndexOutOfBoundsException("No such variable: " + key);
-                }
-                return variables.get(key);
+    public Object get(Data value) throws IndexOutOfBoundsException {
+        if (value == null) {
+            return null;
+        }
+
+        // Check for simple substitution
+        String valueString = value.asString();
+        if (valueString.startsWith("%")) {
+            String key = valueString.substring(1, valueString.length() - 1);
+            if (!variables.containsKey(key)) {
+                throw new IndexOutOfBoundsException("No such variable: " + key);
+            }
+            return variables.get(key);
+        }
+
+        return value.getData();
+    }
+
+    /**
+     * Jackson Data node
+     */
+    @JsonDeserialize(using = Data.Deserializer.class)
+    @JsonSerialize(using = Data.Serializer.class)
+    @AllArgsConstructor
+    @NoArgsConstructor
+    @Getter
+    @ToString
+    public static class Data {
+        private Object data;
+
+        public String asString() {
+            return String.valueOf(data);
+        }
+
+        public static class Serializer extends StdSerializer<Data> {
+
+            public Serializer() {
+                this(null);
+            }
+
+            protected Serializer(Class<Data> t) {
+                super(t);
+            }
+
+            @Override
+            public void serialize(Data data, JsonGenerator jsonGenerator, SerializerProvider serializerProvider) throws IOException {
+                jsonGenerator.writeObject(data.getData());
             }
         }
 
-        // TODO Allow substitution here
-        switch (value.getNodeType()) {
-            case OBJECT: // {"type": value}
-                switch (value.fieldNames().next()) {
-                    case "string":
-                        return value.get("string").asText();
-                    case "byte":
-                        return (byte) value.get("byte").asInt();
-                    case "integer":
-                    case "int":
-                        return value.get("int").asInt();
-                    case "short":
-                        return (short) value.get("short").asInt();
-                    case "boolean":
-                        return value.get("boolean").asBoolean();
+        public static class Deserializer extends StdDeserializer<Data> {
+
+            public Deserializer() {
+                this(null);
+            }
+
+            protected Deserializer(Class<?> vc) {
+                super(vc);
+            }
+
+            @Override
+            public Data deserialize(JsonParser jsonParser, DeserializationContext ctx) throws IOException, JsonProcessingException {
+                JsonNode node = jsonParser.getCodec().readTree(jsonParser);
+                Object data = null;
+                switch (node.getNodeType()) {
+//                    case OBJECT: // {"type": value}
+//                        switch (node.fieldNames().next()) {
+//                            case "string":
+//                                data = node.get("string").asText();
+//                                break;
+//                            case "byte":
+//                                data = (byte) node.get("byte").asInt();
+//                                break;
+//                            case "integer":
+//                            case "int":
+//                                data = node.get("int").asInt();
+//                                break;
+//                            case "short":
+//                                data = (short) node.get("short").asInt();
+//                                break;
+//                            case "boolean":
+//                                data = node.get("boolean").asBoolean();
+//                                break;
+//                        }
+//                        break;
+                    case STRING:
+                        data = node.asText();
+                        break;
+                    case NUMBER:
+                        data = node.asInt();
+                        break;
+                    case BOOLEAN:
+                        data = node.asBoolean();
+                        break;
                 }
-                break;
-            case STRING:
-                return value.asText();
-            case NUMBER:
-                return value.asInt();
-            case BOOLEAN:
-                return value.asBoolean();
+
+                return new Data(data);
+            }
         }
 
-        return null;
     }
 
 }

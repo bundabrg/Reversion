@@ -42,6 +42,28 @@
 #  furnished to do so, subject to the following conditions:
 #
 #
+#  MIT License
+#
+#
+#  Permission is hereby granted, free of charge, to any person obtaining a copy
+#  of this software and associated documentation files (the "Software"), to deal
+#  in the Software without restriction, including without limitation the rights
+#  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+#  copies of the Software, and to permit persons to whom the Software is
+#  furnished to do so, subject to the following conditions:
+#
+#
+#  MIT License
+#
+#
+#  Permission is hereby granted, free of charge, to any person obtaining a copy
+#  of this software and associated documentation files (the "Software"), to deal
+#  in the Software without restriction, including without limitation the rights
+#  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+#  copies of the Software, and to permit persons to whom the Software is
+#  furnished to do so, subject to the following conditions:
+#
+#
 #
 #  This program is free software: you can redistribute it and/or modify
 #  it under the terms of the GNU General Public License as published by
@@ -120,7 +142,7 @@ left_json = json.load(left)
 right_json = json.load(right)
 
 print("Items in {} missing from {}".format(sys.argv[1], sys.argv[2]))
-
+output = []
 for left_item in left_json:
     found = False
 
@@ -130,11 +152,16 @@ for left_item in left_json:
             break
 
     if not found:
-        print(left_item)
+        output.append(str(left_item))
 
-print()
+output.sort()
+for line in output:
+    print(line)
+
+print("")
 
 print("Items in {} missing from {}".format(sys.argv[2], sys.argv[1]))
+output = []
 
 for right_item in right_json:
     found = False
@@ -144,4 +171,8 @@ for right_item in right_json:
             break
 
     if not found:
-        print(right_item)
+        output.append(str(right_item))
+
+output.sort()
+for line in output:
+    print(line)

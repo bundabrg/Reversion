@@ -27,31 +27,20 @@
          xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>parent</artifactId>
+        <artifactId>protocol</artifactId>
         <groupId>au.com.grieve.reversion</groupId>
         <version>1.1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <packaging>pom</packaging>
-    <modules>
-        <module>translator-v390ee_to_v408be</module>
-        <module>translator-v409be_to_v408be</module>
-        <module>translator-v411be_to_v409be</module>
-        <module>translator-v412be_to_v411be</module>
-        <module>translator-v414be_to_v412be</module>
-        <module>translator-v415be_to_v408be</module>
-    </modules>
 
-    <artifactId>translators</artifactId>
+    <artifactId>bedrock-v415</artifactId>
 
     <dependencies>
         <dependency>
-            <groupId>com.nukkitx.protocol</groupId>
-            <artifactId>bedrock-common</artifactId>
-            <version>2.6.0-SNAPSHOT</version>
-            <scope>compile</scope>
+            <groupId>au.com.grieve.reversion</groupId>
+            <artifactId>bedrock-v414</artifactId>
+            <version>${project.version}</version>
         </dependency>
     </dependencies>
-
 
 </project>

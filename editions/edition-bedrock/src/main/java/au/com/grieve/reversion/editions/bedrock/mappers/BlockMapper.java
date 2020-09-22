@@ -27,7 +27,6 @@ package au.com.grieve.reversion.editions.bedrock.mappers;
 import au.com.grieve.reversion.editions.bedrock.utils.VariableStore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.core.JsonFactory;
-import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.nukkitx.nbt.NBTInputStream;
@@ -73,16 +72,23 @@ public class BlockMapper {
 
     // Block Map
     private final Map<String, List<BlockMapperConfig>> blockMap = new HashMap<>();
+
+    // Upstream Block Palette
     private final Supplier<InputStream> palette;
+
+    // Downstream Palette. Only needed if we have no runtimeId map
+    private final Supplier<InputStream> downstreamPalette;
+
+    // Block Mapper
     private final Supplier<InputStream> blockMapper;
+
+    // Baked in runtime id maps
     private final Supplier<InputStream> runtimeMapper;
 
     // Debug - When set we will output a mapping to bake in as the RuntimeId Map
     private final String debugName;
     private final boolean debug;
 
-    // Downstream Palette. Only needed if we have no runtimeId map
-    private final Supplier<InputStream> downstreamPalette;
 
     // Our Block Version
     int version;
@@ -99,7 +105,7 @@ public class BlockMapper {
         this.blockMapper = blockMapper;
         this.runtimeMapper = runtimeMapper;
         this.debugName = debugName;
-        this.debug = debug;
+        this.debug = debug != null;
 
         init();
     }
@@ -216,6 +222,10 @@ public class BlockMapper {
      * @param downstreamTags tags from downstream palette
      */
     protected void initRuntimeIdMapFromPalette(List<NbtMap> upstreamTags, List<NbtMap> downstreamTags) {
+        if (debug) {
+            System.out.println("Initializing BlockMapper from Palette for " + getDebugName());
+        }
+
         Map<Integer, NbtMap> upstreamMap = IntStream.range(0, upstreamTags.size())
                 .boxed()
                 .collect(Collectors.toMap(i -> i, upstreamTags::get));
@@ -276,7 +286,7 @@ public class BlockMapper {
             }
         }
 
-        File outFile = new File(name + "-runtime_mapper.json");
+        File outFile = new File(name + "-runtime_block_mapper.json");
         System.out.println("Writing RuntimeIdMap to: " + outFile);
         try (FileOutputStream fos = new FileOutputStream(outFile)) {
             mapper.writeValue(fos, runtimeConfigs);
@@ -344,13 +354,13 @@ public class BlockMapper {
 
                 boolean found = false;
 
-                for (Map.Entry<String, JsonNode> entry : mapConfig.getDownstream().getStates().entrySet()) {
+                for (Map.Entry<String, VariableStore.Data> entry : mapConfig.getDownstream().getStates().entrySet()) {
                     if (!originalStates.containsKey(entry.getKey())) {
-                        continue;
+                        break;
                     }
 
                     if (!variableStore.compare(originalStates.get(entry.getKey()), entry.getValue())) {
-                        continue;
+                        break;
                     }
 
                     found = true;
@@ -364,7 +374,7 @@ public class BlockMapper {
             NbtMapBuilder builder = NbtMap.builder();
 
             try {
-                for (Map.Entry<String, JsonNode> entry : mapConfig.getUpstream().getStates().entrySet()) {
+                for (Map.Entry<String, VariableStore.Data> entry : mapConfig.getUpstream().getStates().entrySet()) {
                     builder.put(entry.getKey(), variableStore.get(entry.getValue()));
                 }
             } catch (IndexOutOfBoundsException e) {
@@ -408,7 +418,7 @@ public class BlockMapper {
         @JsonIgnoreProperties(ignoreUnknown = true)
         public static class Upstream {
             String name;
-            Map<String, JsonNode> states;
+            Map<String, VariableStore.Data> states;
         }
 
         @ToString
@@ -416,7 +426,7 @@ public class BlockMapper {
         @JsonIgnoreProperties(ignoreUnknown = true)
         public static class Downstream {
             String name;
-            Map<String, JsonNode> states;
+            Map<String, VariableStore.Data> states;
         }
 
     }

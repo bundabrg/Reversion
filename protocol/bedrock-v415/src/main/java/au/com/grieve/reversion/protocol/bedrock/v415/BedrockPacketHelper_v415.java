@@ -22,33 +22,18 @@
  * SOFTWARE.
  */
 
-package au.com.grieve.reversion.translators.v411be_to_v409be.handlers;
+package au.com.grieve.reversion.protocol.bedrock.v415;
 
-import au.com.grieve.reversion.editions.bedrock.BedrockTranslator;
-import au.com.grieve.reversion.editions.bedrock.handlers.StartGameHandler_Bedrock;
-import com.nukkitx.protocol.bedrock.packet.StartGamePacket;
+import au.com.grieve.reversion.protocol.bedrock.v414.BedrockPacketHelper_v414;
+import lombok.AccessLevel;
+import lombok.RequiredArgsConstructor;
 
-import java.util.stream.Collectors;
+@RequiredArgsConstructor(access = AccessLevel.PROTECTED)
+public class BedrockPacketHelper_v415 extends BedrockPacketHelper_v414 {
+    public static final BedrockPacketHelper_v415 INSTANCE = new BedrockPacketHelper_v415();
 
-/*
-    The StartGame packet now does not send the block palette for vanilla blocks. This means when translating to a lower
-    version we need to read the server sent blocks and remove all the vanilla ones, then provide just the changes
- */
-
-public class StartGameHandler_v411be_to_v409be extends StartGameHandler_Bedrock {
-
-    public StartGameHandler_v411be_to_v409be(BedrockTranslator translator) {
-        super(translator);
-    }
-
-    @Override
-    public boolean fromDownstream(StartGamePacket packet) {
-        // Send ItemPalette
-        packet.setItemEntries(getTranslator().getRegisteredTranslator().getItemMapper().getUpstreamPalette().stream()
-                .map(i -> new StartGamePacket.ItemEntry(i.getString("name"), (short) i.getInt("id")))
-                .collect(Collectors.toList())
-        );
-        return false;
+    public boolean isBlockingItem(int id) {
+        return id == 401;
     }
 
 }

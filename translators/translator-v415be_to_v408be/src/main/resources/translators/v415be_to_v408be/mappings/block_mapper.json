@@ -1,0 +1,111 @@
+[
+  {
+    "downstream": {
+      "name": "minecraft:bee_nest",
+      "states": {
+        "facing_direction": 4,
+        "honey_level": "%honey_level%"
+      }
+    },
+    "upstream": {
+      "name": "minecraft:bee_nest",
+      "states": {
+        "direction": 0,
+        "honey_level": "%honey_level%"
+      }
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:bee_nest",
+      "states": {
+        "facing_direction": 5,
+        "honey_level": "%honey_level%"
+      }
+    },
+    "upstream": {
+      "name": "minecraft:bee_nest",
+      "states": {
+        "direction": 0,
+        "honey_level": "%honey_level%"
+      }
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:bee_nest",
+      "states": {
+        "facing_direction": "%facing_direction%",
+        "honey_level": "%honey_level%"
+      }
+    },
+    "upstream": {
+      "name": "minecraft:bee_nest",
+      "states": {
+        "direction": "%facing_direction%",
+        "honey_level": "%honey_level%"
+      }
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:beehive",
+      "states": {
+        "facing_direction": 4,
+        "honey_level": "%honey_level%"
+      }
+    },
+    "upstream": {
+      "name": "minecraft:beehive",
+      "states": {
+        "direction": 0,
+        "honey_level": "%honey_level%"
+      }
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:beehive",
+      "states": {
+        "facing_direction": 5,
+        "honey_level": "%honey_level%"
+      }
+    },
+    "upstream": {
+      "name": "minecraft:beehive",
+      "states": {
+        "direction": 0,
+        "honey_level": "%honey_level%"
+      }
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:beehive",
+      "states": {
+        "facing_direction": "%facing_direction%",
+        "honey_level": "%honey_level%"
+      }
+    },
+    "upstream": {
+      "name": "minecraft:beehive",
+      "states": {
+        "direction": "%facing_direction%",
+        "honey_level": "%honey_level%"
+      }
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:chain",
+      "states": {
+      }
+    },
+    "upstream": {
+      "name": "minecraft:chain",
+      "states": {
+        "pillar_axis": "y"
+      }
+    }
+  }
+]

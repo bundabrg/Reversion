@@ -71,9 +71,11 @@ public class Register_v414be_to_v412be {
             .translator(BedrockTranslator.class)
             .blockMapper(BlockMapper.builder()
                             .palette(() -> Register_v414be_to_v412be.class.getResourceAsStream("/protocol/bedrock-v414/blockpalette.nbt"))
-                            .runtimeMapper(() -> Register_v414be_to_v412be.class.getResourceAsStream("/translators/v414be_to_v412be/mappings/block_runtime_mapper.json"))
+                            .runtimeMapper(() -> Register_v414be_to_v412be.class.getResourceAsStream("/translators/v414be_to_v412be/mappings/runtime_block_mapper.json"))
+
 //                    .downstreamPalette(() -> Register_v414be_to_v412be.class.getResourceAsStream("/protocol/bedrock-v412/blockpalette.nbt"))
 //                    .debugName("v414be_to_v412be")
+
                             .build()
             )
             .itemMapper(ItemMapper.DEFAULT)

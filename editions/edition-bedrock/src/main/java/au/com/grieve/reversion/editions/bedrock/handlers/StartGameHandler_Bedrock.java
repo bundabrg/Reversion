@@ -52,9 +52,9 @@ public class StartGameHandler_Bedrock extends PacketHandler<BedrockTranslator, S
         }
         packet.setBlockPalette(new NbtList<>(NbtType.COMPOUND, translatedPalette));
 
-        // Remap ItemPalette
-        packet.setItemEntries(packet.getItemEntries().stream()
-                .map(i -> new StartGamePacket.ItemEntry(i.getIdentifier(), getTranslator().getRegisteredTranslator().getItemMapper().mapItemIdToUpstream(i.getId())))
+        // Send ItemPalette
+        packet.setItemEntries(getTranslator().getRegisteredTranslator().getItemMapper().getUpstreamPalette().stream()
+                .map(i -> new StartGamePacket.ItemEntry(i.getString("name"), (short) i.getInt("id")))
                 .collect(Collectors.toList())
         );
         return false;

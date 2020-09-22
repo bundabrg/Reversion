@@ -90,6 +90,18 @@
   },
   {
     "upstream": {
+      "id": 262,
+      "data": 0,
+      "creative": false,
+      "customName": "Arrow Type 43"
+    },
+    "downstream": {
+      "id": 262,
+      "data": 43
+    }
+  },
+  {
+    "upstream": {
       "id": 158,
       "data": 0,
       "creative": false,
@@ -661,7 +673,7 @@
   {
     "upstream": {
       "id": -218,
-      "data": 4,
+      "data": 3,
       "creative": true
     },
     "downstream": {
@@ -1045,7 +1057,7 @@
   {
     "upstream": {
       "id": 5,
-      "data": 4,
+      "data": 5,
       "creative": false,
       "customName": "Warped Planks"
     },

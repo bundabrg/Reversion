@@ -43,7 +43,7 @@ public class CreativeContentHandler_Bedrock extends PacketHandler<BedrockTransla
         // Strip out items with creative set to false
         packet.setContents(
                 Arrays.stream(packet.getContents())
-                        .map(i -> getTranslator().getRegisteredTranslator().getItemMapper().mapItemDataToUpstream(i))
+                        .map(i -> getTranslator().getRegisteredTranslator().getItemMapper().mapItemDataToUpstream(i, true))
                         .filter(Objects::nonNull)
                         .toArray(ItemData[]::new)
         );

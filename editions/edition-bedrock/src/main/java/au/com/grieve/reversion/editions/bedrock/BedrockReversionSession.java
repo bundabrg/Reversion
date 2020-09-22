@@ -41,10 +41,10 @@ import io.netty.buffer.ByteBuf;
 import io.netty.channel.EventLoop;
 import io.netty.util.internal.logging.InternalLogger;
 import io.netty.util.internal.logging.InternalLoggerFactory;
+import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 import lombok.Getter;
 
 import java.lang.reflect.Field;
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
@@ -67,7 +67,7 @@ public class BedrockReversionSession extends ReversionSession {
 
     protected final EventLoop eventLoop;
 
-    protected final Field queuedPacketsField;
+    protected final Queue<BedrockPacket> queuedPackets;
 
     public BedrockReversionSession(BedrockReversionServer server, RakNetSession connection, EventLoop eventLoop, BedrockWrapperSerializer serializer) {
         super(connection, eventLoop, serializer);
@@ -78,11 +78,14 @@ public class BedrockReversionSession extends ReversionSession {
         getFromClientHandlers().add(new LoginHandler());
 
         try {
-            queuedPacketsField = BedrockSession.class.getDeclaredField("queuedPackets");
-        } catch (NoSuchFieldException e) {
+            Field queuedPacketsField = BedrockSession.class.getDeclaredField("queuedPackets");
+            queuedPacketsField.setAccessible(true);
+            //noinspection unchecked
+            queuedPackets = (Queue<BedrockPacket>) queuedPacketsField.get(this);
+        } catch (NoSuchFieldException | IllegalAccessException e) {
             throw new RuntimeException(e);
         }
-        queuedPacketsField.setAccessible(true);
+
     }
 
     @Override
@@ -99,7 +102,8 @@ public class BedrockReversionSession extends ReversionSession {
             }
         }
 
-        return false;
+        super.sendPacket(packet);
+        return true;
     }
 
     @Override
@@ -118,6 +122,18 @@ public class BedrockReversionSession extends ReversionSession {
         return true;
     }
 
+    @SuppressWarnings("BooleanMethodIsAlwaysInverted")
+    protected boolean handleOutgoingPacket(BedrockPacket packet) {
+        // Take care of fromServer Handlers
+        for (BedrockPacketHandler handler : getFromServerHandlers()) {
+            if (packet.handle(handler)) {
+                return true;
+            }
+        }
+
+        return translator != null && translator.getServerTranslator().fromServer(packet);
+    }
+
     @Override
     public void setTranslator(Translator translator) {
         this.translator = translator;
@@ -126,46 +142,52 @@ public class BedrockReversionSession extends ReversionSession {
 
     @Override
     public void sendPacket(BedrockPacket packet) {
-        try {
-            @SuppressWarnings("unchecked")
-            Queue<BedrockPacket> queuedPackets = (Queue<BedrockPacket>) queuedPacketsField.get(this);
-
-            queuedPackets.add(packet);
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
+        if (!handleOutgoingPacket(packet)) {
+            super.sendPacket(packet);
         }
     }
 
     @Override
     public void sendPacketImmediately(BedrockPacket packet) {
-        this.sendWrapped(Collections.singletonList(packet), !packet.getClass().isAnnotationPresent(NoEncryption.class));
+        if (!handleOutgoingPacket(packet)) {
+            super.sendPacketImmediately(packet);
+        }
     }
 
     @Override
-    public void sendWrapped(Collection<BedrockPacket> packets, boolean encrypt) {
-        List<BedrockPacket> translated = new ArrayList<>();
+    public void tick() {
+        this.eventLoop.execute(this::onTick);
+    }
 
-        // Translate all the packets, removing any that are handled
-        outer:
-        for (BedrockPacket packet : packets) {
+    protected void onTick() {
+        if (!this.isClosed()) {
+            this.sendQueued();
+        }
+    }
 
-            // Take care of fromServer Handlers
-            for (BedrockPacketHandler handler : getFromServerHandlers()) {
-                if (packet.handle(handler)) {
-                    continue outer;
+    protected void sendQueued() {
+        BedrockPacket packet;
+        List<BedrockPacket> toBatch = new ObjectArrayList<>();
+
+        while ((packet = queuedPackets.poll()) != null) {
+            if (packet.getClass().isAnnotationPresent(NoEncryption.class)) {
+                // We hit a unencryptable packet. Send the current wrapper and then send the unencryptable packet.
+                if (!toBatch.isEmpty()) {
+                    this.sendWrapped(toBatch, true);
+                    toBatch = new ObjectArrayList<>();
                 }
-            }
 
-            if (translator != null && translator.getServerTranslator().fromServer(packet)) {
+                this.sendWrapped(Collections.singletonList(packet), false);
                 continue;
             }
 
-            translated.add(packet);
+            toBatch.add(packet);
         }
 
-        super.sendWrapped(translated, encrypt);
+        if (!toBatch.isEmpty()) {
+            this.sendWrapped(toBatch, true);
+        }
     }
-
 
     @Getter
     public class ReversionBatchHandler implements BatchHandler {

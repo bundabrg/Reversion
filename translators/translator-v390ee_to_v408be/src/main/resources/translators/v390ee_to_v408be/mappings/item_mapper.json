@@ -1249,5 +1249,17 @@
       "customName": "Banner Pattern 6",
       "creative": false
     }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:arrow",
+      "data": 43
+    },
+    "upstream": {
+      "name": "minecraft:arrow",
+      "data": 0,
+      "customName": "Arrow Type 43",
+      "creative": false
+    }
   }
 ]

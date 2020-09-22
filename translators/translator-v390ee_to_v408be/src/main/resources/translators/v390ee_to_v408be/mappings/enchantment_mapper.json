@@ -1,7 +1,12 @@
 [
   {
     "downstream": {
-      "id": 36
+      "id": 36,
+      "lvl": "%lvl%"
+    },
+    "upstream": {
+      "id": 0,
+      "lvl": "%lvl%"
     }
   }
 ]

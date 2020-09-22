@@ -424,13 +424,17 @@ public class ItemMapper {
 //                tag = tagBuilder.build();
 //            }
             return ItemData.fromNet(item.getNetId(), itemMapperEntry.getDownstream().getId(),
-                    (short) variableStore.get(itemMapperEntry.getUpstream().getData()), item.getCount(),
+                    variableStore.getInt(itemMapperEntry.getDownstream().getData(), 0).shortValue(), item.getCount(),
                     tag, item.getCanPlace(), item.getCanBreak(), item.getBlockingTicks());
         }
         return item;
     }
 
     public ItemData mapItemDataToUpstream(ItemData item) {
+        return mapItemDataToUpstream(item, false);
+    }
+
+    public ItemData mapItemDataToUpstream(ItemData item, boolean creativeOnly) {
         if (item == null) {
             return null;
         }
@@ -452,6 +456,10 @@ public class ItemMapper {
                 continue;
             }
 
+            if (creativeOnly && !itemMapperEntry.getUpstream().isCreative()) {
+                return null;
+            }
+
             NbtMap tag = translated.getTag();
 
             if (itemMapperEntry.getUpstream().getCustomName() != null) {
@@ -462,7 +470,7 @@ public class ItemMapper {
             }
 
             return ItemData.fromNet(translated.getNetId(), itemMapperEntry.getUpstream().getId(),
-                    (short) variableStore.getOrDefault(itemMapperEntry.getUpstream().getData(), (short) 0), translated.getCount(),
+                    variableStore.getInt(itemMapperEntry.getUpstream().getData(), 0).shortValue(), translated.getCount(),
                     tag, translated.getCanPlace(), translated.getCanBreak(), translated.getBlockingTicks());
         }
 

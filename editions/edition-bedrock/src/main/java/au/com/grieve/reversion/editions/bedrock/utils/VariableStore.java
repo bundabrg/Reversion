@@ -74,6 +74,14 @@ public class VariableStore {
         return ret != null ? ret : defaultValue;
     }
 
+    public Integer getInt(Data value) {
+        return getInt(value, null);
+    }
+
+    public Integer getInt(Data value, Integer defaultValue) {
+        return (Integer) getOrDefault(value, defaultValue);
+    }
+
     public Object get(Data value) throws IndexOutOfBoundsException {
         if (value == null) {
             return null;

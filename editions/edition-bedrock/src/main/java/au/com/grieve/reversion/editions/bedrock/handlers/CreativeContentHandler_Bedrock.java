@@ -30,6 +30,7 @@ import com.nukkitx.protocol.bedrock.data.inventory.ItemData;
 import com.nukkitx.protocol.bedrock.packet.CreativeContentPacket;
 
 import java.util.Arrays;
+import java.util.Objects;
 
 public class CreativeContentHandler_Bedrock extends PacketHandler<BedrockTranslator, CreativeContentPacket> {
 
@@ -39,10 +40,11 @@ public class CreativeContentHandler_Bedrock extends PacketHandler<BedrockTransla
 
     @Override
     public boolean fromDownstream(CreativeContentPacket packet) {
-        // Strip out modified items
+        // Strip out items with creative set to false
         packet.setContents(
                 Arrays.stream(packet.getContents())
-                        .filter(i -> !getTranslator().getRegisteredTranslator().getItemMapper().getItemToUpstreamMap().containsKey(i.getId()))
+                        .map(i -> getTranslator().getRegisteredTranslator().getItemMapper().mapItemDataToUpstream(i))
+                        .filter(Objects::nonNull)
                         .toArray(ItemData[]::new)
         );
         return false;

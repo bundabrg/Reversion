@@ -207,6 +207,7 @@ public class BlockMapper {
 
         // Preparation
         Map<Integer, NbtMap> upstreamMap = new HashMap<>();
+        Map<String, List<Integer>> upstreamNameMap = new HashMap<>();
         Map<String, Short> legacyMap = new HashMap<>();
         Map<String, List<BlockMapperConfig>> blockMapperMap = new HashMap<>();
         int version = 0;
@@ -220,6 +221,11 @@ public class BlockMapper {
             if (version == 0) {
                 version = block.getInt("version");
             }
+
+            if (!upstreamNameMap.containsKey(block.getString("name"))) {
+                upstreamNameMap.put(block.getString("name"), new ArrayList<>());
+            }
+            upstreamNameMap.get(block.getString("name")).add(i);
         }
 
         for (BlockMapperConfig config : blockMapper) {
@@ -278,10 +284,9 @@ public class BlockMapper {
                 }
             }
             boolean found = false;
-            for (int upstreamRuntimeId : upstreamMap.keySet()) {
+            for (int upstreamRuntimeId : upstreamNameMap.get(downstreamBlockTag.getString("name"))) {
                 NbtMap upstreamTag = upstreamMap.get(upstreamRuntimeId).getCompound("block");
-                if (downstreamBlockTag.getString("name").equals(upstreamTag.getString("name"))
-                        && downstreamBlockTag.getCompound("states").equals(upstreamTag.getCompound("states"))) {
+                if (downstreamBlockTag.getCompound("states").equals(upstreamTag.getCompound("states"))) {
                     registerRuntimeIdMapping(downstreamRuntimeId, upstreamRuntimeId);
                     unusedMap.remove(upstreamRuntimeId);
                     found = true;

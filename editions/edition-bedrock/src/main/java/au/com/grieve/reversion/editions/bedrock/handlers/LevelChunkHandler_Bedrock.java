@@ -42,37 +42,46 @@ public class LevelChunkHandler_Bedrock extends PacketHandler<BedrockTranslator, 
         ByteBuf buf = Unpooled.wrappedBuffer(packet.getData());
         ByteBuf translated = Unpooled.buffer(32);
 
-        translated.writeByte(buf.readByte());
 
-        byte sectionCount = buf.readByte();
-        translated.writeByte(sectionCount);
+        while (buf.readableBytes() > 0) {
+            byte ver = buf.readByte();
+            switch (ver) {
+                case 8: // Chunk section
+                    translated.writeByte(ver);
+                    byte sectionCount = buf.readByte();
+                    translated.writeByte(sectionCount);
 
+                    for (byte sectionUpto = 0; sectionUpto < sectionCount; sectionUpto++) {
+                        int bitsPerByte = buf.readByte();
+                        translated.writeByte(bitsPerByte);
 
-        for (byte sectionUpto = 0; sectionUpto < sectionCount; sectionUpto++) {
-            int bitsPerByte = buf.readByte();
-            translated.writeByte(bitsPerByte);
+                        bitsPerByte = bitsPerByte >> 1;
+                        int entriesPerWord = 32 / bitsPerByte;
 
-            bitsPerByte = bitsPerByte >> 1;
-            int entriesPerWord = 32 / bitsPerByte;
+                        translated.writeBytes(buf, (int) Math.ceil((double) 4096 / (double) entriesPerWord) * 4);
 
-            translated.writeBytes(buf, (int) Math.ceil((double) 4096 / (double) entriesPerWord) * 4);
+                        int paletteSize = VarInts.readInt(buf);
+                        VarInts.writeInt(translated, paletteSize);
 
-            int paletteSize = VarInts.readInt(buf);
-            VarInts.writeInt(translated, paletteSize);
+                        for (int i = 0; i < paletteSize; i++) {
+                            int original_block = VarInts.readInt(buf);
+                            int translated_block = getTranslator().getRegisteredTranslator().getBlockMapper().mapRuntimeIdToUpstream(original_block);
+//                            if (original_block != translated_block) {
+//                                tMap.put(original_block, translated_block);
+//                            }
+                            VarInts.writeInt(translated, translated_block);
+                        }
+                    }
+                    break;
+                default: // Write rest out?
+                    translated.writeByte(ver);
 
-            for (int i = 0; i < paletteSize; i++) {
-                int original_block = VarInts.readInt(buf);
-                int translated_block = getTranslator().getRegisteredTranslator().getBlockMapper().mapRuntimeIdToUpstream(original_block);
-//                if (original_block != translated_block) {
-//                    System.err.println("Translated " + original_block + " to " + translated_block);
-//                }
-                VarInts.writeInt(translated, translated_block);
+                    // Write rest of buffer
+                    translated.writeBytes(buf);
             }
         }
-        // Write rest of buffer
-        translated.writeBytes(buf);
-        byte[] translatedBytes = new byte[translated.readableBytes()];
 
+        byte[] translatedBytes = new byte[translated.readableBytes()];
         translated.readBytes(translatedBytes);
         packet.setData(translatedBytes);
 

@@ -30,4 +30,4 @@ It allows any of the supported client versions listed below to connect to any of
 
 ## Used By
 The following software uses this library:
-    * [GeyserReversion](https://github.com/bundabrg/GeyserReversion) - Multiversion Support for Geyser
+* [GeyserReversion](https://github.com/bundabrg/GeyserReversion) - Multiversion Support for Geyser

@@ -28,6 +28,7 @@ import au.com.grieve.reversion.api.PacketHandler;
 import au.com.grieve.reversion.editions.bedrock.BedrockTranslator;
 import com.nukkitx.protocol.bedrock.data.inventory.CraftingData;
 import com.nukkitx.protocol.bedrock.data.inventory.ItemData;
+import com.nukkitx.protocol.bedrock.data.inventory.PotionMixData;
 import com.nukkitx.protocol.bedrock.packet.CraftingDataPacket;
 
 import java.util.ArrayList;
@@ -78,8 +79,25 @@ public class CraftingDataHandler_Bedrock extends PacketHandler<BedrockTranslator
             );
             translatedList.add(translated);
         }
+
+        List<PotionMixData> translatedPotionMixData = new ArrayList<>();
+        for (PotionMixData pmd : packet.getPotionMixData()) {
+            ItemData input = getTranslator().getRegisteredTranslator().getItemMapper().mapItemDataToUpstream(ItemData.of(pmd.getInputId(), (short) pmd.getInputMeta(), 1), true);
+            ItemData reagent = getTranslator().getRegisteredTranslator().getItemMapper().mapItemDataToUpstream(ItemData.of(pmd.getReagentId(), (short) pmd.getReagentMeta(), 1), true);
+            ItemData output = getTranslator().getRegisteredTranslator().getItemMapper().mapItemDataToUpstream(ItemData.of(pmd.getOutputId(), (short) pmd.getOutputMeta(), 1), true);
+
+            if (input != null && reagent != null && output != null) {
+                translatedPotionMixData.add(new PotionMixData(input.getId(), input.getDamage(), reagent.getId(), reagent.getDamage(),
+                        output.getId(), output.getDamage()));
+            }
+        }
+
+
         packet.getCraftingData().clear();
         packet.getCraftingData().addAll(translatedList);
+
+        packet.getPotionMixData().clear();
+        packet.getPotionMixData().addAll(translatedPotionMixData);
         return false;
     }
 }

@@ -198,4 +198,8 @@ public class BedrockTranslator implements Translator {
         return registeredTranslator.getCodec();
     }
 
+    @Override
+    public String toString() {
+        return getRegisteredTranslator().getName();
+    }
 }

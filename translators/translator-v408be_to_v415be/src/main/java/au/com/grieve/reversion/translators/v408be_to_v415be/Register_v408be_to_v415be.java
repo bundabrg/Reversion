@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-package au.com.grieve.reversion.translators.v415be_to_v408be;
+package au.com.grieve.reversion.translators.v408be_to_v415be;
 
 import au.com.grieve.reversion.editions.bedrock.BedrockRegisteredTranslator;
 import au.com.grieve.reversion.editions.bedrock.BedrockTranslator;
@@ -43,7 +43,7 @@ import au.com.grieve.reversion.editions.bedrock.handlers.UpdateBlockHandler_Bedr
 import au.com.grieve.reversion.editions.bedrock.mappers.BlockMapper;
 import au.com.grieve.reversion.editions.bedrock.mappers.EntityMapper;
 import au.com.grieve.reversion.editions.bedrock.mappers.ItemMapper;
-import au.com.grieve.reversion.translators.v411be_to_v409be.handlers.StartGameHandler_v411be_to_v409be;
+import au.com.grieve.reversion.translators.v408be_to_v415be.handlers.StartGameHandler_v408be_to_v415be;
 import com.nukkitx.protocol.bedrock.packet.AddEntityPacket;
 import com.nukkitx.protocol.bedrock.packet.AddItemEntityPacket;
 import com.nukkitx.protocol.bedrock.packet.AddPlayerPacket;
@@ -59,34 +59,34 @@ import com.nukkitx.protocol.bedrock.packet.MobEquipmentPacket;
 import com.nukkitx.protocol.bedrock.packet.SetEntityDataPacket;
 import com.nukkitx.protocol.bedrock.packet.StartGamePacket;
 import com.nukkitx.protocol.bedrock.packet.UpdateBlockPacket;
-import com.nukkitx.protocol.bedrock.v415.Bedrock_v415;
+import com.nukkitx.protocol.bedrock.v408.Bedrock_v408;
 
-public class Register_v415be_to_v408be {
+public class Register_v408be_to_v415be {
     public static BedrockRegisteredTranslator TRANSLATOR = BedrockRegisteredTranslator.builder()
             .fromEdition("bedrock")
-            .fromProtocolVersion(415)
+            .fromProtocolVersion(408)
             .toEdition("bedrock")
-            .toProtocolVersion(408)
-            .codec(Bedrock_v415.V415_CODEC)
+            .toProtocolVersion(415)
+            .codec(Bedrock_v408.V408_CODEC)
             .translator(BedrockTranslator.class)
             .blockMapper(BlockMapper.builder()
-                            .upstreamPalette(() -> Register_v415be_to_v408be.class.getResourceAsStream("/protocol/bedrock-v415/blockpalette.nbt"))
-                            .downstreamPalette(() -> Register_v415be_to_v408be.class.getResourceAsStream("/protocol/bedrock-v408/blockpalette.nbt"))
-                            .runtimeMapper(() -> Register_v415be_to_v408be.class.getResourceAsStream("/translators/v415be_to_v408be/mappings/runtime_block_mapper.json"))
+                            .upstreamPalette(() -> Register_v408be_to_v415be.class.getResourceAsStream("/protocol/bedrock-v408/blockpalette.nbt"))
+                            .downstreamPalette(() -> Register_v408be_to_v415be.class.getResourceAsStream("/protocol/bedrock-v415/blockpalette.nbt"))
+                            .runtimeMapper(() -> Register_v408be_to_v415be.class.getResourceAsStream("/translators/v408be_to_v415be/mappings/runtime_block_mapper.json"))
 
-//                    .blockMapper(() -> Register_v415be_to_v408be.class.getResourceAsStream("/translators/v415be_to_v408be/mappings/block_mapper.json"))
-//                    .debugName("v415be_to_v408be")
+//                    .blockMapper(() -> Register_v408be_to_v415be.class.getResourceAsStream("/translators/v408be_to_v415be/mappings/block_mapper.json"))
+//                    .debugName("v408be_to_v415be")
 //                    .debug(true)
 
                             .build()
             )
             .itemMapper(ItemMapper.builder()
-                            .upstreamPalette(() -> Register_v415be_to_v408be.class.getResourceAsStream("/protocol/bedrock-v415/itempalette.json"))
-                            .downstreamPalette(() -> Register_v415be_to_v408be.class.getResourceAsStream("/protocol/bedrock-v408/itempalette.json"))
-                            .runtimeMapper(() -> Register_v415be_to_v408be.class.getResourceAsStream("/translators/v415be_to_v408be/mappings/runtime_item_mapper.json"))
+                            .upstreamPalette(() -> Register_v408be_to_v415be.class.getResourceAsStream("/protocol/bedrock-v408/itempalette.json"))
+                            .downstreamPalette(() -> Register_v408be_to_v415be.class.getResourceAsStream("/protocol/bedrock-v415/itempalette.json"))
+                            .runtimeMapper(() -> Register_v408be_to_v415be.class.getResourceAsStream("/translators/v408be_to_v415be/mappings/runtime_item_mapper.json"))
 
-//                    .itemMapper(() -> Register_v415be_to_v408be.class.getResourceAsStream("/translators/v415be_to_v408be/mappings/item_mapper.json"))
-//                    .debugName("v415be_to_v408be")
+//                    .itemMapper(() -> Register_v408be_to_v415be.class.getResourceAsStream("/translators/v408be_to_v415be/mappings/item_mapper.json"))
+//                    .debugName("v408be_to_v415be")
 //                    .debug(true)
 
                             .build()
@@ -105,7 +105,7 @@ public class Register_v415be_to_v408be {
             .registerPacketHandler(MobArmorEquipmentPacket.class, MobArmorEquipmentHandler_Bedrock.class)
             .registerPacketHandler(MobEquipmentPacket.class, MobEquipmentHandler_Bedrock.class)
             .registerPacketHandler(SetEntityDataPacket.class, SetEntityDataHandler_Bedrock.class)
-            .registerPacketHandler(StartGamePacket.class, StartGameHandler_v411be_to_v409be.class)
+            .registerPacketHandler(StartGamePacket.class, StartGameHandler_v408be_to_v415be.class)
             .registerPacketHandler(UpdateBlockPacket.class, UpdateBlockHandler_Bedrock.class)
             .build();
 }

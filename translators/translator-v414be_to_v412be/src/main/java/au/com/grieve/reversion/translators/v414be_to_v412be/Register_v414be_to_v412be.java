@@ -43,7 +43,6 @@ import au.com.grieve.reversion.editions.bedrock.handlers.UpdateBlockHandler_Bedr
 import au.com.grieve.reversion.editions.bedrock.mappers.BlockMapper;
 import au.com.grieve.reversion.editions.bedrock.mappers.EntityMapper;
 import au.com.grieve.reversion.editions.bedrock.mappers.ItemMapper;
-import au.com.grieve.reversion.protocol.bedrock.v414.Bedrock_v414;
 import au.com.grieve.reversion.translators.v411be_to_v409be.handlers.StartGameHandler_v411be_to_v409be;
 import com.nukkitx.protocol.bedrock.packet.AddEntityPacket;
 import com.nukkitx.protocol.bedrock.packet.AddItemEntityPacket;
@@ -60,6 +59,7 @@ import com.nukkitx.protocol.bedrock.packet.MobEquipmentPacket;
 import com.nukkitx.protocol.bedrock.packet.SetEntityDataPacket;
 import com.nukkitx.protocol.bedrock.packet.StartGamePacket;
 import com.nukkitx.protocol.bedrock.packet.UpdateBlockPacket;
+import com.nukkitx.protocol.bedrock.v414.Bedrock_v414;
 
 public class Register_v414be_to_v412be {
     public static BedrockRegisteredTranslator TRANSLATOR = BedrockRegisteredTranslator.builder()

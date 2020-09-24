@@ -45,6 +45,7 @@ public class CreativeContentHandler_Bedrock extends PacketHandler<BedrockTransla
                 Arrays.stream(packet.getContents())
                         .map(i -> getTranslator().getRegisteredTranslator().getItemMapper().mapItemDataToUpstream(i, true))
                         .filter(Objects::nonNull)
+                        .filter(i -> i.getCount() != 0) // Strip out bad data
                         .toArray(ItemData[]::new)
         );
         return false;

@@ -345,7 +345,6 @@ public class ItemMapper {
 
         // Now go through the downstream palette and generate generic mappings of any that don't match an existing mapper
         for (NbtMap downstreamTag : downstreamTags) {
-
             if (itemToUpstreamMap.containsKey(downstreamTag.getInt("id"))) {
                 continue;
             }
@@ -367,9 +366,9 @@ public class ItemMapper {
                                 )
                                 .build()
                         );
+                        unusedDownstreamTags.remove(downstreamTag);
+                        unusedUpstreamTags.remove(upstreamTag);
                     }
-                    unusedDownstreamTags.remove(downstreamTag);
-                    unusedUpstreamTags.remove(upstreamTag);
                     break;
                 }
             }

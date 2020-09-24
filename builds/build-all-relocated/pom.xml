@@ -61,6 +61,7 @@
                                 <includes>
                                     <include>au.com.grieve.reversion:*</include>
                                     <include>com.nukkitx.protocol:*</include>
+                                    <include>com.github.CloudburstMC.Protocol:*</include>
                                 </includes>
                             </artifactSet>
                             <relocations>

@@ -25,6 +25,9 @@
 Reversion is a Library that extends Cloudburst Protocol to provide protocol level support for MultiVersion translation. Over time more versions
 will be added.
 
+If you've heard of [ViaVersion](https://github.com/ViaVersion/ViaVersion) then this is the equivalent but for the Bedrock.
+It allows any of the supported client versions listed below to connect to any of the supported server versions.
+
 ## Features
 
 * Minecraft Educational Edition Support. Translate from Minecraft Education to Minecraft Bedrock.

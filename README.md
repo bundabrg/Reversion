@@ -42,6 +42,7 @@ It allows any of the supported client versions listed below to connect to any of
 * Minecraft Bedrock v1.16.100.53 (beta)
 * Minecraft Bedrock v1.16.100.55 (beta)
 * Minecraft Bedrock v1.16.100.56 (beta)
+* Minecraft Bedrock v1.16.100.57 (beta)
 
 ### Minecraft Education
 * Minecraft Education v1.14.31

@@ -41,6 +41,7 @@
         <module>translator-v414be_to_v412be</module>
         <module>translator-v415be_to_v408be</module>
         <module>translator-v408be_to_v415be</module>
+        <module>translator-v416be_to_v408be</module>
     </modules>
 
     <artifactId>translators</artifactId>

@@ -35,6 +35,10 @@ import static com.nukkitx.protocol.bedrock.data.command.CommandParamType.*;
 public class EducationPacketHelper_v390 extends BedrockPacketHelper_v388 {
     public static final EducationPacketHelper_v390 INSTANCE = new EducationPacketHelper_v390();
 
+    @Override
+    public boolean isBlockingItem(int id, int lookFor) {
+        return id == 513;
+    }
 
     @Override
     protected void registerCommandParams() {

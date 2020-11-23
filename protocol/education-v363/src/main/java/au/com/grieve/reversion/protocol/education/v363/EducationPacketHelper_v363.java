@@ -35,6 +35,11 @@ public class EducationPacketHelper_v363 extends BedrockPacketHelper_v361 {
     public static final BedrockPacketHelper INSTANCE = new EducationPacketHelper_v363();
 
     @Override
+    public boolean isBlockingItem(int id, int lookFor) {
+        return id == 513;
+    }
+
+    @Override
     protected void registerEntityData() {
         super.registerEntityData();
 

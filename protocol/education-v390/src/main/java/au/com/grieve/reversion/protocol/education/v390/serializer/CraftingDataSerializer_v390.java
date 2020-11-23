@@ -26,6 +26,7 @@ package au.com.grieve.reversion.protocol.education.v390.serializer;
 
 import com.nukkitx.network.VarInts;
 import com.nukkitx.protocol.bedrock.BedrockPacketHelper;
+import com.nukkitx.protocol.bedrock.BedrockSession;
 import com.nukkitx.protocol.bedrock.data.inventory.ContainerMixData;
 import com.nukkitx.protocol.bedrock.data.inventory.CraftingDataType;
 import com.nukkitx.protocol.bedrock.data.inventory.PotionMixData;
@@ -40,22 +41,22 @@ public class CraftingDataSerializer_v390 extends CraftingDataSerializer_v361 {
     public static final CraftingDataSerializer_v390 INSTANCE = new CraftingDataSerializer_v390();
 
     @Override
-    public void serialize(ByteBuf buffer, BedrockPacketHelper helper, CraftingDataPacket packet) {
+    public void serialize(ByteBuf buffer, BedrockPacketHelper helper, CraftingDataPacket packet, BedrockSession session) {
         helper.writeArray(buffer, packet.getCraftingData(), (buf, craftingData) -> {
             VarInts.writeInt(buf, craftingData.getType().ordinal());
             switch (craftingData.getType()) {
                 case SHAPELESS:
                 case SHAPELESS_CHEMISTRY:
                 case SHULKER_BOX:
-                    this.writeShapelessRecipe(buf, helper, craftingData);
+                    this.writeShapelessRecipe(buf, helper, craftingData, session);
                     break;
                 case SHAPED:
                 case SHAPED_CHEMISTRY:
-                    this.writeShapedRecipe(buf, helper, craftingData);
+                    this.writeShapedRecipe(buf, helper, craftingData, session);
                     break;
                 case FURNACE:
                 case FURNACE_DATA:
-                    this.writeFurnaceRecipe(buf, helper, craftingData);
+                    this.writeFurnaceRecipe(buf, helper, craftingData, session);
                     break;
                 case MULTI:
                     this.writeMultiRecipe(buf, helper, craftingData);
@@ -85,7 +86,7 @@ public class CraftingDataSerializer_v390 extends CraftingDataSerializer_v361 {
     }
 
     @Override
-    public void deserialize(ByteBuf buffer, BedrockPacketHelper helper, CraftingDataPacket packet) {
+    public void deserialize(ByteBuf buffer, BedrockPacketHelper helper, CraftingDataPacket packet, BedrockSession session) {
         helper.readArray(buffer, packet.getCraftingData(), buf -> {
             int typeInt = VarInts.readInt(buf);
             CraftingDataType type = CraftingDataType.byId(typeInt);
@@ -94,13 +95,13 @@ public class CraftingDataSerializer_v390 extends CraftingDataSerializer_v361 {
                 case SHAPELESS:
                 case SHAPELESS_CHEMISTRY:
                 case SHULKER_BOX:
-                    return this.readShapelessRecipe(buf, helper, type);
+                    return this.readShapelessRecipe(buf, helper, type, session);
                 case SHAPED:
                 case SHAPED_CHEMISTRY:
-                    return this.readShapedRecipe(buf, helper, type);
+                    return this.readShapedRecipe(buf, helper, type, session);
                 case FURNACE:
                 case FURNACE_DATA:
-                    return this.readFurnaceRecipe(buf, helper, type);
+                    return this.readFurnaceRecipe(buf, helper, type, session);
                 case MULTI:
                     return this.readMultiRecipe(buf, helper, type);
                 default:

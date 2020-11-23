@@ -35,25 +35,10 @@
     <packaging>pom</packaging>
     <modules>
         <module>translator-v390ee_to_v408be</module>
-        <module>translator-v409be_to_v408be</module>
-        <module>translator-v411be_to_v409be</module>
-        <module>translator-v412be_to_v411be</module>
-        <module>translator-v414be_to_v412be</module>
-        <module>translator-v415be_to_v408be</module>
-        <module>translator-v408be_to_v415be</module>
-        <module>translator-v416be_to_v408be</module>
+        <module>translator-v391ee_to_v408be</module>
+        <module>translator-v408be_to_v419be</module>
     </modules>
 
     <artifactId>translators</artifactId>
-
-    <dependencies>
-        <dependency>
-            <groupId>com.nukkitx.protocol</groupId>
-            <artifactId>bedrock-common</artifactId>
-            <version>2.6.0-SNAPSHOT</version>
-            <scope>compile</scope>
-        </dependency>
-    </dependencies>
-
 
 </project>

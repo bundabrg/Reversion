@@ -35,21 +35,13 @@ import com.nukkitx.nbt.NbtMap;
 import com.nukkitx.nbt.NbtMapBuilder;
 import com.nukkitx.nbt.NbtType;
 import com.nukkitx.protocol.bedrock.data.inventory.ItemData;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import java.util.*;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
@@ -79,7 +71,6 @@ public class ItemMapper {
 
     // ItemMapper - Only needed if we don't have a runtimeItemMapper
     private final Supplier<InputStream> itemMapperSupplier;
-
 
     // Debug - When set we will output a mapping to bake in as the RuntimeId Map
     private final String debugName;
@@ -366,9 +357,9 @@ public class ItemMapper {
                                 )
                                 .build()
                         );
-                        unusedDownstreamTags.remove(downstreamTag);
-                        unusedUpstreamTags.remove(upstreamTag);
                     }
+                    unusedDownstreamTags.remove(downstreamTag);
+                    unusedUpstreamTags.remove(upstreamTag);
                     break;
                 }
             }

@@ -1,0 +1,1265 @@
+[
+  {
+    "downstream": {
+      "name": "minecraft:crimson_planks"
+    },
+    "upstream": {
+      "name": "minecraft:planks",
+      "data": 4,
+      "customName": "Crimson Planks",
+      "creative": false
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:warped_planks"
+    },
+    "upstream": {
+      "name": "minecraft:planks",
+      "data": 5,
+      "customName": "Warped Planks",
+      "creative": false
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:blackstone_wall"
+    },
+    "upstream": {
+      "name": "minecraft:nether_brick",
+      "data": 0,
+      "customName": "Blackstone Wall",
+      "creative": false
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:polished_blackstone_wall"
+    },
+    "upstream": {
+      "name": "minecraft:red_nether_brick",
+      "data": 0,
+      "customName": "Polished Blackstone Wall",
+      "creative": false
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:polished_blackstone_brick_wall"
+    },
+    "upstream": {
+      "name": "minecraft:red_nether_brick",
+      "data": 0,
+      "customName": "Polished Blackstone Brick Wall",
+      "creative": false
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:polished_blackstone_brick_double_slab"
+    },
+    "upstream": {
+      "name": "minecraft:double_stone_slab2",
+      "data": 0,
+      "customName": "Polished Blackstone Brick Double Slab",
+      "creative": false
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:blackstone_double_slab"
+    },
+    "upstream": {
+      "name": "minecraft:double_stone_slab2",
+      "data": 0,
+      "customName": "Blackstone Double Slab",
+      "creative": false
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:crimson_fence"
+    },
+    "upstream": {
+      "name": "minecraft:fence",
+      "data": 0,
+      "customName": "Crimson Fence",
+      "creative": false
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:warped_fence"
+    },
+    "upstream": {
+      "name": "minecraft:dark_oak_fence_gate",
+      "data": 0,
+      "customName": "Warped Fence",
+      "creative": false
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:crimson_fence_gate"
+    },
+    "upstream": {
+      "name": "minecraft:acacia_fence_gate",
+      "data": 0,
+      "customName": "Crimson Fence Gate",
+      "creative": false
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:warped_fence_gate"
+    },
+    "upstream": {
+      "name": "minecraft:dark_oak_fence_gate",
+      "data": 0,
+      "customName": "Warped Fence Gate",
+      "creative": false
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:crimson_stairs"
+    },
+    "upstream": {
+      "name": "minecraft:acacia_stairs",
+      "data": 0,
+      "customName": "Crimson Stairs",
+      "creative": false
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:warped_stairs"
+    },
+    "upstream": {
+      "name": "minecraft:dark_oak_stairs",
+      "data": 0,
+      "customName": "Warped Stairs",
+      "creative": false
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:blackstone_stairs"
+    },
+    "upstream": {
+      "name": "minecraft:nether_brick_stairs",
+      "data": 0,
+      "customName": "Blackstone Stairs",
+      "creative": false
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:polished_blackstone_stairs"
+    },
+    "upstream": {
+      "name": "minecraft:red_nether_brick",
+      "data": 0,
+      "customName": "Polished Blackstone Stairs",
+      "creative": false
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:polished_blackstone_brick_stairs"
+    },
+    "upstream": {
+      "name": "minecraft:red_nether_brick_stairs",
+      "data": 0,
+      "customName": "Polished Blackstone Brick Stairs",
+      "creative": false
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:crimson_door"
+    },
+    "upstream": {
+      "name": "minecraft:acacia_door",
+      "data": 0,
+      "customName": "Crimson Door",
+      "creative": false
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:item.crimson_door"
+    },
+    "upstream": {
+      "name": "minecraft:item.acacia_door",
+      "data": 0,
+      "customName": "Crimson Door",
+      "creative": false
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:warped_door"
+    },
+    "upstream": {
+      "name": "minecraft:dark_oak_door",
+      "data": 0,
+      "customName": "Warped Door",
+      "creative": false
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:item.warped_door"
+    },
+    "upstream": {
+      "name": "minecraft:item.dark_oak_door",
+      "data": 0,
+      "customName": "Warped Door",
+      "creative": false
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:crimson_trapdoor"
+    },
+    "upstream": {
+      "name": "minecraft:acacia_trapdoor",
+      "data": 0,
+      "customName": "Crimson Trapdoor",
+      "creative": false
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:warped_trapdoor"
+    },
+    "upstream": {
+      "name": "minecraft:dark_oak_trapdoor",
+      "data": 0,
+      "customName": "Warped Trapdoor",
+      "creative": false
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:chain"
+    },
+    "upstream": {
+      "name": "minecraft:iron_bars",
+      "data": 0,
+      "customName": "Chain",
+      "creative": false
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:item.chain"
+    },
+    "upstream": {
+      "name": "minecraft:iron_bars",
+      "data": 0,
+      "customName": "Chain",
+      "creative": false
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:crimson_slab"
+    },
+    "upstream": {
+      "name": "minecraft:wooden_slab",
+      "data": 0,
+      "customName": "Crimson Slab",
+      "creative": false
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:crimson_double_slab"
+    },
+    "upstream": {
+      "name": "minecraft:double_wooden_slab",
+      "data": 0,
+      "customName": "Crimson Double Slab",
+      "creative": false
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:warped_slab"
+    },
+    "upstream": {
+      "name": "minecraft:wooden_slab",
+      "data": 0,
+      "customName": "Warped Slab",
+      "creative": false
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:warped_double_slab"
+    },
+    "upstream": {
+      "name": "minecraft:double_wooden_slab",
+      "data": 0,
+      "customName": "Warped Double Slab",
+      "creative": false
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:blackstone_slab"
+    },
+    "upstream": {
+      "name": "minecraft:wooden_slab",
+      "data": 0,
+      "customName": "Blackstone Slab",
+      "creative": false
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:polished_blackstone_slab"
+    },
+    "upstream": {
+      "name": "minecraft:wooden_slab",
+      "data": 0,
+      "customName": "Polished Blackstone Slab",
+      "creative": false
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:polished_blackstone_brick_slab"
+    },
+    "upstream": {
+      "name": "minecraft:wooden_slab",
+      "data": 0,
+      "customName": "Polished Blackstone Brick Slab",
+      "creative": false
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:polished_blackstone_double_slab"
+    },
+    "upstream": {
+      "name": "minecraft:double_wooden_slab",
+      "data": 0,
+      "customName": "Polished Blackstone Double Slab",
+      "creative": false
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:chiseled_nether_bricks"
+    },
+    "upstream": {
+      "name": "minecraft:nether_brick",
+      "data": 0,
+      "customName": "Chiseled Nether Bricks",
+      "creative": false
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:cracked_nether_bricks"
+    },
+    "upstream": {
+      "name": "minecraft:nether_brick",
+      "data": 0,
+      "customName": "Cracked Nether Bricks",
+      "creative": false
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:quartz_bricks"
+    },
+    "upstream": {
+      "name": "minecraft:quartz_block",
+      "data": 0,
+      "customName": "Quartz Bricks",
+      "creative": false
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:polished_blackstone_bricks"
+    },
+    "upstream": {
+      "name": "minecraft:red_nether_brick",
+      "data": 0,
+      "customName": "Polished Blackstone Bricks",
+      "creative": false
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:cracked_polished_blackstone_bricks"
+    },
+    "upstream": {
+      "name": "minecraft:red_nether_brick",
+      "data": 0,
+      "customName": "Cracked Polished Blackstone Bricks",
+      "creative": false
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:gilded_blackstone"
+    },
+    "upstream": {
+      "name": "minecraft:red_nether_brick",
+      "data": 0,
+      "customName": "Gilded Blackstone",
+      "creative": false
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:chiseled_polished_blackstone"
+    },
+    "upstream": {
+      "name": "minecraft:red_nether_brick",
+      "data": 0,
+      "customName": "Chiseled Polished Blackstone",
+      "creative": false
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:target"
+    },
+    "upstream": {
+      "name": "minecraft:hay_block",
+      "data": 0,
+      "customName": "Target",
+      "creative": false
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:warped_wart_block"
+    },
+    "upstream": {
+      "name": "minecraft:wool",
+      "data": 0,
+      "customName": "Warped Wart Block",
+      "creative": false
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:crimson_stem"
+    },
+    "upstream": {
+      "name": "minecraft:log",
+      "data": 0,
+      "customName": "Crimson Stem",
+      "creative": false
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:warped_stem"
+    },
+    "upstream": {
+      "name": "minecraft:log",
+      "data": 0,
+      "customName": "Warped Stem",
+      "creative": false
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:stripped_crimson_stem"
+    },
+    "upstream": {
+      "name": "minecraft:log",
+      "data": 0,
+      "customName": "Stripped Crimson Stem",
+      "creative": false
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:stripped_warped_stem"
+    },
+    "upstream": {
+      "name": "minecraft:log",
+      "data": 0,
+      "customName": "Stripped Warped Stem",
+      "creative": false
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:crimson_hyphae"
+    },
+    "upstream": {
+      "name": "minecraft:log",
+      "data": 0,
+      "customName": "Crimson Hyphae",
+      "creative": false
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:warped_hyphae"
+    },
+    "upstream": {
+      "name": "minecraft:log",
+      "data": 0,
+      "customName": "Warped Hyphae",
+      "creative": false
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:stripped_crimson_hyphae"
+    },
+    "upstream": {
+      "name": "minecraft:log",
+      "data": 0,
+      "customName": "Stripped Crimson Hyphae",
+      "creative": false
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:stripped_warped_hyphae"
+    },
+    "upstream": {
+      "name": "minecraft:log",
+      "data": 0,
+      "customName": "Stripped Warped Hyphae",
+      "creative": false
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:shroomlight"
+    },
+    "upstream": {
+      "name": "minecraft:lit_pumpkin",
+      "data": 0,
+      "customName": "Shroom Light",
+      "creative": false
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:crimson_nylium"
+    },
+    "upstream": {
+      "name": "minecraft:log",
+      "data": 0,
+      "customName": "Crimson Nylium",
+      "creative": false
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:warped_nylium"
+    },
+    "upstream": {
+      "name": "minecraft:log",
+      "data": 0,
+      "customName": "Warped Nylium",
+      "creative": false
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:basalt"
+    },
+    "upstream": {
+      "name": "minecraft:gray_glazed_terracotta",
+      "data": 0,
+      "customName": "Basalt",
+      "creative": false
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:polished_basalt"
+    },
+    "upstream": {
+      "name": "minecraft:gray_glazed_terracotta",
+      "data": 0,
+      "customName": "Polished Basalt",
+      "creative": false
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:soul_soil"
+    },
+    "upstream": {
+      "name": "minecraft:dirt",
+      "data": 0,
+      "customName": "Soul Soil",
+      "creative": false
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:netherite_block"
+    },
+    "upstream": {
+      "name": "minecraft:obsidian",
+      "data": 0,
+      "customName": "Netherite Block",
+      "creative": false
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:lodestone"
+    },
+    "upstream": {
+      "name": "minecraft:obsidian",
+      "data": 0,
+      "customName": "Lodestone",
+      "creative": false
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:lodestonecompass"
+    },
+    "upstream": {
+      "name": "minecraft:obsidian",
+      "data": 0,
+      "customName": "Lodestone Compass",
+      "creative": false
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:nether_gold_ore"
+    },
+    "upstream": {
+      "name": "minecraft:gold_ore",
+      "data": 0,
+      "customName": "Nether Gold Ore",
+      "creative": false
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:ancient_debris"
+    },
+    "upstream": {
+      "name": "minecraft:obsidian",
+      "data": 0,
+      "customName": "Ancient Debris",
+      "creative": false
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:blackstone"
+    },
+    "upstream": {
+      "name": "minecraft:red_nether_brick",
+      "data": 0,
+      "customName": "Blackstone",
+      "creative": false
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:polished_blackstone"
+    },
+    "upstream": {
+      "name": "minecraft:red_nether_brick",
+      "data": 0,
+      "customName": "Polished Blackstone",
+      "creative": false
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:bee_nest"
+    },
+    "upstream": {
+      "name": "minecraft:bee_nest",
+      "data": 3
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:nether_sprouts"
+    },
+    "upstream": {
+      "name": "minecraft:grass",
+      "data": 0,
+      "customName": "Nether Sprouts",
+      "creative": false
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:item.nether_sprouts"
+    },
+    "upstream": {
+      "name": "minecraft:grass",
+      "data": 0,
+      "customName": "Nether Sprouts",
+      "creative": false
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:crimson_roots"
+    },
+    "upstream": {
+      "name": "minecraft:grass",
+      "data": 0,
+      "customName": "Crimson Roots",
+      "creative": false
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:warped_roots"
+    },
+    "upstream": {
+      "name": "minecraft:grass",
+      "data": 0,
+      "customName": "Warped Roots",
+      "creative": false
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:weeping_vines"
+    },
+    "upstream": {
+      "name": "minecraft:vine",
+      "data": 0,
+      "customName": "Weeping Vines",
+      "creative": false
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:twisting_vines"
+    },
+    "upstream": {
+      "name": "minecraft:vine",
+      "data": 0,
+      "customName": "Twisting Vines",
+      "creative": false
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:crimson_fungus"
+    },
+    "upstream": {
+      "name": "minecraft:flower_pot",
+      "data": 0,
+      "customName": "Crimson Fungus",
+      "creative": false
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:warped_fungus"
+    },
+    "upstream": {
+      "name": "minecraft:flower_pot",
+      "data": 0,
+      "customName": "Warped Fungus",
+      "creative": false
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:spawn_egg",
+      "data": 125
+    },
+    "upstream": {
+      "name": "minecraft:spawn_egg",
+      "data": 0,
+      "customName": "Spawn Eggs 125",
+      "creative": false
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:spawn_egg",
+      "data": 124
+    },
+    "upstream": {
+      "name": "minecraft:spawn_egg",
+      "data": 0,
+      "customName": "Spawn Egg 124",
+      "creative": false
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:spawn_egg",
+      "data": 123
+    },
+    "upstream": {
+      "name": "minecraft:spawn_egg",
+      "data": 0,
+      "customName": "Spawn Egg 123",
+      "creative": false
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:spawn_egg",
+      "data": 126
+    },
+    "upstream": {
+      "name": "minecraft:spawn_egg",
+      "data": 0,
+      "customName": "Spawn Egg 126",
+      "creative": false
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:spawn_egg",
+      "data": 127
+    },
+    "upstream": {
+      "name": "minecraft:spawn_egg",
+      "data": 0,
+      "customName": "Spawn Egg 127",
+      "creative": false
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:crying_obsidian"
+    },
+    "upstream": {
+      "name": "minecraft:obsidian",
+      "data": 0,
+      "customName": "Crying Obsidian",
+      "creative": false
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:netherite_helmet"
+    },
+    "upstream": {
+      "name": "minecraft:iron_helmet",
+      "data": 0,
+      "customName": "Netherite Helmet",
+      "creative": false
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:netherite_chestplate"
+    },
+    "upstream": {
+      "name": "minecraft:iron_chestplate",
+      "data": 0,
+      "customName": "Netherite Chestplate",
+      "creative": false
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:netherite_leggings"
+    },
+    "upstream": {
+      "name": "minecraft:iron_leggings",
+      "data": 0,
+      "customName": "Netherite Leggings",
+      "creative": false
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:netherite_boots"
+    },
+    "upstream": {
+      "name": "minecraft:iron_boots",
+      "data": 0,
+      "customName": "Netherite Boots",
+      "creative": false
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:netherite_sword"
+    },
+    "upstream": {
+      "name": "minecraft:iron_sword",
+      "data": 0,
+      "customName": "Netherite Sword",
+      "creative": false
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:netherite_axe"
+    },
+    "upstream": {
+      "name": "minecraft:iron_axe",
+      "data": 0,
+      "customName": "Netherite Axe",
+      "creative": false
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:netherite_pickaxe"
+    },
+    "upstream": {
+      "name": "minecraft:iron_pickaxe",
+      "data": 0,
+      "customName": "Netherite Pickaxe",
+      "creative": false
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:netherite_shovel"
+    },
+    "upstream": {
+      "name": "minecraft:iron_shovel",
+      "data": 0,
+      "customName": "Netherite Shovel",
+      "creative": false
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:netherite_hoe"
+    },
+    "upstream": {
+      "name": "minecraft:iron_hoe",
+      "data": 0,
+      "customName": "Netherite Hoe",
+      "creative": false
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:crimson_pressure_plate",
+      "data": 43
+    },
+    "upstream": {
+      "name": "minecraft:acacia_pressure_plate",
+      "data": 0,
+      "customName": "Crimson Pressure Plate",
+      "creative": false
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:warped_fungus_on_a_stick"
+    },
+    "upstream": {
+      "name": "minecraft:carrotonastick",
+      "data": 0,
+      "customName": "Warped Fungus on a stick",
+      "creative": false
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:potion",
+      "data": 42
+    },
+    "upstream": {
+      "name": "minecraft:potion",
+      "data": 0,
+      "customName": "Potion 42",
+      "creative": false
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:splash_potion",
+      "data": 42
+    },
+    "upstream": {
+      "name": "minecraft:splash_potion",
+      "data": 0,
+      "customName": "Splash Potion 42",
+      "creative": false
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:lingering_potion",
+      "data": 42
+    },
+    "upstream": {
+      "name": "minecraft:lingering_potion",
+      "data": 0,
+      "customName": "Lingering Potion 42",
+      "creative": false
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:soul_torch"
+    },
+    "upstream": {
+      "name": "minecraft:colored_torch_bp",
+      "data": 0,
+      "customName": "Soul Torch",
+      "creative": false
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:soul_lantern"
+    },
+    "upstream": {
+      "name": "minecraft:lantern",
+      "data": 0,
+      "customName": "Soul Lantern",
+      "creative": false
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:soul_campfire"
+    },
+    "upstream": {
+      "name": "minecraft:campfire",
+      "data": 0,
+      "customName": "Soul Campfire",
+      "creative": false
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:item.soul_campfire"
+    },
+    "upstream": {
+      "name": "minecraft:item.campfire",
+      "data": 0,
+      "customName": "Soul Campfire",
+      "creative": false
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:soul_fire"
+    },
+    "upstream": {
+      "name": "minecraft:fire",
+      "data": 0,
+      "customName": "Soul Fire",
+      "creative": false
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:respawn_anchor"
+    },
+    "upstream": {
+      "name": "minecraft:obsidian",
+      "data": 0,
+      "customName": "Respawn Anchor",
+      "creative": false
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:record_pigstep"
+    },
+    "upstream": {
+      "name": "minecraft:record_cat",
+      "data": 0,
+      "customName": "Record Pigstep",
+      "creative": false
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:crimson_sign"
+    },
+    "upstream": {
+      "name": "minecraft:acacia_sign",
+      "data": 0,
+      "customName": "Crimson Sign",
+      "creative": false
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:crimson_wall_sign"
+    },
+    "upstream": {
+      "name": "minecraft:acacia_wall_sign",
+      "data": 0,
+      "customName": "Crimson Sign",
+      "creative": false
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:crimson_standing_sign"
+    },
+    "upstream": {
+      "name": "minecraft:acacia_standing_sign",
+      "data": 0,
+      "customName": "Crimson Standing Sign",
+      "creative": false
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:warped_sign"
+    },
+    "upstream": {
+      "name": "minecraft:darkoak_sign",
+      "data": 0,
+      "customName": "Warped Sign",
+      "creative": false
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:warped_wall_sign"
+    },
+    "upstream": {
+      "name": "minecraft:darkoak_wall_sign",
+      "data": 0,
+      "customName": "Warped Wall Sign",
+      "creative": false
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:warped_standing_sign"
+    },
+    "upstream": {
+      "name": "minecraft:darkoak_standing_sign",
+      "data": 0,
+      "customName": "Warped Standing Sign",
+      "creative": false
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:netherite_scrap"
+    },
+    "upstream": {
+      "name": "minecraft:iron_nugget",
+      "data": 0,
+      "customName": "Netherite Scrap",
+      "creative": false
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:netherite_ingot"
+    },
+    "upstream": {
+      "name": "minecraft:iron_ingot",
+      "data": 0,
+      "customName": "Netherite Ingot",
+      "creative": false
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:crimson_button"
+    },
+    "upstream": {
+      "name": "minecraft:acacia_button",
+      "data": 0,
+      "customName": "Crimson Button",
+      "creative": false
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:warped_button"
+    },
+    "upstream": {
+      "name": "minecraft:dark_oak_button",
+      "data": 0,
+      "customName": "Warped Button",
+      "creative": false
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:polished_blackstone_button"
+    },
+    "upstream": {
+      "name": "minecraft:wooden_button",
+      "data": 0,
+      "customName": "Polished Blackstone Button",
+      "creative": false
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:crimson_pressure_plate"
+    },
+    "upstream": {
+      "name": "minecraft:acacia_pressure_plate",
+      "data": 0,
+      "customName": "Crimson Pressure Plate",
+      "creative": false
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:warped_pressure_plate"
+    },
+    "upstream": {
+      "name": "minecraft:dark_oak_pressure_plate",
+      "data": 0,
+      "customName": "Warped Pressure Plate",
+      "creative": false
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:polished_blackstone_pressure_plate"
+    },
+    "upstream": {
+      "name": "minecraft:wooden_pressure_plate",
+      "data": 0,
+      "customName": "Polished Blackstone Pressure Plate",
+      "creative": false
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:banner_pattern",
+      "data": 6
+    },
+    "upstream": {
+      "name": "minecraft:banner_pattern",
+      "data": 0,
+      "customName": "Banner Pattern 6",
+      "creative": false
+    }
+  },
+  {
+    "downstream": {
+      "name": "minecraft:arrow",
+      "data": 43
+    },
+    "upstream": {
+      "name": "minecraft:arrow",
+      "data": 0,
+      "customName": "Arrow Type 43",
+      "creative": false
+    }
+  }
+]

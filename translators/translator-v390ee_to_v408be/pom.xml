@@ -42,12 +42,12 @@
             <version>${project.version}</version>
             <scope>compile</scope>
         </dependency>
-        <dependency>
-            <groupId>au.com.grieve.reversion</groupId>
-            <artifactId>translator-v409be_to_v408be</artifactId>
-            <version>${project.version}</version>
-            <scope>compile</scope>
-        </dependency>
+        <!--        <dependency>-->
+        <!--            <groupId>au.com.grieve.reversion</groupId>-->
+        <!--            <artifactId>translator-v409be_to_v408be</artifactId>-->
+        <!--            <version>${project.version}</version>-->
+        <!--            <scope>compile</scope>-->
+        <!--        </dependency>-->
         <dependency>
             <groupId>au.com.grieve.reversion</groupId>
             <artifactId>bedrock-v408</artifactId>

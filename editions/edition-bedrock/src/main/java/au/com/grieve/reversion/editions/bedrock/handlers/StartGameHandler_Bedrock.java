@@ -49,7 +49,11 @@ public class StartGameHandler_Bedrock extends PacketHandler<BedrockTranslator, S
         NbtList<NbtMap> originalPalette = packet.getBlockPalette();
         List<NbtMap> translatedPalette = new ArrayList<>();
         for (int id = 0; id < originalPalette.size(); id++) {
-            translatedPalette.add(getTranslator().getRegisteredTranslator().getBlockMapper().getBlockFromUpstreamPalette(originalPalette, id));
+            NbtMap translated = getTranslator().getRegisteredTranslator().getBlockMapper().getBlockFromUpstreamPalette(originalPalette, id);
+            if (translated == null) {
+                break;
+            }
+            translatedPalette.add(translated);
         }
         packet.setBlockPalette(new NbtList<>(NbtType.COMPOUND, translatedPalette));
 

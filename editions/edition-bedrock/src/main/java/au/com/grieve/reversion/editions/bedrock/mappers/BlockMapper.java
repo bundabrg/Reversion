@@ -29,28 +29,11 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.core.JsonFactory;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
-import com.nukkitx.nbt.NBTInputStream;
-import com.nukkitx.nbt.NbtList;
-import com.nukkitx.nbt.NbtMap;
-import com.nukkitx.nbt.NbtMapBuilder;
-import com.nukkitx.nbt.NbtType;
-import com.nukkitx.nbt.NbtUtils;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import com.nukkitx.nbt.*;
+import lombok.*;
 
-import java.io.DataInputStream;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.PushbackInputStream;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.io.*;
+import java.util.*;
 import java.util.function.Supplier;
 
 /**
@@ -165,7 +148,7 @@ public class BlockMapper {
     }
 
     public NbtMap getBlockFromUpstreamPalette(NbtList<NbtMap> palette, int runtimeId) {
-        return runtimeId < upstreamPalette.size() ? upstreamPalette.get(runtimeId) : palette.get(runtimeId);
+        return runtimeId < upstreamPalette.size() ? upstreamPalette.get(runtimeId) : null;//palette.get(runtimeId);
     }
 
     /**
@@ -236,13 +219,11 @@ public class BlockMapper {
         }
 
         Map<Integer, NbtMap> unusedMap = new HashMap<>(upstreamMap);
-
         for (int downstreamRuntimeId = 0; downstreamRuntimeId < downstreamTags.size(); downstreamRuntimeId++) {
             NbtMap downstreamTag = downstreamTags.get(downstreamRuntimeId);
             NbtMap downstreamBlockTag = downstreamTag.getCompound("block");
 
             // Do we have a blockMap for this?
-
             if (blockMapperMap.containsKey(downstreamBlockTag.getString("name"))) {
                 outer:
                 for (BlockMapperConfig config : blockMapperMap.get(downstreamBlockTag.getString("name"))) {
@@ -284,7 +265,7 @@ public class BlockMapper {
                 }
             }
             boolean found = false;
-            for (int upstreamRuntimeId : upstreamNameMap.get(downstreamBlockTag.getString("name"))) {
+            for (int upstreamRuntimeId : upstreamNameMap.getOrDefault(downstreamBlockTag.getString("name"), Collections.emptyList())) {
                 NbtMap upstreamTag = upstreamMap.get(upstreamRuntimeId).getCompound("block");
                 if (downstreamBlockTag.getCompound("states").equals(upstreamTag.getCompound("states"))) {
                     registerRuntimeIdMapping(downstreamRuntimeId, upstreamRuntimeId);

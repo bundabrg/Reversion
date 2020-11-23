@@ -62,13 +62,17 @@
                                     <include>au.com.grieve.reversion:*</include>
                                     <include>com.nukkitx.protocol:*</include>
                                     <include>com.github.CloudburstMC.Protocol:*</include>
+                                    <include>com.nimbusds:*</include>
                                 </includes>
                             </artifactSet>
                             <relocations>
                                 <relocation>
                                     <pattern>com.nukkitx.protocol</pattern>
-                                    <shadedPattern>au.com.grieve.reversion.shaded.nukkitx.protocol
-                                    </shadedPattern>
+                                    <shadedPattern>au.com.grieve.reversion.shaded.nukkitx.protocol</shadedPattern>
+                                </relocation>
+                                <relocation>
+                                    <pattern>com.nimbusds</pattern>
+                                    <shadedPattern>au.com.grieve.reversion.shaded.nimbusds</shadedPattern>
                                 </relocation>
                             </relocations>
                         </configuration>

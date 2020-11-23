@@ -27,6 +27,7 @@ package au.com.grieve.reversion.editions.bedrock.handlers;
 import au.com.grieve.reversion.api.PacketHandler;
 import au.com.grieve.reversion.editions.bedrock.BedrockTranslator;
 import com.nukkitx.protocol.bedrock.data.inventory.CraftingData;
+import com.nukkitx.protocol.bedrock.data.inventory.CraftingDataType;
 import com.nukkitx.protocol.bedrock.data.inventory.ItemData;
 import com.nukkitx.protocol.bedrock.data.inventory.PotionMixData;
 import com.nukkitx.protocol.bedrock.packet.CraftingDataPacket;
@@ -47,20 +48,22 @@ public class CraftingDataHandler_Bedrock extends PacketHandler<BedrockTranslator
         for (CraftingData craftingData : packet.getCraftingData()) {
             List<ItemData> inputs = new ArrayList<>();
             List<ItemData> outputs = new ArrayList<>();
-            for (ItemData itemData : craftingData.getInputs()) {
-                ItemData translated = getTranslator().getRegisteredTranslator().getItemMapper().mapItemDataToUpstream(itemData, true);
-                if (translated == null) {
-                    continue outer;
+            if (craftingData.getType() != CraftingDataType.MULTI) {
+                for (ItemData itemData : craftingData.getInputs()) {
+                    ItemData translated = getTranslator().getRegisteredTranslator().getItemMapper().mapItemDataToUpstream(itemData, true);
+                    if (translated == null) {
+                        continue outer;
+                    }
+                    inputs.add(translated);
                 }
-                inputs.add(translated);
-            }
 
-            for (ItemData itemData : craftingData.getOutputs()) {
-                ItemData translated = getTranslator().getRegisteredTranslator().getItemMapper().mapItemDataToUpstream(itemData, true);
-                if (translated == null) {
-                    continue outer;
+                for (ItemData itemData : craftingData.getOutputs()) {
+                    ItemData translated = getTranslator().getRegisteredTranslator().getItemMapper().mapItemDataToUpstream(itemData, true);
+                    if (translated == null) {
+                        continue outer;
+                    }
+                    outputs.add(translated);
                 }
-                outputs.add(translated);
             }
 
             CraftingData translated = new CraftingData(

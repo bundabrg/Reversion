@@ -38,7 +38,7 @@ It allows any of the supported client versions listed below to connect to any of
 ### Minecraft Bedrock
 * Minecraft Bedrock v1.16.2
 * Minecraft Bedrock v1.16.3
-* Minecraft Bedrock v1.16.4
+* Minecraft Bedrock v1.16.100
 
 ### Minecraft Education
 * Minecraft Education v1.14.31
@@ -47,7 +47,7 @@ It allows any of the supported client versions listed below to connect to any of
 ## Server Versions Supported
 * Minecraft Bedrock v1.16.2
 * Minecraft Bedrock v1.16.3
-* Minecraft Bedrock v1.16.4
+* Minecraft Bedrock v1.16.100
 
 ## Used By
 The following software uses this library:

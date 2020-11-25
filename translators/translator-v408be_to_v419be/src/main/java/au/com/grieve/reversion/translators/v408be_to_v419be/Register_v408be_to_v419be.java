@@ -30,7 +30,7 @@ import au.com.grieve.reversion.editions.bedrock.handlers.*;
 import au.com.grieve.reversion.editions.bedrock.mappers.BlockMapper;
 import au.com.grieve.reversion.editions.bedrock.mappers.EntityMapper;
 import au.com.grieve.reversion.editions.bedrock.mappers.ItemMapper;
-import au.com.grieve.reversion.protocol.bedrock.v419.Bedrock_v419;
+import au.com.grieve.reversion.protocol.bedrock.v408.Bedrock_v408;
 import au.com.grieve.reversion.translators.v408be_to_v419be.handlers.StartGameHandler_v408be_to_v419be;
 import com.nukkitx.protocol.bedrock.packet.*;
 
@@ -40,7 +40,7 @@ public class Register_v408be_to_v419be {
             .fromProtocolVersion(408)
             .toEdition("bedrock")
             .toProtocolVersion(419)
-            .codec(Bedrock_v419.V419_CODEC)
+            .codec(Bedrock_v408.V408_CODEC)
             .translator(BedrockTranslator.class)
             .blockMapper(BlockMapper.builder()
                             .upstreamPalette(() -> Register_v408be_to_v419be.class.getResourceAsStream("/protocol/bedrock-v408/blockpalette.nbt"))

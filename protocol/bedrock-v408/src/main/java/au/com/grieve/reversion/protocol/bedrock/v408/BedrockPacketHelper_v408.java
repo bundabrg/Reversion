@@ -35,6 +35,6 @@ public class BedrockPacketHelper_v408 extends BedrockPacketHelper_v407 {
 
     @Override
     public boolean isBlockingItem(int id, int lookFor) {
-        return id == 355;
+        return id == 513;
     }
 }

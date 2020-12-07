@@ -1330,7 +1330,7 @@
   },
   {
     "upstream": {
-      "name": "minecraft:writable_book",
+      "name": "minecraft:book",
       "creative": true
     },
     "downstream": {

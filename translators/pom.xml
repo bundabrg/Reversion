@@ -36,6 +36,7 @@
     <modules>
         <module>translator-v390ee_to_v408be</module>
         <module>translator-v391ee_to_v408be</module>
+        <module>translator-v407be_to_v408be</module>
         <module>translator-v408be_to_v419be</module>
     </modules>
 

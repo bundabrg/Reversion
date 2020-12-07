@@ -398,6 +398,7 @@ public class ItemMapper {
             return null;
         }
 
+        RuntimeItemMapperEntry best = null;
         for (RuntimeItemMapperEntry itemMapperEntry : itemToDownstreamMap.getOrDefault(item.getId(), new ArrayList<>())) {
             VariableStore variableStore = new VariableStore();
 
@@ -405,6 +406,13 @@ public class ItemMapper {
                 continue;
             }
 
+            if (best == null || best.getUpstream().getData() == null) {
+                best = itemMapperEntry;
+            }
+        }
+
+        if (best != null) {
+            VariableStore variableStore = new VariableStore();
             NbtMap tag = item.getTag(); //enchantmentMapper.mapEnchantmentNbtToUpstream(item.getTag());
             // TODO
 //            if (mapConfig.getDownstream().getName() != null) {
@@ -413,8 +421,8 @@ public class ItemMapper {
 //                tagBuilder.putCompound("display", NbtMap.builder().putString("Name", mapConfig.getUpstream().getName()).build());
 //                tag = tagBuilder.build();
 //            }
-            return ItemData.fromNet(item.getNetId(), itemMapperEntry.getDownstream().getId(),
-                    variableStore.getInt(itemMapperEntry.getDownstream().getData(), 0).shortValue(), item.getCount(),
+            return ItemData.fromNet(item.getNetId(), best.getDownstream().getId(),
+                    variableStore.getInt(best.getDownstream().getData(), 0).shortValue(), item.getCount(),
                     tag, item.getCanPlace(), item.getCanBreak(), item.getBlockingTicks());
         }
         return item;

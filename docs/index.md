@@ -18,6 +18,7 @@ It allows any of the supported client versions listed below to connect to any of
 * Minecraft Bedrock v1.16.2
 * Minecraft Bedrock v1.16.3
 * Minecraft Bedrock v1.16.100
+* Minecraft Bedrock v1.16.200
 
 ### Minecraft Education
 * Minecraft Education v1.14.31

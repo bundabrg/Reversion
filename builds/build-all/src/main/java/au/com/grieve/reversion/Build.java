@@ -30,12 +30,14 @@ import au.com.grieve.reversion.editions.education.EducationReversionServer;
 import au.com.grieve.reversion.protocol.bedrock.v407.Bedrock_v407;
 import au.com.grieve.reversion.protocol.bedrock.v408.Bedrock_v408;
 import au.com.grieve.reversion.protocol.bedrock.v419.Bedrock_v419;
+import au.com.grieve.reversion.protocol.bedrock.v422.Bedrock_v422;
 import au.com.grieve.reversion.protocol.education.v390.Education_v390;
 import au.com.grieve.reversion.protocol.education.v391.Education_v391;
 import au.com.grieve.reversion.translators.v390ee_to_v408be.Register_v390ee_to_v408be;
 import au.com.grieve.reversion.translators.v391ee_to_v408be.Register_v391ee_to_v408be;
 import au.com.grieve.reversion.translators.v407be_to_v408be.Register_v407be_to_v408be;
 import au.com.grieve.reversion.translators.v408be_to_v419be.Register_v408be_to_v419be;
+import au.com.grieve.reversion.translators.v422be_to_v419be.Register_v422be_to_v419be;
 import com.nukkitx.protocol.bedrock.BedrockPacketCodec;
 import lombok.experimental.UtilityClass;
 
@@ -54,15 +56,18 @@ public class Build {
             Register_v408be_to_v419be.TRANSLATOR,
 
             // Translate from a newer Bedrock to an Older Bedrock Server
-//            Register_v409be_to_v408be.TRANSLATOR,
+            Register_v422be_to_v419be.TRANSLATOR
+
     };
 
     public static final BedrockPacketCodec[] PROTOCOLS = {
             Bedrock_v407.V407_CODEC,
             Bedrock_v408.V408_CODEC,
             Bedrock_v419.V419_CODEC,
+            Bedrock_v422.V422_CODEC,
             Education_v390.V390_CODEC,
             Education_v391.V391_CODEC
+
     };
 
     public static final Object[] EDITIONS = {

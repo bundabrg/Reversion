@@ -22,36 +22,25 @@
  * SOFTWARE.
  */
 
-package au.com.grieve.reversion.translators.v408be_to_v419be.handlers;
+package au.com.grieve.reversion.translators.v422be_to_v419be.handlers;
 
 import au.com.grieve.reversion.api.PacketHandler;
 import au.com.grieve.reversion.editions.bedrock.BedrockTranslator;
-import com.nukkitx.nbt.NbtList;
-import com.nukkitx.nbt.NbtType;
 import com.nukkitx.protocol.bedrock.packet.StartGamePacket;
 
 import java.util.stream.Collectors;
 
-/*
-    The StartGame packet now does not send the block palette for vanilla blocks. This means when translating to a higher
-    version we need to provide the block palette plus any extras that are added
- */
+public class StartGameHandler_v422be_to_v419be extends PacketHandler<BedrockTranslator, StartGamePacket> {
 
-public class StartGameHandler_v408be_to_v419be extends PacketHandler<BedrockTranslator, StartGamePacket> {
-
-    public StartGameHandler_v408be_to_v419be(BedrockTranslator translator) {
+    public StartGameHandler_v422be_to_v419be(BedrockTranslator translator) {
         super(translator);
     }
 
     @Override
     public boolean fromDownstream(StartGamePacket packet) {
-        // Update Canonical Block Palette
-        packet.setBlockPalette(new NbtList<>(NbtType.COMPOUND, getTranslator().getRegisteredTranslator().getBlockMapper().getUpstreamPalette()));
-
         // TODO - Add updates
 
         // Send ItemPalette
-
         packet.setItemEntries(getTranslator().getRegisteredTranslator().getItemMapper().getUpstreamPalette().stream()
                 .map(i -> new StartGamePacket.ItemEntry(i.getString("name"), (short) i.getInt("id")))
                 .collect(Collectors.toList())

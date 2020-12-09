@@ -41,6 +41,18 @@
             <artifactId>bedrock-v419</artifactId>
             <version>${project.version}</version>
         </dependency>
+        <dependency>
+            <groupId>com.github.CloudburstMC.Protocol</groupId>
+            <artifactId>bedrock-v422</artifactId>
+            <version>${cloudburst.version}</version>
+            <scope>compile</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>net.sf.trove4j</groupId>
+                    <artifactId>trove</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
     </dependencies>
 
 </project>

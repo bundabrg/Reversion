@@ -37,6 +37,7 @@ import au.com.grieve.reversion.translators.v390ee_to_v408be.Register_v390ee_to_v
 import au.com.grieve.reversion.translators.v391ee_to_v408be.Register_v391ee_to_v408be;
 import au.com.grieve.reversion.translators.v407be_to_v408be.Register_v407be_to_v408be;
 import au.com.grieve.reversion.translators.v408be_to_v419be.Register_v408be_to_v419be;
+import au.com.grieve.reversion.translators.v419be_to_v422be.Register_v419be_to_v422be;
 import au.com.grieve.reversion.translators.v422be_to_v419be.Register_v422be_to_v419be;
 import com.nukkitx.protocol.bedrock.BedrockPacketCodec;
 import lombok.experimental.UtilityClass;
@@ -54,6 +55,7 @@ public class Build {
             // Translate from an older Bedrock to a Newer Bedrock Server
             Register_v407be_to_v408be.TRANSLATOR,
             Register_v408be_to_v419be.TRANSLATOR,
+            Register_v419be_to_v422be.TRANSLATOR,
 
             // Translate from a newer Bedrock to an Older Bedrock Server
             Register_v422be_to_v419be.TRANSLATOR

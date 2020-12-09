@@ -30,6 +30,8 @@ import com.nukkitx.protocol.bedrock.data.inventory.ContainerId;
 import com.nukkitx.protocol.bedrock.packet.CreativeContentPacket;
 import com.nukkitx.protocol.bedrock.packet.InventoryContentPacket;
 
+import java.util.Arrays;
+
 
 public class CreativeContentHandler_v390ee_to_v408be extends CreativeContentHandler_Bedrock {
 
@@ -45,7 +47,7 @@ public class CreativeContentHandler_v390ee_to_v408be extends CreativeContentHand
         InventoryContentPacket inventoryContentPacket = new InventoryContentPacket();
         //noinspection deprecation
         inventoryContentPacket.setContainerId(ContainerId.CREATIVE);
-        inventoryContentPacket.setContents(packet.getContents());
+        inventoryContentPacket.setContents(Arrays.asList(packet.getContents()));
         getTranslator().toUpstream(inventoryContentPacket);
 
         return true;

@@ -84,7 +84,22 @@
         </dependency>
         <dependency>
             <groupId>au.com.grieve.reversion</groupId>
+            <artifactId>translator-v419be_to_v422be</artifactId>
+            <version>${project.version}</version>
+            <scope>compile</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>au.com.grieve.reversion</groupId>
             <artifactId>translator-v422be_to_v419be</artifactId>
+            <version>${project.version}</version>
+            <scope>compile</scope>
+        </dependency>
+
+        <!-- Codecs -->
+        <dependency>
+            <groupId>au.com.grieve.reversion</groupId>
+            <artifactId>bedrock-v422</artifactId>
             <version>${project.version}</version>
         </dependency>
     </dependencies>

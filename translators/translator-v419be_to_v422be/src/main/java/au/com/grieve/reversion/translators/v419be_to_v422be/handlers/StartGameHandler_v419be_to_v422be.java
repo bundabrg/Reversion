@@ -22,27 +22,29 @@
  * SOFTWARE.
  */
 
-package au.com.grieve.reversion.editions.bedrock.handlers;
+package au.com.grieve.reversion.translators.v419be_to_v422be.handlers;
 
 import au.com.grieve.reversion.api.PacketHandler;
 import au.com.grieve.reversion.editions.bedrock.BedrockTranslator;
-import com.nukkitx.protocol.bedrock.packet.InventoryContentPacket;
+import com.nukkitx.protocol.bedrock.packet.StartGamePacket;
 
 import java.util.stream.Collectors;
 
-public class InventoryContentHandler_Bedrock extends PacketHandler<BedrockTranslator, InventoryContentPacket> {
+public class StartGameHandler_v419be_to_v422be extends PacketHandler<BedrockTranslator, StartGamePacket> {
 
-    public InventoryContentHandler_Bedrock(BedrockTranslator translator) {
+    public StartGameHandler_v419be_to_v422be(BedrockTranslator translator) {
         super(translator);
     }
 
     @Override
-    public boolean fromDownstream(InventoryContentPacket packet) {
-        // Translate Contents
-        packet.setContents(
-                packet.getContents().stream()
-                        .map(i -> getTranslator().getRegisteredTranslator().getItemMapper().mapItemDataToUpstream(i))
-                        .collect(Collectors.toList()));
+    public boolean fromDownstream(StartGamePacket packet) {
+        // TODO - Add updates
+
+        // Send ItemPalette
+        packet.setItemEntries(getTranslator().getRegisteredTranslator().getItemMapper().getUpstreamPalette().stream()
+                .map(i -> new StartGamePacket.ItemEntry(i.getString("name"), (short) i.getInt("id")))
+                .collect(Collectors.toList())
+        );
         return false;
     }
 }

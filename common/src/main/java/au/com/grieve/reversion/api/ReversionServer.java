@@ -31,11 +31,34 @@ import io.netty.channel.EventLoopGroup;
 import lombok.Getter;
 
 import java.net.InetSocketAddress;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Set;
 
 @Getter
 public abstract class ReversionServer extends BedrockServer {
-    private final BedrockPacketCodec toCodec;
+    private final Set<BedrockPacketCodec> toCodecs;
     private final EventLoopGroup eventLoopGroup;
+
+    public ReversionServer(Collection<BedrockPacketCodec> toCodecs, InetSocketAddress address) {
+        this(toCodecs, address, 1);
+    }
+
+    public ReversionServer(Collection<BedrockPacketCodec> toCodecs, InetSocketAddress address, int maxThreads) {
+        this(toCodecs, address, maxThreads, EventLoops.commonGroup());
+    }
+
+    public ReversionServer(Collection<BedrockPacketCodec> toCodecs, InetSocketAddress address, int maxThreads, EventLoopGroup eventLoopGroup) {
+        super(address, maxThreads, eventLoopGroup);
+
+        this.eventLoopGroup = eventLoopGroup;
+        this.toCodecs = new HashSet<>(toCodecs);
+    }
+
+    public ReversionServer(BedrockPacketCodec toCodec, InetSocketAddress address, int maxThreads, EventLoopGroup eventLoopGroup) {
+        this(Collections.singleton(toCodec), address, maxThreads, eventLoopGroup);
+    }
 
     public ReversionServer(BedrockPacketCodec toCodec, InetSocketAddress address) {
         this(toCodec, address, 1);
@@ -45,10 +68,4 @@ public abstract class ReversionServer extends BedrockServer {
         this(toCodec, address, maxThreads, EventLoops.commonGroup());
     }
 
-    public ReversionServer(BedrockPacketCodec toCodec, InetSocketAddress address, int maxThreads, EventLoopGroup eventLoopGroup) {
-        super(address, maxThreads, eventLoopGroup);
-
-        this.eventLoopGroup = eventLoopGroup;
-        this.toCodec = toCodec;
-    }
 }

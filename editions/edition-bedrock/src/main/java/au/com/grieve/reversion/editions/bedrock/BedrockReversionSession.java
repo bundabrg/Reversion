@@ -31,6 +31,7 @@ import au.com.grieve.reversion.exceptions.LoginException;
 import au.com.grieve.reversion.exceptions.TranslatorException;
 import com.nukkitx.network.raknet.RakNetSession;
 import com.nukkitx.protocol.bedrock.BedrockPacket;
+import com.nukkitx.protocol.bedrock.BedrockPacketCodec;
 import com.nukkitx.protocol.bedrock.BedrockSession;
 import com.nukkitx.protocol.bedrock.annotation.NoEncryption;
 import com.nukkitx.protocol.bedrock.handler.BatchHandler;
@@ -45,10 +46,7 @@ import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 import lombok.Getter;
 
 import java.lang.reflect.Field;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
-import java.util.Queue;
+import java.util.*;
 import java.util.concurrent.ConcurrentLinkedDeque;
 
 
@@ -227,9 +225,14 @@ public class BedrockReversionSession extends ReversionSession {
         public boolean handle(LoginPacket packet) {
             Translator translator;
             try {
+                // Find matching Codec in our supported list
+                Optional<BedrockPacketCodec> toCodec = server.getToCodecs().stream()
+                        .filter(c -> c.getProtocolVersion() == packet.getProtocolVersion())
+                        .findFirst();
+
                 // No need for translation when packet codec matches our to codec
-                if (packet.getProtocolVersion() == server.getToCodec().getProtocolVersion() && server.getFromEdition().equals(server.getToEdition())) {
-                    setPacketCodec(server.getToCodec());
+                if (toCodec.isPresent() && server.getFromEdition().equals(server.getToEdition())) {
+                    setPacketCodec(toCodec.get());
                 } else {
                     translator = server.createTranslatorChain(packet.getProtocolVersion(), BedrockReversionSession.this);
 

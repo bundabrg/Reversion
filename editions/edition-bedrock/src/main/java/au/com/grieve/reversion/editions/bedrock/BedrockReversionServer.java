@@ -50,6 +50,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.net.InetSocketAddress;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -61,6 +62,20 @@ public class BedrockReversionServer extends ReversionServer {
 
     // Supported Translators
     private final List<BedrockRegisteredTranslator> registeredTranslators = new ArrayList<>();
+
+    public BedrockReversionServer(Collection<BedrockPacketCodec> toCodecs, InetSocketAddress address) {
+        this(toCodecs, address, 1);
+    }
+
+    public BedrockReversionServer(Collection<BedrockPacketCodec> toCodecs, InetSocketAddress address, int maxThreads) {
+        this(toCodecs, address, maxThreads, EventLoops.commonGroup());
+    }
+
+    public BedrockReversionServer(Collection<BedrockPacketCodec> toCodecs, InetSocketAddress address, int maxThreads, EventLoopGroup eventLoopGroup) {
+        super(toCodecs, address, maxThreads, eventLoopGroup);
+
+        getRakNet().setListener(createRakNetServerListener());
+    }
 
     public BedrockReversionServer(BedrockPacketCodec toCodec, InetSocketAddress address) {
         this(toCodec, address, 1);
@@ -91,8 +106,16 @@ public class BedrockReversionServer extends ReversionServer {
      * Create a translator chain from the client to the server.
      */
     protected Translator createTranslatorChain(int fromVersion, ReversionSession session) throws TranslatorException {
-        List<BedrockRegisteredTranslator> bestChain = getBestTranslatorChain(getFromEdition(), fromVersion,
-                getToEdition(), getToCodec().getProtocolVersion(), new ArrayList<>(getRegisteredTranslators()));
+        List<BedrockRegisteredTranslator> bestChain = null;
+
+        for (BedrockPacketCodec toCodec : getToCodecs()) {
+            bestChain = getBestTranslatorChain(getFromEdition(), fromVersion,
+                    getToEdition(), toCodec.getProtocolVersion(), new ArrayList<>(getRegisteredTranslators()));
+
+            if (bestChain != null) {
+                break;
+            }
+        }
 
         if (bestChain == null) {
             return null;

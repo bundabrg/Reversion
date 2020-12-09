@@ -38,12 +38,27 @@ import io.netty.channel.EventLoopGroup;
 import lombok.Getter;
 
 import java.net.InetSocketAddress;
+import java.util.Collection;
 
 @Getter
 public class EducationReversionServer extends BedrockReversionServer {
     private final String fromEdition = "education";
     private final String toEdition = "bedrock";
     private final TokenManager tokenManager;
+
+    public EducationReversionServer(Collection<BedrockPacketCodec> toCodecs, TokenManager tokenManager, InetSocketAddress address) {
+        this(toCodecs, tokenManager, address, 1);
+    }
+
+    public EducationReversionServer(Collection<BedrockPacketCodec> toCodecs, TokenManager tokenManager, InetSocketAddress address, int maxThreads) {
+        this(toCodecs, tokenManager, address, maxThreads, EventLoops.commonGroup());
+    }
+
+    public EducationReversionServer(Collection<BedrockPacketCodec> toCodecs, TokenManager tokenManager, InetSocketAddress address, int maxThreads, EventLoopGroup eventLoopGroup) {
+        super(toCodecs, address, maxThreads, eventLoopGroup);
+
+        this.tokenManager = tokenManager;
+    }
 
     public EducationReversionServer(BedrockPacketCodec toCodec, TokenManager tokenManager, InetSocketAddress address) {
         this(toCodec, tokenManager, address, 1);

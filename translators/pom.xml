@@ -40,6 +40,9 @@
         <module>translator-v408be_to_v419be</module>
         <module>translator-v419be_to_v422be</module>
         <module>translator-v422be_to_v419be</module>
+
+        <!-- Betas -->
+        <module>translator-v423be_to_v422be</module>
     </modules>
 
     <artifactId>translators</artifactId>

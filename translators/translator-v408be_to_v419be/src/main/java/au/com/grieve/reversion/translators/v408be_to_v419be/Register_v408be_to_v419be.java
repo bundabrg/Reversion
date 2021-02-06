@@ -1,7 +1,7 @@
 /*
  * MIT License
  *
- * Copyright (c) 2020 Reversion Developers
+ * Copyright (c) 2021 Reversion Developers
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -31,6 +31,7 @@ import au.com.grieve.reversion.editions.bedrock.mappers.BlockMapper;
 import au.com.grieve.reversion.editions.bedrock.mappers.EntityMapper;
 import au.com.grieve.reversion.editions.bedrock.mappers.ItemMapper;
 import au.com.grieve.reversion.protocol.bedrock.v408.Bedrock_v408;
+import au.com.grieve.reversion.translators.v408be_to_v419be.handlers.BlockEntityData_v408be_to_v419be;
 import au.com.grieve.reversion.translators.v408be_to_v419be.handlers.StartGameHandler_v408be_to_v419be;
 import com.nukkitx.protocol.bedrock.packet.*;
 
@@ -68,6 +69,7 @@ public class Register_v408be_to_v419be {
             .registerPacketHandler(AddEntityPacket.class, AddEntityHandler_Bedrock.class)
             .registerPacketHandler(AddItemEntityPacket.class, AddItemEntityHandler_Bedrock.class)
             .registerPacketHandler(AddPlayerPacket.class, AddPlayerHandler_Bedrock.class)
+            .registerPacketHandler(BlockEntityDataPacket.class, BlockEntityData_v408be_to_v419be.class)
             .registerPacketHandler(CraftingDataPacket.class, CraftingDataHandler_Bedrock.class)
             .registerPacketHandler(CreativeContentPacket.class, CreativeContentHandler_Bedrock.class)
             .registerPacketHandler(InventoryContentPacket.class, InventoryContentHandler_Bedrock.class)

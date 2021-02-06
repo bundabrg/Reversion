@@ -1,3357 +1,4079 @@
 [
   {
     "upstream": {
+      "name": "minecraft:comparator",
       "id": 404,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:comparator",
       "id": 512
     }
   },
   {
     "upstream": {
+      "name": "minecraft:netherbrick",
       "id": 405,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:netherbrick",
       "id": 513
     }
   },
   {
     "upstream": {
+      "name": "minecraft:quartz",
       "id": 406,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:quartz",
       "id": 514
     }
   },
   {
     "upstream": {
+      "name": "minecraft:tnt_minecart",
       "id": 407,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:tnt_minecart",
       "id": 515
     }
   },
   {
     "upstream": {
+      "name": "minecraft:hopper_minecart",
       "id": 408,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:hopper_minecart",
       "id": 516
     }
   },
   {
     "upstream": {
+      "name": "minecraft:hopper",
       "id": 410,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:hopper",
       "id": 517
     }
   },
   {
     "upstream": {
+      "name": "minecraft:rabbit_foot",
       "id": 414,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:rabbit_foot",
       "id": 518
     }
   },
   {
     "upstream": {
+      "name": "minecraft:rabbit_hide",
       "id": 415,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:rabbit_hide",
       "id": 519
     }
   },
   {
     "upstream": {
+      "name": "minecraft:horsearmorleather",
       "id": 416,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:leather_horse_armor",
       "id": 520
     }
   },
   {
     "upstream": {
+      "name": "minecraft:horsearmoriron",
       "id": 417,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:iron_horse_armor",
       "id": 521
     }
   },
   {
     "upstream": {
+      "name": "minecraft:horsearmorgold",
       "id": 418,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:golden_horse_armor",
       "id": 522
     }
   },
   {
     "upstream": {
+      "name": "minecraft:horsearmordiamond",
       "id": 419,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:diamond_horse_armor",
       "id": 523
     }
   },
   {
     "upstream": {
+      "name": "minecraft:record_13",
       "id": 500,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:music_disc_13",
       "id": 524
     }
   },
   {
     "upstream": {
+      "name": "minecraft:record_cat",
       "id": 501,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:music_disc_cat",
       "id": 525
     }
   },
   {
     "upstream": {
+      "name": "minecraft:record_blocks",
       "id": 502,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:music_disc_blocks",
       "id": 526
     }
   },
   {
     "upstream": {
+      "name": "minecraft:record_chirp",
       "id": 503,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:music_disc_chirp",
       "id": 527
     }
   },
   {
     "upstream": {
+      "name": "minecraft:record_far",
       "id": 504,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:music_disc_far",
       "id": 528
     }
   },
   {
     "upstream": {
+      "name": "minecraft:record_mall",
       "id": 505,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:music_disc_mall",
       "id": 529
     }
   },
   {
     "upstream": {
+      "name": "minecraft:record_mellohi",
       "id": 506,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:music_disc_mellohi",
       "id": 530
     }
   },
   {
     "upstream": {
+      "name": "minecraft:record_stal",
       "id": 507,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:music_disc_stal",
       "id": 531
     }
   },
   {
     "upstream": {
+      "name": "minecraft:record_strad",
       "id": 508,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:music_disc_strad",
       "id": 532
     }
   },
   {
     "upstream": {
+      "name": "minecraft:record_ward",
       "id": 509,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:music_disc_ward",
       "id": 533
     }
   },
   {
     "upstream": {
+      "name": "minecraft:record_11",
       "id": 510,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:music_disc_11",
       "id": 534
     }
   },
   {
     "upstream": {
+      "name": "minecraft:record_wait",
       "id": 511,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:music_disc_wait",
       "id": 535
     }
   },
   {
     "upstream": {
+      "name": "minecraft:trident",
       "id": 455,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:trident",
       "id": 536
     }
   },
   {
     "upstream": {
+      "name": "minecraft:lead",
       "id": 420,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:lead",
       "id": 537
     }
   },
   {
     "upstream": {
+      "name": "minecraft:name_tag",
       "id": 421,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:name_tag",
       "id": 538
     }
   },
   {
     "upstream": {
+      "name": "minecraft:prismarine_crystals",
       "id": 422,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:prismarine_crystals",
       "id": 539
     }
   },
   {
     "upstream": {
+      "name": "minecraft:muttonraw",
       "id": 423,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:mutton",
       "id": 540
     }
   },
   {
     "upstream": {
+      "name": "minecraft:muttoncooked",
       "id": 424,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:cooked_mutton",
       "id": 541
     }
   },
   {
     "upstream": {
+      "name": "minecraft:armor_stand",
       "id": 425,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:armor_stand",
       "id": 542
     }
   },
   {
     "upstream": {
+      "name": "minecraft:spruce_door",
       "id": 427,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:spruce_door",
       "id": 543
     }
   },
   {
     "upstream": {
+      "name": "minecraft:birch_door",
       "id": 428,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:birch_door",
       "id": 544
     }
   },
   {
     "upstream": {
+      "name": "minecraft:jungle_door",
       "id": 429,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:jungle_door",
       "id": 545
     }
   },
   {
     "upstream": {
+      "name": "minecraft:acacia_door",
       "id": 430,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:acacia_door",
       "id": 546
     }
   },
   {
     "upstream": {
+      "name": "minecraft:dark_oak_door",
       "id": 431,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:dark_oak_door",
       "id": 547
     }
   },
   {
     "upstream": {
+      "name": "minecraft:chorus_fruit",
       "id": 432,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:chorus_fruit",
       "id": 548
     }
   },
   {
     "upstream": {
+      "name": "minecraft:chorus_fruit_popped",
       "id": 433,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:popped_chorus_fruit",
       "id": 549
     }
   },
   {
     "upstream": {
+      "name": "minecraft:dragon_breath",
       "id": 437,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:dragon_breath",
       "id": 550
     }
   },
   {
     "upstream": {
+      "name": "minecraft:splash_potion",
       "id": 438,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:splash_potion",
       "id": 551
     }
   },
   {
     "upstream": {
+      "name": "minecraft:lingering_potion",
       "id": 441,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:lingering_potion",
       "id": 552
     }
   },
   {
     "upstream": {
+      "name": "minecraft:command_block_minecart",
       "id": 443,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:command_block_minecart",
       "id": 553
     }
   },
   {
     "upstream": {
+      "name": "minecraft:elytra",
       "id": 444,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:elytra",
       "id": 554
     }
   },
   {
     "upstream": {
+      "name": "minecraft:prismarine_shard",
       "id": 409,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:prismarine_shard",
       "id": 555
     }
   },
   {
     "upstream": {
+      "name": "minecraft:shulker_shell",
       "id": 445,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:shulker_shell",
       "id": 556
     }
   },
   {
     "upstream": {
+      "name": "minecraft:banner",
       "id": 446,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:banner",
       "id": 557
     }
   },
   {
     "upstream": {
+      "name": "minecraft:totem",
       "id": 450,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:totem_of_undying",
       "id": 558
     }
   },
   {
     "upstream": {
+      "name": "minecraft:iron_nugget",
       "id": 452,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:iron_nugget",
       "id": 559
     }
   },
   {
     "upstream": {
+      "name": "minecraft:nautilus_shell",
       "id": 465,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:nautilus_shell",
       "id": 560
     }
   },
   {
     "upstream": {
+      "name": "minecraft:heart_of_the_sea",
       "id": 467,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:heart_of_the_sea",
       "id": 561
     }
   },
   {
     "upstream": {
+      "name": "minecraft:turtle_shell_piece",
       "id": 468,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:scute",
       "id": 562
     }
   },
   {
     "upstream": {
+      "name": "minecraft:turtle_helmet",
       "id": 469,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:turtle_helmet",
       "id": 563
     }
   },
   {
     "upstream": {
+      "name": "minecraft:phantom_membrane",
       "id": 470,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:phantom_membrane",
       "id": 564
     }
   },
   {
     "upstream": {
+      "name": "minecraft:crossbow",
       "id": 471,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:crossbow",
       "id": 565
     }
   },
   {
     "upstream": {
+      "name": "minecraft:spruce_sign",
       "id": 472,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:spruce_sign",
       "id": 566
     }
   },
   {
     "upstream": {
+      "name": "minecraft:birch_sign",
       "id": 473,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:birch_sign",
       "id": 567
     }
   },
   {
     "upstream": {
+      "name": "minecraft:jungle_sign",
       "id": 474,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:jungle_sign",
       "id": 568
     }
   },
   {
     "upstream": {
+      "name": "minecraft:acacia_sign",
       "id": 475,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:acacia_sign",
       "id": 569
     }
   },
   {
     "upstream": {
+      "name": "minecraft:darkoak_sign",
       "id": 476,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:dark_oak_sign",
       "id": 570
     }
   },
   {
     "upstream": {
+      "name": "minecraft:banner_pattern",
       "id": 434,
       "data": 2,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:flower_banner_pattern",
       "id": 571
     }
   },
   {
     "upstream": {
+      "name": "minecraft:banner_pattern",
       "id": 434,
       "data": 0,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:creeper_banner_pattern",
       "id": 572
     }
   },
   {
     "upstream": {
+      "name": "minecraft:banner_pattern",
       "id": 434,
       "data": 1,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:skull_banner_pattern",
       "id": 573
     }
   },
   {
     "upstream": {
+      "name": "minecraft:banner_pattern",
       "id": 434,
       "data": 3,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:mojang_banner_pattern",
       "id": 574
     }
   },
   {
     "upstream": {
+      "name": "minecraft:banner_pattern",
       "id": 434,
       "data": 4,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:field_masoned_banner_pattern",
       "id": 575
     }
   },
   {
     "upstream": {
+      "name": "minecraft:banner_pattern",
       "id": 434,
       "data": 5,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:bordure_indented_banner_pattern",
       "id": 576
     }
   },
   {
     "upstream": {
+      "name": "minecraft:banner_pattern",
       "id": 434,
       "data": 6,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:piglin_banner_pattern",
       "id": 577
     }
   },
   {
     "upstream": {
+      "name": "minecraft:campfire",
       "id": 720,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:campfire",
       "id": 578
     }
   },
   {
     "upstream": {
+      "name": "minecraft:suspicious_stew",
       "id": 734,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:suspicious_stew",
       "id": 579
     }
   },
   {
     "upstream": {
+      "name": "minecraft:honeycomb",
       "id": 736,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:honeycomb",
       "id": 580
     }
   },
   {
     "upstream": {
+      "name": "minecraft:honey_bottle",
       "id": 737,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:honey_bottle",
       "id": 581
     }
   },
   {
     "upstream": {
+      "name": "minecraft:camera",
       "id": 498,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:camera",
       "id": 582
     }
   },
   {
     "upstream": {
+      "name": "minecraft:compound",
       "id": 499,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:compound",
       "id": 583
     }
   },
   {
     "upstream": {
+      "name": "minecraft:ice_bomb",
       "id": 453,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:ice_bomb",
       "id": 584
     }
   },
   {
     "upstream": {
+      "name": "minecraft:bleach",
       "id": 451,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:bleach",
       "id": 585
     }
   },
   {
     "upstream": {
+      "name": "minecraft:rapid_fertilizer",
       "id": 449,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:rapid_fertilizer",
       "id": 586
     }
   },
   {
     "upstream": {
+      "name": "minecraft:balloon",
       "id": 448,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:balloon",
       "id": 587
     }
   },
   {
     "upstream": {
+      "name": "minecraft:medicine",
       "id": 447,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:medicine",
       "id": 588
     }
   },
   {
     "upstream": {
+      "name": "minecraft:sparkler",
       "id": 442,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:sparkler",
       "id": 589
     }
   },
   {
     "upstream": {
+      "name": "minecraft:lodestonecompass",
       "id": 741,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:lodestone_compass",
       "id": 590
     }
   },
   {
     "upstream": {
+      "name": "minecraft:netherite_ingot",
       "id": 742,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:netherite_ingot",
       "id": 591
     }
   },
   {
     "upstream": {
+      "name": "minecraft:netherite_sword",
       "id": 743,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:netherite_sword",
       "id": 592
     }
   },
   {
     "upstream": {
+      "name": "minecraft:netherite_shovel",
       "id": 744,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:netherite_shovel",
       "id": 593
     }
   },
   {
     "upstream": {
+      "name": "minecraft:netherite_pickaxe",
       "id": 745,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:netherite_pickaxe",
       "id": 594
     }
   },
   {
     "upstream": {
+      "name": "minecraft:netherite_axe",
       "id": 746,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:netherite_axe",
       "id": 595
     }
   },
   {
     "upstream": {
+      "name": "minecraft:netherite_hoe",
       "id": 747,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:netherite_hoe",
       "id": 596
     }
   },
   {
     "upstream": {
+      "name": "minecraft:netherite_helmet",
       "id": 748,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:netherite_helmet",
       "id": 597
     }
   },
   {
     "upstream": {
+      "name": "minecraft:netherite_chestplate",
       "id": 749,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:netherite_chestplate",
       "id": 598
     }
   },
   {
     "upstream": {
+      "name": "minecraft:netherite_leggings",
       "id": 750,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:netherite_leggings",
       "id": 599
     }
   },
   {
     "upstream": {
+      "name": "minecraft:netherite_boots",
       "id": 751,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:netherite_boots",
       "id": 600
     }
   },
   {
     "upstream": {
+      "name": "minecraft:netherite_scrap",
       "id": 752,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:netherite_scrap",
       "id": 601
     }
   },
   {
     "upstream": {
+      "name": "minecraft:crimson_sign",
       "id": 753,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:crimson_sign",
       "id": 602
     }
   },
   {
     "upstream": {
+      "name": "minecraft:warped_sign",
       "id": 754,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:warped_sign",
       "id": 603
     }
   },
   {
     "upstream": {
+      "name": "minecraft:crimson_door",
       "id": 755,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:crimson_door",
       "id": 604
     }
   },
   {
     "upstream": {
+      "name": "minecraft:warped_door",
       "id": 756,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:warped_door",
       "id": 605
     }
   },
   {
     "upstream": {
+      "name": "minecraft:warped_fungus_on_a_stick",
       "id": 757,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:warped_fungus_on_a_stick",
       "id": 606
     }
   },
   {
     "upstream": {
+      "name": "minecraft:chain",
       "id": 758,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:chain",
       "id": 607
     }
   },
   {
     "upstream": {
+      "name": "minecraft:record_pigstep",
       "id": 759,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:music_disc_pigstep",
       "id": 608
     }
   },
   {
     "upstream": {
+      "name": "minecraft:nether_sprouts",
       "id": 760,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:nether_sprouts",
       "id": 609
     }
   },
   {
     "upstream": {
+      "name": "minecraft:soul_campfire",
       "id": 801,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:soul_campfire",
       "id": 610
     }
   },
   {
     "upstream": {
+      "name": "minecraft:boat",
       "id": 333,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:boat",
       "id": 611
     }
   },
   {
     "upstream": {
+      "name": "minecraft:dye",
       "id": 351,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:dye",
       "id": 612
     }
   },
   {
     "upstream": {
+      "name": "minecraft:banner_pattern",
       "id": 434,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:banner_pattern",
       "id": 613
     }
   },
   {
     "upstream": {
+      "name": "minecraft:spawn_egg",
       "id": 383,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:spawn_egg",
       "id": 614
     }
   },
   {
     "upstream": {
+      "name": "minecraft:end_crystal",
       "id": 426,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:end_crystal",
       "id": 615
     }
   },
   {
     "upstream": {
+      "name": "minecraft:netherbrick",
       "id": 405,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:nether_brick",
       "id": 112
     }
   },
   {
     "upstream": {
+      "name": "minecraft:apple",
       "id": 260,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:apple",
       "id": 257
     }
   },
   {
     "upstream": {
+      "name": "minecraft:golden_apple",
       "id": 322,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:golden_apple",
       "id": 258
     }
   },
   {
     "upstream": {
+      "name": "minecraft:appleenchanted",
       "id": 466,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:enchanted_golden_apple",
       "id": 259
     }
   },
   {
     "upstream": {
+      "name": "minecraft:mushroom_stew",
       "id": 282,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:mushroom_stew",
       "id": 260
     }
   },
   {
     "upstream": {
+      "name": "minecraft:bread",
       "id": 297,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:bread",
       "id": 261
     }
   },
   {
     "upstream": {
+      "name": "minecraft:porkchop",
       "id": 319,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:porkchop",
       "id": 262
     }
   },
   {
     "upstream": {
+      "name": "minecraft:cooked_porkchop",
       "id": 320,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:cooked_porkchop",
       "id": 263
     }
   },
   {
     "upstream": {
+      "name": "minecraft:fish",
       "id": 349,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:cod",
       "id": 264
     }
   },
   {
     "upstream": {
+      "name": "minecraft:salmon",
       "id": 460,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:salmon",
       "id": 265
     }
   },
   {
     "upstream": {
+      "name": "minecraft:clownfish",
       "id": 461,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:tropical_fish",
       "id": 266
     }
   },
   {
     "upstream": {
+      "name": "minecraft:pufferfish",
       "id": 462,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:pufferfish",
       "id": 267
     }
   },
   {
     "upstream": {
+      "name": "minecraft:cooked_fish",
       "id": 350,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:cooked_cod",
       "id": 268
     }
   },
   {
     "upstream": {
+      "name": "minecraft:cooked_salmon",
       "id": 463,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:cooked_salmon",
       "id": 269
     }
   },
   {
     "upstream": {
+      "name": "minecraft:dried_kelp",
       "id": 464,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:dried_kelp",
       "id": 270
     }
   },
   {
     "upstream": {
+      "name": "minecraft:cookie",
       "id": 357,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:cookie",
       "id": 271
     }
   },
   {
     "upstream": {
+      "name": "minecraft:melon",
       "id": 360,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:melon_slice",
       "id": 272
     }
   },
   {
     "upstream": {
+      "name": "minecraft:beef",
       "id": 363,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:beef",
       "id": 273
     }
   },
   {
     "upstream": {
+      "name": "minecraft:cooked_beef",
       "id": 364,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:cooked_beef",
       "id": 274
     }
   },
   {
     "upstream": {
+      "name": "minecraft:chicken",
       "id": 365,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:chicken",
       "id": 275
     }
   },
   {
     "upstream": {
+      "name": "minecraft:cooked_chicken",
       "id": 366,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:cooked_chicken",
       "id": 276
     }
   },
   {
     "upstream": {
+      "name": "minecraft:rotten_flesh",
       "id": 367,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:rotten_flesh",
       "id": 277
     }
   },
   {
     "upstream": {
+      "name": "minecraft:spider_eye",
       "id": 375,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:spider_eye",
       "id": 278
     }
   },
   {
     "upstream": {
+      "name": "minecraft:carrot",
       "id": 391,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:carrot",
       "id": 279
     }
   },
   {
     "upstream": {
+      "name": "minecraft:potato",
       "id": 392,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:potato",
       "id": 280
     }
   },
   {
     "upstream": {
+      "name": "minecraft:baked_potato",
       "id": 393,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:baked_potato",
       "id": 281
     }
   },
   {
     "upstream": {
+      "name": "minecraft:poisonous_potato",
       "id": 394,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:poisonous_potato",
       "id": 282
     }
   },
   {
     "upstream": {
+      "name": "minecraft:golden_carrot",
       "id": 396,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:golden_carrot",
       "id": 283
     }
   },
   {
     "upstream": {
+      "name": "minecraft:pumpkin_pie",
       "id": 400,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:pumpkin_pie",
       "id": 284
     }
   },
   {
     "upstream": {
+      "name": "minecraft:beetroot",
       "id": 457,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:beetroot",
       "id": 285
     }
   },
   {
     "upstream": {
+      "name": "minecraft:beetroot_soup",
       "id": 459,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:beetroot_soup",
       "id": 286
     }
   },
   {
     "upstream": {
+      "name": "minecraft:sweet_berries",
       "id": 477,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:sweet_berries",
       "id": 287
     }
   },
   {
     "upstream": {
+      "name": "minecraft:rabbit",
       "id": 411,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:rabbit",
       "id": 288
     }
   },
   {
     "upstream": {
+      "name": "minecraft:cooked_rabbit",
       "id": 412,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:cooked_rabbit",
       "id": 289
     }
   },
   {
     "upstream": {
+      "name": "minecraft:rabbit_stew",
       "id": 413,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:rabbit_stew",
       "id": 290
     }
   },
   {
     "upstream": {
+      "name": "minecraft:wheat_seeds",
       "id": 295,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:wheat_seeds",
       "id": 291
     }
   },
   {
     "upstream": {
+      "name": "minecraft:pumpkin_seeds",
       "id": 361,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:pumpkin_seeds",
       "id": 292
     }
   },
   {
     "upstream": {
+      "name": "minecraft:melon_seeds",
       "id": 362,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:melon_seeds",
       "id": 293
     }
   },
   {
     "upstream": {
+      "name": "minecraft:nether_wart",
       "id": 372,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:nether_wart",
       "id": 294
     }
   },
   {
     "upstream": {
+      "name": "minecraft:beetroot_seeds",
       "id": 458,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:beetroot_seeds",
       "id": 295
     }
   },
   {
     "upstream": {
+      "name": "minecraft:iron_shovel",
       "id": 256,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:iron_shovel",
       "id": 296
     }
   },
   {
     "upstream": {
+      "name": "minecraft:iron_pickaxe",
       "id": 257,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:iron_pickaxe",
       "id": 297
     }
   },
   {
     "upstream": {
+      "name": "minecraft:iron_axe",
       "id": 258,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:iron_axe",
       "id": 298
     }
   },
   {
     "upstream": {
+      "name": "minecraft:flint_and_steel",
       "id": 259,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:flint_and_steel",
       "id": 299
     }
   },
   {
     "upstream": {
+      "name": "minecraft:bow",
       "id": 261,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:bow",
       "id": 300
     }
   },
   {
     "upstream": {
+      "name": "minecraft:arrow",
       "id": 262,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:arrow",
       "id": 301
     }
   },
   {
     "upstream": {
+      "name": "minecraft:coal",
       "id": 263,
       "data": 0,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:coal",
       "id": 302
     }
   },
   {
     "upstream": {
+      "name": "minecraft:coal",
       "id": 263,
       "data": 1,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:charcoal",
       "id": 303
     }
   },
   {
     "upstream": {
+      "name": "minecraft:border_block",
       "id": 212,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:unknown",
       "id": -305
     }
   },
   {
     "upstream": {
+      "name": "minecraft:diamond",
       "id": 264,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:diamond",
       "id": 304
     }
   },
   {
     "upstream": {
+      "name": "minecraft:iron_ingot",
       "id": 265,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:iron_ingot",
       "id": 305
     }
   },
   {
     "upstream": {
+      "name": "minecraft:gold_ingot",
       "id": 266,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:gold_ingot",
       "id": 306
     }
   },
   {
     "upstream": {
+      "name": "minecraft:iron_sword",
       "id": 267,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:iron_sword",
       "id": 307
     }
   },
   {
     "upstream": {
+      "name": "minecraft:wooden_sword",
       "id": 268,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:wooden_sword",
       "id": 308
     }
   },
   {
     "upstream": {
+      "name": "minecraft:wooden_shovel",
       "id": 269,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:wooden_shovel",
       "id": 309
     }
   },
   {
     "upstream": {
+      "name": "minecraft:wooden_pickaxe",
       "id": 270,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:wooden_pickaxe",
       "id": 310
     }
   },
   {
     "upstream": {
+      "name": "minecraft:wooden_axe",
       "id": 271,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:wooden_axe",
       "id": 311
     }
   },
   {
     "upstream": {
+      "name": "minecraft:stone_sword",
       "id": 272,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:stone_sword",
       "id": 312
     }
   },
   {
     "upstream": {
+      "name": "minecraft:stone_shovel",
       "id": 273,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:stone_shovel",
       "id": 313
     }
   },
   {
     "upstream": {
+      "name": "minecraft:stone_pickaxe",
       "id": 274,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:stone_pickaxe",
       "id": 314
     }
   },
   {
     "upstream": {
+      "name": "minecraft:stone_axe",
       "id": 275,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:stone_axe",
       "id": 315
     }
   },
   {
     "upstream": {
+      "name": "minecraft:diamond_sword",
       "id": 276,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:diamond_sword",
       "id": 316
     }
   },
   {
     "upstream": {
+      "name": "minecraft:diamond_shovel",
       "id": 277,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:diamond_shovel",
       "id": 317
     }
   },
   {
     "upstream": {
+      "name": "minecraft:diamond_pickaxe",
       "id": 278,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:diamond_pickaxe",
       "id": 318
     }
   },
   {
     "upstream": {
+      "name": "minecraft:diamond_axe",
       "id": 279,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:diamond_axe",
       "id": 319
     }
   },
   {
     "upstream": {
+      "name": "minecraft:stick",
       "id": 280,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:stick",
       "id": 320
     }
   },
   {
     "upstream": {
+      "name": "minecraft:bowl",
       "id": 281,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:bowl",
       "id": 321
     }
   },
   {
     "upstream": {
+      "name": "minecraft:golden_sword",
       "id": 283,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:golden_sword",
       "id": 322
     }
   },
   {
     "upstream": {
+      "name": "minecraft:golden_shovel",
       "id": 284,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:golden_shovel",
       "id": 323
     }
   },
   {
     "upstream": {
+      "name": "minecraft:golden_pickaxe",
       "id": 285,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:golden_pickaxe",
       "id": 324
     }
   },
   {
     "upstream": {
+      "name": "minecraft:golden_axe",
       "id": 286,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:golden_axe",
       "id": 325
     }
   },
   {
     "upstream": {
+      "name": "minecraft:string",
       "id": 287,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:string",
       "id": 326
     }
   },
   {
     "upstream": {
+      "name": "minecraft:feather",
       "id": 288,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:feather",
       "id": 327
     }
   },
   {
     "upstream": {
+      "name": "minecraft:gunpowder",
       "id": 289,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:gunpowder",
       "id": 328
     }
   },
   {
     "upstream": {
+      "name": "minecraft:wooden_hoe",
       "id": 290,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:wooden_hoe",
       "id": 329
     }
   },
   {
     "upstream": {
+      "name": "minecraft:stone_hoe",
       "id": 291,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:stone_hoe",
       "id": 330
     }
   },
   {
     "upstream": {
+      "name": "minecraft:iron_hoe",
       "id": 292,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:iron_hoe",
       "id": 331
     }
   },
   {
     "upstream": {
+      "name": "minecraft:diamond_hoe",
       "id": 293,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:diamond_hoe",
       "id": 332
     }
   },
   {
     "upstream": {
+      "name": "minecraft:golden_hoe",
       "id": 294,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:golden_hoe",
       "id": 333
     }
   },
   {
     "upstream": {
+      "name": "minecraft:wheat",
       "id": 296,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:wheat",
       "id": 334
     }
   },
   {
     "upstream": {
+      "name": "minecraft:leather_helmet",
       "id": 298,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:leather_helmet",
       "id": 335
     }
   },
   {
     "upstream": {
+      "name": "minecraft:leather_chestplate",
       "id": 299,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:leather_chestplate",
       "id": 336
     }
   },
   {
     "upstream": {
+      "name": "minecraft:leather_leggings",
       "id": 300,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:leather_leggings",
       "id": 337
     }
   },
   {
     "upstream": {
+      "name": "minecraft:leather_boots",
       "id": 301,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:leather_boots",
       "id": 338
     }
   },
   {
     "upstream": {
+      "name": "minecraft:chainmail_helmet",
       "id": 302,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:chainmail_helmet",
       "id": 339
     }
   },
   {
     "upstream": {
+      "name": "minecraft:chainmail_chestplate",
       "id": 303,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:chainmail_chestplate",
       "id": 340
     }
   },
   {
     "upstream": {
+      "name": "minecraft:chainmail_leggings",
       "id": 304,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:chainmail_leggings",
       "id": 341
     }
   },
   {
     "upstream": {
+      "name": "minecraft:chainmail_boots",
       "id": 305,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:chainmail_boots",
       "id": 342
     }
   },
   {
     "upstream": {
+      "name": "minecraft:iron_helmet",
       "id": 306,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:iron_helmet",
       "id": 343
     }
   },
   {
     "upstream": {
+      "name": "minecraft:iron_chestplate",
       "id": 307,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:iron_chestplate",
       "id": 344
     }
   },
   {
     "upstream": {
+      "name": "minecraft:iron_leggings",
       "id": 308,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:iron_leggings",
       "id": 345
     }
   },
   {
     "upstream": {
+      "name": "minecraft:iron_boots",
       "id": 309,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:iron_boots",
       "id": 346
     }
   },
   {
     "upstream": {
+      "name": "minecraft:diamond_helmet",
       "id": 310,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:diamond_helmet",
       "id": 347
     }
   },
   {
     "upstream": {
+      "name": "minecraft:diamond_chestplate",
       "id": 311,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:diamond_chestplate",
       "id": 348
     }
   },
   {
     "upstream": {
+      "name": "minecraft:diamond_leggings",
       "id": 312,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:diamond_leggings",
       "id": 349
     }
   },
   {
     "upstream": {
+      "name": "minecraft:diamond_boots",
       "id": 313,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:diamond_boots",
       "id": 350
     }
   },
   {
     "upstream": {
+      "name": "minecraft:golden_helmet",
       "id": 314,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:golden_helmet",
       "id": 351
     }
   },
   {
     "upstream": {
+      "name": "minecraft:golden_chestplate",
       "id": 315,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:golden_chestplate",
       "id": 352
     }
   },
   {
     "upstream": {
+      "name": "minecraft:golden_leggings",
       "id": 316,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:golden_leggings",
       "id": 353
     }
   },
   {
     "upstream": {
+      "name": "minecraft:golden_boots",
       "id": 317,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:golden_boots",
       "id": 354
     }
   },
   {
     "upstream": {
+      "name": "minecraft:shield",
       "id": 513,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:shield",
       "id": 355
     }
   },
   {
     "upstream": {
+      "name": "minecraft:flint",
       "id": 318,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:flint",
       "id": 356
     }
   },
   {
     "upstream": {
+      "name": "minecraft:painting",
       "id": 321,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:painting",
       "id": 357
     }
   },
   {
     "upstream": {
+      "name": "minecraft:sign",
       "id": 323,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:oak_sign",
       "id": 358
     }
   },
   {
     "upstream": {
+      "name": "minecraft:wooden_door",
       "id": 324,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:wooden_door",
       "id": 359
     }
   },
   {
     "upstream": {
+      "name": "minecraft:bucket",
       "id": 325,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:bucket",
       "id": 360
     }
   },
   {
     "upstream": {
+      "name": "minecraft:bucket",
       "id": 325,
       "data": 1,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:milk_bucket",
       "id": 361
     }
   },
   {
     "upstream": {
+      "name": "minecraft:bucket",
       "id": 325,
       "data": 8,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:water_bucket",
       "id": 362
     }
   },
   {
     "upstream": {
+      "name": "minecraft:bucket",
       "id": 325,
       "data": 10,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:lava_bucket",
       "id": 363
     }
   },
   {
     "upstream": {
+      "name": "minecraft:bucket",
       "id": 325,
       "data": 2,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:cod_bucket",
       "id": 364
     }
   },
   {
     "upstream": {
+      "name": "minecraft:bucket",
       "id": 325,
       "data": 3,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:salmon_bucket",
       "id": 365
     }
   },
   {
     "upstream": {
+      "name": "minecraft:bucket",
       "id": 325,
       "data": 4,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:tropical_fish_bucket",
       "id": 366
     }
   },
   {
     "upstream": {
+      "name": "minecraft:bucket",
       "id": 325,
       "data": 5,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:pufferfish_bucket",
       "id": 367
     }
   },
   {
     "upstream": {
+      "name": "minecraft:minecart",
       "id": 328,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:minecart",
       "id": 368
     }
   },
   {
     "upstream": {
+      "name": "minecraft:saddle",
       "id": 329,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:saddle",
       "id": 369
     }
   },
   {
     "upstream": {
+      "name": "minecraft:iron_door",
       "id": 330,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:iron_door",
       "id": 370
     }
   },
   {
     "upstream": {
+      "name": "minecraft:redstone",
       "id": 331,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:redstone",
       "id": 371
     }
   },
   {
     "upstream": {
+      "name": "minecraft:snowball",
       "id": 332,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:snowball",
       "id": 372
     }
   },
   {
     "upstream": {
+      "name": "minecraft:boat",
       "id": 333,
       "data": 0,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:oak_boat",
       "id": 373
     }
   },
   {
     "upstream": {
+      "name": "minecraft:boat",
       "id": 333,
       "data": 2,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:birch_boat",
       "id": 374
     }
   },
   {
     "upstream": {
+      "name": "minecraft:boat",
       "id": 333,
       "data": 3,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:jungle_boat",
       "id": 375
     }
   },
   {
     "upstream": {
+      "name": "minecraft:boat",
       "id": 333,
       "data": 1,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:spruce_boat",
       "id": 376
     }
   },
   {
     "upstream": {
+      "name": "minecraft:boat",
       "id": 333,
       "data": 4,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:acacia_boat",
       "id": 377
     }
   },
   {
     "upstream": {
+      "name": "minecraft:boat",
       "id": 333,
       "data": 5,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:dark_oak_boat",
       "id": 378
     }
   },
   {
     "upstream": {
+      "name": "minecraft:leather",
       "id": 334,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:leather",
       "id": 379
     }
   },
   {
     "upstream": {
+      "name": "minecraft:kelp",
       "id": 335,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:kelp",
       "id": 380
     }
   },
   {
     "upstream": {
+      "name": "minecraft:brick",
       "id": 336,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:brick",
       "id": 381
     }
   },
   {
     "upstream": {
+      "name": "minecraft:clay_ball",
       "id": 337,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:clay_ball",
       "id": 382
     }
   },
   {
     "upstream": {
+      "name": "minecraft:reeds",
       "id": 338,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:sugar_cane",
       "id": 383
     }
   },
   {
     "upstream": {
+      "name": "minecraft:paper",
       "id": 339,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:paper",
       "id": 384
     }
   },
   {
     "upstream": {
+      "name": "minecraft:book",
       "id": 340,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:book",
       "id": 385
     }
   },
   {
     "upstream": {
+      "name": "minecraft:slime_ball",
       "id": 341,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:slime_ball",
       "id": 386
     }
   },
   {
     "upstream": {
+      "name": "minecraft:chest_minecart",
       "id": 342,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:chest_minecart",
       "id": 387
     }
   },
   {
     "upstream": {
+      "name": "minecraft:egg",
       "id": 344,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:egg",
       "id": 388
     }
   },
   {
     "upstream": {
+      "name": "minecraft:compass",
       "id": 345,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:compass",
       "id": 389
     }
   },
   {
     "upstream": {
+      "name": "minecraft:fishing_rod",
       "id": 346,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:fishing_rod",
       "id": 390
     }
   },
   {
     "upstream": {
+      "name": "minecraft:clock",
       "id": 347,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:clock",
       "id": 391
     }
   },
   {
     "upstream": {
+      "name": "minecraft:glowstone_dust",
       "id": 348,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:glowstone_dust",
       "id": 392
     }
   },
   {
     "upstream": {
+      "name": "minecraft:dye",
       "id": 351,
       "data": 16,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:black_dye",
       "id": 393
     }
   },
   {
     "upstream": {
+      "name": "minecraft:dye",
       "id": 351,
       "data": 1,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:red_dye",
       "id": 394
     }
   },
   {
     "upstream": {
+      "name": "minecraft:dye",
       "id": 351,
       "data": 2,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:green_dye",
       "id": 395
     }
   },
   {
     "upstream": {
+      "name": "minecraft:dye",
       "id": 351,
       "data": 17,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:brown_dye",
       "id": 396
     }
   },
   {
     "upstream": {
+      "name": "minecraft:dye",
       "id": 351,
       "data": 18,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:blue_dye",
       "id": 397
     }
   },
   {
     "upstream": {
+      "name": "minecraft:dye",
       "id": 351,
       "data": 5,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:purple_dye",
       "id": 398
     }
   },
   {
     "upstream": {
+      "name": "minecraft:dye",
       "id": 351,
       "data": 6,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:cyan_dye",
       "id": 399
     }
   },
   {
     "upstream": {
+      "name": "minecraft:dye",
       "id": 351,
       "data": 7,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:light_gray_dye",
       "id": 400
     }
   },
   {
     "upstream": {
+      "name": "minecraft:dye",
       "id": 351,
       "data": 8,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:gray_dye",
       "id": 401
     }
   },
   {
     "upstream": {
+      "name": "minecraft:dye",
       "id": 351,
       "data": 9,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:pink_dye",
       "id": 402
     }
   },
   {
     "upstream": {
+      "name": "minecraft:dye",
       "id": 351,
       "data": 10,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:lime_dye",
       "id": 403
     }
   },
   {
     "upstream": {
+      "name": "minecraft:dye",
       "id": 351,
       "data": 11,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:yellow_dye",
       "id": 404
     }
   },
   {
     "upstream": {
+      "name": "minecraft:dye",
       "id": 351,
       "data": 12,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:light_blue_dye",
       "id": 405
     }
   },
   {
     "upstream": {
+      "name": "minecraft:dye",
       "id": 351,
       "data": 13,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:magenta_dye",
       "id": 406
     }
   },
   {
     "upstream": {
+      "name": "minecraft:dye",
       "id": 351,
       "data": 14,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:orange_dye",
       "id": 407
     }
   },
   {
     "upstream": {
+      "name": "minecraft:dye",
       "id": 351,
       "data": 19,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:white_dye",
       "id": 408
     }
   },
   {
     "upstream": {
+      "name": "minecraft:dye",
       "id": 351,
       "data": 15,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:bone_meal",
       "id": 409
     }
   },
   {
     "upstream": {
+      "name": "minecraft:dye",
       "id": 351,
       "data": 3,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:cocoa_beans",
       "id": 410
     }
   },
   {
     "upstream": {
+      "name": "minecraft:dye",
       "id": 351,
       "data": 0,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:ink_sac",
       "id": 411
     }
   },
   {
     "upstream": {
+      "name": "minecraft:dye",
       "id": 351,
       "data": 4,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:lapis_lazuli",
       "id": 412
     }
   },
   {
     "upstream": {
+      "name": "minecraft:bone",
       "id": 352,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:bone",
       "id": 413
     }
   },
   {
     "upstream": {
+      "name": "minecraft:sugar",
       "id": 353,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:sugar",
       "id": 414
     }
   },
   {
     "upstream": {
+      "name": "minecraft:cake",
       "id": 354,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:cake",
       "id": 415
     }
   },
   {
     "upstream": {
+      "name": "minecraft:bed",
       "id": 355,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:bed",
       "id": 416
     }
   },
   {
     "upstream": {
+      "name": "minecraft:repeater",
       "id": 356,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:repeater",
       "id": 417
     }
   },
   {
     "upstream": {
+      "name": "minecraft:map",
       "id": 358,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:filled_map",
       "id": 418
     }
   },
   {
     "upstream": {
+      "name": "minecraft:shears",
       "id": 359,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:shears",
       "id": 419
     }
   },
   {
     "upstream": {
+      "name": "minecraft:ender_pearl",
       "id": 368,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:ender_pearl",
       "id": 420
     }
   },
   {
     "upstream": {
+      "name": "minecraft:blaze_rod",
       "id": 369,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:blaze_rod",
       "id": 421
     }
   },
   {
     "upstream": {
+      "name": "minecraft:ghast_tear",
       "id": 370,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:ghast_tear",
       "id": 422
     }
   },
   {
     "upstream": {
+      "name": "minecraft:gold_nugget",
       "id": 371,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:gold_nugget",
       "id": 423
     }
   },
   {
     "upstream": {
+      "name": "minecraft:potion",
       "id": 373,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:potion",
       "id": 424
     }
   },
   {
     "upstream": {
+      "name": "minecraft:glass_bottle",
       "id": 374,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:glass_bottle",
       "id": 425
     }
   },
   {
     "upstream": {
+      "name": "minecraft:fermented_spider_eye",
       "id": 376,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:fermented_spider_eye",
       "id": 426
     }
   },
   {
     "upstream": {
+      "name": "minecraft:blaze_powder",
       "id": 377,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:blaze_powder",
       "id": 427
     }
   },
   {
     "upstream": {
+      "name": "minecraft:magma_cream",
       "id": 378,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:magma_cream",
       "id": 428
     }
   },
   {
     "upstream": {
+      "name": "minecraft:brewing_stand",
       "id": 379,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:brewing_stand",
       "id": 429
     }
   },
   {
     "upstream": {
+      "name": "minecraft:cauldron",
       "id": 380,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:cauldron",
       "id": 430
     }
   },
   {
     "upstream": {
+      "name": "minecraft:ender_eye",
       "id": 381,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:ender_eye",
       "id": 431
     }
   },
   {
     "upstream": {
+      "name": "minecraft:speckled_melon",
       "id": 382,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:glistering_melon_slice",
       "id": 432
     }
   },
   {
     "upstream": {
+      "name": "minecraft:spawn_egg",
       "id": 383,
       "data": 10,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:chicken_spawn_egg",
       "id": 433
     }
   },
   {
     "upstream": {
+      "name": "minecraft:spawn_egg",
       "id": 383,
       "data": 11,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:cow_spawn_egg",
       "id": 434
     }
   },
   {
     "upstream": {
+      "name": "minecraft:spawn_egg",
       "id": 383,
       "data": 12,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:pig_spawn_egg",
       "id": 435
     }
   },
   {
     "upstream": {
+      "name": "minecraft:spawn_egg",
       "id": 383,
       "data": 13,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:sheep_spawn_egg",
       "id": 436
     }
   },
   {
     "upstream": {
+      "name": "minecraft:spawn_egg",
       "id": 383,
       "data": 14,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:wolf_spawn_egg",
       "id": 437
     }
   },
   {
     "upstream": {
+      "name": "minecraft:spawn_egg",
       "id": 383,
       "data": 16,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:mooshroom_spawn_egg",
       "id": 438
     }
   },
   {
     "upstream": {
+      "name": "minecraft:spawn_egg",
       "id": 383,
       "data": 33,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:creeper_spawn_egg",
       "id": 439
     }
   },
   {
     "upstream": {
+      "name": "minecraft:spawn_egg",
       "id": 383,
       "data": 38,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:enderman_spawn_egg",
       "id": 440
     }
   },
   {
     "upstream": {
+      "name": "minecraft:spawn_egg",
       "id": 383,
       "data": 39,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:silverfish_spawn_egg",
       "id": 441
     }
   },
   {
     "upstream": {
+      "name": "minecraft:spawn_egg",
       "id": 383,
       "data": 34,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:skeleton_spawn_egg",
       "id": 442
     }
   },
   {
     "upstream": {
+      "name": "minecraft:spawn_egg",
       "id": 383,
       "data": 37,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:slime_spawn_egg",
       "id": 443
     }
   },
   {
     "upstream": {
+      "name": "minecraft:spawn_egg",
       "id": 383,
       "data": 35,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:spider_spawn_egg",
       "id": 444
     }
   },
   {
     "upstream": {
+      "name": "minecraft:spawn_egg",
       "id": 383,
       "data": 32,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:zombie_spawn_egg",
       "id": 445
     }
   },
   {
     "upstream": {
+      "name": "minecraft:spawn_egg",
       "id": 383,
       "data": 36,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:zombie_pigman_spawn_egg",
       "id": 446
     }
   },
   {
     "upstream": {
+      "name": "minecraft:spawn_egg",
       "id": 383,
       "data": 73,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:villager_spawn_egg",
       "id": 447
     }
   },
   {
     "upstream": {
+      "name": "minecraft:spawn_egg",
       "id": 383,
       "data": 17,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:squid_spawn_egg",
       "id": 448
     }
   },
   {
     "upstream": {
+      "name": "minecraft:spawn_egg",
       "id": 383,
       "data": 22,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:ocelot_spawn_egg",
       "id": 449
     }
   },
   {
     "upstream": {
+      "name": "minecraft:spawn_egg",
       "id": 383,
       "data": 45,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:witch_spawn_egg",
       "id": 450
     }
   },
   {
     "upstream": {
+      "name": "minecraft:spawn_egg",
       "id": 383,
       "data": 19,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:bat_spawn_egg",
       "id": 451
     }
   },
   {
     "upstream": {
+      "name": "minecraft:spawn_egg",
       "id": 383,
       "data": 41,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:ghast_spawn_egg",
       "id": 452
     }
   },
   {
     "upstream": {
+      "name": "minecraft:spawn_egg",
       "id": 383,
       "data": 42,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:magma_cube_spawn_egg",
       "id": 453
     }
   },
   {
     "upstream": {
+      "name": "minecraft:spawn_egg",
       "id": 383,
       "data": 43,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:blaze_spawn_egg",
       "id": 454
     }
   },
   {
     "upstream": {
+      "name": "minecraft:spawn_egg",
       "id": 383,
       "data": 40,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:cave_spider_spawn_egg",
       "id": 455
     }
   },
   {
     "upstream": {
+      "name": "minecraft:spawn_egg",
       "id": 383,
       "data": 23,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:horse_spawn_egg",
       "id": 456
     }
   },
   {
     "upstream": {
+      "name": "minecraft:spawn_egg",
       "id": 383,
       "data": 18,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:rabbit_spawn_egg",
       "id": 457
     }
   },
   {
     "upstream": {
+      "name": "minecraft:spawn_egg",
       "id": 383,
       "data": 55,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:endermite_spawn_egg",
       "id": 458
     }
   },
   {
     "upstream": {
+      "name": "minecraft:spawn_egg",
       "id": 383,
       "data": 49,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:guardian_spawn_egg",
       "id": 459
     }
   },
   {
     "upstream": {
+      "name": "minecraft:spawn_egg",
       "id": 383,
       "data": 46,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:stray_spawn_egg",
       "id": 460
     }
   },
   {
     "upstream": {
+      "name": "minecraft:spawn_egg",
       "id": 383,
       "data": 47,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:husk_spawn_egg",
       "id": 461
     }
   },
   {
     "upstream": {
+      "name": "minecraft:spawn_egg",
       "id": 383,
       "data": 48,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:wither_skeleton_spawn_egg",
       "id": 462
     }
   },
   {
     "upstream": {
+      "name": "minecraft:spawn_egg",
       "id": 383,
       "data": 24,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:donkey_spawn_egg",
       "id": 463
     }
   },
   {
     "upstream": {
+      "name": "minecraft:spawn_egg",
       "id": 383,
       "data": 25,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:mule_spawn_egg",
       "id": 464
     }
   },
   {
     "upstream": {
+      "name": "minecraft:spawn_egg",
       "id": 383,
       "data": 26,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:skeleton_horse_spawn_egg",
       "id": 465
     }
   },
   {
     "upstream": {
+      "name": "minecraft:spawn_egg",
       "id": 383,
       "data": 27,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:zombie_horse_spawn_egg",
       "id": 466
     }
   },
   {
     "upstream": {
+      "name": "minecraft:spawn_egg",
       "id": 383,
       "data": 54,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:shulker_spawn_egg",
       "id": 467
     }
   },
   {
     "upstream": {
+      "name": "minecraft:spawn_egg",
       "id": 383,
       "data": 51,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:npc_spawn_egg",
       "id": 468
     }
   },
   {
     "upstream": {
+      "name": "minecraft:spawn_egg",
       "id": 383,
       "data": 50,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:elder_guardian_spawn_egg",
       "id": 469
     }
   },
   {
     "upstream": {
+      "name": "minecraft:spawn_egg",
       "id": 383,
       "data": 28,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:polar_bear_spawn_egg",
       "id": 470
     }
   },
   {
     "upstream": {
+      "name": "minecraft:spawn_egg",
       "id": 383,
       "data": 29,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:llama_spawn_egg",
       "id": 471
     }
   },
   {
     "upstream": {
+      "name": "minecraft:spawn_egg",
       "id": 383,
       "data": 57,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:vindicator_spawn_egg",
       "id": 472
     }
   },
   {
     "upstream": {
+      "name": "minecraft:spawn_egg",
       "id": 383,
       "data": 104,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:evoker_spawn_egg",
       "id": 473
     }
   },
   {
     "upstream": {
+      "name": "minecraft:spawn_egg",
       "id": 383,
       "data": 69,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:vex_spawn_egg",
       "id": 474
     }
   },
   {
     "upstream": {
+      "name": "minecraft:spawn_egg",
       "id": 383,
       "data": 74,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:zombie_villager_spawn_egg",
       "id": 475
     }
   },
   {
     "upstream": {
+      "name": "minecraft:spawn_egg",
       "id": 383,
       "data": 30,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:parrot_spawn_egg",
       "id": 476
     }
   },
   {
     "upstream": {
+      "name": "minecraft:spawn_egg",
       "id": 383,
       "data": 111,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:tropical_fish_spawn_egg",
       "id": 477
     }
   },
   {
     "upstream": {
+      "name": "minecraft:spawn_egg",
       "id": 383,
       "data": 30,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:cod_spawn_egg",
       "id": 478
     }
   },
   {
     "upstream": {
+      "name": "minecraft:spawn_egg",
       "id": 383,
       "data": 108,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:pufferfish_spawn_egg",
       "id": 479
     }
   },
   {
     "upstream": {
+      "name": "minecraft:spawn_egg",
       "id": 383,
       "data": 109,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:salmon_spawn_egg",
       "id": 480
     }
   },
   {
     "upstream": {
+      "name": "minecraft:spawn_egg",
       "id": 383,
       "data": 110,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:drowned_spawn_egg",
       "id": 481
     }
   },
   {
     "upstream": {
+      "name": "minecraft:spawn_egg",
       "id": 383,
       "data": 31,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:dolphin_spawn_egg",
       "id": 482
     }
   },
   {
     "upstream": {
+      "name": "minecraft:spawn_egg",
       "id": 383,
       "data": 74,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:turtle_spawn_egg",
       "id": 483
     }
   },
   {
     "upstream": {
+      "name": "minecraft:spawn_egg",
       "id": 383,
       "data": 58,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:phantom_spawn_egg",
       "id": 484
     }
   },
   {
     "upstream": {
+      "name": "minecraft:spawn_egg",
       "id": 383,
       "data": 56,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:agent_spawn_egg",
       "id": 485
     }
   },
   {
     "upstream": {
+      "name": "minecraft:spawn_egg",
       "id": 383,
       "data": 75,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:cat_spawn_egg",
       "id": 486
     }
   },
   {
     "upstream": {
+      "name": "minecraft:spawn_egg",
       "id": 383,
       "data": 113,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:panda_spawn_egg",
       "id": 487
     }
   },
   {
     "upstream": {
+      "name": "minecraft:spawn_egg",
       "id": 383,
       "data": 121,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:fox_spawn_egg",
       "id": 488
     }
   },
   {
     "upstream": {
+      "name": "minecraft:spawn_egg",
       "id": 383,
       "data": 114,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:pillager_spawn_egg",
       "id": 489
     }
   },
   {
     "upstream": {
+      "name": "minecraft:spawn_egg",
       "id": 383,
       "data": 118,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:wandering_trader_spawn_egg",
       "id": 490
     }
   },
   {
     "upstream": {
+      "name": "minecraft:spawn_egg",
       "id": 383,
       "data": 59,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:ravager_spawn_egg",
       "id": 491
     }
   },
   {
     "upstream": {
+      "name": "minecraft:spawn_egg",
       "id": 383,
       "data": 122,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:bee_spawn_egg",
       "id": 492
     }
   },
   {
     "upstream": {
+      "name": "minecraft:spawn_egg",
       "id": 383,
       "data": 125,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:strider_spawn_egg",
       "id": 493
     }
   },
   {
     "upstream": {
+      "name": "minecraft:spawn_egg",
       "id": 383,
       "data": 124,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:hoglin_spawn_egg",
       "id": 494
     }
   },
   {
     "upstream": {
+      "name": "minecraft:spawn_egg",
       "id": 383,
       "data": 123,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:piglin_spawn_egg",
       "id": 495
     }
   },
   {
     "upstream": {
+      "name": "minecraft:spawn_egg",
       "id": 383,
       "data": 126,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:zoglin_spawn_egg",
       "id": 496
     }
   },
   {
     "upstream": {
+      "name": "minecraft:spawn_egg",
       "id": 383,
       "data": 127,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:piglin_brute_spawn_egg",
       "id": 497
     }
   },
   {
     "upstream": {
+      "name": "minecraft:experience_bottle",
       "id": 384,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:experience_bottle",
       "id": 498
     }
   },
   {
     "upstream": {
+      "name": "minecraft:fireball",
       "id": 385,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:fire_charge",
       "id": 499
     }
   },
   {
     "upstream": {
+      "name": "minecraft:writable_book",
       "id": 386,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:writable_book",
       "id": 500
     }
   },
   {
     "upstream": {
+      "name": "minecraft:written_book",
       "id": 387,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:written_book",
       "id": 501
     }
   },
   {
     "upstream": {
+      "name": "minecraft:emerald",
       "id": 388,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:emerald",
       "id": 502
     }
   },
   {
     "upstream": {
+      "name": "minecraft:frame",
       "id": 389,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:frame",
       "id": 503
     }
   },
   {
     "upstream": {
+      "name": "minecraft:flower_pot",
       "id": 390,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:flower_pot",
       "id": 504
     }
   },
   {
     "upstream": {
+      "name": "minecraft:emptymap",
       "id": 395,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:empty_map",
       "id": 505
     }
   },
   {
     "upstream": {
+      "name": "minecraft:skull",
       "id": 397,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:skull",
       "id": 506
     }
   },
   {
     "upstream": {
+      "name": "minecraft:carrotonastick",
       "id": 398,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:carrot_on_a_stick",
       "id": 507
     }
   },
   {
     "upstream": {
+      "name": "minecraft:netherstar",
       "id": 399,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:nether_star",
       "id": 508
     }
   },
   {
     "upstream": {
+      "name": "minecraft:fireworks",
       "id": 401,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:firework_rocket",
       "id": 509
     }
   },
   {
     "upstream": {
+      "name": "minecraft:fireworkscharge",
       "id": 402,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:firework_star",
       "id": 510
     }
   },
   {
     "upstream": {
+      "name": "minecraft:enchanted_book",
       "id": 403,
       "creative": true
     },
     "downstream": {
+      "name": "minecraft:enchanted_book",
       "id": 511
     }
   }

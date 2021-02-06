@@ -1,7 +1,7 @@
 /*
  * MIT License
  *
- * Copyright (c) 2020 Reversion Developers
+ * Copyright (c) 2021 Reversion Developers
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -55,6 +55,8 @@ public class ItemMapper {
     // Item Maps
     private final Map<Integer, List<RuntimeItemMapperEntry>> itemToUpstreamMap = new HashMap<>();
     private final Map<Integer, List<RuntimeItemMapperEntry>> itemToDownstreamMap = new HashMap<>();
+    private final Map<String, List<RuntimeItemMapperEntry>> itemNameToUpstreamMap = new HashMap<>();
+    private final Map<String, List<RuntimeItemMapperEntry>> itemNameToDownstreamMap = new HashMap<>();
 
     // Enchantment Map
     private final Map<Short, List<EnchantmentMapperEntry>> enchantmentMap = new HashMap<>();
@@ -240,11 +242,26 @@ public class ItemMapper {
 
         itemToUpstreamMap.get(entry.getDownstream().getId()).add(entry);
 
+        if (!itemNameToUpstreamMap.containsKey(entry.getDownstream().getName())) {
+            itemNameToUpstreamMap.put(entry.getDownstream().getName(), new ArrayList<>());
+        }
+
+        itemNameToUpstreamMap.get(entry.getDownstream().getName()).add(entry);
+
+
         if (!itemToDownstreamMap.containsKey(entry.getUpstream().getId())) {
             itemToDownstreamMap.put(entry.getUpstream().getId(), new ArrayList<>());
         }
 
         itemToDownstreamMap.get(entry.getUpstream().getId()).add(entry);
+
+        if (!itemNameToDownstreamMap.containsKey(entry.getUpstream().getName())) {
+            itemNameToDownstreamMap.put(entry.getUpstream().getName(), new ArrayList<>());
+        }
+
+        itemNameToDownstreamMap.get(entry.getUpstream().getName()).add(entry);
+
+
     }
 
     protected void initItemMapperFromRuntimeFile(InputStream stream) {
@@ -316,11 +333,13 @@ public class ItemMapper {
 
             registerRuntimeItemMapping(RuntimeItemMapperEntry.builder()
                     .downstream(RuntimeItemMapperEntry.Downstream.builder()
+                            .name(downstreamTag.getString("name"))
                             .id(downstreamTag.getInt("id"))
                             .data(entry.getDownstream().getData())
                             .build()
                     )
                     .upstream(RuntimeItemMapperEntry.Upstream.builder()
+                            .name(upstreamTag.getString("name"))
                             .id(upstreamTag.getInt("id"))
                             .data(entry.getUpstream().getData())
                             .creative(entry.getUpstream().isCreative())
@@ -347,10 +366,12 @@ public class ItemMapper {
                         // Create a mapping
                         registerRuntimeItemMapping(RuntimeItemMapperEntry.builder()
                                 .downstream(RuntimeItemMapperEntry.Downstream.builder()
+                                        .name(downstreamTag.getString("name"))
                                         .id(downstreamTag.getInt("id"))
                                         .build()
                                 )
                                 .upstream(RuntimeItemMapperEntry.Upstream.builder()
+                                        .name(upstreamTag.getString("name"))
                                         .id(upstreamTag.getInt("id"))
                                         .creative(true)
                                         .build()
@@ -477,6 +498,22 @@ public class ItemMapper {
                 translated.getTag(), translated.getCanPlace(), translated.getCanBreak(), translated.getBlockingTicks());
     }
 
+    public NbtMap mapBlockEntityDataToUpstream(NbtMap original) {
+        if (original == null) {
+            return null;
+        }
+
+        if (!itemNameToUpstreamMap.containsKey(original.getString("Name"))) {
+            return original;
+        }
+
+        return original.toBuilder()
+                .putString("Name", itemNameToUpstreamMap.get(original.getString("Name")).get(0).getUpstream()
+                        .getName())
+                .build();
+    }
+
+
     /**
      * Translate a list of enchants
      */
@@ -570,6 +607,7 @@ public class ItemMapper {
         @Getter
         @JsonIgnoreProperties(ignoreUnknown = true)
         public static class Upstream {
+            String name;
             int id;
             VariableStore.Data data;
             boolean creative = true;
@@ -583,6 +621,7 @@ public class ItemMapper {
         @Getter
         @JsonIgnoreProperties(ignoreUnknown = true)
         public static class Downstream {
+            String name;
             int id;
             VariableStore.Data data;
         }

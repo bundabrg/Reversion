@@ -1,7 +1,7 @@
 /*
  * MIT License
  *
- * Copyright (c) 2020 Reversion Developers
+ * Copyright (c) 2021 Reversion Developers
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -48,12 +48,14 @@ public class Register_v423be_to_v422be {
             .registerPacketHandler(AddEntityPacket.class, AddEntityHandler_Bedrock.class)
             .registerPacketHandler(AddItemEntityPacket.class, AddItemEntityHandler_Bedrock.class)
             .registerPacketHandler(AddPlayerPacket.class, AddPlayerHandler_Bedrock.class)
+            .registerPacketHandler(BlockEntityDataPacket.class, BlockEntityData_Bedrock.class)
             .registerPacketHandler(CraftingDataPacket.class, CraftingDataHandler_Bedrock.class)
             .registerPacketHandler(CreativeContentPacket.class, CreativeContentHandler_Bedrock.class)
             .registerPacketHandler(InventoryContentPacket.class, InventoryContentHandler_Bedrock.class)
             .registerPacketHandler(InventorySlotPacket.class, InventorySlotHandler_Bedrock.class)
             .registerPacketHandler(InventoryTransactionPacket.class, InventoryTransactionHandler_Bedrock.class)
             .registerPacketHandler(LevelChunkPacket.class, LevelChunkHandler_Bedrock.class)
+            .registerPacketHandler(LevelEventPacket.class, LevelEventHandler_Bedrock.class)
             .registerPacketHandler(LoginPacket.class, LoginHandler_Bedrock.class)
             .registerPacketHandler(MobArmorEquipmentPacket.class, MobArmorEquipmentHandler_Bedrock.class)
             .registerPacketHandler(MobEquipmentPacket.class, MobEquipmentHandler_Bedrock.class)

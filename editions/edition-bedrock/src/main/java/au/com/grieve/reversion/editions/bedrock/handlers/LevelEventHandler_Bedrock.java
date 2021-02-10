@@ -22,26 +22,29 @@
  * SOFTWARE.
  */
 
-package au.com.grieve.reversion.translators.v408be_to_v419be.handlers;
+package au.com.grieve.reversion.editions.bedrock.handlers;
 
 import au.com.grieve.reversion.api.PacketHandler;
 import au.com.grieve.reversion.editions.bedrock.BedrockTranslator;
-import com.nukkitx.protocol.bedrock.packet.BlockEntityDataPacket;
+import com.nukkitx.protocol.bedrock.packet.LevelEventPacket;
 
-public class BlockEntityData_v408be_to_v419be extends PacketHandler<BedrockTranslator, BlockEntityDataPacket> {
+public class LevelEventHandler_Bedrock extends PacketHandler<BedrockTranslator, LevelEventPacket> {
 
-    public BlockEntityData_v408be_to_v419be(BedrockTranslator translator) {
+    public LevelEventHandler_Bedrock(BedrockTranslator translator) {
         super(translator);
     }
 
     @Override
-    public boolean fromDownstream(BlockEntityDataPacket packet) {
-        // Convert from name to ID if we have an Item key
-        if (packet.getData().containsKey("Item")) {
-            packet.setData(packet.getData().toBuilder()
-                    .putCompound("Item", getTranslator().getRegisteredTranslator().getItemMapper()
-                            .mapBlockEntityDataToUpstream(packet.getData().getCompound("Item")))
-                    .build());
+    public boolean fromDownstream(LevelEventPacket packet) {
+        switch (packet.getType()) {
+            case PARTICLE_DESTROY_BLOCK:
+                packet.setData(getTranslator().getRegisteredTranslator().getBlockMapper().mapRuntimeIdToUpstream(packet.getData()));
+                break;
+            case PARTICLE_CRACK_BLOCK:
+                int block = packet.getData() & 16777215;
+                int face = packet.getData() >> 24;
+                packet.setData(getTranslator().getRegisteredTranslator().getBlockMapper().mapRuntimeIdToUpstream(block) | (face << 24));
+                break;
         }
         return false;
     }

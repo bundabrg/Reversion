@@ -26,6 +26,7 @@ package au.com.grieve.reversion.protocol.education.v391;
 
 import au.com.grieve.reversion.protocol.education.v390.EducationPacketHelper_v390;
 import com.nukkitx.protocol.bedrock.data.LevelEventType;
+import com.nukkitx.protocol.bedrock.data.SoundEvent;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 
@@ -113,4 +114,25 @@ public class EducationPacketHelper_v391 extends EducationPacketHelper_v390 {
         this.addLevelEvent(67 + legacy, LevelEventType.PARTICLE_DRAGONS_BREATH);
     }
 
+    @Override
+    protected void registerSoundEvents() {
+        super.registerSoundEvents();
+
+        this.addSoundEvent(287, SoundEvent.JUMP_PREVENT);
+        this.addSoundEvent(288, SoundEvent.AMBIENT_POLLINATE);
+        this.addSoundEvent(289, SoundEvent.BEEHIVE_DRIP);
+        this.addSoundEvent(290, SoundEvent.BEEHIVE_ENTER);
+        this.addSoundEvent(291, SoundEvent.BEEHIVE_EXIT);
+        this.addSoundEvent(292, SoundEvent.BEEHIVE_WORK);
+        this.addSoundEvent(293, SoundEvent.BEEHIVE_SHEAR);
+        this.addSoundEvent(294, SoundEvent.HONEYBOTTLE_DRINK);
+        this.addSoundEvent(295, SoundEvent.AMBIENT_CAVE);
+        this.addSoundEvent(296, SoundEvent.RETREAT);
+        this.addSoundEvent(297, SoundEvent.CONVERT_TO_ZOMBIFIED);
+        this.addSoundEvent(298, SoundEvent.ADMIRE);
+        this.addSoundEvent(299, SoundEvent.STEP_LAVA);
+        this.addSoundEvent(300, SoundEvent.TEMPT);
+        this.addSoundEvent(301, SoundEvent.PANIC);
+        this.addSoundEvent(302, SoundEvent.ANGRY);
+    }
 }

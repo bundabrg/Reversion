@@ -32,7 +32,6 @@ import au.com.grieve.reversion.editions.bedrock.mappers.EntityMapper;
 import au.com.grieve.reversion.editions.bedrock.mappers.ItemMapper;
 import au.com.grieve.reversion.protocol.bedrock.v408.Bedrock_v408;
 import au.com.grieve.reversion.translators.v408be_to_v419be.handlers.AddEntityHandler_v408be_to_v419be;
-import au.com.grieve.reversion.translators.v408be_to_v419be.handlers.BlockEntityData_v408be_to_v419be;
 import au.com.grieve.reversion.translators.v408be_to_v419be.handlers.SetEntityDataHandler_v408be_to_v419be;
 import au.com.grieve.reversion.translators.v408be_to_v419be.handlers.StartGameHandler_v408be_to_v419be;
 import com.nukkitx.protocol.bedrock.packet.*;
@@ -71,13 +70,14 @@ public class Register_v408be_to_v419be {
             .registerPacketHandler(AddEntityPacket.class, AddEntityHandler_v408be_to_v419be.class)
             .registerPacketHandler(AddItemEntityPacket.class, AddItemEntityHandler_Bedrock.class)
             .registerPacketHandler(AddPlayerPacket.class, AddPlayerHandler_Bedrock.class)
-            .registerPacketHandler(BlockEntityDataPacket.class, BlockEntityData_v408be_to_v419be.class)
+            .registerPacketHandler(BlockEntityDataPacket.class, BlockEntityData_Bedrock.class)
             .registerPacketHandler(CraftingDataPacket.class, CraftingDataHandler_Bedrock.class)
             .registerPacketHandler(CreativeContentPacket.class, CreativeContentHandler_Bedrock.class)
             .registerPacketHandler(InventoryContentPacket.class, InventoryContentHandler_Bedrock.class)
             .registerPacketHandler(InventorySlotPacket.class, InventorySlotHandler_Bedrock.class)
             .registerPacketHandler(InventoryTransactionPacket.class, InventoryTransactionHandler_Bedrock.class)
             .registerPacketHandler(LevelChunkPacket.class, LevelChunkHandler_Bedrock.class)
+            .registerPacketHandler(LevelEventPacket.class, LevelEventHandler_Bedrock.class)
             .registerPacketHandler(LoginPacket.class, LoginHandler_Bedrock.class)
             .registerPacketHandler(MobArmorEquipmentPacket.class, MobArmorEquipmentHandler_Bedrock.class)
             .registerPacketHandler(MobEquipmentPacket.class, MobEquipmentHandler_Bedrock.class)

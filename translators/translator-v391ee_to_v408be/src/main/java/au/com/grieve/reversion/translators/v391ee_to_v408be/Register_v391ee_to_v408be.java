@@ -34,6 +34,7 @@ import au.com.grieve.reversion.editions.education.handlers.StartGameHandler_Educ
 import au.com.grieve.reversion.protocol.education.v391.Education_v391;
 import au.com.grieve.reversion.translators.v390ee_to_v408be.handlers.CreativeContentHandler_v390ee_to_v408be;
 import au.com.grieve.reversion.translators.v390ee_to_v408be.handlers.InventoryTransactionHandler_v390ee_to_v408be;
+import au.com.grieve.reversion.translators.v390ee_to_v408be.handlers.PlayerActionHandlerHandler_v390ee_to_v408be;
 import com.nukkitx.protocol.bedrock.packet.*;
 
 public class Register_v391ee_to_v408be {
@@ -85,6 +86,7 @@ public class Register_v391ee_to_v408be {
             .registerPacketHandler(LoginPacket.class, LoginHandler_Bedrock.class)
             .registerPacketHandler(MobArmorEquipmentPacket.class, MobArmorEquipmentHandler_Bedrock.class)
             .registerPacketHandler(MobEquipmentPacket.class, MobEquipmentHandler_Bedrock.class)
+            .registerPacketHandler(PlayerActionPacket.class, PlayerActionHandlerHandler_v390ee_to_v408be.class)
             .registerPacketHandler(SetEntityDataPacket.class, SetEntityDataHandler_Bedrock.class)
             .registerPacketHandler(StartGamePacket.class, StartGameHandler_Education.class)
             .registerPacketHandler(UpdateBlockPacket.class, UpdateBlockHandler_Bedrock.class)

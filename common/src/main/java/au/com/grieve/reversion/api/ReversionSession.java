@@ -1,7 +1,7 @@
 /*
  * MIT License
  *
- * Copyright (c) 2020 Reversion Developers
+ * Copyright (c) 2021 Reversion Developers
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -65,4 +65,11 @@ public abstract class ReversionSession extends BedrockServerSession {
      * @return the logindata
      */
     public abstract LoginData getLoginData();
+
+    /**
+     * Return the Server
+     *
+     * @return server instance
+     */
+    public abstract ReversionServer getServer();
 }

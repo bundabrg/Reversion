@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-package au.com.grieve.reversion.translators.v423be_to_v422be;
+package au.com.grieve.reversion.translators.v428be_to_v422be;
 
 import au.com.grieve.reversion.editions.bedrock.BedrockRegisteredTranslator;
 import au.com.grieve.reversion.editions.bedrock.BedrockTranslator;
@@ -30,17 +30,17 @@ import au.com.grieve.reversion.editions.bedrock.handlers.*;
 import au.com.grieve.reversion.editions.bedrock.mappers.BlockMapper;
 import au.com.grieve.reversion.editions.bedrock.mappers.EntityMapper;
 import au.com.grieve.reversion.editions.bedrock.mappers.ItemMapper;
-import au.com.grieve.reversion.protocol.bedrock.v423.Bedrock_v423;
+import au.com.grieve.reversion.protocol.bedrock.v428.Bedrock_v428;
 import au.com.grieve.reversion.translators.v422be_to_v419be.handlers.StartGameHandler_v422be_to_v419be;
 import com.nukkitx.protocol.bedrock.packet.*;
 
-public class Register_v423be_to_v422be {
+public class Register_v428be_to_v422be {
     public static BedrockRegisteredTranslator TRANSLATOR = BedrockRegisteredTranslator.builder()
             .fromEdition("bedrock")
-            .fromProtocolVersion(423)
+            .fromProtocolVersion(428)
             .toEdition("bedrock")
             .toProtocolVersion(422)
-            .codec(Bedrock_v423.V423_CODEC)
+            .codec(Bedrock_v428.V428_CODEC)
             .translator(BedrockTranslator.class)
             .blockMapper(BlockMapper.DEFAULT)
             .itemMapper(ItemMapper.DEFAULT)

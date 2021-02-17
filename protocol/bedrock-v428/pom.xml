@@ -2,7 +2,7 @@
 <!--
   ~ MIT License
   ~
-  ~ Copyright (c) 2020 Reversion Developers
+  ~ Copyright (c) 2021 Reversion Developers
   ~
   ~ Permission is hereby granted, free of charge, to any person obtaining a copy
   ~ of this software and associated documentation files (the "Software"), to deal
@@ -27,40 +27,20 @@
          xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>translators</artifactId>
+        <artifactId>protocol</artifactId>
         <groupId>au.com.grieve.reversion</groupId>
         <version>1.1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>translator-v423be_to_v422be</artifactId>
+    <artifactId>bedrock-v428</artifactId>
 
     <dependencies>
         <dependency>
             <groupId>au.com.grieve.reversion</groupId>
-            <artifactId>edition-bedrock</artifactId>
-            <version>${project.version}</version>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
-            <groupId>au.com.grieve.reversion</groupId>
             <artifactId>bedrock-v422</artifactId>
             <version>${project.version}</version>
-            <scope>compile</scope>
         </dependency>
-        <dependency>
-            <groupId>au.com.grieve.reversion</groupId>
-            <artifactId>bedrock-v423</artifactId>
-            <version>${project.version}</version>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
-            <groupId>au.com.grieve.reversion</groupId>
-            <artifactId>translator-v422be_to_v419be</artifactId>
-            <version>1.1.0-SNAPSHOT</version>
-            <scope>compile</scope>
-        </dependency>
-
     </dependencies>
 
 </project>

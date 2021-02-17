@@ -2,7 +2,7 @@
 <!--
   ~ MIT License
   ~
-  ~ Copyright (c) 2020 Reversion Developers
+  ~ Copyright (c) 2021 Reversion Developers
   ~
   ~ Permission is hereby granted, free of charge, to any person obtaining a copy
   ~ of this software and associated documentation files (the "Software"), to deal
@@ -96,7 +96,7 @@
         </dependency>
         <dependency>
             <groupId>au.com.grieve.reversion</groupId>
-            <artifactId>translator-v423be_to_v422be</artifactId>
+            <artifactId>translator-v428be_to_v422be</artifactId>
             <version>${project.version}</version>
             <scope>compile</scope>
         </dependency>
@@ -104,7 +104,7 @@
         <!-- Codecs -->
         <dependency>
             <groupId>au.com.grieve.reversion</groupId>
-            <artifactId>bedrock-v423</artifactId>
+            <artifactId>bedrock-v428</artifactId>
             <version>${project.version}</version>
         </dependency>
     </dependencies>

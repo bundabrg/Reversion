@@ -1,7 +1,7 @@
 /*
  * MIT License
  *
- * Copyright (c) 2020 Reversion Developers
+ * Copyright (c) 2021 Reversion Developers
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -22,17 +22,17 @@
  * SOFTWARE.
  */
 
-package au.com.grieve.reversion.protocol.bedrock.v423;
+package au.com.grieve.reversion.protocol.bedrock.v428;
 
 import au.com.grieve.reversion.protocol.bedrock.v422.Bedrock_v422;
 import com.nukkitx.protocol.bedrock.BedrockPacketCodec;
 import lombok.experimental.UtilityClass;
 
 @UtilityClass
-public class Bedrock_v423 {
-    public static BedrockPacketCodec V423_CODEC = Bedrock_v422.V422_CODEC.toBuilder()
-            .protocolVersion(423)
-            .minecraftVersion("1.16.210.50")
+public class Bedrock_v428 {
+    public static BedrockPacketCodec V428_CODEC = Bedrock_v422.V422_CODEC.toBuilder()
+            .protocolVersion(428)
+            .minecraftVersion("1.16.210.58")
             .build();
 }
 

@@ -2,7 +2,7 @@
 <!--
   ~ MIT License
   ~
-  ~ Copyright (c) 2020 Reversion Developers
+  ~ Copyright (c) 2021 Reversion Developers
   ~
   ~ Permission is hereby granted, free of charge, to any person obtaining a copy
   ~ of this software and associated documentation files (the "Software"), to deal
@@ -43,7 +43,7 @@
         <module>education-v391</module>
 
         <!-- Betas -->
-        <module>bedrock-v423</module>
+        <module>bedrock-v428</module>
     </modules>
 
     <artifactId>protocol</artifactId>

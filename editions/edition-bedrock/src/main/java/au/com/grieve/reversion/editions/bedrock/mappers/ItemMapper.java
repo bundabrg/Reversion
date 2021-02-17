@@ -481,7 +481,8 @@ public class ItemMapper {
 
             NbtMap tag = translated.getTag();
 
-            if (itemMapperEntry.getUpstream().getCustomName() != null) {
+            // Rename item if no existing name is set
+            if (itemMapperEntry.getUpstream().getCustomName() != null && (tag == null || !tag.containsKey("display"))) {
                 NbtMapBuilder tagBuilder = tag != null ? tag.toBuilder() : NbtMap.builder();
 
                 tagBuilder.putCompound("display", NbtMap.builder().putString("Name", itemMapperEntry.getUpstream().getCustomName()).build());

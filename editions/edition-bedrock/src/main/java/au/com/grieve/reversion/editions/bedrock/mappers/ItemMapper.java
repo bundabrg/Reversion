@@ -557,6 +557,15 @@ public class ItemMapper {
         return original;
     }
 
+    public int mapRuntimeIdToUpstream(int original) {
+        List<RuntimeItemMapperEntry> translatedItems = itemToUpstreamMap.get(original);
+        if (translatedItems == null) {
+            return original;
+        }
+
+        return translatedItems.get(0).getUpstream().getId();
+    }
+
 
     /**
      * Provides an entry for the ItemMapper

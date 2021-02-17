@@ -76,7 +76,7 @@ public class InventoryTransactionHandler_v390ee_to_v408be extends InventoryTrans
 
         // If using an Item with action on a block we will wait up to 5ms to see if we also have an action on the air
         // If so, we will send both packets upstream. If not, we send this packet + a block_interact upstream
-        if (packet.getTransactionType() == TransactionType.ITEM_USE) {
+        if (packet.getTransactionType() == TransactionType.ITEM_USE && packet.getBlockPosition() != null) {
             // Action on the block
             if (packet.getActionType() == 0) {
                 PendingUseItem pending = new PendingUseItem();
@@ -105,7 +105,7 @@ public class InventoryTransactionHandler_v390ee_to_v408be extends InventoryTrans
             // Action on the air
             if (packet.getActionType() == 1) {
                 PendingUseItem pending = getPendingUseItems().stream()
-                        .filter(i -> i.getFirstPacket().getPlayerPosition().equals(packet.getPlayerPosition()))
+                        .filter(i -> i.getFirstPacket().getBlockPosition().equals(packet.getBlockPosition()))
                         .findFirst()
                         .orElse(null);
 

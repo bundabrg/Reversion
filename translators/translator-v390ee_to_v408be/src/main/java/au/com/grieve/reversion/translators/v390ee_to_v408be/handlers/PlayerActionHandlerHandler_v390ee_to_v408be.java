@@ -38,17 +38,19 @@ public class PlayerActionHandlerHandler_v390ee_to_v408be extends PacketHandler<B
     public boolean fromUpstream(PlayerActionPacket packet) {
         super.fromUpstream(packet);
 
-        InventoryTransactionHandler_v390ee_to_v408be ith = (InventoryTransactionHandler_v390ee_to_v408be) getTranslator().getHandlers().get(InventoryTransactionPacket.class);
+        if (packet.getBlockPosition() != null) {
+            InventoryTransactionHandler_v390ee_to_v408be ith = (InventoryTransactionHandler_v390ee_to_v408be) getTranslator().getHandlers().get(InventoryTransactionPacket.class);
 
-        // If ith has a penderItemUse with the same location as this we will handle it ourself
-        InventoryTransactionHandler_v390ee_to_v408be.PendingUseItem pending = ith.getPendingUseItems().stream()
-                .filter(i -> i.getFirstPacket().getBlockPosition().equals(packet.getBlockPosition()))
-                .findFirst()
-                .orElse(null);
+            // If ith has a pendingItemUse with the same location as this we will handle it ourself
+            InventoryTransactionHandler_v390ee_to_v408be.PendingUseItem pending = ith.getPendingUseItems().stream()
+                    .filter(i -> i.getFirstPacket().getBlockPosition().equals(packet.getBlockPosition()))
+                    .findFirst()
+                    .orElse(null);
 
-        if (pending != null) {
-            pending.setActionPacket(packet);
-            return true;
+            if (pending != null) {
+                pending.setActionPacket(packet);
+                return true;
+            }
         }
 
         return false;

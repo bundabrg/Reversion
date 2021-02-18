@@ -1,7 +1,7 @@
 /*
  * MIT License
  *
- * Copyright (c) 2020 Reversion Developers
+ * Copyright (c) 2021 Reversion Developers
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -24,6 +24,7 @@
 
 package au.com.grieve.reversion.editions.education.utils;
 
+import au.com.grieve.reversion.exceptions.LoginException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
@@ -78,7 +79,7 @@ public class TokenManager {
         for (Iterator<String> it = root.fieldNames(); it.hasNext(); ) {
             String tenantId = it.next();
             String token = root.get(tenantId).asText();
-            tokenMap.put(tenantId, new Token(this, token));
+            tokenMap.put(tenantId, new Token(this, tenantId, token));
         }
     }
 
@@ -169,7 +170,7 @@ public class TokenManager {
             node = mapper.readTree(jwt.getPayload().toBytes());
             String tenantId = node.get("tid").asText();
 
-            tokenMap.put(tenantId, new Token(this, refreshToken));
+            tokenMap.put(tenantId, new Token(this, tenantId, refreshToken));
             save();
         } catch (IOException | ParseException e) {
             throw new TokenException("Failed to create token: " + e.getMessage(), e);
@@ -182,21 +183,23 @@ public class TokenManager {
         // How long till we need to obtain a new signed token, in seconds
         public static int SIGNED_TOKEN_LIFETIME = 604800;
         private final TokenManager manager;
+        private final String tenantId;
         ObjectMapper mapper = new ObjectMapper();
         private String accessToken;
         private String refreshToken;
         private String signedToken;
         private LocalDateTime expires;
 
-        public Token(TokenManager manager, String refreshToken) {
+        public Token(TokenManager manager, String tenantId, String refreshToken) {
             this.manager = manager;
+            this.tenantId = tenantId;
             this.refreshToken = refreshToken;
         }
 
         /**
          * Lazily get signed token
          */
-        public String getSignedToken() {
+        public String getSignedToken() throws LoginException {
             // Refresh token if needed
             if (expires == null || LocalDateTime.now().isAfter(expires)) {
                 refresh();
@@ -208,13 +211,13 @@ public class TokenManager {
         /**
          * Retrieve a new signedToken
          */
-        public void refresh() {
+        public void refresh() throws LoginException {
             refreshMicrosoftToken();
             refreshMinecraftToken();
             manager.save();
         }
 
-        private void refreshMicrosoftToken() {
+        private void refreshMicrosoftToken() throws LoginException {
             // Refresh Microsoft Token
             try {
                 URL url = new URL("https://login.microsoftonline.com/common/oauth2/token");
@@ -241,6 +244,10 @@ public class TokenManager {
                 }
 
                 JsonNode node = mapper.readTree(connection.getInputStream());
+
+                if (!node.has("access_token") || !node.has("refresh_token")) {
+                    throw new LoginException("Reversion: Unable to renew token for tenant '" + tenantId + "': " + node);
+                }
 
                 accessToken = node.get("access_token").asText();
                 refreshToken = node.get("refresh_token").asText();

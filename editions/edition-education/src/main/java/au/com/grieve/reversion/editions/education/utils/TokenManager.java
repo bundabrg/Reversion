@@ -240,23 +240,23 @@ public class TokenManager {
                 }
 
                 if (connection.getResponseCode() != 200) {
-                    return;
+                    throw new LoginException("Reversion: Unable to renew Microsoft Token for tenant '" + tenantId + "': " + connection.getResponseMessage());
                 }
 
                 JsonNode node = mapper.readTree(connection.getInputStream());
 
                 if (!node.has("access_token") || !node.has("refresh_token")) {
-                    throw new LoginException("Reversion: Unable to renew token for tenant '" + tenantId + "': " + node);
+                    throw new LoginException("Reversion: Unable to renew Microsoft Token for tenant '" + tenantId + "': " + node);
                 }
 
                 accessToken = node.get("access_token").asText();
                 refreshToken = node.get("refresh_token").asText();
             } catch (IOException e) {
-                e.printStackTrace();
+                throw new LoginException("Reversion: Unable to renew Microsoft Token for tenant '" + tenantId + "'", e);
             }
         }
 
-        private void refreshMinecraftToken() {
+        private void refreshMinecraftToken() throws LoginException {
             URL url;
             try {
                 url = new URL("https://meeservices.azurewebsites.net/v2/signin");
@@ -284,7 +284,7 @@ public class TokenManager {
                 }
 
                 if (connection.getResponseCode() != 200) {
-                    return;
+                    throw new LoginException("Reversion: Unable to renew Minecraft Token for tenant '" + tenantId + "': " + connection.getResponseMessage());
                 }
 
                 JsonNode node = mapper.readTree(connection.getInputStream());
@@ -295,7 +295,7 @@ public class TokenManager {
                 expires = LocalDateTime.now().plus(Duration.ofSeconds(SIGNED_TOKEN_LIFETIME));
 
             } catch (IOException | ParseException e) {
-                e.printStackTrace();
+                throw new LoginException("Reversion: Unable to renew Minecraft Token for tenant '" + tenantId + "'", e);
             }
         }
 

@@ -1,7 +1,7 @@
 /*
  * MIT License
  *
- * Copyright (c) 2020 Reversion Developers
+ * Copyright (c) 2021 Reversion Developers
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -86,7 +86,7 @@ public class PlayerListSerializer_v363 extends PlayerListSerializer_v291 {
                 ImageData capeData = ImageData.of(64, 32, helper.readByteArray(buffer));
                 String geometryName = helper.readString(buffer);
                 String geometryData = helper.readString(buffer);
-                entry.setSkin(SerializedSkin.of(skinId, skinData, capeData, geometryName, geometryData, false));
+                entry.setSkin(SerializedSkin.of(skinId, "", skinData, capeData, geometryName, geometryData, false));
                 entry.setXuid(helper.readString(buffer));
                 entry.setPlatformChatId(helper.readString(buffer));
 

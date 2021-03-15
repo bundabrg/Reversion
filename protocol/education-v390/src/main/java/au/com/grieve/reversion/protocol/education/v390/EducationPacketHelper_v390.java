@@ -1,7 +1,7 @@
 /*
  * MIT License
  *
- * Copyright (c) 2020 Reversion Developers
+ * Copyright (c) 2021 Reversion Developers
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -24,11 +24,13 @@
 
 package au.com.grieve.reversion.protocol.education.v390;
 
+import com.nukkitx.network.VarInts;
+import com.nukkitx.protocol.bedrock.data.command.CommandParam;
+import com.nukkitx.protocol.bedrock.data.inventory.InventorySource;
 import com.nukkitx.protocol.bedrock.v388.BedrockPacketHelper_v388;
+import io.netty.buffer.ByteBuf;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
-
-import static com.nukkitx.protocol.bedrock.data.command.CommandParamType.*;
 
 
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
@@ -42,21 +44,46 @@ public class EducationPacketHelper_v390 extends BedrockPacketHelper_v388 {
 
     @Override
     protected void registerCommandParams() {
-        this.addCommandParam(1, INT);
-        this.addCommandParam(2, FLOAT);
-        this.addCommandParam(3, VALUE);
-        this.addCommandParam(4, WILDCARD_INT);
-        this.addCommandParam(5, OPERATOR);
-        this.addCommandParam(6, TARGET);
-        this.addCommandParam(7, WILDCARD_TARGET);
-        this.addCommandParam(14, FILE_PATH);
-        this.addCommandParam(29, STRING);
-        this.addCommandParam(37, BLOCK_POSITION);
-        this.addCommandParam(38, POSITION);
-        this.addCommandParam(41, MESSAGE);
-        this.addCommandParam(43, TEXT);
-        this.addCommandParam(47, JSON);
-        this.addCommandParam(54, COMMAND);
+        this.addCommandParam(1, CommandParam.INT);
+        this.addCommandParam(2, CommandParam.FLOAT);
+        this.addCommandParam(3, CommandParam.VALUE);
+        this.addCommandParam(4, CommandParam.WILDCARD_INT);
+        this.addCommandParam(5, CommandParam.OPERATOR);
+        this.addCommandParam(6, CommandParam.TARGET);
+        this.addCommandParam(7, CommandParam.WILDCARD_TARGET);
+        this.addCommandParam(14, CommandParam.FILE_PATH);
+        this.addCommandParam(29, CommandParam.STRING);
+        this.addCommandParam(37, CommandParam.BLOCK_POSITION);
+        this.addCommandParam(38, CommandParam.POSITION);
+        this.addCommandParam(41, CommandParam.MESSAGE);
+        this.addCommandParam(43, CommandParam.TEXT);
+        this.addCommandParam(47, CommandParam.JSON);
+        this.addCommandParam(54, CommandParam.COMMAND);
+    }
+
+    @Override
+    public InventorySource readSource(ByteBuf buffer) {
+        InventorySource.Type type = InventorySource.Type.byId(VarInts.readUnsignedInt(buffer));
+
+        switch (type) {
+            case CONTAINER:
+                int containerId = VarInts.readInt(buffer);
+                return InventorySource.fromContainerWindowId(containerId);
+            case GLOBAL:
+                return InventorySource.fromGlobalInventory();
+            case WORLD_INTERACTION:
+                InventorySource.Flag flag = InventorySource.Flag.values()[VarInts.readUnsignedInt(buffer)];
+                return InventorySource.fromWorldInteraction(flag);
+            case CREATIVE:
+                return InventorySource.fromCreativeInventory();
+            case UNTRACKED_INTERACTION_UI:
+                return InventorySource.fromUntrackedInteractionUI(VarInts.readInt(buffer));
+            case NON_IMPLEMENTED_TODO:
+                containerId = VarInts.readInt(buffer);
+                return InventorySource.fromNonImplementedTodo(containerId);
+            default:
+                return InventorySource.fromInvalid();
+        }
     }
 
 

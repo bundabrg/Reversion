@@ -24,15 +24,14 @@
 
 package au.com.grieve.reversion.protocol.bedrock.v428;
 
-import au.com.grieve.reversion.protocol.bedrock.v422.Bedrock_v422;
+import au.com.grieve.reversion.protocol.bedrock.v419.BedrockPacketHelper_v419;
 import com.nukkitx.protocol.bedrock.BedrockPacketCodec;
 import lombok.experimental.UtilityClass;
 
 @UtilityClass
 public class Bedrock_v428 {
-    public static BedrockPacketCodec V428_CODEC = Bedrock_v422.V422_CODEC.toBuilder()
-            .protocolVersion(428)
-            .minecraftVersion("1.16.210.58")
+    public static BedrockPacketCodec V428_CODEC = com.nukkitx.protocol.bedrock.v428.Bedrock_v428.V428_CODEC.toBuilder()
+            .helper(BedrockPacketHelper_v419.INSTANCE)
             .build();
 }
 

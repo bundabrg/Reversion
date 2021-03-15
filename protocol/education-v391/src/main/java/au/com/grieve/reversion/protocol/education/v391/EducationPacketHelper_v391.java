@@ -27,10 +27,9 @@ package au.com.grieve.reversion.protocol.education.v391;
 import au.com.grieve.reversion.protocol.education.v390.EducationPacketHelper_v390;
 import com.nukkitx.protocol.bedrock.data.LevelEventType;
 import com.nukkitx.protocol.bedrock.data.SoundEvent;
+import com.nukkitx.protocol.bedrock.data.command.CommandParam;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
-
-import static com.nukkitx.protocol.bedrock.data.command.CommandParamType.*;
 
 
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
@@ -40,21 +39,21 @@ public class EducationPacketHelper_v391 extends EducationPacketHelper_v390 {
 
     @Override
     protected void registerCommandParams() {
-        this.addCommandParam(1, INT);
-        this.addCommandParam(2, FLOAT);
-        this.addCommandParam(3, VALUE);
-        this.addCommandParam(4, WILDCARD_INT);
-        this.addCommandParam(5, OPERATOR);
-        this.addCommandParam(6, TARGET);
-        this.addCommandParam(7, WILDCARD_TARGET); // Unsure
-        this.addCommandParam(14, FILE_PATH);
-        this.addCommandParam(30, STRING);
-        this.addCommandParam(38, BLOCK_POSITION);
-        this.addCommandParam(39, POSITION);
-        this.addCommandParam(42, MESSAGE);
-        this.addCommandParam(44, TEXT);
-        this.addCommandParam(48, JSON);
-        this.addCommandParam(59, COMMAND);
+        this.addCommandParam(1, CommandParam.INT);
+        this.addCommandParam(2, CommandParam.FLOAT);
+        this.addCommandParam(3, CommandParam.VALUE);
+        this.addCommandParam(4, CommandParam.WILDCARD_INT);
+        this.addCommandParam(5, CommandParam.OPERATOR);
+        this.addCommandParam(6, CommandParam.TARGET);
+        this.addCommandParam(7, CommandParam.WILDCARD_TARGET); // Unsure
+        this.addCommandParam(14, CommandParam.FILE_PATH);
+        this.addCommandParam(30, CommandParam.STRING);
+        this.addCommandParam(38, CommandParam.BLOCK_POSITION);
+        this.addCommandParam(39, CommandParam.POSITION);
+        this.addCommandParam(42, CommandParam.MESSAGE);
+        this.addCommandParam(44, CommandParam.TEXT);
+        this.addCommandParam(48, CommandParam.JSON);
+        this.addCommandParam(59, CommandParam.COMMAND);
     }
 
     @Override

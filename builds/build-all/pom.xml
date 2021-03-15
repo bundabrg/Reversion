@@ -96,6 +96,12 @@
         </dependency>
         <dependency>
             <groupId>au.com.grieve.reversion</groupId>
+            <artifactId>translator-v422be_to_v428be</artifactId>
+            <version>${project.version}</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>au.com.grieve.reversion</groupId>
             <artifactId>translator-v428be_to_v422be</artifactId>
             <version>${project.version}</version>
             <scope>compile</scope>

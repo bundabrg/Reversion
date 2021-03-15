@@ -1,7 +1,7 @@
 /*
  * MIT License
  *
- * Copyright (c) 2020 Reversion Developers
+ * Copyright (c) 2021 Reversion Developers
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -26,7 +26,6 @@ package au.com.grieve.reversion.protocol.education.v391;
 
 import au.com.grieve.reversion.protocol.education.v390.serializer.CraftingDataSerializer_v390;
 import au.com.grieve.reversion.protocol.education.v390.serializer.EventSerializer_v390;
-import au.com.grieve.reversion.protocol.education.v390.serializer.InventoryTransactionSerializer_v390;
 import au.com.grieve.reversion.protocol.education.v390.serializer.StartGameSerializer_v390;
 import com.nukkitx.protocol.bedrock.BedrockPacketCodec;
 import com.nukkitx.protocol.bedrock.packet.*;
@@ -73,7 +72,7 @@ public class Education_v391 {
             .registerPacket(EntityEventPacket.class, EntityEventSerializer_v291.INSTANCE, 27)
             .registerPacket(MobEffectPacket.class, MobEffectSerializer_v291.INSTANCE, 28)
             .registerPacket(UpdateAttributesPacket.class, UpdateAttributesSerializer_v291.INSTANCE, 29)
-            .registerPacket(InventoryTransactionPacket.class, InventoryTransactionSerializer_v390.INSTANCE, 30)
+            .registerPacket(InventoryTransactionPacket.class, InventoryTransactionSerializer_v291.INSTANCE, 30)
             .registerPacket(MobEquipmentPacket.class, MobEquipmentSerializer_v291.INSTANCE, 31)
             .registerPacket(MobArmorEquipmentPacket.class, MobArmorEquipmentSerializer_v291.INSTANCE, 32)
             .registerPacket(InteractPacket.class, InteractSerializer_v388.INSTANCE, 33)

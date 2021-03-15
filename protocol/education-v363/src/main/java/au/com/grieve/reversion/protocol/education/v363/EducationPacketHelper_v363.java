@@ -1,7 +1,7 @@
 /*
  * MIT License
  *
- * Copyright (c) 2020 Reversion Developers
+ * Copyright (c) 2021 Reversion Developers
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -24,9 +24,12 @@
 
 package au.com.grieve.reversion.protocol.education.v363;
 
+import com.nukkitx.network.VarInts;
 import com.nukkitx.protocol.bedrock.BedrockPacketHelper;
 import com.nukkitx.protocol.bedrock.data.entity.EntityData;
+import com.nukkitx.protocol.bedrock.data.inventory.InventorySource;
 import com.nukkitx.protocol.bedrock.v361.BedrockPacketHelper_v361;
+import io.netty.buffer.ByteBuf;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 
@@ -46,6 +49,31 @@ public class EducationPacketHelper_v363 extends BedrockPacketHelper_v361 {
         this.addEntityData(107, EntityData.AMBIENT_SOUND_INTERVAL);
         this.addEntityData(108, EntityData.AMBIENT_SOUND_INTERVAL_RANGE);
         this.addEntityData(109, EntityData.AMBIENT_SOUND_EVENT_NAME);
+    }
+
+    @Override
+    public InventorySource readSource(ByteBuf buffer) {
+        InventorySource.Type type = InventorySource.Type.byId(VarInts.readUnsignedInt(buffer));
+
+        switch (type) {
+            case CONTAINER:
+                int containerId = VarInts.readInt(buffer);
+                return InventorySource.fromContainerWindowId(containerId);
+            case GLOBAL:
+                return InventorySource.fromGlobalInventory();
+            case WORLD_INTERACTION:
+                InventorySource.Flag flag = InventorySource.Flag.values()[VarInts.readUnsignedInt(buffer)];
+                return InventorySource.fromWorldInteraction(flag);
+            case CREATIVE:
+                return InventorySource.fromCreativeInventory();
+            case UNTRACKED_INTERACTION_UI:
+                return InventorySource.fromUntrackedInteractionUI(VarInts.readInt(buffer));
+            case NON_IMPLEMENTED_TODO:
+                containerId = VarInts.readInt(buffer);
+                return InventorySource.fromNonImplementedTodo(containerId);
+            default:
+                return InventorySource.fromInvalid();
+        }
     }
 
 }

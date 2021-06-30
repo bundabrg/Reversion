@@ -1,7 +1,7 @@
 /*
  * MIT License
  *
- * Copyright (c) 2020 Reversion Developers
+ * Copyright (c) 2021 Reversion Developers
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -34,8 +34,10 @@ import au.com.grieve.reversion.protocol.bedrock.v422.Bedrock_v422;
 import au.com.grieve.reversion.protocol.bedrock.v423.Bedrock_v423;
 import au.com.grieve.reversion.protocol.education.v390.Education_v390;
 import au.com.grieve.reversion.protocol.education.v391.Education_v391;
+import au.com.grieve.reversion.protocol.education.v392.Education_v392;
 import au.com.grieve.reversion.translators.v390ee_to_v408be.Register_v390ee_to_v408be;
 import au.com.grieve.reversion.translators.v391ee_to_v408be.Register_v391ee_to_v408be;
+import au.com.grieve.reversion.translators.v392ee_to_v408be.Register_v392ee_to_v408be;
 import au.com.grieve.reversion.translators.v407be_to_v408be.Register_v407be_to_v408be;
 import au.com.grieve.reversion.translators.v408be_to_v419be.Register_v408be_to_v419be;
 import au.com.grieve.reversion.translators.v419be_to_v422be.Register_v419be_to_v422be;
@@ -53,6 +55,7 @@ public class Build {
             // Translator from an older Education to a Newer Bedrock Server
             Register_v390ee_to_v408be.TRANSLATOR,
             Register_v391ee_to_v408be.TRANSLATOR,
+            Register_v392ee_to_v408be.TRANSLATOR,
 
             // Translate from an older Bedrock to a Newer Bedrock Server
             Register_v407be_to_v408be.TRANSLATOR,
@@ -73,6 +76,7 @@ public class Build {
             Bedrock_v422.V422_CODEC,
             Education_v390.V390_CODEC,
             Education_v391.V391_CODEC,
+            Education_v392.V392_CODEC,
 
             // Betas
             Bedrock_v423.V423_CODEC

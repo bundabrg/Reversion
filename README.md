@@ -46,6 +46,7 @@ It allows any of the supported client versions listed below to connect to any of
 ### Minecraft Education
 * Minecraft Education v1.14.31
 * Minecraft Education v1.14.50
+* Minecraft Education v1.14.70
 
 ## Server Versions Supported
 

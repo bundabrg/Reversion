@@ -2,7 +2,7 @@
 <!--
   ~ MIT License
   ~
-  ~ Copyright (c) 2020 Reversion Developers
+  ~ Copyright (c) 2021 Reversion Developers
   ~
   ~ Permission is hereby granted, free of charge, to any person obtaining a copy
   ~ of this software and associated documentation files (the "Software"), to deal
@@ -68,6 +68,12 @@
         <dependency>
             <groupId>au.com.grieve.reversion</groupId>
             <artifactId>translator-v391ee_to_v408be</artifactId>
+            <version>${project.version}</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>au.com.grieve.reversion</groupId>
+            <artifactId>translator-v392ee_to_v408be</artifactId>
             <version>${project.version}</version>
             <scope>compile</scope>
         </dependency>

@@ -27,25 +27,39 @@
          xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>parent</artifactId>
+        <artifactId>translators</artifactId>
         <groupId>au.com.grieve.reversion</groupId>
         <version>1.1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <packaging>pom</packaging>
-    <modules>
-        <module>translator-v390ee_to_v408be</module>
-        <module>translator-v391ee_to_v408be</module>
-        <module>translator-v392ee_to_v408be</module>
-        <module>translator-v407be_to_v408be</module>
-        <module>translator-v408be_to_v419be</module>
-        <module>translator-v419be_to_v422be</module>
-        <module>translator-v422be_to_v419be</module>
 
-        <!-- Betas -->
-        <module>translator-v423be_to_v422be</module>
-    </modules>
+    <artifactId>translator-v392ee_to_v408be</artifactId>
 
-    <artifactId>translators</artifactId>
+    <dependencies>
+        <dependency>
+            <groupId>au.com.grieve.reversion</groupId>
+            <artifactId>edition-education</artifactId>
+            <version>${project.version}</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>au.com.grieve.reversion</groupId>
+            <artifactId>translator-v391ee_to_v408be</artifactId>
+            <version>${project.version}</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>au.com.grieve.reversion</groupId>
+            <artifactId>bedrock-v408</artifactId>
+            <version>${project.version}</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>au.com.grieve.reversion</groupId>
+            <artifactId>education-v392</artifactId>
+            <version>${project.version}</version>
+            <scope>compile</scope>
+        </dependency>
+    </dependencies>
 
 </project>

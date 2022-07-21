@@ -1,0 +1,11 @@
+listen:
+  - host: 0.0.0.0
+    port: 21000
+    edition: bedrock
+  - host: 0.0.0.0
+    port: 22000
+    edition: education
+
+connect:
+  host: 127.0.0.1
+  port: 20000

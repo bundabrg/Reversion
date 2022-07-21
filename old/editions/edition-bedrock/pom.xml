@@ -27,17 +27,27 @@
          xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>parent</artifactId>
+        <artifactId>editions</artifactId>
         <groupId>au.com.grieve.reversion</groupId>
         <version>2.0.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>common</artifactId>
+    <artifactId>edition-bedrock</artifactId>
+    <dependencies>
+        <dependency>
+            <groupId>au.com.grieve.reversion</groupId>
+            <artifactId>common</artifactId>
+            <version>${project.version}</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.13.3</version>
+            <scope>compile</scope>
+        </dependency>
+    </dependencies>
 
-    <properties>
-        <maven.compiler.source>18</maven.compiler.source>
-        <maven.compiler.target>18</maven.compiler.target>
-    </properties>
 
 </project>

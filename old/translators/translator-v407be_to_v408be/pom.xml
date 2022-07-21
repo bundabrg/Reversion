@@ -27,17 +27,34 @@
          xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>parent</artifactId>
+        <artifactId>translators</artifactId>
         <groupId>au.com.grieve.reversion</groupId>
         <version>2.0.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>common</artifactId>
+    <artifactId>translator-v407be_to_v408be</artifactId>
 
-    <properties>
-        <maven.compiler.source>18</maven.compiler.source>
-        <maven.compiler.target>18</maven.compiler.target>
-    </properties>
+    <dependencies>
+        <dependency>
+            <groupId>au.com.grieve.reversion</groupId>
+            <artifactId>edition-bedrock</artifactId>
+            <version>${project.version}</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>au.com.grieve.reversion</groupId>
+            <artifactId>bedrock-v407</artifactId>
+            <version>${project.version}</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>au.com.grieve.reversion</groupId>
+            <artifactId>bedrock-v408</artifactId>
+            <version>${project.version}</version>
+            <scope>compile</scope>
+        </dependency>
+
+    </dependencies>
 
 </project>

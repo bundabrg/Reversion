@@ -22,7 +22,9 @@
  * SOFTWARE.
  */
 
-package au.com.grieve.reversion.edition.bedrock;
+package au.com.grieve.reversion.edition.bedrock.api;
 
-public class something {
+import au.com.grieve.reversion.api.ReversionServer;
+
+public interface ReversionBedrockServer extends ReversionServer {
 }

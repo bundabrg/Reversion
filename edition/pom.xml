@@ -35,7 +35,6 @@
     <packaging>pom</packaging>
     <modules>
         <module>bedrock</module>
-        <module>bedrock/version/v1_19_20_22</module>
     </modules>
 
     <artifactId>editions</artifactId>

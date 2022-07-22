@@ -41,6 +41,7 @@
         <module>common</module>
         <module>edition</module>
         <module>translator</module>
+        <module>platform</module>
     </modules>
     <packaging>pom</packaging>
 

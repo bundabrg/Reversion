@@ -24,5 +24,18 @@
 
 package au.com.grieve.reversion.edition.bedrock.api;
 
-public interface ReversionBedrockServer {
+import com.nukkitx.protocol.bedrock.BedrockPacketCodec;
+import lombok.Builder;
+import lombok.Getter;
+
+import java.io.InputStream;
+import java.util.function.Supplier;
+
+@Builder
+@Getter
+public class BedrockVersion {
+    private final String version;
+    private final BedrockPacketCodec protocol;
+    private final Supplier<InputStream> blockPalette;
+
 }

@@ -36,7 +36,7 @@
     <artifactId>bedrock</artifactId>
     <packaging>pom</packaging>
     <modules>
-        <module>version</module>
+        <module>bedrock-version</module>
         <module>bedrock-common</module>
     </modules>
     <dependencies>

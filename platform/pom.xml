@@ -27,32 +27,21 @@
          xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>bedrock</artifactId>
+        <artifactId>parent</artifactId>
         <groupId>au.com.grieve.reversion</groupId>
         <version>2.0.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>bedrock-common</artifactId>
+    <artifactId>platform</artifactId>
+    <packaging>pom</packaging>
+    <modules>
+        <module>platform-standalone</module>
+    </modules>
 
     <properties>
         <maven.compiler.source>18</maven.compiler.source>
         <maven.compiler.target>18</maven.compiler.target>
     </properties>
-
-    <dependencies>
-        <dependency>
-            <groupId>com.github.CloudburstMC.Protocol</groupId>
-            <artifactId>bedrock-common</artifactId>
-            <version>${cloudburst.version}</version>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.google.code.findbugs</groupId>
-            <artifactId>jsr305</artifactId>
-            <version>3.0.2</version>
-            <scope>provided</scope>
-        </dependency>
-    </dependencies>
 
 </project>

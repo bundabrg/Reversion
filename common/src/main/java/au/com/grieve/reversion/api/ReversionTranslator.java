@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-package au.com.grieve.reversion.edition.bedrock.api;
+package au.com.grieve.reversion.api;
 
-public interface Version {
+public interface ReversionTranslator {
 }

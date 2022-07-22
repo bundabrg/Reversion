@@ -22,15 +22,21 @@
  * SOFTWARE.
  */
 
-package au.com.grieve.reversion.edition.bedrock.v1_19_20_22;
+package au.com.grieve.reversion.platform.standalone.editions;
 
-import com.nukkitx.protocol.bedrock.v534.Bedrock_v534;
+import au.com.grieve.reversion.api.ReversionServer;
+import au.com.grieve.reversion.platform.standalone.Standalone;
+import au.com.grieve.reversion.platform.standalone.api.Edition;
 
-public class Version_v1_19_20_22 {
-    public static RegisteredVersion VERSION = RegisteredVersion.builder()
-            .version("v1.19.20.22")
-            .protocol(Bedrock_v534.V534_CODEC)
-            .blockPalette(Version_v1_19_20_22.class.getResourceAsStream("/bedrock/v1.19.20.22/blockpalette.nbt"))
-            .build();
+import java.net.InetSocketAddress;
 
+public class BedrockEdition implements Edition {
+    public BedrockEdition(Standalone standalone) {
+
+    }
+
+    @Override
+    public ReversionServer createReversionServer(InetSocketAddress address) {
+        return null;
+    }
 }

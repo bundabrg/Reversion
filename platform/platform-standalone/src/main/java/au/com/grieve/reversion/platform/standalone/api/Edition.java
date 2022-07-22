@@ -22,7 +22,18 @@
  * SOFTWARE.
  */
 
-package au.com.grieve.reversion.edition.bedrock.api;
+package au.com.grieve.reversion.platform.standalone.api;
 
-public interface ReversionBedrockServer {
+import au.com.grieve.reversion.api.ReversionServer;
+
+import java.net.InetSocketAddress;
+
+public interface Edition {
+    /**
+     * Start a new server
+     *
+     * @param address What to listen on
+     * @return server instance
+     */
+    ReversionServer createReversionServer(InetSocketAddress address);
 }

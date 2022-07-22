@@ -24,10 +24,13 @@
 
 package au.com.grieve.reversion.edition.bedrock;
 
-import au.com.grieve.reversion.edition.bedrock.api.ReversionBedrockServer;
-import lombok.Getter;
+import com.nukkitx.network.raknet.RakNetSession;
+import com.nukkitx.protocol.bedrock.BedrockServerSession;
+import com.nukkitx.protocol.bedrock.wrapper.BedrockWrapperSerializer;
+import io.netty.channel.EventLoop;
 
-@Getter
-public class BedrockServer implements ReversionBedrockServer {
-    private final String edition = "bedrock";
+public class BedrockReversionServerSession extends BedrockServerSession {
+    public BedrockReversionServerSession(RakNetSession connection, EventLoop eventLoop, BedrockWrapperSerializer serializer) {
+        super(connection, eventLoop, serializer);
+    }
 }

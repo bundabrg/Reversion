@@ -22,18 +22,8 @@
  * SOFTWARE.
  */
 
-package au.com.grieve.reversion.platform.standalone.api;
+package au.com.grieve.reversion.api;
 
-import com.fasterxml.jackson.databind.JsonNode;
-
-import java.io.IOException;
-
-public interface Edition {
-
-    /**
-     * Create new Server
-     *
-     * @param config Configuration for Edition
-     */
-    Server createServer(JsonNode serverConfig, JsonNode clientConfig) throws IOException;
+public interface ReversionVersion {
+    String getVersion();
 }

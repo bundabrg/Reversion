@@ -24,6 +24,7 @@
 
 package au.com.grieve.reversion.edition.bedrock.api;
 
+import au.com.grieve.reversion.api.ReversionVersion;
 import com.nukkitx.protocol.bedrock.BedrockPacketCodec;
 import lombok.Builder;
 import lombok.Getter;
@@ -33,7 +34,7 @@ import java.util.function.Supplier;
 
 @Builder
 @Getter
-public class BedrockVersion {
+public class BedrockVersion implements ReversionVersion {
     private final String version;
     private final BedrockPacketCodec protocol;
     private final Supplier<InputStream> blockPalette;

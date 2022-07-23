@@ -22,21 +22,10 @@
  * SOFTWARE.
  */
 
-package au.com.grieve.reversion.platform.standalone.editions;
+package au.com.grieve.reversion.platform.standalone.api;
 
-import au.com.grieve.reversion.api.ReversionServer;
-import au.com.grieve.reversion.platform.standalone.Standalone;
-import au.com.grieve.reversion.platform.standalone.api.Edition;
+public interface Server {
+    void start();
 
-import java.net.InetSocketAddress;
-
-public class BedrockEdition implements Edition {
-    public BedrockEdition(Standalone standalone) {
-
-    }
-
-    @Override
-    public ReversionServer createReversionServer(InetSocketAddress address) {
-        return null;
-    }
+    void stop();
 }

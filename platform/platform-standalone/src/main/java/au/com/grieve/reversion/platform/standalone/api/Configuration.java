@@ -22,14 +22,15 @@
  * SOFTWARE.
  */
 
-package au.com.grieve.reversion.platform.standalone;
+package au.com.grieve.reversion.platform.standalone.api;
 
+import au.com.grieve.reversion.platform.standalone.Standalone;
+import com.fasterxml.jackson.databind.JsonNode;
 import lombok.Getter;
 import lombok.ToString;
 
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.net.InetSocketAddress;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
@@ -38,8 +39,8 @@ import java.util.List;
 @ToString
 @SuppressWarnings("FieldMayBeFinal")
 public class Configuration {
-    private List<Listen> listen;
-    private Connect connect;
+    private List<JsonNode> servers;
+    private JsonNode client;
 
     public static Configuration load(Path path) throws IOException {
         try (BufferedReader reader = Files.newBufferedReader(path)) {
@@ -47,28 +48,28 @@ public class Configuration {
         }
     }
 
-    @Getter
-    @ToString
-    public static class Listen {
-        private String host = "0.0.0.0";
-        private int port;
-        private String edition;
+//    @Getter
+//    @ToString
+//    public static class Listen {
+//        private String host = "0.0.0.0";
+//        private int port;
+//        private String edition;
+//
+//        public InetSocketAddress getAddress() {
+//            return new InetSocketAddress(host, port);
+//        }
+//    }
 
-        InetSocketAddress getAddress() {
-            return new InetSocketAddress(host, port);
-        }
-    }
-
-    @Getter
-    @ToString
-    public static class Connect {
-        private String host = "0.0.0.0";
-        private int port;
-
-        InetSocketAddress getAddress() {
-            return new InetSocketAddress(host, port);
-        }
-    }
+//    @Getter
+//    @ToString
+//    public static class Connect {
+//        private String host = "0.0.0.0";
+//        private int port;
+//
+//        public InetSocketAddress getAddress() {
+//            return new InetSocketAddress(host, port);
+//        }
+//    }
 
 
 }

@@ -22,18 +22,18 @@
  * SOFTWARE.
  */
 
-package au.com.grieve.reversion.platform.standalone.api;
+package au.com.grieve.reversion.platform.standalone.editions.bedrock;
 
+import au.com.grieve.reversion.platform.standalone.api.Edition;
+import au.com.grieve.reversion.platform.standalone.api.Server;
 import com.fasterxml.jackson.databind.JsonNode;
 
 import java.io.IOException;
 
-public interface Edition {
 
-    /**
-     * Create new Server
-     *
-     * @param config Configuration for Edition
-     */
-    Server createServer(JsonNode serverConfig, JsonNode clientConfig) throws IOException;
+public class BedrockEdition implements Edition {
+    @Override
+    public Server createServer(JsonNode serverConfig, JsonNode clientConfig) throws IOException {
+        return new BedrockServer(Configuration.load(serverConfig));
+    }
 }

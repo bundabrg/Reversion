@@ -27,11 +27,11 @@ package au.com.grieve.reversion.edition.bedrock.v1_19_20_22;
 import au.com.grieve.reversion.edition.bedrock.api.BedrockVersion;
 import com.nukkitx.protocol.bedrock.v534.Bedrock_v534;
 
-public class Version_v1_19_20_22 {
+public class Bedrock_v1_19_20_22 {
     public static BedrockVersion VERSION = BedrockVersion.builder()
             .version("v1.19.20.22")
             .protocol(Bedrock_v534.V534_CODEC)
-            .blockPalette(() -> Version_v1_19_20_22.class.getResourceAsStream("/bedrock/v1.19.20.22/blockpalette.nbt"))
+            .blockPalette(() -> Bedrock_v1_19_20_22.class.getResourceAsStream("/bedrock/v1.19.20.22/blockpalette.nbt"))
             .build();
 
 }

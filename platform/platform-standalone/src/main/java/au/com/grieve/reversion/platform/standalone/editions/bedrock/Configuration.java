@@ -22,18 +22,32 @@
  * SOFTWARE.
  */
 
-package au.com.grieve.reversion.platform.standalone.api;
+package au.com.grieve.reversion.platform.standalone.editions.bedrock;
 
+import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.Getter;
+import lombok.ToString;
 
 import java.io.IOException;
+import java.net.InetSocketAddress;
 
-public interface Edition {
+@Getter
+@ToString
+@SuppressWarnings("FieldMayBeFinal")
+public class Configuration {
+    public static final ObjectMapper OBJECT_MAPPER = new ObjectMapper().disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
 
-    /**
-     * Create new Server
-     *
-     * @param config Configuration for Edition
-     */
-    Server createServer(JsonNode serverConfig, JsonNode clientConfig) throws IOException;
+    String edition;
+    private String host = "0.0.0.0";
+    private int port;
+
+    public static Configuration load(JsonNode node) throws IOException {
+        return OBJECT_MAPPER.treeToValue(node, Configuration.class);
+    }
+
+    public InetSocketAddress getAddress() {
+        return new InetSocketAddress(host, port);
+    }
 }

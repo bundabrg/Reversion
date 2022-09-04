@@ -25,13 +25,13 @@
 
 <Configuration status="WARN">
     <Appenders>
-        <Console name="SlowConsole" target="SYSTEM_OUT">
-            <PatternLayout disableAnsi="false"
-                           pattern="%highlight{%d{HH:mm:ss.SSS} %-5level %logger{36}.%M() @%L - %msg%n}{FATAL=red blink, ERROR=red, WARN=yellow bold, INFO=black, DEBUG=green bold, TRACE=blue}"/>
-        </Console>
-        <Console name="Console">
-            <PatternLayout pattern="[%d{HH:mm:ss} %-5level]: %msg%n"/>
-        </Console>
+        <TerminalConsole name="TerminalConsole">
+            <PatternLayout
+                    pattern="[%d{HH:mm:ss} %style{%highlight{%-5level}{FATAL=red dim, ERROR=red, WARN=yellow bright, INFO=cyan bright, DEBUG=green, TRACE=white}}] %msg%n"
+                    disableAnsi="${tca:disableAnsi}"/>
+        </TerminalConsole>
+
+
         <RollingRandomAccessFile name="File" fileName="logs/latest.log" filePattern="logs/%d{yyyy-MM-dd}-%i.log.gz">
             <PatternLayout pattern="%d{yyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
             <Policies>
@@ -40,9 +40,10 @@
             </Policies>
         </RollingRandomAccessFile>
     </Appenders>
+
     <Loggers>
-        <Root level="DEBUG">
-            <AppenderRef ref="Console"/>
+        <Root level="INFO">
+            <AppenderRef ref="TerminalConsole"/>
             <AppenderRef ref="File"/>
         </Root>
     </Loggers>

@@ -121,3 +121,5 @@ build/
 
 /config.yml
 /logs/
+/platform/platform-standalone/logs/
+/platform/platform-standalone/config.yml

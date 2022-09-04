@@ -42,11 +42,11 @@ public class Configuration {
     private List<JsonNode> servers;
     private JsonNode client;
 
-    public static Configuration load(Path path) throws IOException {
-        try (BufferedReader reader = Files.newBufferedReader(path)) {
-            return Standalone.YAML_MAPPER.readValue(reader, Configuration.class);
+        public static Configuration load(Path path) throws IOException {
+            try (BufferedReader reader = Files.newBufferedReader(path)) {
+                return Standalone.YAML_MAPPER.readValue(reader, Configuration.class);
+            }
         }
-    }
 
 //    @Getter
 //    @ToString

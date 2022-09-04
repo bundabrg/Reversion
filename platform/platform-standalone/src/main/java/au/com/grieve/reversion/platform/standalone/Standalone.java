@@ -29,7 +29,6 @@ import au.com.grieve.reversion.platform.standalone.api.Edition;
 import au.com.grieve.reversion.platform.standalone.api.Server;
 import au.com.grieve.reversion.platform.standalone.editions.bedrock.BedrockEdition;
 import com.fasterxml.jackson.databind.DeserializationFeature;
-import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.dataformat.yaml.YAMLMapper;
 import lombok.Getter;
 import lombok.extern.log4j.Log4j2;
@@ -43,13 +42,13 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.concurrent.atomic.AtomicBoolean;
 
 @Getter
 @Log4j2
 public class Standalone {
     public static final YAMLMapper YAML_MAPPER = (YAMLMapper) new YAMLMapper().disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
-    private final AtomicBoolean running = new AtomicBoolean(true);
+    //    private final AtomicBoolean running = new AtomicBoolean(true);
+    private final StandaloneLogger standaloneLogger;
     private final Map<String, Edition> registeredEditions = new HashMap<>();
     private final List<Server> servers = new ArrayList<>();
 //    private final Set<RegisteredTranslator> registeredTranslators = Collections.emptySet();
@@ -65,6 +64,10 @@ public class Standalone {
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public Standalone() {
+        standaloneLogger = new StandaloneLogger();
     }
 
     public void start() throws IOException {
@@ -97,13 +100,13 @@ public class Standalone {
 //        }
 
         // Create Client
-        Edition clientEdition = registeredEditions.get(configuration.getClient().get("edition").asText());
-        Client client = clientEdition.createClient(configuration.getClient());
-
-        for (JsonNode listen : configuration.getServers()) {
-            Edition edition = registeredEditions.get((listen.get("edition").asText()));
-            servers.add(edition.createServer(listen, client));
-        }
+//        Edition clientEdition = registeredEditions.get(configuration.getClient().get("edition").asText());
+//        Client client = clientEdition.createClient(configuration.getClient());
+//
+//        for (JsonNode listen : configuration.getServers()) {
+//            Edition edition = registeredEditions.get((listen.get("edition").asText()));
+//            servers.add(edition.createServer(listen, client));
+//        }
 
         // Start all servers
         for (Server server : servers) {
@@ -115,20 +118,11 @@ public class Standalone {
 //        server.addSourceVersion(Bedrock_v1_19_20_22.VERSION);
 //        server.setHandler(new BedrockEventHandler());
 //        server.bind().join();
-        loop();
-    }
 
-    private void loop() {
-        while (running.get()) {
-            try {
-                synchronized (this) {
-                    this.wait();
-                }
-            } catch (InterruptedException e) {
-                // ignore
-            }
+        standaloneLogger.start();
 
-        }
+        // Configuration
+        log.info("Stopping server...");
 
         // Shutdown
         for (Server server : servers) {
@@ -139,10 +133,8 @@ public class Standalone {
     }
 
     public void shutdown() {
-        if (running.compareAndSet(true, false)) {
-            synchronized (this) {
-                this.notify();
-            }
+        if (standaloneLogger.isRunning()) {
+            standaloneLogger.shutdown();
         }
     }
 

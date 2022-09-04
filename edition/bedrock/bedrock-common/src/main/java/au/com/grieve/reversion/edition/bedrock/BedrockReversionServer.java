@@ -54,19 +54,21 @@ import java.util.Set;
 /*
     BedrockReversionServer
 
-    A Bedrock server that will accept multiple client bedrock versions and should be a
-    drop in replacement for the excellent CloudBurst Protocol BedrockServer which this
-    extends.
+    A Bedrock server that will accept multiple client bedrock versions and can be hooked to a
+    translation chain
  */
 
 @Getter
-public class BedrockReversionServer extends BedrockServer implements ReversionServer {
+public class BedrockReversionServer implements ReversionServer {
     private final String edition = "bedrock";
 
     private final EventLoopGroup bossGroup;
     private final EventLoopGroup workerGroup;
     private final Set<BedrockVersion> sourceVersions = new HashSet<>();
     private final Set<ReversionTranslator> reversionTranslators = new HashSet<>();
+    private final InetSocketAddress bindAddress;
+    private final boolean allowProxyProtocol;
+    private final int bindThreads;
     private BedrockVersion targetVersion;
 
     public BedrockReversionServer(InetSocketAddress bindAddress) {
@@ -86,19 +88,21 @@ public class BedrockReversionServer extends BedrockServer implements ReversionSe
     }
 
     public BedrockReversionServer(InetSocketAddress bindAddress, int bindThreads, EventLoopGroup bossGroup, EventLoopGroup workerGroup, boolean allowProxyProtocol) {
-        super(bindAddress, bindThreads, bossGroup, workerGroup, allowProxyProtocol);
+        this.bindAddress = bindAddress;
+        this.bindThreads = bindThreads;
         this.bossGroup = bossGroup;
         this.workerGroup = workerGroup;
+        this.allowProxyProtocol = allowProxyProtocol;
     }
 
-    /**
-     * Set the target version to translate inbound clients to
-     *
-     * @param version Target Version
-     */
-    public void setTargetVersion(BedrockVersion version) {
-        this.targetVersion = version;
-    }
+//    /**
+//     * Set the target version to translate inbound clients to
+//     *
+//     * @param version Target Version
+//     */
+//    public void setTargetVersion(BedrockVersion version) {
+//        this.targetVersion = version;
+//    }
 
     /**
      * Add the source versions we will accept
